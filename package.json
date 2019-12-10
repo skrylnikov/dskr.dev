@@ -1,0 +1,24 @@
+{
+  "name": "dskr.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skrylnikov/dskr.dev.git"
+  },
+  "author": "Dmitry Skrylnikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skrylnikov/dskr.dev/issues"
+  },
+  "homepage": "https://github.com/skrylnikov/dskr.dev#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
