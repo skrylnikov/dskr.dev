@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { Link } from 'preact-router';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 import ruLocale from 'date-fns/locale/ru';
 
 import { postList } from '../../service/post-list';
