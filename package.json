@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev ./src/server.ts",
     "watch": "parcel watch src/web.tsx",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/web.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
