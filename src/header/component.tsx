@@ -9,7 +9,7 @@ export const Header = ({}: IProps) => {
   return (
     <Wrapper>
       <Title>
-        <a class="u-url" rel="me" href="https://dskr.dev">DSKR.DEV</a> 
+        <a href="/">DSKR.DEV</a> 
       </Title>
     </Wrapper>
   );
