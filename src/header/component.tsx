@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { Link } from 'preact-router';
 
 import { Wrapper, Title } from './style';
 
@@ -10,7 +9,7 @@ export const Header = ({}: IProps) => {
   return (
     <Wrapper>
       <Title>
-        <Link href="/">DSKR.DEV</Link> 
+        <a class="u-url" rel="me" href="https://dsk.dev">DSKR.DEV</a> 
       </Title>
     </Wrapper>
   );

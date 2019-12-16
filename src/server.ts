@@ -10,6 +10,7 @@ const router = new Router();
 
 router.get(['/', '/p/*'], (ctx)=> ctx.body=renderApp(ctx.url));
 
+app.use(Static('./static'));
 app.use(Static('./dist'));
 app.use(router.routes());
 

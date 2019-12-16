@@ -20,5 +20,4 @@ RUN npm run build
 
 EXPOSE 8000
 
-ENTRYPOINT [ "npm" ]
-CMD [ "start" ]
+ENTRYPOINT [ "npm", "start" ]

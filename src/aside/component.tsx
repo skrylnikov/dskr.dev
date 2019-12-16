@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { Wrapper, Links, Me } from './style';
+import { Wrapper, Links, Me, MeTitle, Img, MeName, MeInfo } from './style';
 
 interface IProps {
 }
@@ -9,7 +9,13 @@ export const Aside = ({}: IProps) => {
   return (
     <Wrapper>
       <Me class="h-card h-author">
-        <p class="p-name">Дмитрий Скрыльников</p>
+        <MeTitle>
+          <Img class="u-photo" src="/img/me.jpeg" />
+          <MeInfo>
+            <MeName class="p-name">Дмитрий Скрыльников</MeName>
+            <p class="p-note">Frontend Developer</p>
+          </MeInfo>
+        </MeTitle>
       </Me>
       <Links>
         <a href="https://github.com/skrylnikov" rel="me">GitHub</a>
