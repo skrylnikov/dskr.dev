@@ -15,6 +15,7 @@ RUN npm ci
 # Bundle app source
 COPY tsconfig.json .
 COPY src src
+COPY static static
 
 RUN npm run build
 
