@@ -18,7 +18,7 @@ export const MiniPost = ({name, url, time}: IProps) => {
       <Name>
         <Link class="p-name u-url" href={url}>{name}</Link> 
       </Name>
-      <Time class="dt-published" datetime={formatIso(post.time)}>{format(time, 'd MMMM', {locale: ruLocale})}</Time>
+      <Time class="dt-published" datetime={formatIso(time)}>{format(time, 'd MMMM', {locale: ruLocale})}</Time>
     </Wrapper>
   );
 }
