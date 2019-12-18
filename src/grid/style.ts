@@ -11,13 +11,15 @@ export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   display: flex;
   flex-direction: row;
   min-height: calc(100vh - 5em);
-`;
 
-export const Aside = styled<JSX.HTMLAttributes<HTMLDivElement>>('aside')`
-  width: 25%;
+  @media screen and (max-width: 700px) {
+    flex-direction: column-reverse;
+    margin-top: 1em;
+  }
 `;
 
 export const Article = styled<JSX.HTMLAttributes<HTMLDivElement>>('article')`
   flex-grow: 1;
   max-width: 50%;
+  min-width: 20em;
 `;

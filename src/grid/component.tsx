@@ -15,7 +15,7 @@ export const Grid = ({children}: IProps) => {
     <Wrapper>
       <Header/>
       <Main>
-        <Aside>aside</Aside>
+        <Aside/>
         <Article>{children}</Article>
       </Main>
       <Footer/>

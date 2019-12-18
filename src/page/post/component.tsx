@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { Link } from 'preact-router';
 import format from 'date-fns/format';
+import formatIso from 'date-fns/formatISO'
 import ruLocale from 'date-fns/locale/ru';
 
 import { postList } from '../../service/post-list';
@@ -22,11 +23,12 @@ export const PostPage = ({url}: IProps) => {
   return (
     <Wrapper class="h-entry single-post">
       <Header>
-        <a class="u-author" href="/"></a>
+        <a class="p-author" href="https://dskr.dev"></a>
+        <a class="u-url" href={`https://dskr.dev${url}`}></a>
         <Name class="p-name">{post.name}</Name>
-        <Time class="dt-published" datetime={post.time}>{format(post.time, 'd MMMM', {locale: ruLocale})}</Time>
+        <Time class="dt-published" datetime={formatIso(post.time)}>{format(post.time, 'd MMMM', {locale: ruLocale})}</Time>
       </Header>
-      <Text class="p-content">{post.text}</Text>
+      <Text class="e-content">{post.text}</Text>
     </Wrapper>
   );
 }

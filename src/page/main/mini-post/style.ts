@@ -15,7 +15,7 @@ export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h3')`
 `;
 
 
-export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: Date}>('time')`
+export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: string}>('time')`
   margin-left: 1em;
 `;
 

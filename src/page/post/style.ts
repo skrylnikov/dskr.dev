@@ -9,6 +9,10 @@ export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
 export const Header = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h2')`
@@ -19,7 +23,7 @@ export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h2')`
   }
 `;
 
-export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: Date}>('time')`
+export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: string}>('time')`
   margin-left: 1em;
 `;
 

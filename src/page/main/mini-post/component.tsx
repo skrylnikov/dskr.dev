@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { Link } from 'preact-router';
 import format from 'date-fns/format';
+import formatIso from 'date-fns/formatISO';
 import ruLocale from 'date-fns/locale/ru';
 
 import { Wrapper, Name, Time } from './style';
@@ -17,7 +18,7 @@ export const MiniPost = ({name, url, time}: IProps) => {
       <Name>
         <Link class="p-name u-url" href={url}>{name}</Link> 
       </Name>
-      <Time class="dt-published" datetime={time}>{format(time, 'd MMMM', {locale: ruLocale})}</Time>
+      <Time class="dt-published" datetime={formatIso(post.time)}>{format(time, 'd MMMM', {locale: ruLocale})}</Time>
     </Wrapper>
   );
 }
