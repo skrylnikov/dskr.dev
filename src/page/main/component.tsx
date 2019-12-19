@@ -14,7 +14,7 @@ interface IProps {
 
 export const MainPage = ({}: IProps) => {
   return (
-    <Wrapper class="h-feed">
+    <Wrapper className="h-feed">
       {
         postList.map((post)=> (
           <MiniPost key={post.url} name={post.name} time={post.time} url={post.url}/>

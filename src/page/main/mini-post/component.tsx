@@ -14,11 +14,11 @@ interface IProps {
 
 export const MiniPost = ({name, url, time}: IProps) => {
   return (
-    <Wrapper class="h-entry">
+    <Wrapper className="h-entry">
       <Name>
-        <Link class="p-name u-url" href={url}>{name}</Link> 
+        <Link className="p-name u-url" href={url}>{name}</Link> 
       </Name>
-      <Time class="dt-published" datetime={formatIso(time)}>{format(time, 'd MMMM', {locale: ruLocale})}</Time>
+      <Time className="dt-published" datetime={formatIso(time)}>{format(time, 'd MMMM', {locale: ruLocale})}</Time>
     </Wrapper>
   );
 }

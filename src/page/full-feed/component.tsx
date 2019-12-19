@@ -14,7 +14,8 @@ interface IProps {
 
 export const FullFeedPage = ({}: IProps) => {
   return (
-    <Wrapper class="h-feed">
+    <Wrapper className="h-feed">
+      kek
       {
         postList.map((post)=> (
           <PostPage key={post.url} url={post.url} path={post.url}/>
