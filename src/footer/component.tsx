@@ -10,6 +10,7 @@ export const Footer = ({}: IProps) => {
   return (
     <Wrapper>
       <Link href="/">DSKR.DEV</Link>
+      <Link href="/ff">Full Feed</Link>
     </Wrapper>
   );
 }

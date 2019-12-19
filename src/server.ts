@@ -8,7 +8,7 @@ const app = new Koa();
 const router = new Router();
 
 
-router.get(['/', '/p/*'], (ctx)=> ctx.body=renderApp(ctx.url));
+router.get(['/', '/p/*', '/ff'], (ctx)=> ctx.body=renderApp(ctx.url));
 
 app.use(Static('./static'));
 app.use(Static('./dist'));

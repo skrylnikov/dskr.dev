@@ -5,6 +5,7 @@ import { Router, Link } from 'preact-router';
 import { Grid } from './grid/component';
 
 import { MainPage } from './page/main/component';
+import { FullFeedPage } from './page/full-feed/component';
 import { PostPage } from './page/post/component';
 
 setPragma(h);
@@ -20,6 +21,7 @@ export const App = ({url}: IProps)=>{
     <Grid>
       <Router url={url}>
         <MainPage path="/"/>
+        <FullFeedPage path="/ff"/>
         <PostPage path="/p/:year/:month/:day"/>
       </Router>
     </Grid>
