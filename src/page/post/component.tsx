@@ -1,10 +1,7 @@
 import { h } from 'preact';
-import { Link } from 'preact-router';
-import format from 'date-fns/format';
-import formatIso from 'date-fns/formatISO'
-import ruLocale from 'date-fns/locale/ru';
+import { useMemo } from 'preact/hooks';
 
-import { postList } from '../../service/post-list';
+import { getPostList } from '../../service/post-list/index';
 
 import { Wrapper, Header, Name, Time, Text } from './style';
 
@@ -14,6 +11,8 @@ interface IProps {
 }
 
 export const PostPage = ({url}: IProps) => {
+  const postList: any[] = useMemo(getPostList, []);
+  
   const post = postList.filter((x)=>x.url === url)[0];
 
   if(!post){
@@ -26,7 +25,7 @@ export const PostPage = ({url}: IProps) => {
         <a className="p-author" href="https://dskr.dev"></a>
         <a className="u-url" href={`https://dskr.dev${url}`}></a>
         <Name className="p-name">{post.name}</Name>
-        <Time className="dt-published" datetime={formatIso(post.time)}>{format(post.time, 'd MMMM', {locale: ruLocale})}</Time>
+        <Time className="dt-published" datetime={post.timeIso}>{post.timeFormat}</Time>
       </Header>
       <Text className="e-content">{post.text}</Text>
     </Wrapper>

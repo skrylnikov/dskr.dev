@@ -1,7 +1,8 @@
 import { h, JSX } from 'preact';
+import { useMemo } from 'preact/hooks';
 import { styled } from 'goober';
 
-import { postList } from '../../service/post-list';
+import { getPostList } from '../../service/post-list/index';
 
 import { PostPage } from '../post/component';
 
@@ -13,6 +14,8 @@ interface IProps {
 }
 
 export const FullFeedPage = ({}: IProps) => {
+  const postList: any[] = useMemo(getPostList, []);
+
   return (
     <Wrapper className="h-feed">
       kek
