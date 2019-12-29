@@ -1,2 +1,2 @@
-export const isWeb = typeof window !== 'undefined';
+export const isWeb = !!process.env.WEB;
 export const isNode = !isWeb;

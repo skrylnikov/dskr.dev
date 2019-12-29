@@ -1,9 +1,9 @@
 import { h } from 'preact';
-import { useMemo } from 'preact/hooks';
+import { useMemo, useEffect } from 'preact/hooks';
 
 import { getPostList } from '../../service/post-list/index';
 
-import { Wrapper, Header, Name, Time, Text } from './style';
+import { Wrapper, Header, Name, Time, Content } from './style';
 
 interface IProps {
   url?: string;
@@ -11,10 +11,10 @@ interface IProps {
 }
 
 export const PostPage = ({url}: IProps) => {
-  const postList: any[] = useMemo(getPostList, []);
+  const postList = useMemo(getPostList, []);
   
   const post = postList.filter((x)=>x.url === url)[0];
-
+  
   if(!post){
     return <Wrapper>404 post not found</Wrapper>;
   }
@@ -24,10 +24,10 @@ export const PostPage = ({url}: IProps) => {
       <Header>
         <a className="p-author" href="https://dskr.dev"></a>
         <a className="u-url" href={`https://dskr.dev${url}`}></a>
-        <Name className="p-name">{post.name}</Name>
-        <Time className="dt-published" datetime={post.timeIso}>{post.timeFormat}</Time>
+        <Name className="p-name">{post.title}</Name>
+        <Time className="dt-published" datetime={post.time}>{post.timeFormated}</Time>
       </Header>
-      <Text className="e-content">{post.text}</Text>
+      <Content className="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
     </Wrapper>
   );
 }

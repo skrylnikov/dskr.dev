@@ -20,6 +20,7 @@ export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
 
 export const Article = styled<JSX.HTMLAttributes<HTMLDivElement>>('article')`
   flex-grow: 1;
-  max-width: 50%;
+  max-width: 60%;
   min-width: 20em;
 `;
+

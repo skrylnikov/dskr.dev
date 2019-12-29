@@ -15,9 +15,9 @@ export const Header = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
   }
 `;
 
-export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h2')`
+export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h1')`
   margin: 0;
-
+  font-size: 28px;
   a {
     font-weight: normal;
   }
@@ -27,5 +27,5 @@ export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: stri
   margin-left: 1em;
 `;
 
-export const Text = styled<JSX.HTMLAttributes<HTMLDivElement>>('p')``;
+export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')``;
 

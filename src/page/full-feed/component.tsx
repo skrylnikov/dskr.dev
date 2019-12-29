@@ -14,7 +14,7 @@ interface IProps {
 }
 
 export const FullFeedPage = ({}: IProps) => {
-  const postList: any[] = useMemo(getPostList, []);
+  const postList = useMemo(getPostList, []);
 
   return (
     <Wrapper className="h-feed">

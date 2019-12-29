@@ -1,8 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
- 
-module.exports =  ({
+
+module.exports = ({
   entry: {
     app: './src/web.tsx',
   },
@@ -10,6 +10,10 @@ module.exports =  ({
 
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
       {
         test: /\.(ts|js)x?$/,
         exclude: /(node_modules)/,
@@ -51,8 +55,13 @@ module.exports =  ({
 
   plugins: [
     //new BundleAnalyzerPlugin(),
+    /*
     new webpack.IgnorePlugin({
       resourceRegExp: /node/,
+    }),
+    */
+    new webpack.DefinePlugin({
+      'process.env.WEB': JSON.stringify(true),
     }),
   ],
 
