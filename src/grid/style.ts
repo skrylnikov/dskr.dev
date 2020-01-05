@@ -23,4 +23,3 @@ export const Article = styled<JSX.HTMLAttributes<HTMLDivElement>>('article')`
   max-width: 60%;
   min-width: 20em;
 `;
-
