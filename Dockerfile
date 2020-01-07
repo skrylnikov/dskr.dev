@@ -17,6 +17,7 @@ COPY tsconfig.json .
 COPY webpack.config.js .
 COPY src src
 COPY static static
+COPY post post
 
 RUN npm run build
 
