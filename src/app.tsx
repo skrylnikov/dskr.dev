@@ -16,7 +16,6 @@ interface IProps {
 
 export const App = ({url}: IProps)=>{
 
-
   return (
     <Grid>
       <Router url={url}>

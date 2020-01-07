@@ -1,12 +1,9 @@
 import { h } from 'preact';
-import { Link } from 'preact-router';
-import format from 'date-fns/format';
-import formatIso from 'date-fns/formatISO'
-import ruLocale from 'date-fns/locale/ru';
+import { useMemo, useEffect } from 'preact/hooks';
 
-import { postList } from '../../service/post-list';
+import { getPostList } from '../../service/post-list/index';
 
-import { Wrapper, Header, Name, Time, Text } from './style';
+import { Wrapper, Header, Name, Time, Content } from './style';
 
 interface IProps {
   url?: string;
@@ -14,8 +11,10 @@ interface IProps {
 }
 
 export const PostPage = ({url}: IProps) => {
+  const postList = useMemo(getPostList, []);
+  
   const post = postList.filter((x)=>x.url === url)[0];
-
+  
   if(!post){
     return <Wrapper>404 post not found</Wrapper>;
   }
@@ -25,10 +24,10 @@ export const PostPage = ({url}: IProps) => {
       <Header>
         <a className="p-author" href="https://dskr.dev"></a>
         <a className="u-url" href={`https://dskr.dev${url}`}></a>
-        <Name className="p-name">{post.name}</Name>
-        <Time className="dt-published" datetime={formatIso(post.time)}>{format(post.time, 'd MMMM', {locale: ruLocale})}</Time>
+        <Name className="p-name">{post.title}</Name>
+        <Time className="dt-published" datetime={post.time}>{post.timeFormated}</Time>
       </Header>
-      <Text className="e-content">{post.text}</Text>
+      <Content className="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
     </Wrapper>
   );
 }

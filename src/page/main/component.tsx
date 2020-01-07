@@ -1,7 +1,8 @@
 import { h, JSX } from 'preact';
+import { useMemo } from 'preact/hooks';
 import { styled } from 'goober';
 
-import { postList } from '../../service/post-list';
+import { getPostList } from '../../service/post-list/index';
 
 import { MiniPost } from './mini-post/component';
 
@@ -13,11 +14,13 @@ interface IProps {
 }
 
 export const MainPage = ({}: IProps) => {
+  const postList = useMemo(getPostList, []);
+  
   return (
     <Wrapper className="h-feed">
       {
         postList.map((post)=> (
-          <MiniPost key={post.url} name={post.name} time={post.time} url={post.url}/>
+          <MiniPost key={post.url} name={post.title} time={post.time} url={post.url} timeFormat={post.timeFormated}/>
         ))
       }
     </Wrapper>
