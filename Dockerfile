@@ -14,6 +14,7 @@ RUN npm ci
 
 # Bundle app source
 COPY tsconfig.json .
+COPY webpack.config.js .
 COPY src src
 COPY static static
 
