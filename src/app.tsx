@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { setPragma } from 'goober';
+import { setPragma, glob } from 'goober';
 import { Router, Link } from 'preact-router';
 
 import { Grid } from './grid/component';
