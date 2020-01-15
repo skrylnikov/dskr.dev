@@ -70,10 +70,7 @@ const readPostList = async () => {
 readPostList();
 
 export const getPostList: IGetPostList = () => {
-  console.log('getPostList node');
-
   const context = Context.getContext();
-  console.log(context);
   
   if(context){
     context.data.postList = list;

@@ -58,9 +58,19 @@ body {
 
 const realRender = (url: string) => {
   const context = { data: {}};
+  console.time('setContext');
   Context.setContext(context);
+  console.timeEnd('setContext');
+  console.time('render');
   const app = render(<App url={url} />);
+  console.timeEnd('render');
+  console.time('extractCss'); 
   const style = extractCss();
+  console.timeEnd('extractCss');
+  console.time('stringify data');
+  const data = JSON.stringify(JSON.stringify(context.data));
+  console.timeEnd('stringify data');
+
   
   return `
 <!DOCTYPE html>
@@ -85,7 +95,7 @@ const realRender = (url: string) => {
 <body>
   <div id="app">${app}</div>
   <script type=""text/javascript>
-    window.data = JSON.parse(${JSON.stringify(JSON.stringify(context.data))});
+    window.data = JSON.parse(${data});
   </script>
   <script src="/web.js"></script>
 </body>
