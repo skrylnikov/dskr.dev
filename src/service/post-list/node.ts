@@ -54,6 +54,7 @@ const readPostList = async () => {
         timeFormated: format(time, 'd MMMM', {locale: ruLocale}),
         content,
         url: `/p/${format(time, 'yyyy/MM/dd')}`,
+        explorerName: format(time, 'yyyy-MM-dd')  + '.md',
       });
     }
 

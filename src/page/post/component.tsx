@@ -24,8 +24,8 @@ export const PostPage = ({url}: IProps) => {
       <Header>
         <a className="p-author" href="https://dskr.dev"></a>
         <a className="u-url" href={`https://dskr.dev${url}`}></a>
-        <Name className="p-name">{post.title}</Name>
-        <Time className="dt-published" datetime={post.time}>{post.timeFormated}</Time>
+        <Name className="p-name">// {post.title}</Name>
+        <Time className="dt-published" datetime={post.time}>// {post.timeFormated}</Time>
       </Header>
       <Content className="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
     </Wrapper>

@@ -13,46 +13,31 @@ const globalStyle = `
 @font-face {
   font-family: 'Pridi';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-display: swap;
-  src: url('/fonts/Pridi-400.woff2') format('woff2'),
-       url('/fonts/Pridi-400.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Pridi';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/Pridi-700.woff2') format('woff2'),
-       url('/fonts/Pridi-700.woff') format('woff');
+  src: url('/fonts/Pridi-500.woff2') format('woff2'),
+       url('/fonts/Pridi-500.woff') format('woff');
 }
 
 
 
 @font-face {
-  font-family: 'Oxygen Sans';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Oxygen-Sans-400.woff2') format('woff2'),
-       url('/fonts/Oxygen-Sans-400.woff') format('woff');
+  src: url('/fonts/Lato-400.woff2') format('woff2'),
+       url('/fonts/Lato-400.woff') format('woff');
        unicode-range:
 }
-
-@font-face {
-  font-family: 'Oxygen Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/Oxygen-Sans-700.woff2') format('woff2'),
-       url('/fonts/Oxygen-Sans-700.woff') format('woff');
-       unicode-range:
-}
-
 
 body {
-  font-family: 'Oxygen Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+a {
+  color: #D8D8DA;
 }
 `;
 
@@ -83,10 +68,7 @@ const realRender = (url: string) => {
   <link rel="microsub" href="https://aperture.p3k.io/microsub/448">
   <link rel="authorization_endpoint" href="https://indieauth.com/auth">
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-  <link rel="preload" href="/fonts/Oxygen-Sans-400.woff2"
-      as="font" type="font/woff2"
-      crossorigin>
-  <link rel="preload" href="/fonts/Oxygen-Sans-700.woff2"
+  <link rel="preload" href="/fonts/Pridi-500.woff2"
       as="font" type="font/woff2"
       crossorigin>
   <style>${globalStyle}</style>

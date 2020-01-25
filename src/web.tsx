@@ -1,4 +1,4 @@
-import 'highlight.js/styles/default.css'
+import 'highlight.js/styles/rainbow.css'
 import { h, render } from "preact";
 import { App } from "./app";
 

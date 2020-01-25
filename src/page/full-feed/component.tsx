@@ -18,7 +18,6 @@ export const FullFeedPage = ({}: IProps) => {
 
   return (
     <Wrapper className="h-feed">
-      kek
       {
         postList.map((post)=> (
           <PostPage key={post.url} url={post.url} path={post.url}/>
