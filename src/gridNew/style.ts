@@ -5,7 +5,6 @@ export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
   display: grid;
   grid-template-areas: "link-bar explorer main";
 
-
   @media(max-width: 1024px){
     grid-template-areas: "explorer" "main" "link-bar";
   }
@@ -18,10 +17,12 @@ export const LinkBar = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   grid-area: link-bar;
   @media(max-width: 1024px){
     width: 100%;
-    height: 4em;
+    height: 2em;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    bottom: 0;
   }
 `;
 
@@ -32,6 +33,11 @@ export const Twitter = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
   height: 3em;
   margin: 2em 0.5em;
   background-repeat: no-repeat;
+  @media(max-width: 1024px){
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0;
+  }
 `;
 
 export const Telegram = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
@@ -41,6 +47,11 @@ export const Telegram = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
   height: 3em;
   margin: 1em 0.5em;
   background-repeat: no-repeat;
+  @media(max-width: 1024px){
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0;
+  }
 `;
 
 export const Github = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
@@ -50,6 +61,11 @@ export const Github = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
   height: 3em;
   margin: 2em 0.5em;
   background-repeat: no-repeat;
+  @media(max-width: 1024px){
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0;
+  }
 `;
 
 
@@ -71,9 +87,11 @@ export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
     margin: 0 1em;
   }
   @media(max-width: 1024px){
-    height: 100%;
+    height: initial;
+    max-height: 100%;
     min-height: calc(100vh - 7em);
     padding: 0 1em;
+    padding-bottom: 2.5em;
   }
 `;
 
