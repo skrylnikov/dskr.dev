@@ -70,6 +70,11 @@ export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   pre {
     margin: 0 1em;
   }
+  @media(max-width: 1024px){
+    height: 100%;
+    min-height: calc(100vh - 7em);
+    padding: 0 1em;
+  }
 `;
 
 export const Article = styled<JSX.HTMLAttributes<HTMLDivElement>>('article')`
