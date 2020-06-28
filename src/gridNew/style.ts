@@ -2,13 +2,27 @@ import { JSX } from 'preact';
 import { styled } from 'goober';
 
 export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
-  display: flex;
+  display: grid;
+  grid-template-areas: "link-bar explorer main";
+
+
+  @media(max-width: 1024px){
+    grid-template-areas: "explorer" "main" "link-bar";
+  }
 `;
 
 export const LinkBar = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   height: 100vh;
   width: 4em;
   background-color: #37343E;
+  grid-area: link-bar;
+  @media(max-width: 1024px){
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 `;
 
 export const Twitter = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
@@ -41,6 +55,10 @@ export const Github = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
 
 export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   width: calc(100vw - 15em - 4em);
+  grid-area: main;
+  @media(max-width: 1024px){
+    width: 100vw;
+  }
 `;
 
 export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`

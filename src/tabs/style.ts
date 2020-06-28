@@ -6,4 +6,7 @@ export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   height: 1.5em;
   background-color: #3F3B47;
   font-family: 'Pridi', sans-serif;
+  @media(max-width: 1024px){
+    display: none;
+  }
 `;

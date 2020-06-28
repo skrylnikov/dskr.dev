@@ -8,7 +8,8 @@ const app = new Koa();
 const router = new Router();
 
 
-router.get(['/', '/p/*', '/ff'], (ctx)=> {
+router.get(['/', '/p/:id*', '/ff'], (ctx)=> {
+//router.get(['/'], (ctx)=> {
     console.time('renderApp');
     const result = renderApp(ctx.url);
     console.timeEnd('renderApp');

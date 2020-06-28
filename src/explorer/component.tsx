@@ -21,12 +21,12 @@ export const Explorer = ({ url }: IProps) => {
       <List>
         <Item active={url === '/'}>
           <Link href="/">
-            <FileIcon />
+            <FileIcon children={null} />
             <p>start_page.tsx</p>
           </Link>
         </Item>
         <Item>
-          <FolderIcon />
+          <FolderIcon children={null} />
           <p style={{ cursor: 'default' }}>posts</p>
         </Item>
         <SubList>
@@ -34,7 +34,7 @@ export const Explorer = ({ url }: IProps) => {
             postList.map((post) => (
                 <Item active={url === post.url}>
               <Link href={post.url}>
-                  <FileIcon />
+                  <FileIcon children={null} />
                   <p>{post.explorerName}</p>
               </Link>
                 </Item>
@@ -43,7 +43,7 @@ export const Explorer = ({ url }: IProps) => {
         </SubList>
           <Item active={url === '/ff'}>
         <Link href="/ff">
-            <FileIcon />
+            <FileIcon children={null} />
             <p>full_feed.tsx</p>
         </Link>
           </Item>

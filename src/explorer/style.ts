@@ -10,10 +10,15 @@ export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   background-color: #3F3B47;
   font-family: 'Pridi', sans-serif;
   color: #D8D8DA;
+  grid-area: explorer;
 
   a {
     color: #D8D8DA;
     text-decoration: none;
+  }
+  @media(max-width: 1024px){
+    height: 3em;
+    width: 100%;
   }
 `;
 
@@ -32,6 +37,9 @@ export const Header = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
 
 export const List = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
   margin: 1em 0.5em;
+  @media(max-width: 1024px){
+    display: none;
+  }
 `;
 
 export const SubList = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`

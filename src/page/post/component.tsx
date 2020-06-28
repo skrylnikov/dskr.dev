@@ -27,7 +27,7 @@ export const PostPage = ({url}: IProps) => {
         <Name className="p-name">// {post.title}</Name>
         <Time className="dt-published" datetime={post.time}>// {post.timeFormated}</Time>
       </Header>
-      <Content className="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
+      <Content children={null} className="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
     </Wrapper>
   );
 }
