@@ -2,7 +2,7 @@ import { JSX } from 'preact';
 import { styled } from 'goober';
 
 
-export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
+export const Wrapper = styled('main')`
   display: flex;
   height: 100vh;
   width: 15em;
@@ -22,7 +22,7 @@ export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   }
 `;
 
-export const Header = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const Header = styled('div')`
   background-color: #55515E;
   width: 100%;
   height: 3.4em;
@@ -35,14 +35,14 @@ export const Header = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
   }
 `;
 
-export const List = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const List = styled('div')`
   margin: 1em 0.5em;
   @media(max-width: 1024px){
     display: none;
   }
 `;
 
-export const SubList = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const SubList = styled('div')`
   margin: 0 0.5em;
 `;
 
@@ -67,7 +67,7 @@ export const Item = styled<JSX.HTMLAttributes<HTMLDivElement> & { active?: boole
   }
 `;
 
-export const FolderIcon = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const FolderIcon = styled('div')`
   display: block;
   background: url('/svg/folder-open.svg');
   width: 1em;
@@ -77,7 +77,7 @@ export const FolderIcon = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
 
 `;
 
-export const FileIcon = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const FileIcon = styled('div')`
   display: block;
   background: url('/svg/file.svg');
   width: 0.9em;

@@ -1,11 +1,11 @@
 import { JSX } from 'preact';
 import { styled } from 'goober';
 
-export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('header')`
+export const Wrapper = styled('header')`
 
 `;
 
-export const Title = styled<JSX.HTMLAttributes<HTMLDivElement>>('h1')`
+export const Title = styled('h1')`
   margin: 0;
 
   a {

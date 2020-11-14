@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
-import { setPragma, glob } from 'goober';
+import { setup, glob } from 'goober';
 import { Router } from 'preact-router';
 
 import { Grid } from './gridNew/component';
@@ -9,7 +9,7 @@ import { MainPage } from './page/main/component';
 import { FullFeedPage } from './page/full-feed/component';
 import { PostPage } from './page/post/component';
 
-setPragma(h);
+setup(h);
 
 interface IProps {
   url?: string;

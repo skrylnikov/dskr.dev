@@ -12,11 +12,11 @@ interface IProps {
  
 export const MiniPost = ({name, url, time, timeFormat}: IProps) => {
   return (
-    <Wrapper className="h-entry">
+    <Wrapper class="h-entry">
       <Name>
-        <Link className="p-name u-url" href={url}>{name}</Link> 
+        <Link class="p-name u-url" href={url}>{name}</Link> 
       </Name>
-      <Time className="dt-published" datetime={time}>{timeFormat}</Time>
+      <Time class="dt-published" datetime={time}>{timeFormat}</Time>
     </Wrapper>
   );
 }

@@ -6,7 +6,7 @@ import { getPostList } from '../../service/post-list/index';
 
 import { MiniPost } from './mini-post/component';
 
-const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+const Wrapper = styled('div')`
 `;
 
 interface IProps {
@@ -17,7 +17,7 @@ export const MainPage = ({}: IProps) => {
   const postList = useMemo(getPostList, []);
   
   return (
-    <Wrapper className="h-feed">
+    <Wrapper class="h-feed">
       {
         postList.map((post)=> (
           <MiniPost key={post.url} name={post.title} time={post.time} url={post.url} timeFormat={post.timeFormated}/>

@@ -1,13 +1,13 @@
 import { JSX } from 'preact';
 import { styled } from 'goober';
 
-export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const Wrapper = styled('div')`
   display: flex;
   align-items: center;
   margin-bottom: 1em;
 `;
 
-export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h3')`
+export const Name = styled('h3')`
   margin: 0;
 
   a {

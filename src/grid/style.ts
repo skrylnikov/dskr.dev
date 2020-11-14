@@ -1,12 +1,12 @@
 import { JSX } from 'preact';
 import { styled } from 'goober';
 
-export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const Wrapper = styled('div')`
   display: flex;
   flex-direction: column;
 `;
 
-export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
+export const Main = styled('main')`
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -18,7 +18,7 @@ export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   }
 `;
 
-export const Article = styled<JSX.HTMLAttributes<HTMLDivElement>>('article')`
+export const Article = styled('article')`
   flex-grow: 1;
   max-width: 60%;
   min-width: 20em;

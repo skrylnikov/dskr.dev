@@ -1,15 +1,15 @@
 import { JSX } from 'preact';
 import { styled } from 'goober';
 
-export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const Wrapper = styled('div')`
   display: flex;
   flex-direction: column;
 `;
 
-export const Header = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const Header = styled('div')`
 `;
 
-export const Name = styled<JSX.HTMLAttributes<HTMLDivElement>>('h1')`
+export const Name = styled('h1')`
   margin: 0;
   font-size: 28px;
   font-weight: 400;
@@ -22,5 +22,5 @@ export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: stri
   font-weight: 400;
 `;
 
-export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')``;
+export const Content = styled('div')``;
 

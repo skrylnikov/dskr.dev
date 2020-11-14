@@ -1,7 +1,7 @@
 import { JSX } from 'preact';
 import { styled } from 'goober';
 
-export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+export const Wrapper = styled('div')`
   display: grid;
   grid-template-areas: "link-bar explorer main";
 
@@ -10,7 +10,7 @@ export const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
   }
 `;
 
-export const LinkBar = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
+export const LinkBar = styled('main')`
   height: 100vh;
   width: 4em;
   background-color: #37343E;
@@ -26,7 +26,7 @@ export const LinkBar = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   }
 `;
 
-export const Twitter = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
+export const Twitter = styled('a')`
   display: block;
   background: url('/svg/twitter.svg');
   width: 3em;
@@ -40,7 +40,7 @@ export const Twitter = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
   }
 `;
 
-export const Telegram = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
+export const Telegram = styled('a')`
   display: block;
   background: url('/svg/telegram.svg');
   width: 3em;
@@ -54,7 +54,7 @@ export const Telegram = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
   }
 `;
 
-export const Github = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
+export const Github = styled('a')`
   display: block;
   background: url('/svg/github.svg');
   width: 3em;
@@ -69,7 +69,7 @@ export const Github = styled<JSX.HTMLAttributes<HTMLDivElement>>('a')`
 `;
 
 
-export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
+export const Main = styled('main')`
   width: calc(100vw - 15em - 4em);
   grid-area: main;
   @media(max-width: 1024px){
@@ -77,7 +77,7 @@ export const Main = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   }
 `;
 
-export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
+export const Content = styled('main')`
   background: #292534;
   height: calc(100vh - 3.5em);
   color: #D8D8DA;
@@ -95,7 +95,7 @@ export const Content = styled<JSX.HTMLAttributes<HTMLDivElement>>('main')`
   }
 `;
 
-export const Article = styled<JSX.HTMLAttributes<HTMLDivElement>>('article')`
+export const Article = styled('article')`
   flex-grow: 1;
   max-width: 60%;
   min-width: 20em;

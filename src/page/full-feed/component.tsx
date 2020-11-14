@@ -6,7 +6,7 @@ import { getPostList } from '../../service/post-list/index';
 
 import { PostPage } from '../post/component';
 
-const Wrapper = styled<JSX.HTMLAttributes<HTMLDivElement>>('div')`
+const Wrapper = styled('div')`
 `;
 
 interface IProps {
@@ -17,7 +17,7 @@ export const FullFeedPage = ({}: IProps) => {
   const postList = useMemo(getPostList, []);
 
   return (
-    <Wrapper className="h-feed">
+    <Wrapper class="h-feed">
       {
         postList.map((post)=> (
           <PostPage key={post.url} url={post.url} path={post.url}/>

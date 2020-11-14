@@ -20,14 +20,14 @@ export const PostPage = ({url}: IProps) => {
   }
   
   return (
-    <Wrapper className="h-entry single-post">
+    <Wrapper class="h-entry single-post">
       <Header>
-        <a className="p-author" href="https://dskr.dev"></a>
-        <a className="u-url" href={`https://dskr.dev${url}`}></a>
-        <Name className="p-name">// {post.title}</Name>
-        <Time className="dt-published" datetime={post.time}>// {post.timeFormated}</Time>
+        <a class="p-author" href="https://dskr.dev"></a>
+        <a class="u-url" href={`https://dskr.dev${url}`}></a>
+        <Name class="p-name">// {post.title}</Name>
+        <Time class="dt-published" datetime={post.time}>// {post.timeFormated}</Time>
       </Header>
-      <Content children={null} className="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
+      <Content children={null} class="e-content" dangerouslySetInnerHTML={{__html: post.content}}/>
     </Wrapper>
   );
 }
