@@ -1,12 +1,10 @@
-import { readdir, readFile } from 'fs';
-import { resolve } from 'path';
-import { promisify } from 'util';
 import parse from 'date-fns/parse';
 import format from 'date-fns/format';
 import formatIso from 'date-fns/formatISO';
 import ruLocale from 'date-fns/locale/ru';
 import MarkdownIt from 'markdown-it';
 import hljs from 'highlight.js';
+import got from 'got';
  
 import { Context } from '../../utils/context';
 
@@ -25,20 +23,58 @@ const highlight = (str: string, lang: string) =>{
   return '';
 };
 
-const readPostList = async () => {
-  try {
-    const fileList = await promisify(readdir)('./post');
-    console.log(fileList);
 
-    for(const fileName of fileList) {
-      const fileNameParsed = fileName.split('.');
-      if(fileNameParsed.length!==2 || fileNameParsed[1] !=='md'){
+interface IRepoInfo {
+  updated_at: string;
+}
+
+interface IRepoFile {
+  name: string;
+  path: string;
+  type: 'file' | 'dir';
+  download_url: string | null;
+  url: string;
+}
+
+const githubToken = process.env.GITHUB_TOKEN;
+
+const gotOptions = { headers: { Authorization: 'token ' + githubToken}};
+
+let lastUpdated = '';
+const repoUrl = 'https://api.github.com/repos/skrylnikov/content.dskr.dev';
+const readPostListV2 = async () => {
+  try {
+    console.log('start update post list');
+    
+    const newList: IPost[] = [];
+    const repoInfo = await got(repoUrl, gotOptions).json<IRepoInfo>();
+
+    if(repoInfo.updated_at === lastUpdated){
+      setTimeout(readPostListV2, 60 * 1000);
+      console.log('new post not found');
+      return;
+    }
+    
+    const folderList = await got(`${repoUrl}/contents/blog`, gotOptions).json<IRepoFile[]>();
+
+    for(const folder of folderList){
+      if(folder.type !== 'dir'){
         continue;
       }
-      const timeString = fileNameParsed[0];
+
+      const fileInfoList = await got(folder.url, gotOptions).json<IRepoFile[]>();
+
+      const fileInfo = fileInfoList.find((x) => x.name === 'README.md');
+      if(!fileInfo || !fileInfo.download_url){
+        continue;
+      }
+
+      const {body: file} = await got(fileInfo.download_url, gotOptions);
+
+      const fileName = fileInfo.path.split('/')[1];
+
       console.log(fileName);
-      const time = parse(timeString, 'yyyy-MM-dd', new Date());
-      const file = await promisify(readFile)(resolve('./post', fileName), { encoding: 'utf-8' });
+      const time = parse(fileName, 'yyyy-MM-dd', new Date());
       const md = new MarkdownIt();
       const parsedPost = md.parse(file, {});
       if(parsedPost.length<=3){
@@ -48,7 +84,7 @@ const readPostList = async () => {
       const title = parsedPost[1].content;
       const content = md.renderer.render(parsedPost.slice(3), {highlight}, {});
 
-      list.push({
+      newList.push({
         title,
         time: formatIso(time),
         timeFormated: format(time, 'd MMMM', {locale: ruLocale}),
@@ -56,19 +92,21 @@ const readPostList = async () => {
         url: `/p/${format(time, 'yyyy/MM/dd')}`,
         explorerName: format(time, 'yyyy-MM-dd')  + '.md',
       });
+
     }
 
-    list.reverse();
-    
+    newList.reverse();
+
+    list = newList;
+    console.log('end update post list');
+    lastUpdated = repoInfo.updated_at 
   } catch (e) {
-    console.error('err');
     console.error(e);
   }
+  setTimeout(readPostListV2, 60 * 1000);
+};
 
-  
-}
-
-readPostList();
+readPostListV2();
 
 export const getPostList: IGetPostList = () => {
   const context = Context.getContext();

@@ -1,6 +1,9 @@
+import { config } from 'dotenv';
 import Koa from 'koa';
 import Router from '@koa/router';
 import Static from 'koa-static';
+
+config();
 
 import { renderApp } from './ssr';
 const app = new Koa();
