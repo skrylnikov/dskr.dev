@@ -22,5 +22,11 @@ export const Time = styled<JSX.HTMLAttributes<HTMLTimeElement> & {datetime: stri
   font-weight: 400;
 `;
 
-export const Content = styled('div')``;
+export const Content = styled('div')`
+
+  img {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+`;
 
