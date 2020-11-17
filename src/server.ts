@@ -4,10 +4,10 @@ import Router from '@koa/router';
 import Static from 'koa-static';
 import parser from 'koa-bodyparser';
 import { createHmac } from 'crypto';
-import { readPostList } from './service/post-list/node';
 
 config();
 
+import { readPostList } from './service/post-list/node';
 import { renderApp } from './ssr';
 const app = new Koa();
 
