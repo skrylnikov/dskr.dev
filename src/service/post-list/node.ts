@@ -23,11 +23,6 @@ const highlight = (str: string, lang: string) =>{
   return '';
 };
 
-
-interface IRepoInfo {
-  updated_at: string;
-}
-
 interface IRepoFile {
   name: string;
   path: string;
@@ -40,20 +35,12 @@ const githubToken = process.env.GITHUB_TOKEN;
 
 const gotOptions = { headers: { Authorization: 'token ' + githubToken}};
 
-let lastUpdated = '';
 const repoUrl = 'https://api.github.com/repos/skrylnikov/content.dskr.dev';
-const readPostListV2 = async () => {
+export const readPostList = async () => {
   try {
     console.log('start update post list');
     
     const newList: IPost[] = [];
-    const repoInfo = await got(repoUrl, gotOptions).json<IRepoInfo>();
-
-    if(repoInfo.updated_at === lastUpdated){
-      setTimeout(readPostListV2, 60 * 1000);
-      console.log('new post not found');
-      return;
-    }
     
     const folderList = await got(`${repoUrl}/contents/blog`, gotOptions).json<IRepoFile[]>();
 
@@ -99,14 +86,12 @@ const readPostListV2 = async () => {
 
     list = newList;
     console.log('end update post list');
-    lastUpdated = repoInfo.updated_at 
   } catch (e) {
     console.error(e);
   }
-  setTimeout(readPostListV2, 60 * 1000);
 };
 
-readPostListV2();
+readPostList();
 
 export const getPostList: IGetPostList = () => {
   const context = Context.getContext();
