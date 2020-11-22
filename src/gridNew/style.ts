@@ -70,7 +70,7 @@ export const Github = styled('a')`
 
 
 export const Main = styled('main')`
-  width: calc(100vw - 15em - 4em);
+  width: calc(100vw - 18em - 4em);
   grid-area: main;
   @media(max-width: 1024px){
     width: 100vw;
@@ -85,6 +85,7 @@ export const Content = styled('main')`
   overflow-y: auto;
   pre {
     margin: 0 1em;
+    overflow-y: auto;
   }
   @media(max-width: 1024px){
     height: initial;
@@ -97,6 +98,6 @@ export const Content = styled('main')`
 
 export const Article = styled('article')`
   flex-grow: 1;
-  max-width: 60%;
+  max-width: minmax(60%, 900px);
   min-width: 20em;
 `;

@@ -7,6 +7,7 @@ import { getPostList } from '../../service/post-list/index';
 import { MiniPost } from './mini-post/component';
 
 const Wrapper = styled('div')`
+  max-width: 900px;
 `;
 
 interface IProps {

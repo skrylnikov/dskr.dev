@@ -5,7 +5,7 @@ import { styled } from 'goober';
 export const Wrapper = styled('main')`
   display: flex;
   height: 100vh;
-  width: 15em;
+  width: 18em;
   flex-direction: column;
   background-color: #3F3B47;
   font-family: 'Pridi', sans-serif;
@@ -25,17 +25,18 @@ export const Wrapper = styled('main')`
 export const Header = styled('div')`
   background-color: #55515E;
   width: 100%;
-  height: 3.4em;
+  height: 4em;
 
   h1 {
     text-align: center;
     margin: 0;
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 600;
   }
 `;
 
 export const List = styled('div')`
+  font-size: 18px;
   margin: 1em 0.5em;
   @media(max-width: 1024px){
     display: none;
@@ -56,6 +57,7 @@ export const Item = styled<JSX.HTMLAttributes<HTMLDivElement> & { active?: boole
     transition: background 300ms ease;
     background-color: ${(props) => props.active ? '#2B5AAD' : 'auto'};
     width: 100%;
+    height: 32px;
     &:hover, &:focus {
       background-color: rgba(43, 90, 173, 0.7);
       outline: none;

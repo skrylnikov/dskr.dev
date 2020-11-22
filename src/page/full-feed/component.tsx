@@ -20,7 +20,7 @@ export const FullFeedPage = ({}: IProps) => {
     <Wrapper class="h-feed">
       {
         postList.map((post)=> (
-          <PostPage key={post.url} url={post.url} path={post.url}/>
+          <PostPage key={post.url} url={post.url} path={post.url} isPreview={false}/>
         ))
       }
     </Wrapper>

@@ -23,7 +23,7 @@ export const App = ({url}: IProps)=>{
       <Router url={url} onChange={(s)=>setRealUrl(s.url)}>
         <MainPage path="/"/>
         <FullFeedPage path="/ff"/>
-        <PostPage path="/p/:year/:month/:day"/>
+        <PostPage path="/p/:year/:month/:day" isPreview={true}/>
       </Router>
     </Grid>
   )

@@ -20,6 +20,6 @@ export const Main = styled('main')`
 
 export const Article = styled('article')`
   flex-grow: 1;
-  max-width: 60%;
+  max-width: minmax(60%, 900px);
   min-width: 20em;
 `;
