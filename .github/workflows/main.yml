@@ -26,14 +26,6 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Cleanup stale deployments
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.REMOTE_USER }}
-          host: ${{ secrets.REMOTE_HOST }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: cd /root/prod/dskr.dev && rm -r ./dist
-
       - name: Copy code
         uses: easingthemes/ssh-deploy@main
         env:
