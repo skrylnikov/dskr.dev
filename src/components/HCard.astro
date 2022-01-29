@@ -3,13 +3,17 @@ const linkList = [
   { url: 'https://github.com/skrylnikov', logo: '/svg/github.svg', title: 'GitHub'},
   { url: 'https://twitter.com/dskr_dev', logo: '/svg/twitter.svg', title: 'Twitter'},
   { url: 'https://t.me/dskrylnikov', logo: '/svg/telegram.svg', title: 'Telegram'},
+  { url: 'https://www.instagram.com/dskr_dev', logo: '/svg/instagram.svg', title: 'Instagram'},
 ];
 ---
 
 <article class="wrapper h-card">
-  <img class="u-photo" alt="Дмитрий Скрыльников" src="/img/me.jpeg">
+  <div>
+    <img class="u-photo" alt="Дмитрий Скрыльников" src="/img/me.jpeg">
+  </div>
   <div class="info">
     <h2 class="p-name">Дмитрий Скрыльников</h2>
+    <p class="p-note">Frontend developer</p>
 
     <ul class="links">
       {
@@ -37,7 +41,7 @@ const linkList = [
   }
 
   .u-photo{
-    width: 7em;
+    width: 9em;
     border-radius: 50%;
   }
 
@@ -46,6 +50,7 @@ const linkList = [
     list-style-type: none;
     display: flex;
     gap: 1em;
+    margin-top: 1em;
   }
 
   .links img{
