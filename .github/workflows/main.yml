@@ -49,4 +49,9 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           host: ${{ secrets.REMOTE_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: cd /root/prod/dskr.dev && pnpm i && pnpm build && pm2 start ecosystem.config.js --env production --only dskr-dev
+          debug: true
+          script: |
+            cd /root/prod/dskr.dev
+            pnpm i
+            pnpm build
+            pm2 start ecosystem.config.js --env production --only dskr-dev
