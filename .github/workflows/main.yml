@@ -43,4 +43,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           sync: true
           debug: true
-          script: cd /root/prod/dskr.dev&& sh && /root/.nvm/versions/node/v16.13.2/bin/pnpm i && /root/.nvm/versions/node/v16.13.2/bin/pnpm build && /root/.nvm/versions/node/v16.13.2/bin/pm2 start ecosystem.config.js --env production --only dskr-dev
+          script: cd /root/prod/dskr.dev && source /root/.profile && /root/.nvm/versions/node/v16.13.2/bin/pnpm i && /root/.nvm/versions/node/v16.13.2/bin/pnpm build && /root/.nvm/versions/node/v16.13.2/bin/pm2 start ecosystem.config.js --env production --only dskr-dev
