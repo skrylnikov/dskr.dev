@@ -1,0 +1,61 @@
+---
+const linkList = [
+  { url: 'https://github.com/skrylnikov', logo: '/svg/github.svg', title: 'GitHub'},
+  { url: 'https://twitter.com/dskr_dev', logo: '/svg/twitter.svg', title: 'Twitter'},
+  { url: 'https://t.me/dskrylnikov', logo: '/svg/telegram.svg', title: 'Telegram'},
+];
+---
+
+<article class="wrapper h-card">
+  <img class="u-photo" alt="Дмитрий Скрыльников" src="/img/me.jpeg">
+  <div class="info">
+    <h2 class="p-name">Дмитрий Скрыльников</h2>
+
+    <ul class="links">
+      {
+        linkList.map((link) => 
+          <li><a href={link.url} rel="me"><img src={link.logo} alt={link.title} title={link.title}/></a></li>
+        )
+      }
+    </ul>
+
+    <div class="hidden">
+      <a class="u-url u-uid" href="https://dskr.dev" rel="me">Blog</a>
+      <span class="p-nickname">dskr</span>
+      <span class="p-sex">M</span>
+    </div>
+  </div>
+
+</article>
+
+<style>
+  .h-card{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    gap: 2em;
+  }
+
+  .u-photo{
+    width: 7em;
+    border-radius: 50%;
+  }
+
+  .links {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+  }
+
+  .links img{
+    width: 2em;
+  }
+
+  .links li::marker{
+  }
+
+  .hidden{
+    display: none;
+  }
+</style>
