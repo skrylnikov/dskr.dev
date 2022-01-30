@@ -2,7 +2,6 @@ lockfileVersion: 5.3
 
 specifiers:
   '@koa/router': ^10.0.0
-  '@types/highlight.js': ^10.1.0
   '@types/koa': ^2.11.6
   '@types/koa-bodyparser': ^4.3.0
   '@types/koa-static': ^4.0.1
@@ -13,12 +12,13 @@ specifiers:
   date-fns: ^2.28.0
   dotenv: ^8.6.0
   got: ^11.8.0
-  highlight.js: ^10.3.2
+  highlight.js: ^11.4.0
   isomorphic-git: ^1.11.1
   koa: ^2.13.0
   koa-bodyparser: ^4.3.0
   koa-static: ^5.0.0
   markdown-it: ^12.0.2
+  remeda: ^0.0.32
   ts-node: ^10.4.0
   ts-node-dev: ^1.1.8
   typescript: ^4.5.5
@@ -29,16 +29,16 @@ dependencies:
   date-fns: 2.28.0
   dotenv: 8.6.0
   got: 11.8.3
-  highlight.js: 10.7.3
+  highlight.js: 11.4.0
   isomorphic-git: 1.11.1
   koa: 2.13.4
   koa-bodyparser: 4.3.0
   koa-static: 5.0.0
   markdown-it: 12.3.2
+  remeda: 0.0.32
   yaml: 1.10.2
 
 devDependencies:
-  '@types/highlight.js': 10.1.0
   '@types/koa': 2.13.4
   '@types/koa-bodyparser': 4.3.5
   '@types/koa-static': 4.0.2
@@ -661,13 +661,6 @@ packages:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
       '@types/unist': 2.0.6
-    dev: true
-
-  /@types/highlight.js/10.1.0:
-    resolution: {integrity: sha512-77hF2dGBsOgnvZll1vymYiNUtqJ8cJfXPD6GG/2M0aLRc29PkvB7Au6sIDjIEFcSICBhCh2+Pyq6WSRS7LUm6A==}
-    deprecated: This is a stub types definition. highlight.js provides its own type definitions, so you do not need this installed.
-    dependencies:
-      highlight.js: 10.7.3
     dev: true
 
   /@types/http-assert/1.5.3:
@@ -2258,8 +2251,10 @@ packages:
       space-separated-tokens: 2.0.1
     dev: true
 
-  /highlight.js/10.7.3:
-    resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
+  /highlight.js/11.4.0:
+    resolution: {integrity: sha512-nawlpCBCSASs7EdvZOYOYVkJpGmAOKMYZgZtUqSRqodZE0GRVcFKwo1RcpeOemqh9hyttTdd5wDBwHkuSyUfnA==}
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   /html-entities/2.3.2:
     resolution: {integrity: sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==}
@@ -3617,6 +3612,10 @@ packages:
       retext-smartypants: 5.1.0
       unist-util-visit: 4.1.0
     dev: true
+
+  /remeda/0.0.32:
+    resolution: {integrity: sha512-FEdl8ONpqY7AvvMHG5WYdomc0mGf2khHPUDu6QvNkOq4Wjkw5BvzWM4QyksAQ/US1sFIIRG8TVBn6iJx6HbRrA==}
+    dev: false
 
   /require-relative/0.8.7:
     resolution: {integrity: sha1-eZlTn8ngR6N5KPoZb44VY9q9Nt4=}

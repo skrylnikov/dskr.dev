@@ -4,3 +4,6 @@ dist
 .vscode
 .env
 content
+client/pages/post
+public/assets
+.DS_Store
