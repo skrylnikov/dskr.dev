@@ -1,4 +1,7 @@
 ---
+import { format } from 'date-fns';
+import Ru from 'date-fns/locale/ru';
+
 export interface Props {
 	post: any;
 }
@@ -8,11 +11,11 @@ const { post } = Astro.props;
 
 <article class="post-preview">
 	<header>
-		<p class="publish-date">{post.publishDate}</p>
-		<a href={post.url}><h1 class="title">{post.title}</h1></a>
+		<p class="publish-date">{format(new Date(post.publishDate), 'd MMM yyyy', { locale: Ru })}</p>
+		<a href={post.url}><h2 class="title">{post.title}</h2></a>
 	</header>
 	<p>{post.description}</p>
-	<a href={post.url}>Read more</a>
+	<a href={post.url}>Читать далее</a>
 </article>
 
 <style>
@@ -48,7 +51,7 @@ const { post } = Astro.props;
 	}
 
 	.title {
-		font-size: 2.25rem;
+		font-size: 1.75rem;
 		font-weight: 700;
 		color: var(--theme-text);
 	}

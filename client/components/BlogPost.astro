@@ -1,4 +1,6 @@
 ---
+import { format } from 'date-fns';
+import Ru from 'date-fns/locale/ru';
 
 export interface Props {
 	title: string;
@@ -16,7 +18,7 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 		<div>
 			<header>
 				{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
-				<p class="publish-date">{publishDate}</p>
+				<p class="publish-date">{format(new Date(publishDate), 'd MMM yyyy', { locale: Ru })}</p>
 				<h1 class="title">{title}</h1>
 			</header>
 			<main>
