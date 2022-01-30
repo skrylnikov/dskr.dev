@@ -27,8 +27,9 @@ router.post('/hooks/github', (ctx) => {
   ctx.body = { status: 'ok' };
 })
 
-app.use(Static('./dist'));
 app.use(router.routes());
+
+app.use(Static('./dist'));
 
 app.listen(8000);
 
