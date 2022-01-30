@@ -14,8 +14,8 @@ const { post } = Astro.props;
 		<p class="publish-date">{format(new Date(post.publishDate), 'd MMM yyyy', { locale: Ru })}</p>
 		<a href={post.url}><h2 class="title">{post.title}</h2></a>
 	</header>
-	<p>{post.description}</p>
-	<a href={post.url}>Читать далее</a>
+	<p class="description">{post.description}</p>
+	<a class="read" href={post.url}>Читать далее</a>
 </article>
 
 <style>
@@ -34,7 +34,7 @@ const { post } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-bottom: 2rem;
+		padding-bottom: 1rem;
 		text-align: left;
 	}
 
@@ -55,4 +55,8 @@ const { post } = Astro.props;
 		font-weight: 700;
 		color: var(--theme-text);
 	}
+
+  .description {
+    margin-bottom: 0.5em;
+  }
 </style>

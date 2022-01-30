@@ -14,4 +14,10 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   src: './client/',
   pages: './client/pages/',
   projectRoot: './',
+  buildOptions: {
+    site: 'https://dskr.dev',
+  },
+  markdownOptions: {
+
+  }
 });

@@ -8,9 +8,10 @@ export interface Props {
 	publishDate: string;
 	heroImage: string;
 	alt: string;
+  github: string;
 }
 
-const { title, author, publishDate, heroImage, alt } = Astro.props;
+const { title, author, publishDate, heroImage, alt, github } = Astro.props;
 ---
 
 <div class="layout">
@@ -18,7 +19,10 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 		<div>
 			<header>
 				{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
-				<p class="publish-date">{format(new Date(publishDate), 'd MMM yyyy', { locale: Ru })}</p>
+        <div class="info">
+				  <p class="publish-date">{format(new Date(publishDate), 'd MMM yyyy', { locale: Ru })}</p>
+          <a target="_blanc" href={github}>Редактировать</a>
+        </div>
 				<h1 class="title">{title}</h1>
 			</header>
 			<main>
@@ -45,6 +49,16 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 			margin-bottom: 2rem;
 		}
 	}
+
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info a {
+    color: var(--theme-text-lighter);
+  }
 
 	.content {
 		margin-bottom: 8rem;

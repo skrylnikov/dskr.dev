@@ -10,6 +10,7 @@ import Yaml from 'yaml';
 import { last } from 'remeda';
 
 import { contentDir, blogDir, publicDir } from './config';
+import 'pri'
 
 const imageReg = /\.(gif|jpg|jpeg|png|webp)$/i;
 
@@ -45,6 +46,8 @@ const loadImg = async (dirPath: string) => {
 };
 
 export const loadContent = async () => {
+  console.log('start load content');
+
   const isContentDirExist = fs.existsSync(contentDir);
 
   if (!isContentDirExist) {
@@ -85,9 +88,14 @@ export const loadContent = async () => {
       const parsedFile = file.split('---');
 
 
-      parsedFile[1] = "\nsetup: |\n  import Layout from '../../layouts/BlogPost.astro'" + parsedFile[1];
+      // parsedFile[1] = "\nsetup: |\n  import Layout from '../../layouts/BlogPost.astro'" + parsedFile[1];
 
       const meta = Yaml.parse(parsedFile[1]);
+
+      meta.setup = "import Layout from '../../layouts/BlogPost.astro'";
+      meta.github = `https://github.com/skrylnikov/content.dskr.dev/blob/main/blog/${dirent.name}/README.md`;
+
+      parsedFile[1] = '\n' + Yaml.stringify(meta);
 
       const parsedContent = parsedFile[2].split('\n');
 
@@ -103,6 +111,10 @@ export const loadContent = async () => {
     }
   }
 
+  console.log('load content successfull');
+
 
   execSync('pnpm build')
+
+  console.log('build successfull 🎉');
 };

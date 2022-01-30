@@ -5,7 +5,7 @@ import BlogPost from '../components/BlogPost.astro';
 
 
 const { content } = Astro.props;
-const { title, description, publishDate, author, heroImage, permalink, alt } = content;
+const { title, description, publishDate, author, heroImage, permalink, alt, github } = content;
 ---
 
 <html lang={content.lang || 'en'}>
@@ -16,7 +16,7 @@ const { title, description, publishDate, author, heroImage, permalink, alt } = c
 	<body>
 		<BlogHeader />
 		<div class="wrapper">
-			<BlogPost {title} {author} {heroImage} {publishDate} {alt}>
+			<BlogPost {title} {author} {heroImage} {publishDate} {alt} {github}>
 				<slot />
 			</BlogPost>
 		</div>
