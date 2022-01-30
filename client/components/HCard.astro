@@ -1,0 +1,83 @@
+---
+import GithubSvg from './svg/github.astro';
+import TwitterSvg from './svg/twitter.astro';
+import TelegramSvg from './svg/telegram.astro';
+import InstagramSvg from './svg/instagram.astro';
+
+---
+
+<article class="wrapper h-card">
+  <div>
+    <img class="u-photo" alt="Дмитрий Скрыльников" src="/img/me.jpeg">
+  </div>
+  <div class="info">
+    <h2 class="p-name">Дмитрий Скрыльников</h2>
+    <p class="p-note">Frontend developer</p>
+
+    <ul class="links">
+      <li><a href="https://github.com/skrylnikov" rel="me"><GithubSvg title="GitHub"/></a></li>
+      <li><a href="https://twitter.com/dskr_dev" rel="me"><TwitterSvg title="Twitter"/></a></li>
+      <li><a href="https://t.me/dskrylnikov" rel="me"><TelegramSvg title="Telegram"/></a></li>
+      <li><a href="https://www.instagram.com/dskr_dev" rel="me"><InstagramSvg title="Instagram"/></a></li>
+    </ul>
+
+    <div class="hidden">
+      <a class="u-url u-uid" href="https://dskr.dev" rel="me">Blog</a>
+      <span class="p-nickname">dskr</span>
+      <span class="p-sex">M</span>
+    </div>
+  </div>
+
+</article>
+
+<style>
+  .h-card{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    gap: 2em;
+  }
+
+  @media (max-width: 50em) {
+		.h-card {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+	}
+
+  .u-photo{
+    width: 9em;
+    border-radius: 50%;
+  }
+
+  .links {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+  }
+
+  .links a{
+    display: inline-block;
+    height: 2em;
+  }
+
+  .links :global(svg){
+    height: 2em;
+    width: 2em;
+    color: var(--theme-text);
+
+    transition: color ease 200ms;
+  }
+
+  .links :global(svg):hover{
+    color: var(--theme-accent);
+  }
+
+
+  .hidden{
+    display: none;
+  }
+</style>

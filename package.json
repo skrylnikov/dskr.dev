@@ -6,8 +6,8 @@
   "scripts": {
     "dev-fe": "astro dev",
     "build": "astro build",
-    "start": "ts-node ./src/server.ts",
-    "dev": "ts-node-dev ./src/server.ts",
+    "start": "ts-node ./server/index.ts",
+    "dev": "ts-node-dev ./server/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,9 +39,11 @@
     "dotenv": "^8.6.0",
     "got": "^11.8.0",
     "highlight.js": "^10.3.2",
+    "isomorphic-git": "^1.11.1",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-static": "^5.0.0",
-    "markdown-it": "^12.0.2"
+    "markdown-it": "^12.0.2",
+    "yaml": "^1.10.2"
   }
 }

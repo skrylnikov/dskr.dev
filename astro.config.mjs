@@ -8,7 +8,10 @@
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
-	// Comment out "renderers: []" to enable Astro's default component support.
-	renderers: [],
-	vite: {},
+  // Comment out "renderers: []" to enable Astro's default component support.
+  renderers: [],
+  vite: {},
+  src: './client/',
+  pages: './client/pages/',
+  projectRoot: './',
 });
