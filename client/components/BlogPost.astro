@@ -101,7 +101,10 @@ const { title, author, publishDate, heroImage, alt, github } = Astro.props;
 	}
 
   :global(img) {
-    max-width: 55em;
+    max-width: min(45em, 100%);
     margin: 1em 0;
+  }
+  :global(pre) { 
+    /* width: 45em; */
   }
 </style>
