@@ -10,7 +10,6 @@ import Yaml from 'yaml';
 import { last } from 'remeda';
 
 import { contentDir, blogDir, publicDir } from './config';
-import 'pri'
 
 const imageReg = /\.(gif|jpg|jpeg|png|webp)$/i;
 
