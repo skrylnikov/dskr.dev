@@ -8,7 +8,6 @@ const parser = new MarkdownIt();
 
 export async function get(context: any) {
 	const posts = await getCollection('blog');
-  console.log(posts);
 	return rss({
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
