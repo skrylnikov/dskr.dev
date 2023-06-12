@@ -11,12 +11,13 @@ const { title, description, publishDate, heroImage, slug } = Astro.props;
 
 const alt = undefined;
 const github = `https://github.com/skrylnikov/dskr.dev/blob/master/src/content/blog/${slug}.mdx`;
+const image = heroImage;
 
 ---
 
 <html lang={'ru'}>
 	<head>
-		<BaseHead {title} {description} />
+		<BaseHead {title} {description} {image} />
 	</head>
 
 	<body>
