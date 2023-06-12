@@ -17,12 +17,12 @@ const { title, publishDate, heroImage, alt, github } = Astro.props;
 	<article class="content">
 		<div>
 			<header>
-				{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
         <div class="info">
-				  <p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Ru })}</p>
+          <p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Ru })}</p>
           <a target="_blanc" href={github}>Редактировать</a>
         </div>
 				<h1 class="title">{title}</h1>
+        {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
 			</header>
 			<main>
 				<slot />
@@ -37,8 +37,7 @@ const { title, publishDate, heroImage, alt, github } = Astro.props;
 		object-fit: cover;
 		object-position: center;
 		margin-top: 2rem;
-		margin-bottom: 4rem;
-		max-width: 1280px;
+		max-width: 746px;
 	}
 
 	@media (max-width: 50em) {
