@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import Post from '../components/BlogPost.astro';
+
+
+type Props = CollectionEntry<'blog'>['data'] & {slug: string};
+
+const { title, description, publishDate, heroImage, slug } = Astro.props;
+
+const alt = undefined;
+const github = `https://github.com/skrylnikov/dskr.dev/blob/master/src/content/blog/${slug}.mdx`;
+
+---
+
+<html lang={'ru'}>
+	<head>
+		<BaseHead {title} {description} />
+	</head>
+
+	<body>
+		<BlogHeader />
+		<div class="wrapper">
+			<Post {title} {heroImage} {publishDate} {alt} {github}>
+				<slot />
+			</Post>
+		</div>
+	</body>
+</html>

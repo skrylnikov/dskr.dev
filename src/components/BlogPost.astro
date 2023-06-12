@@ -4,14 +4,13 @@ import Ru from 'date-fns/locale/ru';
 
 export interface Props {
 	title: string;
-	author: string;
-	publishDate: string;
-	heroImage: string;
-	alt: string;
-  github: string;
+	publishDate: Date;
+	heroImage?: string;
+	alt?: string;
+  github?: string;
 }
 
-const { title, author, publishDate, heroImage, alt, github } = Astro.props;
+const { title, publishDate, heroImage, alt, github } = Astro.props;
 ---
 
 <div class="layout">
@@ -20,7 +19,7 @@ const { title, author, publishDate, heroImage, alt, github } = Astro.props;
 			<header>
 				{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
         <div class="info">
-				  <p class="publish-date">{format(new Date(publishDate), 'd MMM yyyy', { locale: Ru })}</p>
+				  <p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Ru })}</p>
           <a target="_blanc" href={github}>Редактировать</a>
         </div>
 				<h1 class="title">{title}</h1>
@@ -79,9 +78,7 @@ const { title, author, publishDate, heroImage, alt, github } = Astro.props;
 		align-items: center;
 		justify-content: center;
 
-		padding-bottom: 2rem;
-		margin-bottom: 2rem;
-		border-bottom: 4px solid var(--theme-divider);
+		margin-bottom: 1rem;
 	}
 
 	.title,
@@ -95,9 +92,11 @@ const { title, author, publishDate, heroImage, alt, github } = Astro.props;
 		color: var(--theme-text-lighter);
 	}
 
-	.title {
+  .title {
 		font-size: 2.25rem;
 		font-weight: 700;
+    border-bottom: 2px solid var(--theme-divider);
+    margin-top: 1em;
 	}
 
   :global(img) {

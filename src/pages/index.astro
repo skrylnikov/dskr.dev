@@ -1,26 +1,19 @@
 ---
 // Component Imports
+import { getCollection } from 'astro:content';
+
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import HCard from '../components/HCard.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-interface MarkdownFrontmatter {
-	publishDate: number;
-}
-
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
-let title = 'Dskr.dev';
-let description = 'Dskr blog';
-let permalink = 'https://dskr.dev/';
 
 // Data Fetching: List all Markdown posts in the repo.
 
-const postList = await Astro.fetchContent('./post/*.md');
-const sortedpostList = postList.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+const posts = (await getCollection('blog')).filter((x) => !x.data.hidden).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -28,7 +21,7 @@ const sortedpostList = postList.sort((a, b) => new Date(b.publishDate).valueOf()
 
 <html lang="ru">
 	<head>
-		<BaseHead title={title} description={description} permalink={permalink} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
 		<style>
 			header {
@@ -75,7 +68,7 @@ const sortedpostList = postList.sort((a, b) => new Date(b.publishDate).valueOf()
 			<main class="content">
 				<h1 class="latest">Блог</h1>
 				<section aria-label="Blog post list">
-					{sortedpostList.map((p) => <BlogPostPreview post={p} />)}
+					{posts.map((post) => <BlogPostPreview title={post.data.title} description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} />)}
 				</section>
 			</main>
 		</div>

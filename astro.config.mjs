@@ -1,23 +1,11 @@
-// Full Astro Configuration API Documentation:
-// https://docs.astro.build/reference/configuration-reference
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
-// @type-check enabled!
-// VSCode and other TypeScript-enabled text editors will provide auto-completion,
-// helpful tooltips, and warnings if your exported object is invalid.
-// You can disable this by removing "@ts-check" and `@type` comments below.
+import sitemap from '@astrojs/sitemap';
 
-// @ts-check
-export default /** @type {import('astro').AstroUserConfig} */ ({
-  // Comment out "renderers: []" to enable Astro's default component support.
-  renderers: [],
-  vite: {},
-  src: './client/',
-  pages: './client/pages/',
-  projectRoot: './',
-  buildOptions: {
-    site: 'https://dskr.dev',
-  },
-  markdownOptions: {
-
-  }
+// https://astro.build/config
+export default defineConfig({
+	site: 'https://dskr.dev/',
+	integrations: [mdx(), sitemap()],
 });
+

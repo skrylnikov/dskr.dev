@@ -3,19 +3,24 @@ import { format } from 'date-fns';
 import Ru from 'date-fns/locale/ru';
 
 export interface Props {
-	post: any;
+  title: string;
+  description: string;
+  publishDate: Date;
+  slug: string;
 }
 
-const { post } = Astro.props;
+const { title, description, publishDate, slug } = Astro.props;
+
+
 ---
 
 <article class="post-preview">
 	<header>
-		<p class="publish-date">{format(new Date(post.publishDate), 'd MMM yyyy', { locale: Ru })}</p>
-		<a href={post.url}><h2 class="title">{post.title}</h2></a>
+		<p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Ru })}</p>
+		<a href={`/blog/${slug}/`}><h2 class="title">{title}</h2></a>
 	</header>
-	<p class="description">{post.description}</p>
-	<a class="read" href={post.url}>Читать далее</a>
+	<p class="description">{description}</p>
+	<a class="read" href={`/blog/${slug}/`}>Читать далее</a>
 </article>
 
 <style>
