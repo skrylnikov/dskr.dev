@@ -31,14 +31,14 @@ const { title, description, image } = Astro.props as Props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+{image && <meta property="og:image" content={new URL(image.replace('avif', 'jpg'), Astro.url)} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-{image && <meta property="twitter:image" content={new URL(image, Astro.url)} />}
+{image && <meta property="twitter:image" content={new URL(image.replace('avif', 'jpg'), Astro.url)} />}
 
 <link rel="authorization_endpoint" href="https://indieauth.com/auth">
 
