@@ -14,7 +14,7 @@ const { title, description, publishDate, slug } = Astro.props;
 
 ---
 
-<article class="post-preview">
+<article class="post-preview" transition:name={slug}>
 	<header>
 		<p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Ru })}</p>
 		<a href={`/blog/${slug}/`}><h2 class="title">{title}</h2></a>
