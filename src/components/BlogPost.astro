@@ -22,7 +22,7 @@ const { title, publishDate, heroImage, alt, github } = Astro.props;
           <a target="_blanc" href={github}>Редактировать</a>
         </div>
 				<h1 class="title">{title}</h1>
-        {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
+        {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} height="550px" />}
 			</header>
 			<main>
 				<slot />

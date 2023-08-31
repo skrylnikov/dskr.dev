@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import Post from '../components/BlogPost.astro';
@@ -22,7 +23,7 @@ const image = heroImage;
 
 	<body>
 		<BlogHeader />
-		<div class="wrapper">
+		<div class="wrapper" transition:animate={"slide"}>
 			<Post {title} {heroImage} {publishDate} {alt} {github}>
 				<slot />
 			</Post>

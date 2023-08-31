@@ -64,7 +64,7 @@ const posts = (await getCollection('blog')).filter((x) => !x.data.hidden).sort(
 		<BlogHeader />
     <HCard/>
 
-		<div class="wrapper">
+		<div class="wrapper" transition:animate={"slide"}>
 			<main class="content">
 				<h1 class="latest">Блог</h1>
 				<section aria-label="Blog post list">

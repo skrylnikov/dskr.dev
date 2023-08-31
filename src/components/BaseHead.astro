@@ -1,5 +1,5 @@
 ---
-
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
 	title: string;
@@ -51,3 +51,5 @@ const { title, description, image } = Astro.props as Props;
   
   
 </style>
+
+<ViewTransitions />
