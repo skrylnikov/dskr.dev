@@ -23,8 +23,8 @@ const image = heroImage;
 
 	<body>
 		<BlogHeader />
-		<div class="wrapper" transition:animate={"fade"} transition:name={slug}>
-			<Post {title} {heroImage} {publishDate} {alt} {github}>
+		<div class="wrapper" transition:animate={"fade"}>
+			<Post {title} {heroImage} {publishDate} {alt} {github} {slug}>
 				<slot />
 			</Post>
 		</div>

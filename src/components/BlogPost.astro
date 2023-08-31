@@ -5,24 +5,25 @@ import Ru from 'date-fns/locale/ru/index.js';
 export interface Props {
 	title: string;
 	publishDate: Date;
+  slug: string;
 	heroImage?: string;
 	alt?: string;
   github?: string;
 }
 
-const { title, publishDate, heroImage, alt, github } = Astro.props;
+const { title, publishDate, heroImage, alt, github, slug } = Astro.props;
 ---
 
 <div class="layout">
 	<article class="content">
 		<div>
-			<header>
-        <div class="info">
+			<header transition:name={slug}>
+        <div class="info" >
           <p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Ru })}</p>
           <a target="_blanc" href={github}>Редактировать</a>
         </div>
 				<h1 class="title">{title}</h1>
-        {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} height="550px" />}
+        {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} height="550px" transition:name="image" />}
 			</header>
 			<main>
 				<slot />
