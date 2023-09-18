@@ -5,7 +5,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://dskr.dev/',
+	site: 'https://dskr.dev',
 	integrations: [mdx(), sitemap()],
   markdown: {
     rehypePlugins: [

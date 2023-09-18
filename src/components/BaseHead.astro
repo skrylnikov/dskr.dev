@@ -40,7 +40,9 @@ const { title, description, image } = Astro.props as Props;
 <meta property="twitter:description" content={description} />
 {image && <meta property="twitter:image" content={new URL(image.replace('avif', 'jpg'), Astro.url)} />}
 
-<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- <link rel="authorization_endpoint" href="https://indieauth.com/auth"> -->
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" />
