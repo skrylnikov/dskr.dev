@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Dskr.dev</title><description>Dskr blog</description><link>https://dskr.dev/</link><item turbo="true"> <turbo:extendedHtml>true</turbo:extendedHtml> <title>Как правильно установить node.js окружение?</title><link>https://dskr.dev/blog/how-to-install-node/</link><guid isPermaLink="true">https://dskr.dev/blog/how-to-install-node/</guid><description>Расскажу зачем и почему нужны fnm и corepack</description><pubDate>Mon, 18 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Установка Node.JS&lt;/h2&gt;
+&lt;p&gt;Существует несколько способов установки Node.JS и сложно понять какой из них лучше. В этой статье мы сравним разные способы (прямая установка, системные пакетные менеджеры, nvm, n, nodenv, volta, fnm). TLDR: я предпочитаю использовать fnm&lt;/p&gt;
+&lt;p&gt;Самый простой вариант установить Node.JS это пойти на &lt;a href=&quot;https://nodejs.org&quot;&gt;nodejs.org&lt;/a&gt; и скачать установщик. Но это не лучшая идея. Вариант чуть получше, воспользоваться системным пакетным менеджером(&lt;code&gt;brew&lt;/code&gt;, &lt;code&gt;apt&lt;/code&gt;, &lt;code&gt;dnf&lt;/code&gt;). В обоих случаях нельзя быстро сменить версию Node.JS. Часто актуальный проект требует свежую LTS версию, легаси проект работает под предыдущим LTS, а так же хочется попробовать новые фишки из Current версии.&lt;/p&gt;
+&lt;p&gt;Самое популярное решение это &lt;a href=&quot;https://github.com/nvm-sh/nvm&quot;&gt;Node Version Manager &lt;code&gt;nvm&lt;/code&gt;&lt;/a&gt;. Но, во-первых, он невероятно медленный. Каждое открытие консоли с установленным &lt;code&gt;nvm&lt;/code&gt; будет занимать до нескольких секунд. Во-вторых, он не поддерживает fish и windows. В-третьих, глобально установленные пакеты прийдётся ставить каждый раз заново, либо нужно прописывать их в специальном файле. &lt;a href=&quot;https://github.com/tj/n&quot;&gt;n&lt;/a&gt; и &lt;a href=&quot;https://github.com/nodenv/nodenv&quot;&gt;nodenv&lt;/a&gt; имеют примерно те же проблемы.&lt;/p&gt;
+&lt;p&gt;Следующее решение это &lt;a href=&quot;https://volta.sh/&quot;&gt;Volta&lt;/a&gt;. Написано на Rust, а значит должно быть быстрым. Поддерживает fish и даже windows. Глобально установленные библиотеки работают даже после смены версии. Но не поддерживается &lt;code&gt;.nvmrc&lt;/code&gt;/&lt;code&gt;.node-version&lt;/code&gt; файлы, хотя на замену тут предлагается писать версию ноды в &lt;code&gt;package.json&lt;/code&gt;. Ещё из недостатков, поддержка &lt;code&gt;pnpm&lt;/code&gt; находится в экспериментальном режиме.&lt;/p&gt;
+&lt;p&gt;И наконец &lt;a href=&quot;fnm.vercel.app&quot;&gt;Fast Node Manager &lt;code&gt;fnm&lt;/code&gt;&lt;/a&gt;. Написан также на Rust. Работает быстро и поддерживает всё что надо. Устанавливается fnm одной командой:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;curl -fsSL https://fnm.vercel.app/install | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Далее можно установить версию Node.JS которая будет использоваться по умолчанию:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;fnm default 18
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Теперь можно добавить в проект файл &lt;code&gt;.node-version&lt;/code&gt; с указанием версии Node.JS, которая будет использоваться в этом проекте.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo 18.17.0 &amp;gt; .node-version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;При открытии консоли в папке с проектом, fnm автоматически включит нужную версию Node.JS.&lt;/p&gt;
+&lt;p&gt;Есть небольшой недостаток, если в проекте указана версия Node.JS которая не установлена, автоматически она не установится, но при открытии консоли отобразится ошибка. Для установки нужной версии нужно будет ввести целых две команды&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;fnm install
+fnm use
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Установка pnpm/yarn&lt;/h2&gt;
+&lt;p&gt;Node.JS, начиная с версии 16.13, получил поддержку &lt;a href=&quot;https://github.com/nodejs/corepack&quot;&gt;Corepack&lt;/a&gt;. Эта утилита позволяет использовать любой поддерживаемый пакетный менеджер без ручной установки. Всё что нужно сделать, это включить corepack:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;corepack enable
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;После чего при первом использовании &lt;code&gt;pnpm&lt;/code&gt;/&lt;code&gt;yarn&lt;/code&gt; они автоматически установятся и будут работать.&lt;/p&gt;
+</content:encoded></item><item turbo="true"> <turbo:extendedHtml>true</turbo:extendedHtml> <title>Photo lib share - фото галерея своими руками</title><link>https://dskr.dev/blog/photo-lib-part-1/</link><guid isPermaLink="true">https://dskr.dev/blog/photo-lib-part-1/</guid><description>Попытка написать selfhosted Google Photos без фатального недостатка </description><pubDate>Mon, 12 Jun 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Идея написать свою фото галерею появилась у меня пару лет назад. И даже начал что-то писать, но довольно быстро забил. С тех времён у меня была почти готовая библиотека для создания красивого лэйаута. &lt;a href=&quot;https://github.com/skrylnikov/photo-flex-layout&quot;&gt;Photo flex layout&lt;/a&gt; - это имплементация &lt;a href=&quot;https://medium.com/google-design/google-photos-45b714dfbed1&quot;&gt;Google Photo Flex Layout&lt;/a&gt;. Выпустил версию 1.0.0, подробнее про неё писал в &lt;a href=&quot;https://t.me/dskr_dev/140&quot;&gt;Telegram канале&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;В планах написать два модуля:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Photo lib&lt;/code&gt; - приложение для хранение и организации фоточек. Ставится он должен в идеале на NAS. Пока он не написан, использую synology photos. Но единственный его плюс, это неплохая синхронизация через мобильное приложение, в остальном одни минусы. Нет возможности посмотреть все фото наа карте, raw и jpeg не объединяются в одно фото, нет архива, нельзя поставить условие &lt;code&gt;and&lt;/code&gt; при фильтрации по тегам. И это первое что пришло в голову&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Photo lib share&lt;/code&gt; - галерея для шеринга фоточек и альбомов. Ставится он должен куда-нибудь на публичный сервер, чтоб можно было смотреть на фоточки даже если &lt;code&gt;Photo lib&lt;/code&gt; не доступен. Начать я решил именно с этого модуля.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В данный момент готов MVP. Посмотреть на работу можно на &lt;a href=&quot;https://dskr.photos/&quot;&gt;dskr.photos&lt;/a&gt;. Исходники на &lt;a href=&quot;https://github.com/skrylnikov/photo-lib&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Нулевая версия&lt;/h2&gt;
+&lt;p&gt;Начал с того что взял старый код, выкинул всё что было не нужно, обновил зависимости и заставил это всё хоть как-то работать. Превью подготавливал с помощью &lt;a href=&quot;https://sharp.pixelplumbing.com/&quot;&gt;sharp&lt;/a&gt;, mozjpeg, 80%, 1000 пикселей по длиной стороне. Превью генерировались во время индексации, что не очень удобно. Между беком и фронтом, просто http, на сервере koa. Метадата хранится в &lt;a href=&quot;https://www.npmjs.com/package/nedb-promises&quot;&gt;nedb&lt;/a&gt;. Эту версию так никуда и не выложил.&lt;/p&gt;
+&lt;h2&gt;Первая версия&lt;/h2&gt;
+&lt;p&gt;Добавил docker compose для нормального деплоя. Пришлось изучить как правильно писать докерфайлы. Долго матерился.&lt;/p&gt;
+&lt;p&gt;Базу поменял на postgres, взял orm &lt;a href=&quot;https://www.prisma.io/&quot;&gt;prisma&lt;/a&gt;. До этого обычно использовал sequelize, это был первый опыт работы с призмой. В целом понравилось, из косяков, при кодогенерации нужно задавать валидную переменную окружения с строкой подключения к базе, что не очень хорошо ложится на логику использования докера. Описал одну единственную таблицу с нужными и не очень полями.&lt;/p&gt;
+&lt;p&gt;Sharp поменял на imgproxy. Но это оказалось плохое решение. В целом imgproxy клёвый, но он явно сделан не для этого. Из косяков, imgproxy не умеет в кеширование, всё что он делает, это выставляет правильные заголовки кеширования. Для решения этой проблемы пришлось настроит кеширующий nginx. Но проблему первого открытия это всё равно не решило, большие фоточки конвертировались медленно. Превью запрашивал под необходимый размер, но чтоб работало кеширование, округлял до 25 в большую сторону.&lt;/p&gt;
+&lt;p&gt;Lightbox быстро написал сам, получилось плохо не удобно и не красиво.&lt;/p&gt;
+&lt;p&gt;Сделал нормальный монорепозиторий. Для управления взял &lt;a href=&quot;https://turbo.build/repo&quot;&gt;turborepo&lt;/a&gt;. Сразу вынес отдельно будущий общий код &lt;code&gt;Photo lib&lt;/code&gt; и &lt;code&gt;Photo lib share&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Задеплоил, собрал фидбек. Ожидаемо всё было плохо с lightbox. Так же загружались оригиналы в lightbox, что тоже не оч хорошая идея.&lt;/p&gt;
+&lt;h2&gt;Вторая версия&lt;/h2&gt;
+&lt;p&gt;Поменял схему базы. Теперь у меня есть &lt;code&gt;Image&lt;/code&gt; с основной информацией вроде времени создания и exif. &lt;code&gt;File&lt;/code&gt; с ссылкой на оригинальное фото. &lt;code&gt;Thumbnail&lt;/code&gt; с ссылкой на всевозможные превью.&lt;/p&gt;
+&lt;p&gt;Выкинул imgproxy, вернул sharp. Теперь генерю webp и avif. Качество пока выставил 80 для webp и 65 для avif. Хотел добавить ещё heif и jxl, но для них нужно руками собирать плюсовую либу. Генерирую два размера, полноразмерную превью для показал в lightbox и 720px по длинной стороне для галереи. Так как avif генерируются медленно, использую очередь и отдельный поток для генерации. Для очереди пока что взял &lt;a href=&quot;https://docs.bullmq.io/&quot;&gt;bullmq&lt;/a&gt;. Если никакой превью ещё не сгенерировано, то загружаю оригинальную фотку.&lt;/p&gt;
+&lt;p&gt;Выкинул самописный lightbox и взял &lt;a href=&quot;https://photoswipe.com/&quot;&gt;photoswipe&lt;/a&gt;. Выбрал его в первую очередь из-за красивой анимации открытия фотки. Photoswipe написан без фреимворков, но его можно подключить например к реакту. Из косяков, у меня не подтягиваются типы. Так же взял &lt;a href=&quot;https://www.framer.com/motion/&quot;&gt;framer-motion&lt;/a&gt; для красивой анимации появления фоток в галерее. Не уверен что это хорошее решение, но пока решил оставить так.&lt;/p&gt;
+&lt;p&gt;Взял &lt;a href=&quot;https://trpc.io/&quot;&gt;tRPC&lt;/a&gt; вместо koa. Хотел попробовать &lt;a href=&quot;https://garph.dev/&quot;&gt;Garph&lt;/a&gt;, но он пока что очень сырой, писал про это в &lt;a href=&quot;https://t.me/dskr_dev/146&quot;&gt;Telegram канале&lt;/a&gt;. tRPC достаточно стабильный и удобный. Но мне не нравится что фронтенд проект импортирует бэкенд проект. Как минимум это замедляет билд. В идеале хотелось бы иметь возможность вынести схему отдельно, но пока не понял как это сделать удобно.&lt;/p&gt;
+&lt;p&gt;Добавил telegram бота для администрирования и загрузки фоток. Для этого взял &lt;a href=&quot;https://grammy.dev/&quot;&gt;grammY&lt;/a&gt;. Пока что бот умеет только загружать фотки, и запускать принудительную переиндексацию. Из ограничений, нельзя загружать фото больше 20мб, это можно обойти если самому хостить bot api, но пока что мне не хочется с этим разбираться.&lt;/p&gt;
+&lt;p&gt;Добавил &lt;a href=&quot;https://reproxy.io/&quot;&gt;Reproxy&lt;/a&gt; для простенькой реверспрокси. Nginx я настраивать не умею, а caddy кажется overkill для таких задач. Хотел чтоб всё красиво работало через лейблы, но почему-то не смог завести на маке docker sock. Но, меня и статичный конфиг устраивает.&lt;/p&gt;
+&lt;h2&gt;ToDo&lt;/h2&gt;
+&lt;p&gt;Планирую заменить bullmq на rabbitmq. Bullmq всем хорош, но он работает только с нодой и в экспериментальном режиме питоном. А хочется иметь больший выбор платформ.&lt;/p&gt;
+&lt;p&gt;Хочется попробовать перенести генерацию превью на rust. Это должно быть быстрее. Надеюсь что там не будет проблем с поддержкой модных форматов. Но я совсем не знаю раст, и это не тот язык который можно освоить за выходные.&lt;/p&gt;
+&lt;p&gt;Надо бы добавить альбомы. Но пока что не придумал как они должны выглядеть. Так же под это дело прийдётся дорабатывать бота.&lt;/p&gt;
+&lt;p&gt;Ну и уже можно начинать думать о работе над &lt;code&gt;Photo lib&lt;/code&gt;. Там у меня куда больше планов.&lt;/p&gt;
+</content:encoded></item><item turbo="true"> <turbo:extendedHtml>true</turbo:extendedHtml> <title>TypeScript - номинальная типизация примитивных типов</title><link>https://dskr.dev/blog/ts-nominal-type/</link><guid isPermaLink="true">https://dskr.dev/blog/ts-nominal-type/</guid><description>Как в typescript типизовать Lat/Lng, Rub/Usd/Eur и друге похожие друг на друга типы данных</description><pubDate>Thu, 10 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Координаты&lt;/h2&gt;
+&lt;p&gt;В моих задачах мне приходится много работать с библиотеками, использующими координаты.
+Разные библиотеки могут сохранять/передавать значения координат в разном виде.
+Например, это может быть объект с двумя полями или массив с двумя значениями.
+С массивом возникают некоторые сложности. В какой последовательности  и почему
+именно в такой  должны идти долгота и широта? Каждый автор библиотеки решает
+эту проблему по-своему, а нам страдать.&lt;/p&gt;
+&lt;p&gt;Было бы классно, написать что-то такое:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Lat = number;
+type Lng = number;
+
+type LatLng = [Lat, Lng];
+type LngLat = [Lng, Lat];
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Но это не сработает, потому что в typescript используется структурная типизация,
+и оба типа работают как &lt;code&gt;[number, number]&lt;/code&gt;. К счастью, номинальную типизацию
+можно эмулировать. Для этого к &lt;code&gt;number&lt;/code&gt; нужно добавить уникальный признак:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Lat = number &amp;amp; { __type: &apos;Lat&apos; };
+type Lng = number &amp;amp; { __type: &apos;Lng&apos; };
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Теперь типы &lt;code&gt;Lat&lt;/code&gt; и &lt;code&gt;Lng&lt;/code&gt; не будут равны друг другу, что нам и нужно было.
+Такой подход называется brand/opaque type. И чтобы было удобнее,
+можно написать алиас.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Brand&amp;lt;T, U&amp;gt; = T &amp;amp; { __type: U };
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Или взять готовую реализацию из библиотеки с утилитарными типами,
+например из &lt;a href=&quot;https://github.com/piotrwitek/utility-types#brandt-u&quot;&gt;utility-types&lt;/a&gt;
+или &lt;a href=&quot;https://github.com/sindresorhus/type-fest#utilities&quot;&gt;type-fest&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Тогда использование будет выглядеть как-то так:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Lat = Brand&amp;lt;number, &apos;Lat&apos;&amp;gt;;
+type Lng = Brand&amp;lt;number, &apos;Lng&apos;&amp;gt;;
+
+type LatLng = [Lat, Lng];
+
+const lat = 59.57 as Lat;
+const lng = 30.19 as Lng;
+
+const fn = (coords: LatLng) =&amp;gt; {...};
+
+fn([lat, lng]) // Всё ок
+
+fn([lng, lat]) // Ошибка
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Email&lt;/h2&gt;
+&lt;p&gt;Кажется, что с адресом электронной почты можно поступить так же:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Email = Brand&amp;lt;string, &apos;Email&apos;&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Но на самом в typescript 4.1 появились литеральные типы, и они позволяют творить
+магию. Например можно написать так:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Email = `${string}@${string}.${string}`;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Таким образом, можно проверить что тут не случайная строка, а строка в особом
+формате, немного похожем на email.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const notEmail: Email = &apos;example&apos;; // Ошибка
+
+const email: Email = &apos;mail@example.com&apos;; // Всё ок
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Но тут нужно быть осторожным, ибо одно неверное движение  и всё сломается.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;// Ошибки нет, хотя строка не правильного формата
+const notEmail = &apos;example&apos; as Email;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Валюты и немного дженериков&lt;/h2&gt;
+&lt;p&gt;Представим, что приложение работает с разными валютами. И хочется на уровне типов
+запретить складывать доллары с рублями без конвертации.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;type Rub = Brand&amp;lt;number, &apos;Rub&apos;&amp;gt;;
+type Usd = Brand&amp;lt;number, &apos;Usd&apos;&amp;gt;;
+type Eur = Brand&amp;lt;number, &apos;Eur&apos;&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Здесь полностью запретить сложение разных валют не выйдет, но
+если всегда для сложения валют использовать функцию  всё будет работать.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const sumRub = (a: Rub, b: Rub): Rub =&amp;gt; {...};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;В таком случае, нам для каждой валюты придётся писать свои функции.&lt;/p&gt;
+&lt;p&gt;Но можно использовать дженерики:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const sum = &amp;lt;T extends&amp;gt;(a: T, b: T): T =&amp;gt; ...;
+
+const aRub = 300 as Rub;
+const bRub = 600 as Rub;
+const cUsd = 30 as Usd;
+
+sum(aRub, bRub) // Всё ок
+
+sum(aRub, cUsd) // Ошибка
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;А теперь используя brand type и литеральные типы, напишем функцию для конвертации
+любой валюты в usd.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const toUsd = &amp;lt;Value extends Brand&amp;lt;number, B&amp;gt;, B extends string&amp;gt;(value: Value, currency: Brand&amp;lt;number, `${Value[&apos;__type&apos;]}ToUsd`&amp;gt;): Usd =&amp;gt; {};
+
+type RubToUsdCurrency = Brand&amp;lt;number, &apos;RubToUsd&apos;&amp;gt;; 
+
+const rubToUsdCurrency = 30 as RubToUsdCurrency;
+
+toUsd(rub, rubToUsd); // Всё ок
+toUsd(eur, rubToUsd); // Ошибка
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Немного маги. Первый аргумент в дженерике - любой brand type.
+Второй аргумент - уникальная строка из brand type.
+Такое усложнение нужно, чтобы можно было вытащить эту уникальную строку.
+Тип currency можно было бы задать как &lt;code&gt;Brand&amp;lt;number, `${B}ToUsd`&amp;gt;&lt;/code&gt;, но тогда
+при неправильном вызове функции typescript будет ругаться на первый аргумент.
+Если же написать &lt;code&gt;Brand&amp;lt;number, `${Value[&apos;__type&apos;]}ToUsd`&amp;gt;&lt;/code&gt;, то ошибка будет
+во втором аргументе, что логичнее.&lt;/p&gt;
+</content:encoded></item></channel></rss>
