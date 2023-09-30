@@ -22,15 +22,15 @@
     "@astrojs/mdx": "1.1.0",
     "@astrojs/rss": "3.0.0",
     "@astrojs/sitemap": "3.0.0",
-    "@types/markdown-it": "13.0.1",
-    "astro": "3.1.0",
+    "@types/markdown-it": "13.0.2",
+    "astro": "3.2.0",
     "rehype-external-links": "3.0.0",
     "typescript": "5.2.2"
   },
   "dependencies": {
     "date-fns": "2.30.0",
     "highlight.js": "11.8.0",
-    "markdown-it": "13.0.1",
-    "remeda": "1.26.0"
+    "markdown-it": "13.0.2",
+    "remeda": "1.27.0"
   }
 }
