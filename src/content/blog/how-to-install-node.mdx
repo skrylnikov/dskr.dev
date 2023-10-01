@@ -3,39 +3,38 @@ title: Как правильно установить node.js окружение
 description: Расскажу зачем и почему нужны fnm и corepack
 publishDate: 2023-09-18
 ---
+## Installation of Node.JS
+There are several ways to install Node.JS and it is difficult to figure out which one is better. In this article we will compare different ways (direct installation, system package managers, nvm, n, nodenv, volta, fnm). TLDR: I prefer using fnm
 
-## Установка Node.JS
-Существует несколько способов установки Node.JS и сложно понять какой из них лучше. В этой статье мы сравним разные способы (прямая установка, системные пакетные менеджеры, nvm, n, nodenv, volta, fnm). TLDR: я предпочитаю использовать fnm
+The easiest option to install Node.JS is to go to [nodejs.org](https://nodejs.org) and download the installer. But that’s not the best idea. A slightly better option is to use the system package manager(`brew`, `apt`, `dnf`). In both cases you can’t quickly change the version of Node.JS. Often the current project requires a fresh LTS version, the legacy project runs under the previous LTS, and also want to try new chips from the Current version.
 
-Самый простой вариант установить Node.JS это пойти на [nodejs.org](https://nodejs.org) и скачать установщик. Но это не лучшая идея. Вариант чуть получше, воспользоваться системным пакетным менеджером(`brew`, `apt`, `dnf`). В обоих случаях нельзя быстро сменить версию Node.JS. Часто актуальный проект требует свежую LTS версию, легаси проект работает под предыдущим LTS, а так же хочется попробовать новые фишки из Current версии. 
+The most popular solution is [Node Version Manager `nvm`](https://github.com/nvm-sh/nvm). But first, it’s incredibly slow. Each opening of the console with installed `nvm` will take up to a few seconds. Secondly, it doesn’t support fish and windows. Third, globally installed packages will have to be re-installed every time, or you’ll have to write them into a special file. [n](https://github.com/tj/n) and [nodenv](https://github.com/noden/noden/vv) have roughly the same problems.
 
-Самое популярное решение это [Node Version Manager `nvm`](https://github.com/nvm-sh/nvm). Но, во-первых, он невероятно медленный. Каждое открытие консоли с установленным `nvm` будет занимать до нескольких секунд. Во-вторых, он не поддерживает fish и windows. В-третьих, глобально установленные пакеты прийдётся ставить каждый раз заново, либо нужно прописывать их в специальном файле. [n](https://github.com/tj/n) и [nodenv](https://github.com/nodenv/nodenv) имеют примерно те же проблемы.
+The next solution is [Volta] (https://volta.sh/). It is written on Rust, which means it should be fast. It supports fish and even windows. Globally installed libraries work even after a change of version. But `.nvmrc`/`.node-version` files are not supported, although it is suggested to write a node version in `package.json` to replace it.
 
-Следующее решение это [Volta](https://volta.sh/). Написано на Rust, а значит должно быть быстрым. Поддерживает fish и даже windows. Глобально установленные библиотеки работают даже после смены версии. Но не поддерживается `.nvmrc`/`.node-version` файлы, хотя на замену тут предлагается писать версию ноды в `package.json`. Ещё из недостатков, поддержка `pnpm` находится в экспериментальном режиме.
-
-И наконец [Fast Node Manager `fnm`](fnm.vercel.app). Написан также на Rust. Работает быстро и поддерживает всё что надо. Устанавливается fnm одной командой:
+And finally [Fast Node Manager `fnm`] (fnm.vercel.app). Also written on Rust. It works fast and supports everything you need. Installed by fnm with one command:
 ```bash
 curl -fsSL https://fnm.vercel.app/install | bash
 ```
-Далее можно установить версию Node.JS которая будет использоваться по умолчанию:
+Next, you can install the Node.JS version that will be used by default:
 ```bash
 fnm default 18
 ```
-Теперь можно добавить в проект файл `.node-version` с указанием версии Node.JS, которая будет использоваться в этом проекте.
+Now you can add a `.node-version` file to the project indicating the version of Node.JS that will be used in the project.
 ```bash
 echo 18.17.0 > .node-version
 ```
-При открытии консоли в папке с проектом, fnm автоматически включит нужную версию Node.JS.
+When you open the console in the project folder, fnm will automatically enable the desired version of Node.JS.
 
-Есть небольшой недостаток, если в проекте указана версия Node.JS которая не установлена, автоматически она не установится, но при открытии консоли отобразится ошибка. Для установки нужной версии нужно будет ввести целых две команды
+There is a small disadvantage, if the project specifies a version of Node.JS that is not installed, it will not be installed automatically, but a mistake will appear when the console is opened.
 ```bash
 fnm install
 fnm use
 ```
 
-## Установка pnpm/yarn
-Node.JS, начиная с версии 16.13, получил поддержку [Corepack](https://github.com/nodejs/corepack). Эта утилита позволяет использовать любой поддерживаемый пакетный менеджер без ручной установки. Всё что нужно сделать, это включить corepack:
+## Installation of pnpm/yarn
+Node.JS, starting with version 16.13, has supported [Corepack](https://github.com/nodejs/corepack). This utility allows you to use any supported package manager without manual installation. All you need to do is enable corepack:
 ```bash
 corepack enable
 ```
-После чего при первом использовании `pnpm`/`yarn` они автоматически установятся и будут работать.
+After that, when you first use `pnpm`/`yarn`, they will automatically install and work.

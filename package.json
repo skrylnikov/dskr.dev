@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "generate": "tsx ./src/generate.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +27,7 @@
     "@types/markdown-it": "13.0.2",
     "astro": "3.2.0",
     "rehype-external-links": "3.0.0",
+    "tsx": "^3.13.0",
     "typescript": "5.2.2"
   },
   "dependencies": {
