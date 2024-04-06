@@ -14,11 +14,11 @@ The most popular solution is [Node Version Manager `nvm`](https://github.com/nvm
 The next solution is [Volta](https://volta.sh /). It is written in Rust, which means it should be fast. Supports fish and even windows. Globally installed libraries work even after a version change. But the `.nvmrc`/`.node-version` files are not supported, although it is suggested to write the node version in the `package' as a replacement.json`. Another disadvantage is that `pnpm` support is in experimental mode.
 
 And finally [Fast Node Manager `fnm`](https://fnm.vercel.app ). It is also written in Rust. It works fast and supports everything you need. fnm is installed with one command:
-``bash
+```bash
 curl -fsSL https://fnm.vercel.app/install | bash
 ```
 Next, you can install the Node version.JS to be used by default:
-``bash
+```bash
 fnm default 18
 ```
 Now you can add the `.node-version` file to the project, specifying the Node version.The JS that will be used in this project.
@@ -35,7 +35,7 @@ fnm use
 
 ## Install pnpm/yarn
 Node.JS, starting with version 16.13, now supports [Corepack](https://github.com/nodejs/corepack). This utility allows you to use any supported package manager without manual installation. All you need to do is enable corepack:
-``bash
+```bash
 corepack enable
-``
+```
 After that, when using `pnpm`/`yarn` for the first time, they will automatically install and work.
