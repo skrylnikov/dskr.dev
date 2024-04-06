@@ -12,5 +12,5 @@ export default defineConfig({
       (x) => rehypeExternalLinks({ ...x, target: '_blank'})
     ],
     extendDefaultPlugins: true,
-  }
+  },
 });

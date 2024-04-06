@@ -19,18 +19,18 @@
   },
   "homepage": "https://github.com/skrylnikov/dskr.dev#readme",
   "devDependencies": {
-    "@astrojs/mdx": "1.1.5",
-    "@astrojs/rss": "3.0.0",
-    "@astrojs/sitemap": "3.0.3",
-    "@types/markdown-it": "13.0.7",
-    "astro": "3.5.7",
+    "@astrojs/mdx": "2.2.4",
+    "@astrojs/rss": "4.0.5",
+    "@astrojs/sitemap": "3.1.2",
+    "@types/markdown-it": "14.0.0",
+    "astro": "4.5.16",
     "rehype-external-links": "3.0.0",
-    "typescript": "5.3.2"
+    "typescript": "5.4.4"
   },
   "dependencies": {
-    "date-fns": "2.30.0",
+    "date-fns": "3.6.0",
     "highlight.js": "11.9.0",
-    "markdown-it": "13.0.2",
-    "remeda": "1.29.0"
+    "markdown-it": "14.1.0",
+    "remeda": "1.57.2"
   }
 }
