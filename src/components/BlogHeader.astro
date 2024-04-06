@@ -1,10 +1,22 @@
+---
+import { getRelativeLocaleUrl, } from 'astro:i18n'
+import { L } from '../i18n/i18n-node'
+
+const LL = L[Astro.currentLocale]
+
+
+const changeLangUrl = Astro.url.pathname.startsWith('/en') ? Astro.url.pathname.replace('/en', '') : '/en' + Astro.url.pathname
+
+---
 <header class="wrapper">
 	<article>
 		<h1>
-			<a href="/">
+			<a href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', '/')}>
 				<span>Dskr.dev</span>
 			</a>
 		</h1>
+
+    <a class="change-lang" href={changeLangUrl}>{LL.changeLang()}</a>
 	</article>
 </header>
 
@@ -64,4 +76,10 @@
 		text-decoration: none;
 		display: inline-flex;
 	}
+
+  .change-lang {
+    color: var(--theme-text-lighter);
+    font-size: 1rem;
+    text-decoration: none;
+  }
 </style>

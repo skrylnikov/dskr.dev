@@ -2,6 +2,10 @@
 import { format } from 'date-fns';
 import {ru} from 'date-fns/locale/ru';
 
+import { L } from '../i18n/i18n-node'
+
+const LL = L[Astro.currentLocale]
+
 export interface Props {
 	title: string;
 	publishDate: Date;
@@ -19,8 +23,8 @@ const { title, publishDate, heroImage, alt, github, slug } = Astro.props;
 		<div>
 			<header transition:name={slug}>
         <div class="info" >
-          <p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: ru })}</p>
-          <a target="_blanc" href={github}>Редактировать</a>
+          <p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</p>
+          <a target="_blank" href={github}>{LL.post.edit()}</a>
         </div>
 				<h1 class="title">{title}</h1>
         {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} height="550px" transition:name="image" />}

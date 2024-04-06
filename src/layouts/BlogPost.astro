@@ -16,7 +16,7 @@ const image = heroImage;
 
 ---
 
-<html lang={'ru'}>
+<html lang={Astro.currentLocale || 'ru'}>
 	<head>
 		<BaseHead {title} {description} {image} />
 	</head>

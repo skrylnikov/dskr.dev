@@ -13,4 +13,14 @@ export default defineConfig({
     ],
     extendDefaultPlugins: true,
   },
+  i18n: {
+    defaultLocale: 'ru',
+    locales: ['ru', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+    fallback: {
+      en: 'ru',
+    },
+  },
 });

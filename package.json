@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typesafe-i18n": "typesafe-i18n"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "date-fns": "3.6.0",
     "highlight.js": "11.9.0",
     "markdown-it": "14.1.0",
-    "remeda": "1.57.2"
+    "remeda": "1.57.2",
+    "typesafe-i18n": "^5.26.2"
   }
 }

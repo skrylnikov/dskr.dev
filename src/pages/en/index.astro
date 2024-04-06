@@ -1,0 +1,77 @@
+---
+// Component Imports
+import { getCollection } from 'astro:content';
+
+import BaseHead from '../../components/BaseHead.astro';
+import BlogHeader from '../../components/BlogHeader.astro';
+import HCard from '../../components/HCard.astro';
+import BlogPostPreview from '../../components/BlogPostPreview.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+
+// Data Fetching: List all Markdown posts in the repo.
+
+const posts = (await getCollection('blogEn')).filter((x) => !x.data.hidden).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+		<style>
+			header {
+				width: 100%;
+				height: 100%;
+				background-color: var(--theme-bg-offset);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.content {
+				margin-top: 4rem;
+				margin-bottom: 8rem;
+			}
+
+			.content :global(main > * + *) {
+				margin-top: 1rem;
+			}
+
+			.intro {
+				padding-bottom: 4rem;
+				margin-bottom: 2rem;
+				border-bottom: 4px solid var(--theme-divider);
+			}
+
+			.intro > * {
+				margin: 0;
+			}
+
+			.latest {
+				font-size: 2.5rem;
+				font-weight: 700;
+        margin-bottom: 1em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<BlogHeader />
+    <HCard/>
+
+		<div class="wrapper" transition:animate={"fade"}>
+			<main class="content">
+				<h1 class="latest">Blog</h1>
+				<section aria-label="Blog post list">
+					{posts.map((post) => <BlogPostPreview title={post.data.title} description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} />)}
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
