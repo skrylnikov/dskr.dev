@@ -69,7 +69,7 @@ const posts = (await getCollection('blogEn')).filter((x) => !x.data.hidden).sort
 			<main class="content">
 				<h1 class="latest">Blog</h1>
 				<section aria-label="Blog post list">
-					{posts.map((post) => <BlogPostPreview title={post.data.title} description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} />)}
+					{posts.map((post) => <BlogPostPreview title={post.data.title} description={post.data.description} publishDate={post.data.publishDate} slug={post.id} />)}
 				</section>
 			</main>
 		</div>

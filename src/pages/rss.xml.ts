@@ -20,7 +20,7 @@ export async function get(context: any) {
       content: parser.render(post.body),
       // Compute RSS link from post `slug`
       // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id}/`,
 		})),
 	});
 }
