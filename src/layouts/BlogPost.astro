@@ -10,7 +10,7 @@ type Props = CollectionEntry<'blog'>['data'] & {slug: string};
 
 const { title, description, publishDate, heroImage, slug } = Astro.props;
 
-const alt = undefined;
+const alt = title;
 const github = `https://github.com/skrylnikov/dskr.dev/blob/master/src/content/blog/${slug}.mdx`;
 const image = heroImage;
 

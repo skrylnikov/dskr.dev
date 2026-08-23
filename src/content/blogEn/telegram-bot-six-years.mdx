@@ -1,0 +1,167 @@
+---
+title: 'Six Years of Telegram Bot Development: From a Tokenizer to LLMs, RAG, and Vector Databases'
+description: 'How Io evolved from a tokenizer to LLMs, memory, RAG, and vector search'
+publishDate: 2026-07-30
+heroImage: /assets/telegram-bot-six-years/hero.png
+---
+
+Io is an LLM bot for Telegram chats. It can reply to user messages, recognize images and voice messages, take the current thread, chat history, and user information into account. The bot is currently active in several dozen chats.
+
+I’ll tell you how I built it over several years, tried to teach it to remember users, explored RAG and vector databases, and eventually ended up with a system that actually works.
+
+## How did the idea come about?
+
+Many years ago, there was a space-themed community called Alpha Centauri. It had an off-topic chat with a chatbot living in it. LLMs did not exist back then; the bot worked with regular expressions, could check the weather, ban users, remember information, and do other fun things. The chat and the bot eventually disappeared, and people moved to other chats. Some time later, I wanted to build a similar bot.
+
+## A pre-LLM prototype
+
+The first version was written in the summer of 2020. GPT-3 had just been released, it did not speak Russian, and it had not made its way into chats yet, so I had to reinvent the wheel. I did not know regular expressions, so I decided to split text into tokens, identify the meaningful ones, and launch the appropriate function.
+
+The tokenizer worked like this: it removed links from the text, split it into sentences by punctuation, then split sentences into words, converted them to lowercase, and applied a stemmer.
+
+For example, the Russian words «расскажи» and «рассказать» become the stem «расска», while «погода» and «погоду» become «погод». This kept the list of commands from growing into dozens of variants of the same word. Russian has declensions, cases, and other complications, so the system was far from perfect.
+
+Sometimes I still had to write several variants:
+
+```typescript
+switch (nextWorld) {
+  case PorterStemmerRu.stem('мин'):
+  case PorterStemmerRu.stem('минут'): {
+    return number * 60;
+  }
+  case PorterStemmerRu.stem('час'): {
+    return number * 60 * 60;
+  }
+  case PorterStemmerRu.stem('дня'):
+  case PorterStemmerRu.stem('дней'):
+  case PorterStemmerRu.stem('день'): {
+    return number * 60 * 60 * 24;
+  }
+}
+```
+
+The first features included weather forecasts, banning users, voice recognition, and text translation.
+
+The weather also had its complications. Users could spell city names in different ways, so I used [DaData](https://dadata.ru/) to identify the city. I got the actual forecast from [OpenWeather](https://openweathermap.org/), and still do. It is not the best source, but it is free.
+
+For translation and voice recognition, I used Yandex services. I also wanted to recognize video messages, so I had to bring in [FFmpeg](https://ffmpeg.org/) to extract audio from video.
+
+The bot was abandoned in this state for three long years. I wanted to add more features, of course, but procrastination got in the way, as did the complexity. It was difficult to build something useful and interesting on top of a primitive tokenizer.
+
+## The first attempts with LLMs
+
+I started by trying to write a separate bot. At that point, there was no convenient way to call functions through an LLM. The result was a primitive bot based on GPT-3.5 Turbo. Its context was stored in memory, so nothing survived a restart. It only worked inside a thread.
+
+![For extra fun, the bot could be called with different commands, which added different hacks to the system prompt](/assets/telegram-bot-six-years/02-llm-commands.jpeg)
+
+With that experience behind me, I went back to rewrite Io. The LLM was called when a user addressed the bot and none of the regular commands matched.
+
+The bot lived in this form until 2024. After that, I added proper context handling. All messages were stored in a database. Each message points to a reply, which creates a conversation tree. This made it possible, for example, to get a different answer to the same request: you only had to reply to the relevant message in the history, and the bot would continue the conversation from that exact point without touching the other branches.
+
+Around the same time, I switched to GPT-4o mini and added Tool Calling so the model could choose and call the functions it needed. As a result, all the old tokenizer hacks were no longer necessary and were removed. I also removed the user-ban feature because nobody was using it anymore.
+
+I also added image support. At first, the bot simply passed the image URL in every request to the model, but that turned out to be too expensive. So I moved image processing into a separate stage: when a user sends a photo, the bot immediately sends it through a model, gets a textual description, and saves it to the database. Later, when the image enters the conversation context, the existing description is used instead. This is still how the feature works today.
+
+Since the bot could be freely added to any chat, image processing initially worked only in trusted chats. Even with that limitation, the bot consumed around $10–20 per month in model costs.
+
+## Teaching the bot to remember information
+
+### The first version of memory
+
+In 2025, I read a lot about RAG (Retrieval-Augmented Generation, a method for working with large amounts of data), but I was not ready to deal with vector databases and all the related complexity. So I took the simplest route. I added a `metaInfo` field containing JSON with the information collected about a user. I updated it every ten messages with a query like this:
+
+![Query for updating a user's memory](/assets/telegram-bot-six-years/03-context-tree.jpeg)
+
+Then I added this information to every request with instructions like these:
+
+![User information in the request context](/assets/telegram-bot-six-years/04-image-processing.jpeg)
+
+Memory worked. Io now knew something about the user.
+
+<details>
+<summary>Hidden text</summary>
+
+![Example of saved user facts](/assets/telegram-bot-six-years/05-memory-json.jpeg)
+
+![Another example of saved user facts](/assets/telegram-bot-six-years/06-memory-facts.jpeg)
+
+![Sometimes this produced funny conversations](/assets/telegram-bot-six-years/07-funny-dialogue.jpeg)
+
+</details>
+
+But memory was far from perfect. One woman had a gender-neutral name, and Io absolutely refused to remember that she was a woman. I rewrote the metadata and added weights to the facts. The model now estimated the importance of each fact, and I increased the weight when a fact was repeated. That did not help either. The model considered the user’s gender completely unimportant) In the end, the problem was solved by manually editing the database.
+
+![Editing a user fact](/assets/telegram-bot-six-years/08-gender-fact.jpeg)
+
+![An unsuccessful attempt to change the bot's behavior](/assets/telegram-bot-six-years/09-unsafe-replies.jpeg)
+
+The same user tried very hard to make Io write something inappropriate. This led to Io responding inadequately to all of her messages.
+
+![Example of inadequate replies](/assets/telegram-bot-six-years/10-clear-memory.jpeg)
+
+I had to add a way to clear the memory.
+
+![Clearing a user's memory](/assets/telegram-bot-six-years/11-memory-reset.jpeg)
+
+## Vectors, finally
+
+The bot survived in this form until 2026. By then, the rise of agents had significantly lowered the barrier to entry for these experiments, and I finally wanted to try vector databases. In my mind, RAG was simple: take all the messages, put them into a vector database, find similar ones for a new request, and add them to the context. That was it — the model knew the user's history and took it into account. I was very wrong.
+
+It quickly became clear that searching for similar messages was almost useless. Most of the retrieved messages were just fragments of old conversations with no long-term value. Models benefit much more from knowing stable facts about a user than from rereading their chat history. So I continued using two approaches: vector search over messages and separate fact extraction.
+
+After that, I rewrote fact collection. The model now extracts a fact and evaluates its importance. Vector search then finds similar facts among the saved ones, and the model decides whether to increase the weight of an existing fact, update it, or save a new one.
+
+This complexity is necessary because the model can phrase the same fact slightly differently each time. It also made it possible to update information when it contradicts older data. For a new request, the user's facts are ranked by date and importance, and the top 10 are added to the context.
+
+## Small but useful features
+
+Voice message summarization. If a voice message is long, the bot creates a summary and hides the original text under a spoiler. I also run the transcript through an LLM to add punctuation and remove repetitions.
+
+![Example of a voice message summary](/assets/telegram-bot-six-years/12-voice-summary.jpeg)
+
+Guest Mode. A way to call the bot in any chat and talk to it there. It is similar to inline mode, except the conversation is not limited to one request.
+
+Wikipedia search. It gives the model at least a chance of getting facts right.
+
+Explicit memory. A way to directly ask the bot to remember something. This solved the problem of having to edit the database manually to correct facts.
+
+## Monetization
+
+I recently added monetization. The free version has daily limits for messages, image recognition, and voice messages. The message limit is soft: after reaching it, the bot switches to a cheaper model. Users can buy a subscription for a week, a month, three months, or a year. The longer the subscription, the higher the daily limit. As a bonus, the limits are slightly increased for everyone in a chat where one of the users has a subscription.
+
+<details>
+<summary>Hidden text</summary>
+
+![Subscription limits and plans](/assets/telegram-bot-six-years/13-subscription.jpeg)
+
+</details>
+
+## Technology stack
+
+The original stack was Node.js, TypeScript, Telegraf.js, and OpenAI.
+
+Later, I switched from Telegraf.js to [grammY](https://grammy.dev/). It has a convenient API, good TypeScript support, fast support for new versions of the Telegram Bot API, and many useful extensions.
+
+I initially chose [Qdrant](https://qdrant.tech/) as the vector database. For my scale, this turned out to be overkill: there was no reason to maintain a separate database when everything fit comfortably into PostgreSQL. So I recently switched to the [pgvector](https://github.com/pgvector/pgvector) extension.
+
+I first used [LangChain](https://www.langchain.com/) to work with LLMs, but it turned out to be too complex. In the end, I migrated to [Vercel's AI SDK](https://ai-sdk.dev/).
+
+I started with OpenAI as the provider, then switched to OpenRouter, and later to RouterAI because of payment issues.
+
+I store prompts and request traces in [Langfuse](https://langfuse.com/). It turned out not to be the best fit for my needs because my prompt changes dynamically, while its template capabilities are limited. Now the static part is stored in Langfuse, and the dynamic part is inserted as one block. I barely use tracing: so far, I have not encountered a task that made me want to inspect it regularly.
+
+The main model is currently Gemini 3.6 Flash, and the budget model is Gemini 2.5 Flash Lite. I use Nex-N2-mini for fact extraction, summarization, and image recognition.
+
+I initially generated vectors through OpenRouter, but after switching to RouterAI, embedding generation started taking too long — anywhere from 10 to 60 seconds. The bot vectorizes the current message on every request to find relevant context, which makes it feel slow. So I deployed [text-embeddings-inference](https://github.com/huggingface/text-embeddings-inference) with `multilingual-e5-small`. I have not compared the quality yet, but embeddings are generated quickly even on a small server.
+
+Infrastructure is a separate story. At first, everything ran through Docker Compose, but every deployment required logging into the server manually, pulling the changes, and rebuilding the bot. It could have been automated, of course, but I was too lazy. The bot later moved to Coolify, which brought automatic builds, deployments, and backups. However, builds put a heavy load on the server and could take it down for a couple of minutes. Database migrations also caused problems.
+
+So I decided to move to k3s. Now GitHub Actions builds the bot image, which is then deployed to k3s. Backups are sent to S3 storage on my home NAS. I plan to set up another k3s cluster at home and deploy monitoring there, just to make it look nice. Agents have made this kind of work very quick and easy, although there is always a risk that one of them will eventually delete both my database and my backups.
+
+## Plans
+
+Set up proper monitoring. Fix the bugs — Guest Mode currently does not preserve context, for example. Implement web search, since the bot currently only searches Wikipedia. Improve the infrastructure: the bot is currently unavailable for several minutes during deployment.
+
+---
+
+Io is still a large playground for my experiments. I try many new ideas from the world of LLMs and infrastructure there first. As long as the project remains enjoyable, it was all worth it. You can try the bot on [Telegram](https://t.me/PhoronisBot). The source code is on [GitHub](https://github.com/skrylnikov/Phoronis-tg-bot).

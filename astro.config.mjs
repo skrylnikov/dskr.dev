@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import rehypeExternalLinks from 'rehype-external-links';
 
@@ -7,20 +8,16 @@ import rehypeExternalLinks from 'rehype-external-links';
 export default defineConfig({
 	site: 'https://dskr.dev',
 	integrations: [mdx(), sitemap()],
-  markdown: {
-    rehypePlugins: [
-      (x) => rehypeExternalLinks({ ...x, target: '_blank'})
-    ],
-    extendDefaultPlugins: true,
-  },
-  i18n: {
-    defaultLocale: 'ru',
-    locales: ['ru', 'en'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
-    fallback: {
-      en: 'ru',
-    },
-  },
+	markdown: {
+		processor: unified({
+			rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
+		}),
+	},
+	i18n: {
+		defaultLocale: 'ru',
+		locales: ['ru', 'en'],
+		routing: {
+			prefixDefaultLocale: false,
+		},
+	},
 });

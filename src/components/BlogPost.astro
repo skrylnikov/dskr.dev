@@ -27,7 +27,7 @@ const { title, publishDate, heroImage, alt, github, slug } = Astro.props;
           <a target="_blank" href={github}>{LL.post.edit()}</a>
         </div>
 				<h1 class="title">{title}</h1>
-        {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} height="550px" transition:name="image" />}
+						{heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} transition:name="image" />}
 			</header>
 			<main>
 				<slot />
@@ -39,15 +39,14 @@ const { title, publishDate, heroImage, alt, github, slug } = Astro.props;
 <style>
 	.hero-image {
 		width: 100vw;
-		object-fit: cover;
 		object-position: center;
 		margin-top: 2rem;
 		max-width: 746px;
+		height: auto;
 	}
 
 	@media (max-width: 50em) {
 		.hero-image {
-			height: 260px;
 			margin-top: 0;
 			margin-bottom: 2rem;
 		}

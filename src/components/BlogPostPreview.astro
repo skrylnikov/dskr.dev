@@ -12,14 +12,16 @@ export interface Props {
   description: string;
   publishDate: Date;
   slug: string;
+  heroImage?: string;
 }
 
-const { title, description, publishDate, slug } = Astro.props;
+const { title, description, publishDate, slug, heroImage } = Astro.props;
 
 
 ---
 
 <article class="post-preview" transition:name={slug}>
+	{heroImage && <a class="preview-image-link" href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', `/blog/${slug}/`)} aria-hidden="true" tabindex="-1"><img class="preview-image" src={heroImage} alt="" loading="lazy" /></a>}
 	<header>
 		<p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</p>
 		<a href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', `/blog/${slug}/`)}><h2 class="title">{title}</h2></a>
@@ -37,6 +39,19 @@ const { title, description, publishDate, slug } = Astro.props;
 		padding-bottom: 2rem;
 		margin-bottom: 2rem;
 		border-bottom: 4px solid var(--theme-divider);
+	}
+
+	.preview-image-link {
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+	.preview-image {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 8px;
 	}
 
 	header {
