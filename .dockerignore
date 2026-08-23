@@ -1,0 +1,6 @@
+.git
+.astro
+dist
+node_modules
+services/indie/.env
+*.log

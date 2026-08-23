@@ -31,10 +31,15 @@ pnpm indie:migrate
 pnpm indie:dev
 ```
 
-Production image собирается workflow `.github/workflows/indie.yml`. Роутинг
-backend и Postgres/Flux-манифесты должны быть подключены в GitOps-инфраструктуре
-с path-based reverse proxy для `/notes`, `/inbox`, `/auth`, `/micropub`,
-`/webmention` и `/api/interactions`.
+Production images собираются workflow `.github/workflows/site.yml` и
+`.github/workflows/indie.yml`:
+
+- `ghcr.io/skrylnikov/dskr.dev` — статический Astro-host на nginx;
+- `ghcr.io/skrylnikov/dskr.dev-indie` — backend для заметок и Webmention.
+
+Роутинг backend и Postgres/Flux-манифесты должны быть подключены в
+GitOps-инфраструктуре с path-based reverse proxy для `/notes`, `/inbox`,
+`/auth`, `/micropub`, `/webmention` и `/api/interactions`.
 
 ## Статьи
 
