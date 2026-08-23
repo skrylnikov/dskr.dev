@@ -1,87 +1,44 @@
 ---
 import { format } from 'date-fns';
-import {ru} from 'date-fns/locale/ru';
-import { getRelativeLocaleUrl } from 'astro:i18n'
-
-import { L } from '../i18n/i18n-node'
-
-const LL = L[Astro.currentLocale]
+import { ru } from 'date-fns/locale/ru';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { L } from '../i18n/i18n-node';
 
 export interface Props {
-  title: string;
-  description: string;
-  publishDate: Date;
-  slug: string;
-  heroImage?: string;
+	title: string;
+	description: string;
+	publishDate: Date;
+	slug: string;
+	heroImage?: string;
+	featured?: boolean;
 }
 
-const { title, description, publishDate, slug, heroImage } = Astro.props;
-
-
+const { title, description, publishDate, slug, heroImage, featured = false } = Astro.props;
+const LL = L[Astro.currentLocale];
+const postUrl = getRelativeLocaleUrl(Astro.currentLocale || 'ru', `/blog/${slug}/`);
+const fallbackArt: Record<string, { eyebrow: string; label: string; code: string }> = {
+	'how-to-install-node': { eyebrow: 'RUNTIME', label: 'Node.js', code: 'fnm → corepack → pnpm' },
+	'ts-nominal-type': { eyebrow: 'TYPESCRIPT', label: 'Nominal types', code: 'Lat / Lng · RUB / USD' },
+};
+const art = fallbackArt[slug] || { eyebrow: 'NOTEBOOK', label: 'A new experiment', code: 'ideas → code → shipped' };
 ---
 
-<article class="post-preview" transition:name={slug}>
-	{heroImage && <a class="preview-image-link" href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', `/blog/${slug}/`)} aria-hidden="true" tabindex="-1"><img class="preview-image" src={heroImage} alt="" loading="lazy" /></a>}
-	<header>
+<article class:list={['post-preview', { featured }]}>
+	<a class="preview-image-link" href={postUrl} aria-label={title}>
+		{heroImage ? (
+			<img class="preview-image" src={heroImage} alt="" loading={featured ? 'eager' : 'lazy'} transition:name={`hero-${slug}`} />
+		) : (
+			<div class:list={['preview-art', `preview-art--${slug}`]} aria-hidden="true" transition:name={`hero-${slug}`}>
+				<span class="art-eyebrow">{art.eyebrow}</span>
+				<strong>{art.label}</strong>
+				<code>{art.code}</code>
+			</div>
+		)}
+	</a>
+	<div class="preview-body">
 		<p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</p>
-		<a href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', `/blog/${slug}/`)}><h2 class="title">{title}</h2></a>
-	</header>
-	<p class="description">{description}</p>
-	<a class="read" href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', `/blog/${slug}/`)}>{LL.preview.readMore()}</a>
+		<h2 class="title"><a href={postUrl}>{title}</a></h2>
+		<p class="description">{description}</p>
+		<a class="read" href={postUrl}>{LL.preview.readMore()} <span aria-hidden="true">↗</span></a>
+	</div>
 </article>
-
-<style>
-	.content :global(main > * + *) {
-		margin-top: 1rem;
-	}
-
-	.post-preview {
-		padding-bottom: 2rem;
-		margin-bottom: 2rem;
-		border-bottom: 4px solid var(--theme-divider);
-	}
-
-	.preview-image-link {
-		display: block;
-		margin-bottom: 1rem;
-	}
-
-	.preview-image {
-		display: block;
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
-		border-radius: 8px;
-	}
-
-	header {
-		align-items: flex-start;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding-bottom: 1rem;
-		text-align: left;
-	}
-
-	.title,
-	.author,
-	.publish-date {
-		margin: 0;
-	}
-
-	.publish-date,
-	.author {
-		font-size: 1.25rem;
-		color: var(--theme-text-lighter);
-	}
-
-	.title {
-		font-size: 1.75rem;
-		font-weight: 700;
-		color: var(--theme-text);
-	}
-
-  .description {
-    margin-bottom: 0.5em;
-  }
-</style>

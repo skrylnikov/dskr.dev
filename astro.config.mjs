@@ -9,6 +9,13 @@ export default defineConfig({
 	site: 'https://dskr.dev',
 	integrations: [mdx(), sitemap()],
 	markdown: {
+		shikiConfig: {
+			themes: {
+				light: 'github-light',
+				dark: 'github-dark',
+			},
+			defaultColor: false,
+		},
 		processor: unified({
 			rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
 		}),

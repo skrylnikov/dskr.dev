@@ -1,0 +1,22 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import ProjectCard from '../../components/ProjectCard.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { projects } from '../../data/projects';
+import { L } from '../../i18n/i18n-node';
+
+const locale = Astro.currentLocale || 'en';
+const LL = L[locale];
+---
+
+<SiteLayout title={`${LL.projects.title()} — Dskr.dev`} description={LL.projects.intro()}>
+	<section class="page-heading">
+		<p class="eyebrow">03 / {LL.nav.projects()}</p>
+		<h1>{LL.projects.title()}</h1>
+		<p>{LL.projects.intro()}</p>
+	</section>
+	<div class="projects-list">
+		{projects.map((project) => <ProjectCard {project} />)}
+	</div>
+	<p class="back-link"><a href={getRelativeLocaleUrl(locale, '/')}>← {LL.nav.blog()}</a></p>
+</SiteLayout>

@@ -1,85 +1,59 @@
 ---
-import { getRelativeLocaleUrl, } from 'astro:i18n'
-import { L } from '../i18n/i18n-node'
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { L } from '../i18n/i18n-node';
 
-const LL = L[Astro.currentLocale]
-
-
-const changeLangUrl = Astro.url.pathname.startsWith('/en') ? Astro.url.pathname.replace('/en', '') : '/en' + Astro.url.pathname
-
+const locale = Astro.currentLocale || 'ru';
+const LL = L[locale];
+const pathWithoutLocale = locale === 'en'
+	? Astro.url.pathname.replace(/^\/en(?=\/|$)/, '') || '/'
+	: Astro.url.pathname;
+const changeLangUrl = getRelativeLocaleUrl(locale === 'en' ? 'ru' : 'en', pathWithoutLocale);
+const isActive = (path: string) => Astro.url.pathname === getRelativeLocaleUrl(locale, path);
 ---
-<header class="wrapper">
-	<article>
-		<h1>
-			<a href={getRelativeLocaleUrl(Astro.currentLocale || 'ru', '/')}>
-				<span>Dskr.dev</span>
-			</a>
-		</h1>
 
-    <a class="change-lang" href={changeLangUrl}>{LL.changeLang()}</a>
-	</article>
+<header class="site-header">
+	<div class="shell header-inner">
+		<a class="brand" href={getRelativeLocaleUrl(locale, '/')} aria-label="Dskr.dev">
+			<span>dskr</span><b>.dev</b>
+		</a>
+
+		<nav class="site-nav" aria-label={LL.nav.label()}>
+			<a class:list={{ active: isActive('/') }} href={getRelativeLocaleUrl(locale, '/')}>{LL.nav.blog()}</a>
+			<a class:list={{ active: isActive('/projects/') }} href={getRelativeLocaleUrl(locale, '/projects/')}>{LL.nav.projects()}</a>
+			<a class:list={{ active: isActive('/about/') }} href={getRelativeLocaleUrl(locale, '/about/')}>{LL.nav.about()}</a>
+		</nav>
+
+		<div class="header-actions">
+			<a class="language-switch" href={changeLangUrl} lang={locale === 'en' ? 'ru' : 'en'}>{LL.changeLang()}</a>
+			<div class="theme-switch" role="group" aria-label={LL.theme.label()}>
+				<button type="button" data-theme-option="light" aria-label={LL.theme.light()} title={LL.theme.light()}>☼</button>
+				<button type="button" data-theme-option="system" aria-label={LL.theme.system()} title={LL.theme.system()}>◐</button>
+				<button type="button" data-theme-option="dark" aria-label={LL.theme.dark()} title={LL.theme.dark()}>☾</button>
+			</div>
+		</div>
+	</div>
 </header>
 
-<style>
-	header {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		height: 5rem;
-	}
-	article {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.header-subitem {
-		display: flex;
-		flex-grow: 0;
-		gap: 0.5em;
-		align-items: center;
-		justify-content: center;
-		color: var(--theme-text-lighter);
-		font-size: initial;
-		padding: 0.5rem;
-	}
-	.header-subitem:hover {
-		color: var(--theme-accent);
-	}
-	.header-subitem svg {
-		width: 1.5rem;
-		height: 1.5rem;
-	}
+<script is:inline>
+	if (!window.__dskrThemeControls) {
+		window.__dskrThemeControls = true;
 
-	@media (max-width: 32em) {
-		.header-subitem {
-			display: none;
-		}
-	}
+		const syncThemeControls = () => {
+			const selected = document.documentElement.dataset.theme || 'system';
+			document.querySelectorAll('[data-theme-option]').forEach((button) => {
+				button.setAttribute('aria-pressed', String(button.dataset.themeOption === selected));
+			});
+		};
 
-	h1 {
-		margin: 0;
-		font-size: 1.5rem;
-		max-width: 100%;
-		display: flex;
-		flex-grow: 1;
-	}
+		document.addEventListener('click', (event) => {
+			const button = event.target.closest('[data-theme-option]');
+			if (!button) return;
+			document.documentElement.dataset.theme = button.dataset.themeOption;
+			localStorage.setItem('dskr-theme', button.dataset.themeOption);
+			syncThemeControls();
+		});
 
-	.logo {
-		transform: translateY(0.25rem);
+		document.addEventListener('astro:after-swap', syncThemeControls);
+		syncThemeControls();
 	}
-
-	svg {
-		width: 2.5rem;
-		height: 2.5rem;
-	}
-
-	h1 a {
-		text-decoration: none;
-		display: inline-flex;
-	}
-
-  .change-lang {
-    color: var(--theme-text-lighter);
-    font-size: 1rem;
-    text-decoration: none;
-  }
-</style>
+</script>

@@ -1,0 +1,48 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import HCard from '../components/HCard.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { L } from '../i18n/i18n-node';
+
+const locale = Astro.currentLocale || 'ru';
+const LL = L[locale];
+---
+
+<SiteLayout title={`${LL.about.title()} — Dskr.dev`} description={LL.about.lead()}>
+	<section class="about-hero">
+		<div>
+			<p class="eyebrow">03 / {LL.nav.about()}</p>
+			<h1>{LL.about.title()}</h1>
+			<p class="about-lead">{LL.about.lead()}</p>
+		</div>
+		<HCard />
+	</section>
+
+	<div class="about-grid">
+		<section class="about-section">
+			<p class="eyebrow">01</p>
+			<h2>{LL.about.workTitle()}</h2>
+			<p>{LL.about.work()}</p>
+		</section>
+		<section class="about-section">
+			<p class="eyebrow">02</p>
+			<h2>{LL.about.outsideTitle()}</h2>
+			<p>{LL.about.outside()}</p>
+		</section>
+		<section class="about-section">
+			<p class="eyebrow">03</p>
+			<h2>{LL.about.projectsTitle()}</h2>
+			<p>{LL.about.projects()}</p>
+		</section>
+		<section class="about-section about-section--accent">
+			<p class="eyebrow">04</p>
+			<h2>{LL.about.contactTitle()}</h2>
+			<p>{LL.about.contact()}</p>
+			<div class="intro-actions">
+				<a class="button button--primary" href="https://t.me/dskrylnikov" target="_blank" rel="noreferrer">Telegram ↗</a>
+				<a class="button button--quiet" href="https://github.com/skrylnikov" target="_blank" rel="noreferrer">GitHub ↗</a>
+			</div>
+		</section>
+	</div>
+	<p class="back-link"><a href={getRelativeLocaleUrl(locale, '/')}>← {LL.nav.blog()}</a></p>
+</SiteLayout>

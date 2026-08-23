@@ -1,0 +1,46 @@
+---
+import { L } from '../i18n/i18n-node';
+import type { Project } from '../data/projects';
+
+export interface Props {
+	project: Project;
+}
+
+const { project } = Astro.props;
+const locale = Astro.currentLocale || 'ru';
+const LL = L[locale];
+const copy = project[locale];
+---
+
+<article id={project.slug} class:list={['project-card', `project-card--${project.slug}`]}>
+	<div class="project-visual">
+		{project.image ? (
+			<img src={project.image} alt="" loading="lazy" />
+		) : (
+			<div class="project-art" aria-hidden="true">
+				<span class="art-window-dots"><i></i><i></i><i></i></span>
+				<strong>dskr.dev</strong>
+				<code>notes / projects / ideas</code>
+			</div>
+		)}
+	</div>
+	<div class="project-content">
+		<div class="project-heading">
+			<div>
+				<p class="eyebrow">{project.slug === 'phoronis' ? 'TELEGRAM BOT' : 'PERSONAL SITE'}</p>
+				<h2>{copy.title}</h2>
+			</div>
+			<div class="project-links-inline">
+				<a href={project.github} target="_blank" rel="noreferrer">{LL.common.source()}</a>
+				{project.live && <a href={project.live} target="_blank" rel="noreferrer">{LL.common.tryIt()}</a>}
+			</div>
+		</div>
+		<p class="project-description">{copy.description}</p>
+		<div>
+			<p class="eyebrow">{LL.projects.stack()}</p>
+			<ul class="stack-list">
+				{project.stack.map((item) => <li>{item}</li>)}
+			</ul>
+		</div>
+	</div>
+</article>
