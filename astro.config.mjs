@@ -4,10 +4,22 @@ import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import rehypeExternalLinks from 'rehype-external-links';
 
+const hiddenPages = new Set([
+	'https://dskr.dev/blog/dskr-dev-part-1/',
+	'https://dskr.dev/blog/dskr-dev-part-2/',
+	'https://dskr.dev/blog/dskr-dev-part-3/',
+	'https://dskr.dev/blog/performance-ssr-in-preact/',
+]);
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://dskr.dev',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) => !hiddenPages.has(page),
+		}),
+	],
 	markdown: {
 		shikiConfig: {
 			themes: {

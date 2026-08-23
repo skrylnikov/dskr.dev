@@ -1,15 +1,30 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 
+type PageType = 'website' | 'article';
+type Alternate = { hreflang: string; href: string };
+type StructuredData = Record<string, unknown> | Record<string, unknown>[];
+
 export interface Props {
 	title: string;
 	description: string;
-  image?: string;
+	image?: string;
+	imageAlt?: string;
+	type?: PageType;
+	noindex?: boolean;
+	publishedTime?: Date;
+	modifiedTime?: Date;
+	alternates?: Alternate[];
+	structuredData?: StructuredData;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image } = Astro.props as Props;
+const { title, description, image, imageAlt, type = 'website', noindex, publishedTime, modifiedTime, alternates = [], structuredData } = Astro.props as Props;
+const socialImage = image?.replace(/\.avif$/i, '.jpg') ?? '/img/me.jpeg';
+const imageURL = new URL(socialImage, Astro.site);
+const locale = Astro.currentLocale === 'en' ? 'en_US' : 'ru_RU';
+const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\\u003c');
 ---
 
 <!-- Global Metadata -->
@@ -25,27 +40,36 @@ const { title, description, image } = Astro.props as Props;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
-<meta name="title" content={title} />
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex,follow" />}
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content="Dskr.dev" />
+<meta property="og:locale" content={locale} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{image && <meta property="og:image" content={new URL(image.replace('avif', 'jpg'), Astro.url)} />}
+<meta property="og:image" content={imageURL} />
+<meta property="og:image:alt" content={imageAlt ?? title} />
+{publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-{image && <meta property="twitter:image" content={new URL(image.replace('avif', 'jpg'), Astro.url)} />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={imageAlt ?? title} />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+{jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
 
 <!-- <link rel="authorization_endpoint" href="https://indieauth.com/auth"> -->
 

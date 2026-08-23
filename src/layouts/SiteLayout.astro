@@ -2,21 +2,18 @@
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import { L } from '../i18n/i18n-node';
+import type { Props as BaseHeadProps } from '../components/BaseHead.astro';
 
-export interface Props {
-	title: string;
-	description: string;
-	image?: string;
-}
+export interface Props extends BaseHeadProps {}
 
-const { title, description, image } = Astro.props;
+const { title, description, image, imageAlt, type, noindex, publishedTime, modifiedTime, alternates, structuredData } = Astro.props;
 const LL = L[Astro.currentLocale];
 const rssUrl = Astro.currentLocale === 'en' ? '/en/rss.xml' : '/rss.xml';
 ---
 
 <html lang={Astro.currentLocale || 'ru'}>
 	<head>
-		<BaseHead {title} {description} {image} />
+		<BaseHead {title} {description} {image} {imageAlt} {type} {noindex} {publishedTime} {modifiedTime} {alternates} {structuredData} />
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">{LL.common.skipToContent()}</a>

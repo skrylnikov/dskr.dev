@@ -2,30 +2,63 @@
 import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale/ru';
+import { absoluteUrl, AUTHOR_NAME, AUTHOR_URL, languageAlternates, SOCIAL_PROFILES } from '../consts';
 import { L } from '../i18n/i18n-node';
 import SiteLayout from './SiteLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string };
 
-const { title, description, publishDate, heroImage, slug } = Astro.props;
+const { title, description, publishDate, updatedDate, heroImage, hidden, slug } = Astro.props;
 const LL = L[Astro.currentLocale];
 const github = `https://github.com/skrylnikov/dskr.dev/blob/master/src/content/blog/${slug}.mdx`;
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const imageUrl = absoluteUrl(heroImage ?? '/img/me.jpeg');
+const locale = Astro.currentLocale === 'en' ? 'en' : 'ru';
+const translatedSlugs = new Set(['how-to-install-node', 'telegram-bot-six-years']);
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description,
+	url: canonicalUrl,
+	mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+	inLanguage: locale,
+	datePublished: publishDate.toISOString(),
+	...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+	image: imageUrl,
+	author: {
+		'@type': 'Person',
+		name: AUTHOR_NAME,
+		url: AUTHOR_URL,
+		sameAs: SOCIAL_PROFILES,
+	},
+};
 ---
 
-<SiteLayout {title} {description} image={heroImage}>
+<SiteLayout
+	{title}
+	{description}
+	image={heroImage}
+	type="article"
+	noindex={hidden}
+	publishedTime={publishDate}
+	modifiedTime={updatedDate}
+	alternates={translatedSlugs.has(slug) ? languageAlternates(`/blog/${slug}/`) : undefined}
+	structuredData={structuredData}
+>
 	<div class="post-layout">
 		<article class="post-content">
 			<header class="post-header">
 				<div class="post-meta">
-					<p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</p>
+					<time class="publish-date" datetime={publishDate.toISOString()}>{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</time>
 					<a target="_blank" href={github} rel="noreferrer">{LL.post.edit()}</a>
 				</div>
 				<h1>{title}</h1>
 				{heroImage && <img class="post-hero-image" loading="eager" src={heroImage} alt={title} transition:name={`hero-${slug}`} />}
 			</header>
-			<main class="markdown-content">
+			<div class="markdown-content">
 				<slot />
-			</main>
+			</div>
 		</article>
 	</div>
 </SiteLayout>

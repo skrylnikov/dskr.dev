@@ -6,17 +6,35 @@ import BlogPostPreview from '../components/BlogPostPreview.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { projects } from '../data/projects';
 import { L } from '../i18n/i18n-node';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { absoluteUrl, AUTHOR_NAME, AUTHOR_URL, languageAlternates, SITE_META, SITE_TITLE, SOCIAL_PROFILES } from '../consts';
 
 const locale = Astro.currentLocale || 'ru';
 const LL = L[locale];
+const metadata = SITE_META[locale];
 const rssUrl = '/rss.xml';
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: SITE_TITLE,
+		url: absoluteUrl(Astro.url.pathname),
+		inLanguage: locale,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: AUTHOR_NAME,
+		url: AUTHOR_URL,
+		image: absoluteUrl('/img/me.jpeg'),
+		sameAs: SOCIAL_PROFILES,
+	},
+];
 const posts = (await getCollection('blog'))
 	.filter((post) => !post.data.hidden)
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<SiteLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<SiteLayout title={metadata.title} description={metadata.description} alternates={languageAlternates('/')} structuredData={structuredData}>
 	<section class="home-intro">
 		<div class="intro-copy">
 			<p class="eyebrow">{LL.home.eyebrow()}</p>

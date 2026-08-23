@@ -3,12 +3,13 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import HCard from '../components/HCard.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { L } from '../i18n/i18n-node';
+import { languageAlternates } from '../consts';
 
 const locale = Astro.currentLocale || 'ru';
 const LL = L[locale];
 ---
 
-<SiteLayout title={`${LL.about.title()} — Dskr.dev`} description={LL.about.lead()}>
+<SiteLayout title={`${LL.about.title()} — Dskr.dev`} description={LL.about.lead()} alternates={languageAlternates('/about/')}>
 	<section class="about-hero">
 		<div>
 			<p class="eyebrow">03 / {LL.nav.about()}</p>
