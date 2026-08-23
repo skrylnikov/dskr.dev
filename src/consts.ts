@@ -2,6 +2,14 @@ export type Locale = 'ru' | 'en';
 
 export const SITE_URL = 'https://dskr.dev';
 export const SITE_TITLE = 'Dskr.dev';
+export const INDIEWEB_ENDPOINTS = {
+	webmention: `${SITE_URL}/webmention`,
+	indieauthMetadata: `${SITE_URL}/auth/metadata`,
+	authorization: `${SITE_URL}/auth`,
+	token: `${SITE_URL}/auth/token`,
+	micropub: `${SITE_URL}/micropub`,
+	inbox: `${SITE_URL}/inbox`,
+} as const;
 export const SITE_META = {
 	ru: {
 		title: 'Dskr.dev — разработка, проекты и заметки Дмитрия Скрыльникова',

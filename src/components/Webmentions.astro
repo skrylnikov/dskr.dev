@@ -1,0 +1,55 @@
+---
+import { INDIEWEB_ENDPOINTS } from '../consts';
+
+export interface Props {
+	target: string;
+	locale: 'ru' | 'en';
+}
+
+const { target, locale } = Astro.props;
+const copy = locale === 'en'
+	? { title: 'Webmentions', empty: 'No reactions yet.', inbox: 'Open inbox' }
+	: { title: 'Реакции', empty: 'Пока нет реакций.', inbox: 'Открыть inbox' };
+---
+
+<section class="webmentions" data-webmentions-target={target} aria-labelledby="webmentions-title">
+	<h2 id="webmentions-title">{copy.title}</h2>
+	<p class="webmentions-empty" data-webmentions-empty>{copy.empty}</p>
+	<ul class="webmentions-list" data-webmentions-list></ul>
+	<noscript><a href={`${INDIEWEB_ENDPOINTS.inbox}?target=${encodeURIComponent(target)}`}>{copy.inbox}</a></noscript>
+</section>
+
+<script>
+	const renderWebmentions = async () => {
+		for (const root of document.querySelectorAll('[data-webmentions-target]')) {
+			if (root.getAttribute('data-webmentions-loaded') === 'true') continue;
+			root.setAttribute('data-webmentions-loaded', 'true');
+			const target = root.getAttribute('data-webmentions-target');
+			const list = root.querySelector('[data-webmentions-list]');
+			const empty = root.querySelector('[data-webmentions-empty]');
+			if (!target || !list) continue;
+			try {
+				const response = await fetch(`/api/interactions?target=${encodeURIComponent(target)}`, { headers: { accept: 'application/json' } });
+				if (!response.ok) throw new Error('Webmentions unavailable');
+				const feed = await response.json();
+				for (const item of feed.children ?? []) {
+					const li = document.createElement('li');
+					const author = document.createElement('a');
+					author.textContent = item.author?.name ?? 'Webmention';
+					author.href = /^https?:$/.test(new URL(item.author?.url ?? item.url, window.location.href).protocol) ? item.author?.url ?? item.url : '#';
+					author.rel = 'nofollow';
+					const content = document.createElement('p');
+					content.textContent = item.content?.text ?? '';
+					li.append(author, content);
+					list.append(li);
+				}
+				if ((feed.children ?? []).length) empty?.remove();
+			} catch {
+				// The article remains readable when the optional interaction API is offline.
+			}
+		}
+	};
+
+	renderWebmentions();
+	document.addEventListener('astro:page-load', renderWebmentions);
+</script>

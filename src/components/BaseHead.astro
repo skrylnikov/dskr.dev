@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import { INDIEWEB_ENDPOINTS } from '../consts';
 
 type PageType = 'website' | 'article';
 type Alternate = { hreflang: string; href: string };
@@ -45,6 +46,11 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
+<link rel="webmention" href={INDIEWEB_ENDPOINTS.webmention} />
+<link rel="indieauth-metadata" href={INDIEWEB_ENDPOINTS.indieauthMetadata} />
+<link rel="authorization_endpoint" href={INDIEWEB_ENDPOINTS.authorization} />
+<link rel="token_endpoint" href={INDIEWEB_ENDPOINTS.token} />
+<link rel="micropub" href={INDIEWEB_ENDPOINTS.micropub} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -74,8 +80,6 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
-
-<!-- <link rel="authorization_endpoint" href="https://indieauth.com/auth"> -->
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" />

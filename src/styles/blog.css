@@ -966,6 +966,79 @@ pre {
 	font-size: clamp(2.2rem, 5vw, 4.5rem);
 }
 
+.post-permalink,
+.post-author,
+.dt-updated {
+	display: block;
+	color: var(--theme-text-lighter);
+	font-size: 0.78rem;
+}
+
+.post-permalink,
+.post-author {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.mf-author {
+	display: none;
+}
+
+.post-author {
+	margin-top: 0.65rem;
+}
+
+.post-actions {
+	display: flex;
+	gap: 1rem;
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--theme-divider);
+	font-size: 0.9rem;
+	font-weight: 650;
+}
+
+.webmentions {
+	margin-top: 3rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--theme-divider);
+}
+
+.webmentions h2 {
+	font-size: 1.4rem;
+}
+
+.webmentions-list {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1rem;
+	padding: 0;
+	list-style: none;
+}
+
+.webmentions-list li {
+	padding: 1rem;
+	border: 1px solid var(--theme-divider);
+	border-radius: 0.75rem;
+	background: var(--theme-bg-offset);
+}
+
+.webmentions-list p {
+	margin-top: 0.35rem;
+}
+
+.webmentions-empty {
+	margin-top: 0.75rem;
+	color: var(--theme-text-lighter);
+}
+
 .post-hero-image {
 	display: block;
 	width: 100%;

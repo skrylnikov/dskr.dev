@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { ru } from 'date-fns/locale/ru';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { L } from '../i18n/i18n-node';
+import { AUTHOR_NAME, AUTHOR_URL } from '../consts';
 
 export interface Props {
 	title: string;
@@ -23,10 +24,10 @@ const fallbackArt: Record<string, { eyebrow: string; label: string; code: string
 const art = fallbackArt[slug] || { eyebrow: 'NOTEBOOK', label: 'A new experiment', code: 'ideas → code → shipped' };
 ---
 
-<article class:list={['post-preview', { featured }]}>
-	<a class="preview-image-link" href={postUrl} aria-label={title}>
+<article class:list={['post-preview', 'h-entry', { featured }]}>
+	<a class="preview-image-link u-url" href={postUrl} aria-label={title}>
 		{heroImage ? (
-			<img class="preview-image" src={heroImage} alt="" loading={featured ? 'eager' : 'lazy'} transition:name={`hero-${slug}`} />
+			<img class="preview-image u-featured" src={heroImage} alt="" loading={featured ? 'eager' : 'lazy'} transition:name={`hero-${slug}`} />
 		) : (
 			<div class:list={['preview-art', `preview-art--${slug}`]} aria-hidden="true" transition:name={`hero-${slug}`}>
 				<span class="art-eyebrow">{art.eyebrow}</span>
@@ -36,9 +37,10 @@ const art = fallbackArt[slug] || { eyebrow: 'NOTEBOOK', label: 'A new experiment
 		)}
 	</a>
 	<div class="preview-body">
-		<p class="publish-date">{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</p>
-		<h2 class="title"><a href={postUrl}>{title}</a></h2>
-		<p class="description">{description}</p>
+		<p class="publish-date dt-published"><time datetime={publishDate.toISOString()}>{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</time></p>
+		<h2 class="title p-name"><a class="u-uid" href={postUrl}>{title}</a></h2>
+		<p class="description p-summary">{description}</p>
+		<span class="p-author h-card mf-author"><a class="p-name u-url" href={AUTHOR_URL}>{AUTHOR_NAME}</a></span>
 		<a class="read" href={postUrl}>{LL.preview.readMore()} <span aria-hidden="true">↗</span></a>
 	</div>
 </article>

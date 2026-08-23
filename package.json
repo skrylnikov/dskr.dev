@@ -7,7 +7,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typesafe-i18n": "typesafe-i18n"
+    "typesafe-i18n": "typesafe-i18n",
+    "indie:dev": "tsx services/indie/src/server.ts",
+    "indie:build": "tsc -p services/indie/tsconfig.json",
+    "indie:migrate": "tsx services/indie/src/migrate.ts",
+    "indie:test": "tsx --test services/indie/src/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -25,14 +29,22 @@
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
     "@types/markdown-it": "14.2.0",
+    "@types/node": "24.10.1",
+    "@types/pg": "8.15.5",
     "astro": "7.2.4",
     "rehype-external-links": "3.0.0",
+    "tsx": "4.20.6",
     "typescript": "7.0.2"
   },
   "dependencies": {
+    "@fastify/cookie": "11.0.2",
+    "@fastify/formbody": "8.0.2",
     "date-fns": "4.4.0",
+    "fastify": "5.5.0",
     "highlight.js": "11.12.0",
+    "linkedom": "0.18.9",
     "markdown-it": "15.0.0",
+    "pg": "8.16.3",
     "remeda": "2.42.0",
     "typesafe-i18n": "^5.27.1"
   },

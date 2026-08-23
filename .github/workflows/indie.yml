@@ -1,0 +1,35 @@
+name: Build IndieWeb backend
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - services/indie/**
+      - package.json
+      - pnpm-lock.yaml
+      - tsconfig.json
+      - .github/workflows/indie.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        env:
+          IMAGE: ghcr.io/skrylnikov/dskr.dev-indie
+          SHA: ${{ github.sha }}
+        run: |
+          tag="master-$(date +%s)-${SHA}"
+          docker buildx build --file services/indie/Dockerfile --tag "${IMAGE}:${tag}" --push .

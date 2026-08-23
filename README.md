@@ -17,6 +17,25 @@ pnpm dev
 pnpm build
 ```
 
+## IndieWeb
+
+Astro публикует microformats2-разметку и discovery-ссылки для Webmention,
+IndieAuth и Micropub. Self-hosted backend находится в `services/indie` и
+хранит короткие заметки, входящие Webmention и OAuth-токены в Postgres.
+
+Для локального backend:
+
+```sh
+cp services/indie/.env.example services/indie/.env
+pnpm indie:migrate
+pnpm indie:dev
+```
+
+Production image собирается workflow `.github/workflows/indie.yml`. Роутинг
+backend и Postgres/Flux-манифесты должны быть подключены в GitOps-инфраструктуре
+с path-based reverse proxy для `/notes`, `/inbox`, `/auth`, `/micropub`,
+`/webmention` и `/api/interactions`.
+
 ## Статьи
 
 - `src/content/blog` — статьи на русском языке;

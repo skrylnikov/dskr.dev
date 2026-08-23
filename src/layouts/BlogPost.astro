@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { ru } from 'date-fns/locale/ru';
 import { absoluteUrl, AUTHOR_NAME, AUTHOR_URL, languageAlternates, SOCIAL_PROFILES } from '../consts';
 import { L } from '../i18n/i18n-node';
+import Webmentions from '../components/Webmentions.astro';
 import SiteLayout from './SiteLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string };
@@ -47,18 +48,26 @@ const structuredData = {
 	structuredData={structuredData}
 >
 	<div class="post-layout">
-		<article class="post-content">
+		<article class="post-content h-entry">
 			<header class="post-header">
 				<div class="post-meta">
-					<time class="publish-date" datetime={publishDate.toISOString()}>{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</time>
+					<time class="publish-date dt-published" datetime={publishDate.toISOString()}>{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</time>
+					{updatedDate && <time hidden class="dt-updated" datetime={updatedDate.toISOString()}>{updatedDate.toISOString()}</time>}
 					<a target="_blank" href={github} rel="noreferrer">{LL.post.edit()}</a>
 				</div>
-				<h1>{title}</h1>
-				{heroImage && <img class="post-hero-image" loading="eager" src={heroImage} alt={title} transition:name={`hero-${slug}`} />}
+				<h1 class="p-name">{title}</h1>
+				<a class="u-url u-uid post-permalink" href={canonicalUrl}>{canonicalUrl}</a>
+				<div class="p-author h-card post-author"><a class="p-name u-url" href={AUTHOR_URL}>{AUTHOR_NAME}</a></div>
+				{heroImage && <img class="post-hero-image u-featured" loading="eager" src={heroImage} alt={title} transition:name={`hero-${slug}`} />}
 			</header>
-			<div class="markdown-content">
+			<div class="markdown-content e-content">
 				<slot />
 			</div>
+			<nav class="post-actions" aria-label="IndieWeb actions">
+				<a href={`/notes/new?type=reply&target=${encodeURIComponent(canonicalUrl)}`}>{Astro.currentLocale === 'en' ? 'Reply' : 'Ответить'}</a>
+				<a href={`/notes/new?type=like&target=${encodeURIComponent(canonicalUrl)}`}>{Astro.currentLocale === 'en' ? 'Like' : 'Нравится'}</a>
+			</nav>
+			<Webmentions target={canonicalUrl} locale={locale} />
 		</article>
 	</div>
 </SiteLayout>

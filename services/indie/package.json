@@ -1,0 +1,10 @@
+{
+  "name": "@dskr/indie",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "migrate": "tsx src/migrate.ts"
+  }
+}
