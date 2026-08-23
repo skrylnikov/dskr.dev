@@ -995,16 +995,6 @@ pre {
 	margin-top: 0.65rem;
 }
 
-.post-actions {
-	display: flex;
-	gap: 1rem;
-	margin-top: 2rem;
-	padding-top: 1rem;
-	border-top: 1px solid var(--theme-divider);
-	font-size: 0.9rem;
-	font-weight: 650;
-}
-
 .webmentions {
 	margin-top: 3rem;
 	padding-top: 1.5rem;
@@ -1013,6 +1003,11 @@ pre {
 
 .webmentions h2 {
 	font-size: 1.4rem;
+}
+
+.webmentions-note {
+	margin-top: 0.5rem;
+	color: var(--theme-text-lighter);
 }
 
 .webmentions-list {

@@ -8,12 +8,13 @@ export interface Props {
 
 const { target, locale } = Astro.props;
 const copy = locale === 'en'
-	? { title: 'Webmentions', empty: 'No reactions yet.', inbox: 'Open inbox' }
-	: { title: 'Реакции', empty: 'Пока нет реакций.', inbox: 'Открыть inbox' };
+	? { title: 'Webmentions', note: 'Likes and comments are accepted via Webmention from your site.', empty: 'No reactions yet.', inbox: 'Open inbox' }
+	: { title: 'Реакции', note: 'Лайки и комментарии принимаются через Webmention с вашего сайта.', empty: 'Пока нет реакций.', inbox: 'Открыть inbox' };
 ---
 
 <section class="webmentions" data-webmentions-target={target} aria-labelledby="webmentions-title">
 	<h2 id="webmentions-title">{copy.title}</h2>
+	<p class="webmentions-note">{copy.note}</p>
 	<p class="webmentions-empty" data-webmentions-empty>{copy.empty}</p>
 	<ul class="webmentions-list" data-webmentions-list></ul>
 	<noscript><a href={`${INDIEWEB_ENDPOINTS.inbox}?target=${encodeURIComponent(target)}`}>{copy.inbox}</a></noscript>

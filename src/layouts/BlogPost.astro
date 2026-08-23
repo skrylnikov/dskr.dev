@@ -63,10 +63,6 @@ const structuredData = {
 			<div class="markdown-content e-content">
 				<slot />
 			</div>
-			<nav class="post-actions" aria-label="IndieWeb actions">
-				<a href={`/notes/new?type=reply&target=${encodeURIComponent(canonicalUrl)}`}>{Astro.currentLocale === 'en' ? 'Reply' : 'Ответить'}</a>
-				<a href={`/notes/new?type=like&target=${encodeURIComponent(canonicalUrl)}`}>{Astro.currentLocale === 'en' ? 'Like' : 'Нравится'}</a>
-			</nav>
 			<Webmentions target={canonicalUrl} locale={locale} />
 		</article>
 	</div>
