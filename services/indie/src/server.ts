@@ -83,11 +83,15 @@ app.post('/auth/token', async (request, reply) => {
 	};
 });
 
-app.post('/session', async (request, reply) => {
+app.post('/auth/session', async (request, reply) => {
 	const body = asRecord(request.body);
-	if (!passwordMatches(String(body.password ?? ''))) return reply.code(401).type('text/plain').send('Неверный пароль');
+	const type = String(body.type ?? 'note');
+	const target = String(body.target ?? '');
+	if (!passwordMatches(String(body.password ?? ''))) return reply.code(401).type('text/html').send(loginPage(type, target, 'Неверный пароль'));
 	const session = randomToken();
 	await store.createSession(hash(session, cookieSecret));
+	const next = new URLSearchParams({ type });
+	if (target) next.set('target', target);
 	return reply.setCookie('indie_session', session, {
 		signed: true,
 		httpOnly: true,
@@ -95,7 +99,7 @@ app.post('/session', async (request, reply) => {
 		sameSite: 'lax',
 		path: '/',
 		maxAge: 60 * 60 * 24 * 30,
-	}).redirect('/notes/new', 303);
+	}).redirect(`/notes/new?${next.toString()}`, 303);
 });
 
 app.get('/micropub', async (request, reply) => {
@@ -146,8 +150,8 @@ app.post('/micropub', async (request, reply) => {
 });
 
 app.get('/notes/new', async (request, reply) => {
-	if (!(await hasSession(request))) return reply.type('text/html').send(loginPage());
 	const query = request.query as Record<string, string | undefined>;
+	if (!(await hasSession(request))) return reply.type('text/html').send(loginPage(query.type, query.target));
 	return reply.type('text/html').send(composePage(query.type, query.target));
 });
 
@@ -425,8 +429,8 @@ function authPage(params: { clientId: string; redirectUri: string; state: string
 	return page('Authorize', `<main><h1>Authorize dskr.dev</h1>${error ? `<p>${escapeHtml(error)}</p>` : ''}<p>${escapeHtml(params.clientId)} requests: ${escapeHtml(params.scope)}</p><form method="post" action="/auth/approve"><input type="hidden" name="client_id" value="${escapeHtml(params.clientId)}"><input type="hidden" name="redirect_uri" value="${escapeHtml(params.redirectUri)}"><input type="hidden" name="state" value="${escapeHtml(params.state)}"><input type="hidden" name="scope" value="${escapeHtml(params.scope)}"><label>Password <input type="password" name="password" autocomplete="current-password"></label><button>Allow</button></form></main>`);
 }
 
-function loginPage() {
-	return page('Sign in', '<main><h1>Sign in</h1><form method="post" action="/session"><label>Password <input type="password" name="password" autocomplete="current-password"></label><button>Sign in</button></form></main>');
+function loginPage(type = 'note', target = '', error = '') {
+	return page('Sign in', `<main><h1>Sign in</h1>${error ? `<p>${escapeHtml(error)}</p>` : ''}<form method="post" action="/auth/session"><input type="hidden" name="type" value="${escapeHtml(type)}"><input type="hidden" name="target" value="${escapeHtml(target)}"><label>Password <input type="password" name="password" autocomplete="current-password"></label><button>Sign in</button></form></main>`);
 }
 
 function composePage(kind = 'note', target = '', error = '') {
