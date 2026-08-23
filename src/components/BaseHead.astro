@@ -36,6 +36,10 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
 <script is:inline>
 	const theme = localStorage.getItem('dskr-theme');
 	document.documentElement.dataset.theme = ['light', 'system', 'dark'].includes(theme) ? theme : 'system';
+
+	document.addEventListener('astro:before-swap', (event) => {
+		event.newDocument.documentElement.dataset.theme = document.documentElement.dataset.theme;
+	});
 </script>
 
 <!-- Canonical URL -->
