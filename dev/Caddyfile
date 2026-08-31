@@ -1,0 +1,15 @@
+http://dskr-dev.home.dskr.dev {
+	@backend path /healthz /readyz /auth* /micropub* /notes* /inbox* /webmention* /api/interactions*
+
+    handle @backend {
+      reverse_proxy 127.0.0.1:14322 {
+        header_up Host 127.0.0.1:14322
+      }
+    }
+
+    handle {
+      reverse_proxy 127.0.0.1:14321 {
+        header_up Host 127.0.0.1:14321
+      }
+    }
+}

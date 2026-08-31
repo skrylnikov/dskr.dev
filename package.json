@@ -8,10 +8,22 @@
     "build": "astro build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typesafe-i18n": "typesafe-i18n",
-    "indie:dev": "tsx services/indie/src/server.ts",
+    "indie:dev": "tsx watch services/indie/src/server.ts",
     "indie:build": "tsc -p services/indie/tsconfig.json",
     "indie:migrate": "tsx services/indie/src/migrate.ts",
     "indie:test": "tsx --test services/indie/src/*.test.ts"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.x",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "24.x",
+      "onFail": "download"
+    }
   },
   "repository": {
     "type": "git",
@@ -47,6 +59,5 @@
     "pg": "8.16.3",
     "remeda": "2.42.0",
     "typesafe-i18n": "^5.27.1"
-  },
-  "packageManager": "pnpm@10.22.0+sha512.bf049efe995b28f527fd2b41ae0474ce29186f7edcb3bf545087bd61fbbebb2bf75362d1307fda09c2d288e1e499787ac12d4fcb617a974718a6051f2eee741c"
+  }
 }
