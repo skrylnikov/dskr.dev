@@ -1,0 +1,84 @@
+#!/bin/sh
+set -eu
+
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+STATE_DIR=${DEV_STATE_DIR:-"$ROOT/.state"}
+COMPOSE="docker compose --env-file $ROOT/dev/.env -f $ROOT/dev/compose.yaml"
+
+fail() {
+	printf '%s\n' "devctl: $*" >&2
+	exit 1
+}
+
+require_env() {
+	test -f "$ROOT/dev/.env" || fail "missing dev/.env; copy dev/.env.example and set secrets"
+}
+
+require_clean_master() {
+	test "$(git -C "$ROOT" branch --show-current)" = master || fail "checkout must be on master"
+	test -z "$(git -C "$ROOT" status --porcelain)" || fail "checkout must be clean"
+}
+
+healthcheck() {
+	$COMPOSE ps
+	curl --fail --silent http://127.0.0.1:14322/healthz >/dev/null || fail "backend healthcheck failed"
+	curl --fail --silent http://127.0.0.1:14322/readyz >/dev/null || fail "backend readiness failed"
+	curl --fail --silent -H 'Host: dskr-dev.home.dskr.dev' http://127.0.0.1/ >/dev/null || fail "Caddy/frontend healthcheck failed"
+	$COMPOSE exec -T postgres pg_isready -U "$($COMPOSE config --environment | sed -n 's/^POSTGRES_USER=//p')" >/dev/null || fail "PostgreSQL healthcheck failed"
+}
+
+status() {
+	printf 'branch: %s\n' "$(git -C "$ROOT" branch --show-current)"
+	printf 'sha: %s\n' "$(git -C "$ROOT" rev-parse --short HEAD)"
+	git -C "$ROOT" status --short --branch
+	require_env
+	$COMPOSE ps
+}
+
+bootstrap() {
+	if test ! -f "$ROOT/dev/.env"; then
+		cp "$ROOT/dev/.env.example" "$ROOT/dev/.env"
+		printf '%s\n' "created dev/.env; set its secrets before starting"
+	fi
+	mkdir -p "$STATE_DIR" /srv/pnpm/store
+	$COMPOSE build
+	$COMPOSE run --rm --no-deps --entrypoint pnpm dev-agent install --frozen-lockfile
+	$COMPOSE up -d
+	healthcheck
+}
+
+deploy() {
+	require_env
+	require_clean_master
+	mkdir -p "$STATE_DIR"
+	exec 9>"$STATE_DIR/deploy.lock"
+	flock -n 9 || fail "another deploy is running"
+	previous=$(git -C "$ROOT" rev-parse HEAD)
+	git -C "$ROOT" fetch origin master
+	git -C "$ROOT" merge --ff-only origin/master
+	printf '%s\n' "$previous" > "$STATE_DIR/previous-sha"
+	$COMPOSE build
+	$COMPOSE run --rm --no-deps --entrypoint pnpm dev-agent install --frozen-lockfile
+	$COMPOSE up -d
+	healthcheck
+}
+
+rollback() {
+	require_env
+	require_clean_master
+	previous=$(test -f "$STATE_DIR/previous-sha" && sed -n '1p' "$STATE_DIR/previous-sha" || true)
+	test -n "$previous" || fail "no previous deployment recorded"
+	git -C "$ROOT" switch --detach "$previous"
+	$COMPOSE build
+	$COMPOSE run --rm --no-deps --entrypoint pnpm dev-agent install --frozen-lockfile
+	$COMPOSE up -d
+	healthcheck
+}
+
+case "${1:-}" in
+	bootstrap) bootstrap ;;
+	status) status ;;
+	deploy) deploy ;;
+	rollback) rollback ;;
+	*) fail "usage: devctl {bootstrap|status|deploy|rollback}" ;;
+esac
