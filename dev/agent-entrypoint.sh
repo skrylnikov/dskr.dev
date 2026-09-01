@@ -1,6 +1,8 @@
 #!/bin/sh
 set -eu
 
+cd /home/node
+
 if command -v multica >/dev/null 2>&1 \
   && command -v codex >/dev/null 2>&1 \
   && multica auth status >/dev/null 2>&1; then
