@@ -23,6 +23,7 @@ RUN apt-get update \
   && test -x /usr/local/bin/multica || install -m 0755 /root/.local/bin/multica /usr/local/bin/multica \
   && curl -fsSL https://chatgpt.com/codex/install.sh | bash \
   && test -x /usr/local/bin/codex || install -m 0755 /root/.local/bin/codex /usr/local/bin/codex \
+  && install -m 0755 /root/.codex/packages/standalone/current/bin/codex-code-mode-host /usr/local/bin/codex-code-mode-host \
   && mkdir -p /pnpm /home/node /workspace/node_modules \
   && mkdir -p /pnpm-store \
   && chown -R node:node /pnpm /pnpm-store /workspace /home/node \
