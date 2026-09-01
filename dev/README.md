@@ -29,14 +29,24 @@ dev/devctl deploy
 The command performs a fast-forward-only update, installs from the lockfile,
 rebuilds Compose, and checks PostgreSQL, backend, frontend, and Caddy.
 
-## Multica
+## AI runtimes
 
-The agent container has Multica, OpenSpec, and the official Codex CLI. The
-Multica profile and Codex login are stored in the persistent `agent-home`
-volume. Complete headless login inside the container with the official
-Multica self-host setup/token flow, then restart `dev-agent` so it discovers
-Codex.
+The agent container has Multica, OpenSpec, the official Codex CLI, and
+OpenCode. Their credentials are stored in the persistent `agent-home` volume,
+not in Git.
 
-OpenCode and OMP are not installed as Multica runtimes because the current
-Multica supported-runtime list does not detect them. Add them later only if
-Multica adds support or they are needed for manual, non-Multica work.
+Authenticate Codex with ChatGPT:
+
+```sh
+docker compose --env-file dev/.env -f dev/compose.yaml exec -it dev-agent codex --login
+```
+
+Authenticate an OpenCode provider interactively:
+
+```sh
+docker compose --env-file dev/.env -f dev/compose.yaml exec -it dev-agent opencode
+```
+
+Then run `/connect` in OpenCode and select the provider. The Multica daemon
+continues to use its own self-host token and detects the installed runtimes.
+OMP is not added as a separate runtime because Multica does not detect it.

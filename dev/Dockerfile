@@ -4,7 +4,7 @@ ENV PNPM_HOME=/pnpm
 ENV PNPM_STORE_DIR=/pnpm-store
 ENV PNPM_CONFIG_STORE_DIR=/pnpm-store
 ENV PNPM_CONFIG_VIRTUAL_STORE_TYPE=project
-ENV PATH=/pnpm:/usr/local/bin:$PATH
+ENV PATH=/pnpm/bin:/pnpm:/usr/local/bin:$PATH
 
 RUN apt-get update \
   && apt-get install --no-install-recommends --yes \
@@ -18,6 +18,7 @@ RUN apt-get update \
     python3 \
     wget \
   && npm install --global pnpm@12.1.0 @fission-ai/openspec@latest \
+  && pnpm add --global --allow-build=opencode-ai opencode-ai \
   && curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/install.sh | bash \
   && test -x /usr/local/bin/multica || install -m 0755 /root/.local/bin/multica /usr/local/bin/multica \
   && curl -fsSL https://chatgpt.com/codex/install.sh | bash \
