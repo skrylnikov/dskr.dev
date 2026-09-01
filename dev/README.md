@@ -31,9 +31,9 @@ rebuilds Compose, and checks PostgreSQL, backend, frontend, and Caddy.
 
 ## AI runtimes
 
-The agent container has Multica, OpenSpec, the official Codex CLI, and
-OpenCode. Their credentials are stored in the persistent `agent-home` volume,
-not in Git.
+The agent container has Multica, OpenSpec, the official Codex CLI, OpenCode,
+and OMP (Oh My Pi). Their credentials are stored in the persistent `agent-home`
+volume, not in Git.
 
 Authenticate Codex with ChatGPT:
 
@@ -49,4 +49,12 @@ docker compose --env-file dev/.env -f dev/compose.yaml exec -it dev-agent openco
 
 Then run `/connect` in OpenCode and select the provider. The Multica daemon
 continues to use its own self-host token and detects the installed runtimes.
-OMP is not added as a separate runtime because Multica does not detect it.
+
+Authenticate OMP interactively:
+
+```sh
+docker compose --env-file dev/.env -f dev/compose.yaml exec -it dev-agent omp
+```
+
+Then run `/login` and select the provider. Multica detects OMP as the `omp`
+runtime after the daemon is restarted.
