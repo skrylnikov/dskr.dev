@@ -18,7 +18,7 @@ services:
       context: ..
       dockerfile: dev/Dockerfile
     entrypoint: []
-    command: pnpm dev --host 0.0.0.0
+    command: pnpm dev --force --host 0.0.0.0
     environment:
       NODE_ENV: development
     working_dir: /workspace
