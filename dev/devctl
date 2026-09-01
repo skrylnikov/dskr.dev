@@ -21,9 +21,9 @@ require_clean_master() {
 
 healthcheck() {
 	$COMPOSE ps
-	curl --fail --silent --retry 12 --retry-delay 1 --retry-connrefused http://127.0.0.1:14322/healthz >/dev/null || fail "backend healthcheck failed"
-	curl --fail --silent --retry 12 --retry-delay 1 --retry-connrefused http://127.0.0.1:14322/readyz >/dev/null || fail "backend readiness failed"
-	curl --fail --silent --retry 12 --retry-delay 1 --retry-connrefused -H 'Host: dskr-dev.home.dskr.dev' http://127.0.0.1/ >/dev/null || fail "Caddy/frontend healthcheck failed"
+	curl --fail --silent --retry 30 --retry-delay 1 --retry-connrefused http://127.0.0.1:14322/healthz >/dev/null || fail "backend healthcheck failed"
+	curl --fail --silent --retry 30 --retry-delay 1 --retry-connrefused http://127.0.0.1:14322/readyz >/dev/null || fail "backend readiness failed"
+	curl --fail --silent --retry 30 --retry-delay 1 --retry-connrefused -H 'Host: dskr-dev.home.dskr.dev' http://127.0.0.1/ >/dev/null || fail "Caddy/frontend healthcheck failed"
 	$COMPOSE exec -T postgres pg_isready -U "$($COMPOSE config --environment | sed -n 's/^POSTGRES_USER=//p')" >/dev/null || fail "PostgreSQL healthcheck failed"
 }
 
