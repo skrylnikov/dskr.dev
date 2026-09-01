@@ -19,7 +19,7 @@ RUN apt-get update \
     openssh-client \
     python3 \
     wget \
-  && npm install --global pnpm@12.1.0 @fission-ai/openspec@latest \
+  && npm install --global pnpm@12.1.0 @fission-ai/openspec@1.11.0 \
   && pnpm add --global --allow-build=opencode-ai opencode-ai \
   && curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/install.sh | bash \
   && test -x /usr/local/bin/multica || install -m 0755 /root/.local/bin/multica /usr/local/bin/multica \
