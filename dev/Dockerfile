@@ -6,6 +6,8 @@ ENV PNPM_CONFIG_STORE_DIR=/pnpm-store
 ENV PNPM_CONFIG_VIRTUAL_STORE_TYPE=project
 ENV PATH=/pnpm/bin:/pnpm:/usr/local/bin:$PATH
 
+ARG OMP_VERSION=18.0.11
+
 RUN apt-get update \
   && apt-get install --no-install-recommends --yes \
     bash \
@@ -24,8 +26,10 @@ RUN apt-get update \
   && curl -fsSL https://chatgpt.com/codex/install.sh | bash \
   && test -x /usr/local/bin/codex || install -m 0755 /root/.local/bin/codex /usr/local/bin/codex \
   && install -m 0755 /root/.codex/packages/standalone/current/bin/codex-code-mode-host /usr/local/bin/codex-code-mode-host \
-  && curl -fsSL https://omp.sh/install | sh \
-  && test -x /usr/local/bin/omp || install -m 0755 /root/.local/bin/omp /usr/local/bin/omp \
+  && curl -fsSL --retry 5 --retry-all-errors --retry-delay 2 \
+    "https://github.com/can1357/oh-my-pi/releases/download/v${OMP_VERSION}/omp-linux-x64" \
+    -o /usr/local/bin/omp \
+  && chmod 0755 /usr/local/bin/omp \
   && mkdir -p /pnpm /home/node /workspace/node_modules \
   && mkdir -p /pnpm-store \
   && chown -R node:node /pnpm /pnpm-store /workspace /home/node \
