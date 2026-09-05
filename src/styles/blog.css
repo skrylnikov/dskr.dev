@@ -770,6 +770,11 @@ pre {
 	object-position: center;
 }
 
+.project-card--dskr-photos .project-visual > img {
+	object-fit: contain;
+	object-position: center;
+}
+
 .project-card--dskr-dev .project-art {
 	min-height: 22rem;
 	background: linear-gradient(135deg, #d8f36a 0%, #45b889 45%, #087f5b 100%);
