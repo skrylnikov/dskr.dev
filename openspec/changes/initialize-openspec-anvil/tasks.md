@@ -26,7 +26,7 @@
 
 - [x] 5.1 Run the test-plan checks `readme-setup-literals` and `readme-advisory-gates-wording`; confirm both fail for the right reason (`dev/README.md` has no OpenSpec section yet)
 - [x] 5.2 Implement: add the OpenSpec setup, maintenance, and validation section to `dev/README.md` containing every literal the spec scenario requires: the init command, the upstream repository URL, the pinned commit, both validation commands (`openspec schema validate anvil --json`, `openspec validate --all --strict --json`), the refresh command (`openspec update .`), the three integration paths (`.agents/skills`, `.opencode`, `.omp`), `valid: true`, the rebuilt-image `openspec --version` check, the agent-honored-gates disclaimer sentence, and the coexistence note for generated vs. runtime agent skills
-- [x] 5.3 Re-run the nine literal greps and the advisory-gates wording pair (required sentence present, forbidden enforcement-claim pattern absent); all green
+- [x] 5.3 Re-run the ten literal greps and the advisory-gates wording pair (required sentence present, forbidden enforcement-claim pattern absent); all green
 
 ## 6. Full validation sweep
 

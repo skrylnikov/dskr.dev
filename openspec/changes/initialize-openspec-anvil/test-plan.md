@@ -32,12 +32,13 @@ with one element doctored or removed, outside the tracked tree.
 | specs/openspec-agent-workflow/spec.md → OMP integration | Wrong OMP target is rejected | `openspec init . --tools omp --no-animation` in an empty `$SCRATCH` directory exits non-zero, reports `omp` invalid, and creates no integration files; integration manifest check against a tree without `.omp/openspec-*` and `.omp/commands/` fails | omp-wrong-target-rejected | N/A — non-executable |
 | specs/openspec-agent-workflow/spec.md → Reproducible OpenSpec generation | Development image uses the expected generator | `grep -Fq '@fission-ai/openspec@1.11.0' dev/Dockerfile`; host generator `openspec --version` prints `1.11.0`; container-level check is the documented maintainer command run in the rebuilt `dev-agent` image (host here has no `dev-agent` container runtime) | generator-version-pinned | N/A — non-executable |
 | specs/openspec-agent-workflow/spec.md → Reproducible OpenSpec generation | Generator drift is detected | clean-diff check (see Coverage Notes): fresh scratch copy of the checkout, rerun `openspec init . --tools codex,opencode,oh-my-pi --no-animation`, `diff -r` the three integration trees against the tracked ones | generator-clean-diff | N/A — non-executable |
-| specs/openspec-agent-workflow/spec.md → Maintainer guidance | Maintainer can reproduce and validate setup | the nine `grep -Fq` literal checks against `dev/README.md` named in the spec scenario | readme-setup-literals | N/A — non-executable |
+| specs/openspec-agent-workflow/spec.md → Maintainer guidance | Maintainer can reproduce and validate setup | the ten `grep -Fq` literal checks against `dev/README.md` named in the spec scenario | readme-setup-literals | N/A — non-executable |
 | specs/openspec-agent-workflow/spec.md → Maintainer guidance | Advisory gates are not misrepresented | `grep -Fq 'Anvil review and TDD gates are agent-honored; OpenSpec validates artifact structure and dependencies, not verdict contents or execution order.' dev/README.md` exits zero; `grep -Eiq 'OpenSpec( CLI)? (mechanically )?(enforces\|blocks).*(REVISE\|red-green-refactor\|DECISION: FAIL)' dev/README.md` exits non-zero | readme-advisory-gates-wording | N/A — non-executable |
 
 ## Coverage Notes
 
 - **Integration manifest check** (rows `codex-integration-manifest`,
+  `codex-integration-incomplete-rejected`,
   `opencode-integration-incomplete-rejected`, `opencode-integration-manifest`,
   `omp-integration-manifest`, `omp-wrong-target-rejected`): deterministic shell
   snippet parameterized by `$ROOT` and `$TOOLS`; it fails (non-zero) if any of
@@ -119,8 +120,8 @@ scratch copies outside the tracked tree:
   `openspec init . --tools codex,opencode,oh-my-pi --no-animation`,
   `diff -r` on all three integration trees → zero drift. ✅
 - `readme-setup-literals` — all ten required literals found in
-  `dev/README.md` (nine spec literals plus the required `valid: true`
-  literal is among them). ✅
+  `dev/README.md` (every literal named in the spec scenario, `valid: true`
+  among them). ✅
 - `readme-advisory-gates-wording` — required disclaimer sentence found
   (exit 0); forbidden enforcement-claim pattern not found (exit 1). ✅
 
