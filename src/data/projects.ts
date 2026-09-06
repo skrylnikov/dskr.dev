@@ -38,4 +38,19 @@ export const projects: Project[] = [
 			description: 'An AI-powered Telegram bot with chat context, memory, image and voice processing, and vector search.',
 		},
 	},
+	{
+		slug: 'dskr-photos',
+		github: 'https://github.com/skrylnikov/photo-lib',
+		live: 'https://dskr.photos',
+		image: '/assets/dskr-photos.png',
+		stack: ['React', 'TypeScript', 'Vite', 'Fastify', 'SQLite'],
+		ru: {
+			title: 'dskr.photos',
+			description: 'Фотоальбомы с авторскими подборками снимков из поездок, прогулок и городских событий.',
+		},
+		en: {
+			title: 'dskr.photos',
+			description: 'Curated photo albums featuring images from trips, walks, and city events.',
+		},
+	},
 ];

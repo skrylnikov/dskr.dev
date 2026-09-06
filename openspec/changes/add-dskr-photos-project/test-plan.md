@@ -1,0 +1,22 @@
+## Test Plan
+
+| Requirement | Scenario | Test File | Test Name | Initial State |
+|-------------|----------|-----------|-----------|---------------|
+| specs/project-catalog/spec.md → dskr.photos catalog metadata | Complete dskr.photos entry is available | `src/data/projects.test.ts` | `dskr.photos has the complete required catalog metadata` | 🟢 green |
+| specs/project-catalog/spec.md → dskr.photos catalog metadata | Existing project entries are preserved | `src/data/projects.test.ts` | `dskr.photos is appended after unchanged existing projects` | 🟢 green |
+| specs/project-catalog/spec.md → Supplied screenshot asset | Supplied screenshot resolves from the project image URL | `src/data/projects.test.ts` | `dskr.photos image resolves to the exact supplied PNG` | 🟢 green |
+| specs/project-catalog/spec.md → Supplied screenshot asset | Dangling or altered screenshot is rejected | `src/data/projects.test.ts` | `dskr.photos asset validation rejects missing or altered captures with the path` | 🟢 green |
+| specs/project-catalog/spec.md → Localized project discovery | dskr.photos preview renders on the Russian home route | `src/pages/_projects.test.ts` | `Russian home renders the dskr.photos preview and exact fragment link` | 🟢 green |
+| specs/project-catalog/spec.md → Localized project discovery | dskr.photos preview renders on the English home route | `src/pages/_projects.test.ts` | `English home renders only the English dskr.photos preview and exact fragment link` | 🟢 green |
+| specs/project-catalog/spec.md → Localized project discovery | dskr.photos card renders on the Russian projects route | `src/pages/_projects.test.ts` | `Russian projects renders the complete dskr.photos card` | 🟢 green |
+| specs/project-catalog/spec.md → Localized project discovery | dskr.photos card renders on the English projects route | `src/pages/_projects.test.ts` | `English projects renders the complete English dskr.photos card` | 🟢 green |
+| specs/project-catalog/spec.md → Localized project discovery | Existing projects remain discoverable | `src/pages/_projects.test.ts` | `existing project previews and cards remain on their route-specific surfaces` | 🟢 green |
+| specs/project-catalog/spec.md → Supplied screenshot asset | dskr.photos card renders the full capture uncropped | `src/pages/_projects.test.ts` | `the dskr.photos card shows the full uncropped screenshot` | 🟢 green (fix round) |
+
+## Coverage Notes
+
+- Replace the root placeholder `test` script with `astro build && tsx --test src/data/projects.test.ts src/pages/_projects.test.ts`. The build produces the four static HTML files before the rendering tests inspect them, and the test process remains deterministic and self-contained. The pages test file carries the underscore prefix Astro requires for non-route files inside `src/pages`, so the build neither emits a `/projects.test` endpoint nor executes the tests during the build.
+- `src/data/projects.test.ts` imports the real catalog. Its preservation assertion includes the required third entry so it begins red even though the two existing records are already correct. It reads the actual referenced asset from `public`, verifies the PNG signature and IHDR dimensions without an image-library dependency, then checks byte length and SHA-256. The negative test requires the real dskr.photos entry before exercising missing and altered fixtures, so it also begins red and verifies path-bearing diagnostics.
+- `src/pages/_projects.test.ts` parses `dist/index.html`, `dist/en/index.html`, `dist/projects/index.html`, and `dist/en/projects/index.html` with the existing `linkedom` dependency. Assertions stay scoped to the semantic preview links and project-card articles named by the spec; no broad HTML snapshots or unrelated markup counts are required.
+- Every executable row starts red because the current catalog, public asset tree, and built HTML do not contain `dskr-photos`. No skipped, pending, commented-out, network-dependent, or non-executable checks are planned.
+- Fix-round row (human acceptance feedback about the cropped card): `the dskr.photos card shows the full uncropped screenshot` was written red-first against the pre-fix built CSS (the dskr.photos rule was absent), then the slug-specific `object-fit: contain` rule was added to `src/styles/blog.css`. The same test also guards preserved behavior: the Phoronis card rule keeps `object-fit: contain` and the base `.project-visual>img` rule keeps `object-fit: cover`.
