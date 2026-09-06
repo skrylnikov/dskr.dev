@@ -154,8 +154,9 @@ test('dskr.photos asset validation rejects missing or altered captures with the 
 		];
 		for (const [name, prepare] of fixtures) {
 			const dir = join(fixtureRoot, name);
-			mkdirSync(dir);
-			prepare?.(join(dir, 'dskr-photos.png'));
+			const assetsDir = join(dir, 'assets');
+			mkdirSync(assetsDir, { recursive: true });
+			prepare?.(join(assetsDir, 'dskr-photos.png'));
 			assert.throws(
 				() => assertAssetIntegrity(dir, entry.image!, REQUIRED_CAPTURE),
 				/\/assets\/dskr-photos\.png/,
