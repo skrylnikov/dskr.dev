@@ -1,7 +1,8 @@
 FROM node:24.11.1-bookworm-slim AS build
+RUN npm install --global pnpm@12.1.0
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN corepack enable && pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 COPY tsconfig.json ./tsconfig.json
 COPY services/indie ./services/indie
 RUN pnpm indie:build
