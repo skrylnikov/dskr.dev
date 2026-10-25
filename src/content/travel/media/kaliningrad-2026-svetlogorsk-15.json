@@ -9,6 +9,10 @@
         "ru": "Светлогорск: старый Раушен у моря",
         "en": "Svetlogorsk: old Rauschen by the sea"
       },
+      "caption": {
+        "ru": "Рыбак Раушена",
+        "en": "The Fisherman of Rauschen"
+      },
       "kind": "image",
       "sources": [
         {
@@ -74,6 +78,10 @@
       "alt": {
         "ru": "Светлогорск: старый Раушен у моря",
         "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "caption": {
+        "ru": "Мозаика на люке",
+        "en": "A mosaic on a manhole cover"
       },
       "kind": "image",
       "sources": [

@@ -9,6 +9,10 @@
         "ru": "Светлогорск: старый Раушен у моря",
         "en": "Svetlogorsk: old Rauschen by the sea"
       },
+      "caption": {
+        "ru": "Чайки",
+        "en": "Seagulls"
+      },
       "kind": "image",
       "sources": [
         {
@@ -77,7 +81,27 @@
       },
       "kind": "video",
       "url": "/media/19c9d32ec6d0d3e420bc9a5a08199cf55b629424a266a00d4a4dcacfcb803b6f/video.mp4",
-      "poster": "/media/19c9d32ec6d0d3e420bc9a5a08199cf55b629424a266a00d4a4dcacfcb803b6f/poster.jpeg",
+      "poster": "/media/8b61240357a927bbb554e02a281a4f65d4c3cd4adbda98726d0beb232b2ad0ba/604.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/8b61240357a927bbb554e02a281a4f65d4c3cd4adbda98726d0beb232b2ad0ba/604.webp",
+          "width": 604,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8b61240357a927bbb554e02a281a4f65d4c3cd4adbda98726d0beb232b2ad0ba/604.jpeg",
+          "width": 604,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5e7e3b341e1eb890a394f1bb66c41cf4c9106314dd7cf0d30df75013b5fea577/604.jxl",
+          "width": 604,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
       "duration": 13.433333
     },
     {
@@ -90,7 +114,27 @@
       },
       "kind": "video",
       "url": "/media/fa41f745e4d369b639f23a773918beafad9850ff3a462c4c4089ae4be7fc1c26/video.mp4",
-      "poster": "/media/fa41f745e4d369b639f23a773918beafad9850ff3a462c4c4089ae4be7fc1c26/poster.jpeg",
+      "poster": "/media/b37b0bfa3d1093936c495679920c6a0a37fc7fae1082626992625517b2b11602/604.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/b37b0bfa3d1093936c495679920c6a0a37fc7fae1082626992625517b2b11602/604.webp",
+          "width": 604,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b37b0bfa3d1093936c495679920c6a0a37fc7fae1082626992625517b2b11602/604.jpeg",
+          "width": 604,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b7014d7069853197e1f96ca8bc7daa40ab9fcacaf70347dd0d98eab3b52ae655/604.jxl",
+          "width": 604,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
       "duration": 30.8
     }
   ]

@@ -13,10 +13,10 @@ const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math
 		{gallery.items.map((media, index) => <>
 			{index === 0 && <span class="sr-only">{gallery.items.length} {locale === 'ru' ? 'фото и видео' : 'photos and videos'}</span>}
 			{index < 6 ? <figure>
-				<a href={mediaSource(media)} data-media-index={index} aria-label={`${media.kind === 'video' ? copy.play : copy.view}: ${media.alt[locale]}`}>
+				<a href={mediaSource(media)} data-astro-prefetch="false" data-media-index={index} aria-label={`${media.kind === 'video' ? copy.play : copy.view}: ${media.alt[locale]}`}>
 					<picture>
-						{media.kind === 'image' && srcset(media, 'jxl') && <source type="image/jxl" srcset={srcset(media, 'jxl')} sizes="(max-width: 600px) 90vw, 400px" />}
-						{media.kind === 'image' && <source type="image/webp" srcset={srcset(media, 'webp')} sizes="(max-width: 600px) 90vw, 400px" />}
+						{srcset(media, 'jxl') && <source type="image/jxl" srcset={srcset(media, 'jxl')} sizes="(max-width: 600px) 90vw, 400px" />}
+						{srcset(media, 'webp') && <source type="image/webp" srcset={srcset(media, 'webp')} sizes="(max-width: 600px) 90vw, 400px" />}
 						<img src={mediaPreview(media)} srcset={srcset(media, 'jpeg') || undefined} sizes="(max-width: 600px) 90vw, 400px" width={media.width} height={media.height} alt={media.alt[locale]} loading="lazy" decoding="async" />
 					</picture>
 					{media.kind === 'video' && <span class="travel-video-badge">▶ {duration(media.duration)}</span>}

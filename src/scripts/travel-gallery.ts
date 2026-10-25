@@ -58,15 +58,16 @@ class TravelGallery extends HTMLElement {
 		const figure = document.createElement('figure');
 		const link = document.createElement('a');
 		link.href = mediaSource(media);
+		link.dataset.astroPrefetch = 'false';
 		link.dataset.mediaIndex = String(index);
 		link.setAttribute('aria-label', media.alt[this.locale]);
 		const picture = document.createElement('picture');
-		if (media.kind === 'image') {
-			if (srcset(media, 'jxl')) {
-				const source = document.createElement('source');
-				source.type = 'image/jxl'; source.srcset = srcset(media, 'jxl'); source.sizes = '(max-width: 600px) 90vw, 400px';
-				picture.append(source);
-			}
+		if (srcset(media, 'jxl')) {
+			const source = document.createElement('source');
+			source.type = 'image/jxl'; source.srcset = srcset(media, 'jxl'); source.sizes = '(max-width: 600px) 90vw, 400px';
+			picture.append(source);
+		}
+		if (srcset(media, 'webp')) {
 			const source = document.createElement('source');
 			source.type = 'image/webp'; source.srcset = srcset(media, 'webp'); source.sizes = '(max-width: 600px) 90vw, 400px';
 			picture.append(source);
@@ -74,7 +75,7 @@ class TravelGallery extends HTMLElement {
 		const image = document.createElement('img');
 		image.alt = media.alt[this.locale]; image.width = media.width; image.height = media.height;
 		image.loading = 'lazy'; image.decoding = 'async';
-		if (media.kind === 'image') { image.srcset = srcset(media, 'jpeg'); image.sizes = '(max-width: 600px) 90vw, 400px'; }
+		image.srcset = srcset(media, 'jpeg'); image.sizes = '(max-width: 600px) 90vw, 400px';
 		image.src = mediaPreview(media); picture.append(image); link.append(picture);
 		if (media.kind === 'video') {
 			const badge = document.createElement('span'); badge.className = 'travel-video-badge';
@@ -102,9 +103,10 @@ class TravelGallery extends HTMLElement {
 				}
 				const wrapper = document.createElement('div'); wrapper.className = 'travel-viewer-video';
 				const video = document.createElement('video'); video.controls = true; video.playsInline = true; video.preload = 'none';
-				video.dataset.poster = media.poster; video.dataset.src = media.url; video.setAttribute('aria-label', media.alt[this.locale]);
+				const poster = useJxl ? media.posterSources?.filter((source) => source.format === 'jxl').sort((a, b) => b.width - a.width)[0] : undefined;
+				video.dataset.poster = poster?.url ?? media.poster; video.dataset.src = media.url; video.setAttribute('aria-label', media.alt[this.locale]);
 				video.width = media.width; video.height = media.height;
-				const fallback = document.createElement('a'); fallback.href = media.url; fallback.textContent = this.dataset.error!;
+				const fallback = document.createElement('a'); fallback.href = media.url; fallback.dataset.astroPrefetch = 'false'; fallback.textContent = this.dataset.error!;
 				video.addEventListener('error', () => { fallback.hidden = false; }); fallback.hidden = true;
 				wrapper.append(video, fallback); videos.push(video);
 				return { content: wrapper, type: 'inline', description, width: 'auto', height: 'auto' };
@@ -116,24 +118,55 @@ class TravelGallery extends HTMLElement {
 				if (video && !video.hasAttribute('src')) { video.poster = video.dataset.poster!; video.src = video.dataset.src!; }
 			};
 			const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const previews = new Map<HTMLElement, HTMLImageElement>();
+			const clearPreviews = () => { for (const preview of previews.values()) preview.remove(); previews.clear(); };
+			const options = { elements, preload: false, autoplayVideos: false, loop: false, openEffect: reduced ? 'none' : 'zoom', closeEffect: reduced ? 'none' : 'zoom', slideEffect: reduced ? 'none' : 'slide', cssEfects: { zoom: { in: 'travelViewerIn', out: 'travelViewerOut' } }, moreLength: 0 };
 			// GLightbox's bundled types incorrectly declare the slide list as an empty tuple.
-			const options = { elements, preload: false, autoplayVideos: false, loop: false, openEffect: reduced ? 'none' : 'fade', closeEffect: reduced ? 'none' : 'fade', slideEffect: reduced ? 'none' : 'slide', moreLength: 0 };
-			const lightbox = GLightbox(options as Parameters<typeof GLightbox>[0]);
+			const lightbox = GLightbox({ ...options, elements: elements as [] });
 			this.lightbox = lightbox;
+			const updateCounter = () => { const counter = document.querySelector('.travel-viewer-counter'); if (counter) counter.textContent = `${(lightbox.getActiveSlideIndex() ?? 0) + 1} / ${this.items.length}`; };
 			lightbox.on('slide_before_load', (event?: { slideNode: HTMLElement; slideIndex: number }) => {
 				if (!event) return;
+				updateCounter();
+				const media = this.items[event.slideIndex];
+				if (media.kind === 'image') {
+					const thumbnail = this.querySelector<HTMLImageElement>(`[data-media-index="${event.slideIndex}"] img`);
+					const preview = new Image();
+					preview.className = 'travel-viewer-preview gtravelViewerIn';
+					preview.alt = ''; preview.setAttribute('aria-hidden', 'true');
+					preview.width = media.width; preview.height = media.height;
+					preview.style.setProperty('--preview-width', `${media.width}px`);
+					preview.style.setProperty('--preview-ratio', String(media.width / media.height));
+					preview.onerror = () => { preview.remove(); previews.delete(event.slideNode); };
+					preview.src = thumbnail?.currentSrc || mediaPreview(media);
+					// GLightbox keeps the slide hidden until the full image loads.
+					event.slideNode.closest('.glightbox-container')!.append(preview);
+					previews.set(event.slideNode, preview);
+				}
 				event.slideNode.addEventListener('error', (error) => {
 					const image = error.target;
 					if (!(image instanceof HTMLImageElement) || image.dataset.fallback) return;
 					image.dataset.fallback = 'true';
 					const fallback = document.createElement('a');
-					fallback.href = mediaSource(this.items[event.slideIndex]); fallback.textContent = this.dataset.error!; fallback.className = 'travel-viewer-error';
+					fallback.href = mediaSource(this.items[event.slideIndex]); fallback.dataset.astroPrefetch = 'false'; fallback.textContent = this.dataset.error!; fallback.className = 'travel-viewer-error';
 					image.parentElement?.append(fallback);
 					image.removeAttribute('srcset');
 					image.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><rect width="1200" height="800" fill="#202125"/></svg>');
 				}, true);
 			});
-			lightbox.on('slide_before_change', stopVideos);
+			lightbox.on('slide_after_load', (event?: { slideNode: HTMLElement }) => {
+				if (!event) return;
+				const preview = previews.get(event.slideNode);
+				const image = event.slideNode.querySelector<HTMLImageElement>('.gslide-image img');
+				if (!preview || !image) return;
+				const reveal = () => {
+					previews.delete(event.slideNode);
+					if (reduced || image.dataset.fallback || !preview.isConnected) { preview.remove(); return; }
+					preview.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: 'ease-out' }).finished.then(() => preview.remove(), () => preview.remove());
+				};
+				void image.decode().then(reveal, reveal);
+			});
+			lightbox.on('slide_before_change', () => { stopVideos(); clearPreviews(); });
 			lightbox.on('slide_after_load', hydrateVideo);
 			lightbox.on('slide_changed', hydrateVideo);
 			lightbox.on('slide_changed', () => {
@@ -146,8 +179,7 @@ class TravelGallery extends HTMLElement {
 					void video.play().catch(() => {});
 				});
 			});
-			lightbox.on('close', () => { stopVideos(); this.opener?.focus({ preventScroll: true }); });
-			const updateCounter = () => { const counter = document.querySelector('.travel-viewer-counter'); if (counter) counter.textContent = `${(lightbox.getActiveSlideIndex() ?? 0) + 1} / ${this.items.length}`; };
+			lightbox.on('close', () => { stopVideos(); clearPreviews(); this.opener?.focus({ preventScroll: true }); });
 			lightbox.on('slide_changed', updateCounter);
 			lightbox.on('open', () => {
 				const container = document.querySelector<HTMLElement>('.glightbox-container');

@@ -1,4 +1,11 @@
 allowBuilds:
   esbuild: true
 
+# These exact versions were selected before pnpm's 24-hour release gate.
+minimumReleaseAgeExclude:
+  - '@mantine/core@9.7.4'
+  - '@mantine/hooks@9.7.4'
+  - '@mantine/tiptap@9.7.4'
+  - remeda@2.54.1
+
 virtualStoreType: project

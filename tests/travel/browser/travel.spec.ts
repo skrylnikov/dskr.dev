@@ -64,6 +64,41 @@ test('JPEG XL sources precede fallbacks and the viewer follows browser decoding 
 	await expect(page.locator('[data-media-index="6"] source').first()).toHaveAttribute('type', 'image/jxl');
 });
 
+test('gallery media links do not prefetch on hover or focus, including revealed thumbnails', async ({ page }) => {
+	const prefetched: string[] = [];
+	page.on('request', (request) => {
+		if (request.url().includes('/media/') && request.resourceType() !== 'image') prefetched.push(request.url());
+	});
+	await page.goto('/travel/sample-trip/first-walk/');
+	const gallery = page.locator('travel-gallery');
+	await gallery.locator('[data-show-more]').click();
+	for (const index of [0, 4, 6]) {
+		const link = gallery.locator(`[data-media-index="${index}"]`);
+		await expect(link).toHaveAttribute('data-astro-prefetch', 'false');
+		await link.hover();
+		await link.focus();
+		// Astro starts hover/focus prefetch after 80 ms.
+		await page.waitForTimeout(200);
+	}
+	expect(prefetched).toEqual([]);
+});
+
+test('video posters use picture formats in initial and revealed thumbnails and JXL in the viewer', async ({ page }) => {
+	await page.goto('/travel/sample-trip/first-walk/');
+	const gallery = page.locator('travel-gallery');
+	for (let n = 0; n < 9; n++) await gallery.locator('[data-show-more]').click();
+	for (const index of [4, 199]) {
+		const thumbnail = gallery.locator(`[data-media-index="${index}"]`);
+		await expect(thumbnail.locator('source').first()).toHaveAttribute('type', 'image/jxl');
+		await expect(thumbnail.locator('source').nth(1)).toHaveAttribute('type', 'image/webp');
+		await thumbnail.scrollIntoViewIfNeeded();
+		const usesJxl = await thumbnail.locator('img').evaluate(async (image: HTMLImageElement) => { await image.decode(); return image.currentSrc.endsWith('.jxl'); });
+		await thumbnail.click();
+		await expect(page.locator('.gslide.current video')).toHaveAttribute('poster', usesJxl ? /\.jxl$/ : /\.jpeg$/);
+		await page.keyboard.press('Escape');
+	}
+});
+
 test('viewer keeps JPEG fallback when JPEG XL decoding is unavailable', async ({ page }) => {
 	await page.addInitScript(() => {
 		const descriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src')!;
@@ -75,6 +110,75 @@ test('viewer keeps JPEG fallback when JPEG XL decoding is unavailable', async ({
 	await page.locator('travel-gallery [data-media-index="0"]').click();
 	await expect(page.locator('.gslide.current img')).toHaveAttribute('src', /\.jpeg$/);
 	await expect.poll(() => page.locator('.gslide.current img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+});
+
+for (const { index, reduced } of [{ index: 0, reduced: false }, { index: 2, reduced: false }, { index: 0, reduced: true }]) {
+	test(`photo preview stays visible until full-size decode (${index}${reduced ? ', reduced motion' : ''})`, async ({ page }, testInfo) => {
+		await page.emulateMedia({ reducedMotion: reduced ? 'reduce' : 'no-preference' });
+		await page.goto('/travel/sample-trip/first-walk/');
+		// Give viewer images distinct URLs so even cached thumbnails cannot satisfy them.
+		await page.locator('travel-gallery').evaluate((gallery) => {
+			const script = gallery.querySelector('[data-gallery-items]')!;
+			const items = JSON.parse(script.textContent!);
+			for (const item of items) if (item.kind === 'image') for (const source of item.sources) source.url += '?full-size';
+			script.textContent = JSON.stringify(items);
+			gallery.replaceWith(gallery.cloneNode(true));
+		});
+		let release!: () => void;
+		const pending = new Promise<void>((resolve) => { release = resolve; });
+		await page.route((url) => url.searchParams.has('full-size'), async (route) => { await pending; await route.continue(); });
+		const trigger = page.locator(`travel-gallery [data-media-index="${index}"]`);
+		await trigger.scrollIntoViewIfNeeded();
+		const thumbnail = await trigger.locator('img').evaluate(async (image: HTMLImageElement) => { await image.decode(); return image.currentSrc; });
+		try {
+			await trigger.click();
+			const preview = page.locator('.travel-viewer-preview');
+			await expect(preview).toBeVisible();
+			await expect(preview).toHaveAttribute('src', thumbnail);
+			await expect(preview).toHaveAttribute('aria-hidden', 'true');
+			await expect(page.locator('.gloader')).toBeHidden();
+			expect(await preview.evaluate((image) => getComputedStyle(image).animationName)).toBe(reduced ? 'none' : 'travel-viewer-in');
+			await expect(page.locator('.gclose')).toBeFocused();
+			expect(await preview.evaluate((image) => {
+				const box = image.getBoundingClientRect();
+				return box.left >= -1 && box.top >= -1 && box.right <= innerWidth + 1 && box.bottom <= innerHeight + 1;
+			})).toBe(true);
+			await page.screenshot({ path: testInfo.outputPath('photo-preview.png'), animations: 'disabled' });
+			release();
+			await expect(preview).toHaveCount(0);
+			await expect.poll(() => page.locator('.gslide.current img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+			await page.keyboard.press('Escape');
+			await expect(page.locator('.glightbox-container')).toHaveCount(0);
+			await expect(trigger).toBeFocused();
+		} finally { release(); }
+	});
+}
+
+test('closing while a full-size photo is loading removes the preview and restores focus', async ({ page }) => {
+	const errors: string[] = []; page.on('pageerror', (error) => errors.push(error.message));
+	await page.goto('/travel/sample-trip/first-walk/');
+	await page.locator('travel-gallery').evaluate((gallery) => {
+		const script = gallery.querySelector('[data-gallery-items]')!;
+		const items = JSON.parse(script.textContent!);
+		for (const source of items[0].sources) source.url += '?full-size';
+		script.textContent = JSON.stringify(items);
+		gallery.replaceWith(gallery.cloneNode(true));
+	});
+	let release!: () => void;
+	const pending = new Promise<void>((resolve) => { release = resolve; });
+	await page.route((url) => url.searchParams.has('full-size'), async (route) => { await pending; await route.continue(); });
+	const trigger = page.locator('travel-gallery [data-media-index="0"]');
+	try {
+		await trigger.click();
+		await expect(page.locator('.travel-viewer-preview')).toBeVisible();
+		await page.keyboard.press('Escape');
+		await expect(page.locator('.glightbox-container, .travel-viewer-preview')).toHaveCount(0);
+		await expect(trigger).toBeFocused();
+		const response = page.waitForResponse((response) => response.url().includes('?full-size') && response.ok());
+		release();
+		await response;
+		expect(errors).toEqual([]);
+	} finally { release(); }
 });
 
 test('200 media: only six thumbnails initially, progressive reveal, all slides and restored focus', async ({ page }) => {

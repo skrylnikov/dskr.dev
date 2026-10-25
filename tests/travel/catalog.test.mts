@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { buildTravelCatalog, entrySchema, tripSchema, gallerySchema, travelPath } from '../../src/data/travel.mts';
-import { pickCollagePhotos } from '../../src/data/travel-media.mts';
+import { pickCollagePhotos, mediaPreview, srcset } from '../../src/data/travel-media.mts';
 
 const trip = (slug = 'trip', locale = 'ru', draft = false) => ({ id: `${slug}-${locale}`, data: tripSchema.parse({ slug, locale, draft, title: 'Trip', description: 'Description', destinations: ['City'], startDate: '2026-10-20', collage: ['gallery/a', 'gallery/b', 'gallery/c'] }) });
 const entry = (slug: string, order: number, options = {}) => ({ id: slug, data: entrySchema.parse({ slug, order, trip: 'trip', locale: 'ru', kind: 'note', ...options }) });
@@ -46,4 +46,12 @@ test('gallery validation rejects arbitrary URLs and duplicate media', () => {
 	assert.equal(gallerySchema.safeParse({ id: 'g', items: [media] }).success, true);
 	assert.equal(gallerySchema.safeParse({ id: 'g', items: [media, media] }).success, false);
 	assert.equal(gallerySchema.safeParse({ id: 'g', items: [{ ...media, url: 'javascript:alert(1)' }] }).success, false);
+	assert.equal(mediaPreview(media), media.poster);
+	assert.equal(srcset(media, 'jxl'), '');
+	const posterSources = ['jpeg', 'webp', 'jxl'].map((format) => ({ url: `/media/${'b'.repeat(64)}/100.${format}`, width: 100, height: 200, format }));
+	const video = gallerySchema.parse({ id: 'g', items: [{ ...media, posterSources }] }).items[0];
+	assert.equal(mediaPreview(video), posterSources[0].url);
+	assert.equal(srcset(video, 'jxl'), `${posterSources[2].url} 100w`);
+	assert.equal(gallerySchema.safeParse({ id: 'g', items: [{ ...media, posterSources: posterSources.slice(1) }] }).success, false);
+	assert.equal(gallerySchema.safeParse({ id: 'g', items: [{ ...media, posterSources: [{ ...posterSources[0], url: 'https://example.com/poster.jpeg' }] }] }).success, false);
 });

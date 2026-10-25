@@ -1,6 +1,9 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import { INDIEWEB_ENDPOINTS } from '../consts';
+import sansLatin from '../assets/fonts/ibm-plex-sans-400-700-normal-latin.woff2?url';
+import sansCyrillic from '../assets/fonts/ibm-plex-sans-400-700-normal-cyrillic.woff2?url';
+import '../styles/fonts.css';
 
 type PageType = 'website' | 'article';
 type Alternate = { hreflang: string; href: string };
@@ -86,13 +89,11 @@ const jsonLd = structuredData && JSON.stringify(structuredData).replace(/</g, '\
 {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap" />
+<link rel="preload" href={sansLatin} as="font" type="font/woff2" crossorigin />
+{Astro.currentLocale !== 'en' && <link rel="preload" href={sansCyrillic} as="font" type="font/woff2" crossorigin />}
 <style is:global>
 	@import "../styles/blog.css";
 	@import "../styles/prism-vsc-dark-plus.css";
-  
-  
 </style>
 
 <ClientRouter />

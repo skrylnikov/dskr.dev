@@ -9,6 +9,10 @@
         "ru": "Куршская коса и Зеленоградск",
         "en": "The Curonian Spit and Zelenogradsk"
       },
+      "caption": {
+        "ru": "Танцующий лес",
+        "en": "The Dancing Forest"
+      },
       "kind": "image",
       "sources": [
         {
@@ -143,7 +147,27 @@
       },
       "kind": "video",
       "url": "/media/265b159557fafc91c40107afcb909145c222d0dc7606c433d368257a6eb7355b/video.mp4",
-      "poster": "/media/265b159557fafc91c40107afcb909145c222d0dc7606c433d368257a6eb7355b/poster.jpeg",
+      "poster": "/media/eb5178b281afe3ccf326629e3b0f9c869a42e4f60e1c4ff9f249e72a7635ebf3/604.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/eb5178b281afe3ccf326629e3b0f9c869a42e4f60e1c4ff9f249e72a7635ebf3/604.webp",
+          "width": 604,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/eb5178b281afe3ccf326629e3b0f9c869a42e4f60e1c4ff9f249e72a7635ebf3/604.jpeg",
+          "width": 604,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1c154da82a8f7cb536e8354fbb50795df7cba28fccc411ad6c752fcfdc9a3e98/604.jxl",
+          "width": 604,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
       "duration": 21.35
     }
   ]

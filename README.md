@@ -17,6 +17,8 @@ pnpm dev
 pnpm build
 ```
 
+Локальный редактор блога и путешествий: `pnpm admin:dev`, затем [http://127.0.0.1:4322](http://127.0.0.1:4322). Формат файлов, медиа/S3, превью и проверки описаны в [docs/admin.md](docs/admin.md). Commit и push выполняются вручную.
+
 ## IndieWeb
 
 Astro публикует microformats2-разметку и discovery-ссылки для Webmention,

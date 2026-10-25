@@ -23,7 +23,7 @@ export function getTravelMedia(ref: string): TravelMedia {
 	return media;
 }
 export async function getTravelCatalog() {
-	const catalog = buildTravelCatalog(await getCollection('trips'), await getCollection('travelEntries'));
+	const catalog = buildTravelCatalog(await getCollection('trips'), await getCollection('travelEntries'), import.meta.env.DEV && process.env.ADMIN_PREVIEW === '1');
 	for (const { data } of [...catalog.trips, ...catalog.entries]) {
 		if ('collage' in data) for (const ref of data.collage) {
 			if (getTravelMedia(ref).kind !== 'image') throw new Error(`Collage must use photos: ${ref}`);

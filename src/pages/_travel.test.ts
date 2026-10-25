@@ -15,3 +15,9 @@ test('ordinary builds expose both travel indexes without synthetic preview conte
 	}
 	assert.ok(!readFileSync('dist/sitemap-0.xml', 'utf8').includes('sample-trip'));
 });
+
+test('production output excludes the local admin and its UI bundle', () => {
+	assert.equal(existsSync(resolve('dist/admin')), false);
+	assert.equal(existsSync(resolve('dist/api/materials')), false);
+	assert.ok(!readFileSync('dist/index.html', 'utf8').includes('mantine'));
+});

@@ -14,6 +14,10 @@ const hiddenPages = new Set([
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://dskr.dev',
+	...(process.env.ADMIN_PREVIEW === '1' ? {
+		cacheDir: './.state/admin-astro-cache',
+		vite: { server: { strictPort: true, proxy: { '/media': { target: 'http://127.0.0.1:4323', changeOrigin: true } } } },
+	} : {}),
 	outDir: process.env.TRAVEL_TEST_BUILD ? './.state/travel-dist' : './dist',
 	integrations: [
 		mdx(),

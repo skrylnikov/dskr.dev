@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 const root = resolve('.state/travel-dist');
 const mediaRoot = process.env.TRAVEL_MEDIA_ROOT && resolve(process.env.TRAVEL_MEDIA_ROOT);
 const portraitHash = createHash('sha256').update('2').digest('hex');
+const videoHash = createHash('sha256').update('4').digest('hex');
 const portraitVideoHash = createHash('sha256').update('199').digest('hex');
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.xml': 'application/xml', '.jpeg': 'image/jpeg', '.jpg': 'image/jpeg', '.mp4': 'video/mp4', '.png': 'image/png', '.avif': 'image/avif', '.webp': 'image/webp', '.jxl': 'image/jxl' };
 createServer(async (request, response) => {
@@ -14,7 +15,7 @@ createServer(async (request, response) => {
 		let file;
 		if (path.startsWith('/media/')) {
 			if (mediaRoot) { file = resolve(mediaRoot, path.slice('/media/'.length)); if (!file.startsWith(mediaRoot + sep)) throw new Error('Outside media root'); }
-			else file = path.endsWith('.mp4') ? resolve(`.state/travel-fixtures/${path.includes(portraitVideoHash) ? 'portrait-clip' : 'clip'}.mp4`) : resolve(`.state/travel-fixtures/${path.includes(portraitHash) ? 'portrait' : 'landscape'}${path.endsWith('.jxl') ? '.jxl' : '.jpeg'}`);
+			else file = path.endsWith('.mp4') ? resolve(`.state/travel-fixtures/${path.includes(portraitVideoHash) ? 'portrait-clip' : 'clip'}.mp4`) : resolve(`.state/travel-fixtures/${path.includes(portraitVideoHash) ? 'video-portrait' : path.includes(videoHash) ? 'video-landscape' : path.includes(portraitHash) ? 'portrait' : 'landscape'}${extname(path)}`);
 		}
 		else {
 			file = resolve(root, `.${path}`);

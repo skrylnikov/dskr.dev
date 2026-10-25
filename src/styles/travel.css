@@ -64,6 +64,12 @@ travel-gallery { display: block; margin-block: 1.75rem; }
 .glightbox-container.glightbox-clean .gslide .gslide-desc { color: #ddd; font-family: var(--font-body); font-size: .9rem; line-height: 1.5; text-align: center; white-space: pre-line; }
 .travel-viewer-error { position: absolute; bottom: 2rem; left: 1rem; right: 1rem; color: white; text-align: center; }
 .travel-viewer-counter { position: absolute; z-index: 2; left: 1.5rem; top: 1.25rem; color: white; font-family: var(--font-mono); pointer-events: none; }
+.travel-viewer-preview { position: absolute; z-index: 1; left: 50%; top: 50%; translate: -50% -50%; width: min(100vw, calc(97vh * var(--preview-ratio)), var(--preview-width)); height: auto; max-height: 97vh; object-fit: contain; pointer-events: none; }
+.glightbox-container:has(> .travel-viewer-preview) .gloader { display: none !important; }
+.glightbox-container .gtravelViewerIn { animation: travel-viewer-in 280ms cubic-bezier(.22, 1, .36, 1) both; }
+.glightbox-container .gtravelViewerOut, .glightbox-closing > .travel-viewer-preview { animation: travel-viewer-out 180ms ease-in both; }
+@keyframes travel-viewer-in { from { opacity: 0; transform: translateY(8px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes travel-viewer-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: scale(.98); } }
 .travel-media-grid .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 800px) {
 	.travel-year { grid-template-columns: 1fr; gap: 1rem; }

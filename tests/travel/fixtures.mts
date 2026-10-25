@@ -13,14 +13,18 @@ const items = Array.from({ length: 200 }, (_, index) => {
 	const base = { id: `frame-${index}`, width: 1200, height: 800, alt: { ru: `Тестовый кадр ${index}`, en: `Test frame ${index}` } };
 	const hash = createHash('sha256').update(String(index)).digest('hex');
 	if (index === 2) return { ...base, width: 600, height: 1000, kind: 'image', sources: [{ url: `/media/${hash}/640.jpeg`, width: 600, height: 1000, format: 'jpeg' }, { url: `/media/${hash}/640.jxl`, width: 600, height: 1000, format: 'jxl' }] };
-	return index === 4 || index === 199 ? { ...base, width: index === 4 ? 160 : 120, height: index === 4 ? 120 : 160, caption: { ru: 'Нижний пруд', en: 'Lower pond' }, kind: 'video', duration: 6, url: `/media/${hash}/video.mp4`, poster: `/media/${hash}/poster.jpeg` } : { ...base, kind: 'image', sources: [{ url: `/media/${hash}/640.jpeg`, width: 640, height: 427, format: 'jpeg' }, { url: `/media/${hash}/1280.jpeg`, width: 1200, height: 800, format: 'jpeg' }, { url: `/media/${hash}/1280.jxl`, width: 1200, height: 800, format: 'jxl' }] };
+	return index === 4 || index === 199 ? { ...base, width: index === 4 ? 160 : 120, height: index === 4 ? 120 : 160, caption: { ru: 'Нижний пруд', en: 'Lower pond' }, kind: 'video', duration: 6, url: `/media/${hash}/video.mp4`, poster: `/media/${hash}/poster.jpeg`, posterSources: ['jpeg', 'webp', 'jxl'].map((format) => ({ url: `/media/${hash}/${index === 4 ? 160 : 120}.${format}`, width: index === 4 ? 160 : 120, height: index === 4 ? 120 : 160, format })) } : { ...base, kind: 'image', sources: [{ url: `/media/${hash}/640.jpeg`, width: 640, height: 427, format: 'jpeg' }, { url: `/media/${hash}/1280.jpeg`, width: 1200, height: 800, format: 'jpeg' }, { url: `/media/${hash}/1280.jxl`, width: 1200, height: 800, format: 'jxl' }] };
 });
 await save('media/sample.json', JSON.stringify({ id: 'sample', items }));
 await sharp('public/assets/photo-lib-part-1.jpg').resize(600, 1000).jpeg().toFile(join(root, 'portrait.jpeg'));
 await sharp('public/assets/photo-lib-part-1.jpg').resize(1200, 800).jpeg().toFile(join(root, 'landscape.jpeg'));
-for (const name of ['portrait', 'landscape']) {
+for (const [name, width, height] of [['video-landscape', 160, 120], ['video-portrait', 120, 160]] as const) {
+	await sharp({ create: { width, height, channels: 3, background: 'green' } }).jpeg({ progressive: true }).toFile(join(root, `${name}.jpeg`));
+}
+for (const name of ['portrait', 'landscape', 'video-landscape', 'video-portrait']) {
 	await sharp(join(root, `${name}.jpeg`)).png().toFile(join(root, `${name}.png`));
-	await run('cjxl', [join(root, `${name}.png`), join(root, `${name}.jxl`), '--distance=1', '--effort=7', '--num_threads=2']);
+	await sharp(join(root, `${name}.jpeg`)).webp().toFile(join(root, `${name}.webp`));
+	await run('cjxl', [join(root, `${name}.png`), join(root, `${name}.jxl`), '--distance=1', '--effort=7', '--progressive', '--num_threads=2']);
 }
 for (const locale of ['ru', 'en']) {
 	const trip = { slug: 'sample-trip', locale, title: locale === 'ru' ? 'Тестовая поездка' : 'Sample trip', description: 'Synthetic test content', destinations: ['Test city'], startDate: '2026-10-20', endDate: '2026-10-23', collage };

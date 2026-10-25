@@ -77,7 +77,27 @@
       },
       "kind": "video",
       "url": "/media/4ee98763f50494201e5f86d2074e1f4942b3fd9b42e8c01cb371bf8df795a06f/video.mp4",
-      "poster": "/media/4ee98763f50494201e5f86d2074e1f4942b3fd9b42e8c01cb371bf8df795a06f/poster.jpeg",
+      "poster": "/media/c800cd7b3dcf715ddd1f6a1e9d3656f6377f22f51437885728267793e61d9ade/604.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/c800cd7b3dcf715ddd1f6a1e9d3656f6377f22f51437885728267793e61d9ade/604.webp",
+          "width": 604,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c800cd7b3dcf715ddd1f6a1e9d3656f6377f22f51437885728267793e61d9ade/604.jpeg",
+          "width": 604,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/761a7827d4f15a3e8a540208b0919ef96d23e43400ae86d9335916581f1e65dc/604.jxl",
+          "width": 604,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
       "duration": 56.7
     }
   ]

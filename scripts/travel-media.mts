@@ -11,12 +11,12 @@ import { gallerySchema, slugSchema, type Gallery, type TravelMedia } from '../sr
 const text = z.object({ ru: z.string(), en: z.string() });
 export const inputSchema = z.object({ id: slugSchema, items: z.array(z.object({ id: slugSchema, file: z.string().min(1), alt: text, caption: text.optional() })).min(1) });
 const recipe = 'travel-v1-webp84-jpeg86-640-1280-2560-h264crf23-1080-aac128';
-const jxlRecipe = 'jxl-v1-d1-e7-640-1280-2560';
+const jxlRecipe = 'jxl-v2-progressive-d1-e7-640-1280-2560';
 const stateRoot = resolve('.state/travel');
 
-export async function run(binary: string, args: string[]) {
+export async function run(binary: string, args: string[], signal?: AbortSignal) {
 	return await new Promise<string>((resolveRun, reject) => {
-		const child = spawn(binary, args, { stdio: ['ignore', 'pipe', 'pipe'] });
+		const child = spawn(binary, args, { stdio: ['ignore', 'pipe', 'pipe'], signal });
 		let stdout = '', stderr = '';
 		child.stdout.on('data', (data) => { stdout += data; });
 		child.stderr.on('data', (data) => { stderr = (stderr + data).slice(-8000); });
@@ -37,12 +37,58 @@ async function writeJson(file: string, value: unknown) {
 }
 const exists = async (file: string) => stat(file).then(() => true, (error) => { if (error.code === 'ENOENT') return false; throw error; });
 
-export async function prepareGallery(inputFile: string, mediaDir = 'src/content/travel/media'): Promise<Gallery> {
+async function prepareImage(file: string, hash: string, jxlHash: string, signal?: AbortSignal) {
+	const metadata = await sharp(file, { limitInputPixels: 100_000_000 }).metadata();
+	const width = metadata.autoOrient?.width ?? metadata.width;
+	const height = metadata.autoOrient?.height ?? metadata.height;
+	if (!width || !height) throw new Error(`Missing dimensions: ${file}`);
+	const output = join(stateRoot, 'objects', hash);
+	const jxlOutput = join(stateRoot, 'objects', jxlHash);
+	await mkdir(output, { recursive: true });
+	await mkdir(jxlOutput, { recursive: true });
+	const sources: Extract<TravelMedia, { kind: 'image' }>['sources'] = [];
+	for (const size of [...new Set([640, 1280, 2560].map((size) => Math.min(size, width)))]) {
+		for (const format of ['webp', 'jpeg'] as const) {
+			signal?.throwIfAborted();
+			const destination = join(output, `${size}.${format}`);
+			if (!(await exists(destination))) {
+				const temporary = join(output, `${size}.${process.pid}.tmp.${format}`);
+				try {
+					const image = sharp(file, { limitInputPixels: 100_000_000 }).autoOrient().resize({ width: size, withoutEnlargement: true });
+					await (format === 'webp' ? image.webp({ quality: 84 }) : image.jpeg({ quality: 86, progressive: true })).toFile(temporary);
+					await rename(temporary, destination);
+				} finally { await rm(temporary, { force: true }); }
+			}
+			const info = await sharp(destination).metadata();
+			sources.push({ url: `/media/${hash}/${size}.${format}`, width: info.width!, height: info.height!, format });
+		}
+	}
+	for (const source of sources.filter((source) => source.format === 'jpeg')) {
+		signal?.throwIfAborted();
+		const destination = join(jxlOutput, `${source.width}.jxl`);
+		if (!(await exists(destination))) {
+			const png = join(jxlOutput, `${source.width}.${process.pid}.tmp.png`);
+			const temporary = join(jxlOutput, `${source.width}.${process.pid}.tmp.jxl`);
+			try {
+				await sharp(file, { limitInputPixels: 100_000_000 }).autoOrient().resize({ width: source.width, withoutEnlargement: true }).png().toFile(png);
+				await run('cjxl', [png, temporary, '--distance=1', '--effort=7', '--progressive', '--num_threads=2'], signal);
+				await rename(temporary, destination);
+			} finally { await rm(png, { force: true }); await rm(temporary, { force: true }); }
+		}
+		sources.push({ url: `/media/${jxlHash}/${source.width}.jxl`, width: source.width, height: source.height, format: 'jxl' });
+	}
+	return { width, height, sources };
+}
+
+export async function prepareGallery(inputFile: string, mediaDir = 'src/content/travel/media', signal?: AbortSignal): Promise<Gallery> {
+	const execute = (binary: string, args: string[]) => run(binary, args, signal);
+	signal?.throwIfAborted();
 	const input = inputSchema.parse(JSON.parse(await readFile(inputFile, 'utf8')));
 	if (new Set(input.items.map((item) => item.id)).size !== input.items.length) throw new Error('Duplicate input media id');
 	const items: TravelMedia[] = [];
 	const originals: { file: string; key: string }[] = [];
 	for (const item of input.items) {
+		signal?.throwIfAborted();
 		const file = resolve(dirname(inputFile), item.file);
 		const originalHash = await digest(file);
 		const hash = createHash('sha256').update(originalHash + recipe).digest('hex');
@@ -51,77 +97,65 @@ export async function prepareGallery(inputFile: string, mediaDir = 'src/content/
 		await mkdir(output, { recursive: true });
 		let media: TravelMedia;
 		const cached = await exists(cacheFile) ? gallerySchema.parse({ id: input.id, items: [JSON.parse(await readFile(cacheFile, 'utf8'))] }).items[0] : undefined;
-		const cachedUrls = cached ? (cached.kind === 'image' ? cached.sources.filter((source) => source.format !== 'jxl').map((source) => source.url) : [cached.url, cached.poster]) : [];
-		const complete = cached && (await Promise.all(cachedUrls.map((url) => exists(join(stateRoot, 'objects', url.replace('/media/', '')))))).every(Boolean);
-		if (complete) {
+		if (cached?.kind === 'video' && await exists(join(stateRoot, 'objects', cached.url.replace('/media/', '')))) {
 			media = cached;
 		} else if (/\.(mp4|mov|m4v|webm|mkv)$/i.test(file)) {
 			const video = join(output, 'video.mp4');
 			const temporary = join(output, `${process.pid}.tmp.mp4`);
 			try {
-				await run('ffmpeg', ['-nostdin', '-y', '-i', file, '-map', '0:v:0', '-map', '0:a:0?', '-map_metadata', '-1', '-vf', "scale=w='min(1080,iw)':h='min(1080,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1", '-c:v', 'libx264', '-crf', '23', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', temporary]);
+				await execute('ffmpeg', ['-nostdin', '-y', '-i', file, '-map', '0:v:0', '-map', '0:a:0?', '-map_metadata', '-1', '-vf', "scale=w='min(1080,iw)':h='min(1080,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1", '-c:v', 'libx264', '-crf', '23', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', temporary]);
 				await rename(temporary, video);
 			} finally { await rm(temporary, { force: true }); }
-			await run('ffmpeg', ['-nostdin', '-y', '-i', video, '-frames:v', '1', '-q:v', '3', join(output, 'poster.jpeg')]);
-			const probe = JSON.parse(await run('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height:format=duration', '-of', 'json', video]));
+			const probe = JSON.parse(await execute('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height:format=duration', '-of', 'json', video]));
 			const dimensions = probe.streams.find((stream: { width?: number }) => stream.width);
 			media = { id: item.id, kind: 'video', width: dimensions.width, height: dimensions.height, duration: Number(probe.format.duration), url: `/media/${hash}/video.mp4`, poster: `/media/${hash}/poster.jpeg`, alt: item.alt };
 		} else {
-			const metadata = await sharp(file, { limitInputPixels: 100_000_000 }).metadata();
-			const orientedWidth = metadata.autoOrient?.width ?? metadata.width;
-			const orientedHeight = metadata.autoOrient?.height ?? metadata.height;
-			if (!orientedWidth || !orientedHeight) throw new Error(`Missing dimensions: ${file}`);
-			const sources: Extract<TravelMedia, { kind: 'image' }>['sources'] = [];
-			for (const width of [...new Set([640, 1280, 2560].map((width) => Math.min(width, orientedWidth)))]) {
-				for (const format of ['webp', 'jpeg'] as const) {
-					const destination = join(output, `${width}.${format}`);
-					const image = sharp(file, { limitInputPixels: 100_000_000 }).autoOrient().resize({ width, withoutEnlargement: true });
-					const info = await (format === 'webp' ? image.webp({ quality: 84 }) : image.jpeg({ quality: 86, progressive: true })).toFile(destination);
-					sources.push({ url: `/media/${hash}/${width}.${format}`, width: info.width, height: info.height, format });
-				}
-			}
-			media = { id: item.id, kind: 'image', width: orientedWidth, height: orientedHeight, alt: item.alt, sources };
+			media = { id: item.id, kind: 'image', ...await prepareImage(file, hash, createHash('sha256').update(originalHash + jxlRecipe).digest('hex'), signal), alt: item.alt };
 		}
-		if (media.kind === 'image') {
-			const jxlHash = createHash('sha256').update(originalHash + jxlRecipe).digest('hex');
-			const jxlOutput = join(stateRoot, 'objects', jxlHash);
-			await mkdir(jxlOutput, { recursive: true });
-			media.sources = media.sources.filter((source) => source.format !== 'jxl');
-			for (const source of media.sources.filter((source) => source.format === 'jpeg')) {
-				const destination = join(jxlOutput, `${source.width}.jxl`);
-				if (!(await exists(destination))) {
-					const png = join(jxlOutput, `${source.width}.${process.pid}.tmp.png`);
-					const temporary = join(jxlOutput, `${source.width}.${process.pid}.tmp.jxl`);
-					try {
-						await sharp(file, { limitInputPixels: 100_000_000 }).autoOrient().resize({ width: source.width, withoutEnlargement: true }).png().toFile(png);
-						await run('cjxl', [png, temporary, '--distance=1', '--effort=7', '--num_threads=2']);
-						await rename(temporary, destination);
-					} finally { await rm(png, { force: true }); await rm(temporary, { force: true }); }
-				}
-				media.sources.push({ url: `/media/${jxlHash}/${source.width}.jxl`, width: source.width, height: source.height, format: 'jxl' });
+		if (media.kind === 'video') {
+			const posterFile = join(output, 'poster.png');
+			if (!(await exists(posterFile))) {
+				const temporary = join(output, `${process.pid}.tmp.png`);
+				try {
+					await execute('ffmpeg', ['-nostdin', '-y', '-i', join(output, 'video.mp4'), '-frames:v', '1', temporary]);
+					await rename(temporary, posterFile);
+				} finally { await rm(temporary, { force: true }); }
 			}
+			const posterHash = createHash('sha256').update(originalHash + 'poster-v1-' + recipe).digest('hex');
+			const posterJxlHash = createHash('sha256').update(originalHash + 'poster-v1-' + jxlRecipe).digest('hex');
+			media.posterSources = (await prepareImage(posterFile, posterHash, posterJxlHash, signal)).sources;
+			media.poster = media.posterSources.filter((source) => source.format === 'jpeg').sort((a, b) => b.width - a.width)[0].url;
 		}
 		media = { ...media, id: item.id, alt: item.alt, caption: item.caption };
 		await writeJson(cacheFile, media);
 		items.push(media);
 		originals.push({ file, key: `${originalHash}/original${extname(file).toLowerCase().replace(/[^.a-z0-9]/g, '')}` });
 	}
+	signal?.throwIfAborted();
 	const gallery = gallerySchema.parse({ id: input.id, items });
 	await writeJson(join(mediaDir, `${input.id}.json`), gallery);
 	await writeJson(join(stateRoot, 'prepared', `${input.id}.json`), { gallery, originals });
 	return gallery;
 }
 
-export async function publishGallery(id: string) {
+export async function publishGallery(id: string, itemIds?: string[], signal?: AbortSignal) {
+	signal?.throwIfAborted();
 	slugSchema.parse(id);
 	const required = (name: string) => { const value = process.env[name]; if (!value) throw new Error(`Missing ${name}`); return value; };
 	const { S3mini } = await import('s3mini');
-	const credentials = { accessKeyId: required('MEDIA_S3_ACCESS_KEY_ID'), secretAccessKey: required('MEDIA_S3_SECRET_ACCESS_KEY'), region: process.env.MEDIA_S3_REGION || 'us-east-1' };
+	const credentials = {
+		accessKeyId: required('MEDIA_S3_ACCESS_KEY_ID'), secretAccessKey: required('MEDIA_S3_SECRET_ACCESS_KEY'),
+		region: process.env.MEDIA_S3_REGION || 'us-east-1',
+		...(signal ? { fetch: (input: RequestInfo | URL, init?: RequestInit) => globalThis.fetch(input, {
+			...init, signal: init?.signal ? AbortSignal.any([signal, init.signal]) : signal,
+		}) } : {}),
+	};
 	const endpoint = required('MEDIA_S3_ENDPOINT').replace(/\/$/, '');
 	const originalsStore = new S3mini({ ...credentials, endpoint: `${endpoint}/${required('MEDIA_S3_ORIGINALS_BUCKET')}` });
 	const publishedStore = new S3mini({ ...credentials, endpoint: `${endpoint}/${required('MEDIA_S3_PUBLISHED_BUCKET')}` });
 	const prepared = JSON.parse(await readFile(join(stateRoot, 'prepared', `${id}.json`), 'utf8'));
 	const gallery = gallerySchema.parse(prepared.gallery);
+	const selected = itemIds ? new Set(itemIds) : null;
 	const upload = async (store: InstanceType<typeof S3mini>, file: string, key: string, mime: string) => {
 		const bytes = (await stat(file)).size;
 		// s3mini types only x-amz-* headers, but its implementation forwards standard headers too.
@@ -129,11 +163,12 @@ export async function publishGallery(id: string) {
 		if (!(await store.objectExists(key))) await store.putAnyObject(key, await openAsBlob(file, { type: mime }), mime, undefined, headers as Parameters<typeof store.putAnyObject>[4], bytes);
 		if (await store.getContentLength(key) !== bytes) throw new Error(`S3 verification failed: ${key}`);
 	};
-	for (const original of prepared.originals) {
+	for (const [index, original] of prepared.originals.entries()) {
+		if (selected && !selected.has(gallery.items[index]?.id)) continue;
 		if (await digest(original.file) !== original.key.split('/')[0]) throw new Error(`Original changed since preparation: ${original.file}`);
 		await upload(originalsStore, original.file, original.key, 'application/octet-stream');
 	}
-	const urls = new Set(gallery.items.flatMap((media) => media.kind === 'image' ? media.sources.map((source) => source.url) : [media.url, media.poster]));
+	const urls = new Set(gallery.items.filter((media) => !selected || selected.has(media.id)).flatMap((media) => media.kind === 'image' ? media.sources.map((source) => source.url) : [media.url, media.poster, ...(media.posterSources ?? []).map((source) => source.url)]));
 	for (const url of urls) {
 		const key = url.replace('/media/', '');
 		const mime = key.endsWith('.mp4') ? 'video/mp4' : key.endsWith('.webp') ? 'image/webp' : key.endsWith('.jxl') ? 'image/jxl' : 'image/jpeg';

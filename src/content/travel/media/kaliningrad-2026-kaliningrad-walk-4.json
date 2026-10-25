@@ -9,9 +9,33 @@
         "ru": "Прогулка по Калининграду",
         "en": "A walk around Kaliningrad"
       },
+      "caption": {
+        "ru": "Концертный зал",
+        "en": "The concert hall"
+      },
       "kind": "video",
       "url": "/media/54e3dba71b8af1d0acfe57b92646115accb676816664a03bd9ca94620c56046a/video.mp4",
-      "poster": "/media/54e3dba71b8af1d0acfe57b92646115accb676816664a03bd9ca94620c56046a/poster.jpeg",
+      "poster": "/media/8a121343c06dd826333e3d4ec95dda7cb37b6362dd1a5156a708da33dc756201/604.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/8a121343c06dd826333e3d4ec95dda7cb37b6362dd1a5156a708da33dc756201/604.webp",
+          "width": 604,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8a121343c06dd826333e3d4ec95dda7cb37b6362dd1a5156a708da33dc756201/604.jpeg",
+          "width": 604,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f548c98ab9e4661ef52fc0a51170245ce2c1744f3f92e3f8ae1841907e4f2cce/604.jxl",
+          "width": 604,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
       "duration": 63.633333
     },
     {
