@@ -131,6 +131,18 @@ for (const { index, reduced, cached } of [{ index: 0, reduced: false, cached: fa
 		await trigger.scrollIntoViewIfNeeded();
 		const thumbnail = await trigger.locator('img').evaluate(async (image: HTMLImageElement) => { await image.decode(); return image.currentSrc; });
 		const origin = await trigger.locator('img').boundingBox();
+		if (!reduced && !cached) await page.evaluate(() => {
+			const animate = Element.prototype.animate;
+			Element.prototype.animate = function (keyframes, options) {
+				const animation = animate.call(this, keyframes, options);
+				if (this.matches('.travel-viewer-preview') && (keyframes as Keyframe[]).some((frame) => frame.opacity === 0)) {
+					const slide = document.querySelector('.gslide.current')!;
+					(this as HTMLElement).dataset.backingAnimation = getComputedStyle(slide).animationName;
+					animation.pause(); animation.currentTime = 110;
+				}
+				return animation;
+			};
+		});
 		if (!reduced) await page.evaluate(() => {
 			const observer = new MutationObserver(() => {
 				const preview = document.querySelector('.travel-viewer-preview');
@@ -171,6 +183,11 @@ for (const { index, reduced, cached } of [{ index: 0, reduced: false, cached: fa
 			expect(destination.right).toBeLessThanOrEqual(page.viewportSize()!.width + 1); expect(destination.bottom).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
 			await page.screenshot({ path: testInfo.outputPath('photo-preview.png'), animations: 'disabled' });
 			release();
+			if (!reduced && !cached) {
+				await expect(preview).toHaveAttribute('data-backing-animation', 'none');
+				await expect(page.locator('.gslide.current')).toHaveCSS('opacity', '1');
+				await preview.evaluate((image) => image.getAnimations().forEach((animation) => animation.finish()));
+			}
 			await expect(preview).toHaveCount(0);
 			await expect.poll(() => page.locator('.gslide.current .gslide-image img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
 			await page.locator('.gslide.current').evaluate(async (slide) => { await Promise.allSettled(slide.getAnimations().map((animation) => animation.finished)); });

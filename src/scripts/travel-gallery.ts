@@ -179,7 +179,7 @@ class TravelGallery extends HTMLElement {
 			const resizePhotos = () => { for (const slide of document.querySelectorAll<HTMLElement>('.glightbox-container .travel-viewer-photo')) layoutPhoto(slide); };
 			const still = { in: 'none', out: 'none' };
 			// GLightbox forces the slide effect on mobile; animate the complete frame ourselves.
-			const options = { elements, preload: false, autoplayVideos: false, loop: false, openEffect: reduced ? 'none' : 'fade', closeEffect: 'none', slideEffect: 'none', cssEfects: { slide: still, slideBack: still }, moreLength: 0 };
+			const options = { elements, preload: false, autoplayVideos: false, loop: false, openEffect: 'none', closeEffect: 'none', slideEffect: 'none', cssEfects: { slide: still, slideBack: still }, moreLength: 0 };
 			// GLightbox's bundled types incorrectly declare the slide list as an empty tuple.
 			const lightbox = GLightbox({ ...options, elements: elements as [] });
 			this.lightbox = lightbox;
