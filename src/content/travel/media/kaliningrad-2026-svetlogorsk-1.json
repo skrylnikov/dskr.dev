@@ -1,0 +1,71 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-1",
+  "items": [
+    {
+      "id": "message-409-1",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Светлогорск: старый Раушен у моря",
+        "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/b4b640d875ade15a407530850fc00cf1eb257c4cd8a5d3ec2710ea2a60f7822a/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b4b640d875ade15a407530850fc00cf1eb257c4cd8a5d3ec2710ea2a60f7822a/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b4b640d875ade15a407530850fc00cf1eb257c4cd8a5d3ec2710ea2a60f7822a/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b4b640d875ade15a407530850fc00cf1eb257c4cd8a5d3ec2710ea2a60f7822a/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b4b640d875ade15a407530850fc00cf1eb257c4cd8a5d3ec2710ea2a60f7822a/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b4b640d875ade15a407530850fc00cf1eb257c4cd8a5d3ec2710ea2a60f7822a/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e70b393187e788b94b86a058cc2085389a44a681b33b85af1bca21bb551c5562/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/e70b393187e788b94b86a058cc2085389a44a681b33b85af1bca21bb551c5562/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/e70b393187e788b94b86a058cc2085389a44a681b33b85af1bca21bb551c5562/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

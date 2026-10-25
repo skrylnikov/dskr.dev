@@ -1,0 +1,71 @@
+{
+  "id": "kaliningrad-2026-kaliningrad-walk-5",
+  "items": [
+    {
+      "id": "message-407-16",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Прогулка по Калининграду",
+        "en": "A walk around Kaliningrad"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/c5bc77e996c46fd2ac28478fb3f7f0b0d89c35bc274c91ac23623770d27ebca8/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c5bc77e996c46fd2ac28478fb3f7f0b0d89c35bc274c91ac23623770d27ebca8/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c5bc77e996c46fd2ac28478fb3f7f0b0d89c35bc274c91ac23623770d27ebca8/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c5bc77e996c46fd2ac28478fb3f7f0b0d89c35bc274c91ac23623770d27ebca8/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c5bc77e996c46fd2ac28478fb3f7f0b0d89c35bc274c91ac23623770d27ebca8/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c5bc77e996c46fd2ac28478fb3f7f0b0d89c35bc274c91ac23623770d27ebca8/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/296b82380e165618c6cdf4f766c208e3573f61928e0b27fabd5866d94d516a7c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/296b82380e165618c6cdf4f766c208e3573f61928e0b27fabd5866d94d516a7c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/296b82380e165618c6cdf4f766c208e3573f61928e0b27fabd5866d94d516a7c/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

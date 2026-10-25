@@ -1,0 +1,71 @@
+{
+  "id": "kaliningrad-2026-curonian-spit-and-zelenogradsk-3",
+  "items": [
+    {
+      "id": "message-412-5",
+      "width": 2560,
+      "height": 1920,
+      "alt": {
+        "ru": "Куршская коса и Зеленоградск",
+        "en": "The Curonian Spit and Zelenogradsk"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/02326627f83a67f91f9cbde77f3f4273e8b41a4ac222b492ef83249a966c09eb/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/02326627f83a67f91f9cbde77f3f4273e8b41a4ac222b492ef83249a966c09eb/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/02326627f83a67f91f9cbde77f3f4273e8b41a4ac222b492ef83249a966c09eb/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/02326627f83a67f91f9cbde77f3f4273e8b41a4ac222b492ef83249a966c09eb/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/02326627f83a67f91f9cbde77f3f4273e8b41a4ac222b492ef83249a966c09eb/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/02326627f83a67f91f9cbde77f3f4273e8b41a4ac222b492ef83249a966c09eb/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cbcdcaee13de930773c33e87018d17cc49b8f2200e2a2c87b202356d06d6c90c/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/cbcdcaee13de930773c33e87018d17cc49b8f2200e2a2c87b202356d06d6c90c/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/cbcdcaee13de930773c33e87018d17cc49b8f2200e2a2c87b202356d06d6c90c/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

@@ -2,5 +2,8 @@
 .astro
 dist
 node_modules
+.state
+.env
+.env.*
 services/indie/.env
 *.log

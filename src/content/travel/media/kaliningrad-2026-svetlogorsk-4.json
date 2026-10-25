@@ -1,0 +1,75 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-4",
+  "items": [
+    {
+      "id": "message-409-5",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Отель Хартман, XIX век",
+        "en": "Hotel Hartmann, 19th century"
+      },
+      "caption": {
+        "ru": "Отель Хартман, XIX век",
+        "en": "Hotel Hartmann, 19th century"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/7e3c866e9276df3ac839c9f4940a86081bbbd8e8d51ac05df90d3d6df0cac25e/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7e3c866e9276df3ac839c9f4940a86081bbbd8e8d51ac05df90d3d6df0cac25e/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7e3c866e9276df3ac839c9f4940a86081bbbd8e8d51ac05df90d3d6df0cac25e/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7e3c866e9276df3ac839c9f4940a86081bbbd8e8d51ac05df90d3d6df0cac25e/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7e3c866e9276df3ac839c9f4940a86081bbbd8e8d51ac05df90d3d6df0cac25e/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7e3c866e9276df3ac839c9f4940a86081bbbd8e8d51ac05df90d3d6df0cac25e/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fe8e20be4ee3d6ecc9a021654abc3c4c512b71f8d03ad51d9e2e5129cf61b48d/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fe8e20be4ee3d6ecc9a021654abc3c4c512b71f8d03ad51d9e2e5129cf61b48d/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fe8e20be4ee3d6ecc9a021654abc3c4c512b71f8d03ad51d9e2e5129cf61b48d/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

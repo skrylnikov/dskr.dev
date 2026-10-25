@@ -4,7 +4,7 @@ import BlogHeader from '../components/BlogHeader.astro';
 import { L } from '../i18n/i18n-node';
 import type { Props as BaseHeadProps } from '../components/BaseHead.astro';
 
-export interface Props extends BaseHeadProps {}
+export interface Props extends BaseHeadProps { languageSwitchUrl?: string }
 
 const { title, description, image, imageAlt, type, noindex, publishedTime, modifiedTime, alternates, structuredData } = Astro.props;
 const LL = L[Astro.currentLocale];
@@ -17,7 +17,7 @@ const rssUrl = Astro.currentLocale === 'en' ? '/en/rss.xml' : '/rss.xml';
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">{LL.common.skipToContent()}</a>
-		<BlogHeader />
+		<BlogHeader languageSwitchUrl={Astro.props.languageSwitchUrl} />
 		<main id="main-content" class="page-shell" transition:animate="fade">
 			<slot />
 		</main>

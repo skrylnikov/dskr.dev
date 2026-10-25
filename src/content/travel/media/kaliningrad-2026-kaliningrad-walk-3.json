@@ -1,0 +1,75 @@
+{
+  "id": "kaliningrad-2026-kaliningrad-walk-3",
+  "items": [
+    {
+      "id": "message-407-11",
+      "width": 1920,
+      "height": 1280,
+      "alt": {
+        "ru": "1982 год",
+        "en": "1982"
+      },
+      "caption": {
+        "ru": "1982 год",
+        "en": "1982"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/289c3de53f4d9c1aa73aeec8585270d9c72852439f1183021ae3ed74eccedd1a/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/289c3de53f4d9c1aa73aeec8585270d9c72852439f1183021ae3ed74eccedd1a/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/289c3de53f4d9c1aa73aeec8585270d9c72852439f1183021ae3ed74eccedd1a/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/289c3de53f4d9c1aa73aeec8585270d9c72852439f1183021ae3ed74eccedd1a/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/289c3de53f4d9c1aa73aeec8585270d9c72852439f1183021ae3ed74eccedd1a/1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "format": "webp"
+        },
+        {
+          "url": "/media/289c3de53f4d9c1aa73aeec8585270d9c72852439f1183021ae3ed74eccedd1a/1920.jpeg",
+          "width": 1920,
+          "height": 1280,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ee2cb11e1d23e8944b63d505052ac7f321aba04aa170f7d9602d2d76c444a8db/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ee2cb11e1d23e8944b63d505052ac7f321aba04aa170f7d9602d2d76c444a8db/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ee2cb11e1d23e8944b63d505052ac7f321aba04aa170f7d9602d2d76c444a8db/1920.jxl",
+          "width": 1920,
+          "height": 1280,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

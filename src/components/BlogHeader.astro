@@ -1,13 +1,14 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { L } from '../i18n/i18n-node';
+import { travelCopy, travelPath } from '../data/travel.mts';
 
 const locale = Astro.currentLocale || 'ru';
 const LL = L[locale];
 const pathWithoutLocale = locale === 'en'
 	? Astro.url.pathname.replace(/^\/en(?=\/|$)/, '') || '/'
 	: Astro.url.pathname;
-const changeLangUrl = getRelativeLocaleUrl(locale === 'en' ? 'ru' : 'en', pathWithoutLocale);
+const changeLangUrl = Astro.props.languageSwitchUrl ?? getRelativeLocaleUrl(locale === 'en' ? 'ru' : 'en', pathWithoutLocale);
 const isActive = (path: string) => Astro.url.pathname === getRelativeLocaleUrl(locale, path);
 ---
 
@@ -19,6 +20,7 @@ const isActive = (path: string) => Astro.url.pathname === getRelativeLocaleUrl(l
 
 		<nav class="site-nav" aria-label={LL.nav.label()}>
 			<a class:list={{ active: isActive('/') }} href={getRelativeLocaleUrl(locale, '/')}>{LL.nav.blog()}</a>
+			<a class:list={{ active: Astro.url.pathname.startsWith(travelPath(locale)) }} href={travelPath(locale)}>{travelCopy[locale].title}</a>
 			<a class:list={{ active: isActive('/projects/') }} href={getRelativeLocaleUrl(locale, '/projects/')}>{LL.nav.projects()}</a>
 			<a class:list={{ active: isActive('/about/') }} href={getRelativeLocaleUrl(locale, '/about/')}>{LL.nav.about()}</a>
 		</nav>

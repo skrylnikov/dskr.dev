@@ -1,0 +1,137 @@
+{
+  "id": "kaliningrad-2026-curonian-spit-and-zelenogradsk-9",
+  "items": [
+    {
+      "id": "message-412-32",
+      "width": 2560,
+      "height": 1920,
+      "alt": {
+        "ru": "Куршская коса и Зеленоградск",
+        "en": "The Curonian Spit and Zelenogradsk"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d245f4471e0349145e3e9ef9d2b1aa7f518e4a2dcbc847e410388759c61d0a40/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d245f4471e0349145e3e9ef9d2b1aa7f518e4a2dcbc847e410388759c61d0a40/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d245f4471e0349145e3e9ef9d2b1aa7f518e4a2dcbc847e410388759c61d0a40/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d245f4471e0349145e3e9ef9d2b1aa7f518e4a2dcbc847e410388759c61d0a40/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d245f4471e0349145e3e9ef9d2b1aa7f518e4a2dcbc847e410388759c61d0a40/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d245f4471e0349145e3e9ef9d2b1aa7f518e4a2dcbc847e410388759c61d0a40/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b32a38ffeb9dfe398454b708d526947ed37cc05054d81ae2bbce77712101f418/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b32a38ffeb9dfe398454b708d526947ed37cc05054d81ae2bbce77712101f418/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b32a38ffeb9dfe398454b708d526947ed37cc05054d81ae2bbce77712101f418/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-412-33",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Куршская коса и Зеленоградск",
+        "en": "The Curonian Spit and Zelenogradsk"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/1c7a9e1eb96ccda83a1b2db17b2c93882d71bf896e9784190ae9a1e9efcb5ec5/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1c7a9e1eb96ccda83a1b2db17b2c93882d71bf896e9784190ae9a1e9efcb5ec5/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1c7a9e1eb96ccda83a1b2db17b2c93882d71bf896e9784190ae9a1e9efcb5ec5/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1c7a9e1eb96ccda83a1b2db17b2c93882d71bf896e9784190ae9a1e9efcb5ec5/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1c7a9e1eb96ccda83a1b2db17b2c93882d71bf896e9784190ae9a1e9efcb5ec5/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1c7a9e1eb96ccda83a1b2db17b2c93882d71bf896e9784190ae9a1e9efcb5ec5/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e9a4c70838a658287b1d2f3f35173768c06326a25078bee294f80efe1f7a0021/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/e9a4c70838a658287b1d2f3f35173768c06326a25078bee294f80efe1f7a0021/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/e9a4c70838a658287b1d2f3f35173768c06326a25078bee294f80efe1f7a0021/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

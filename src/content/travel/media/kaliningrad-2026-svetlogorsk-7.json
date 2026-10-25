@@ -1,0 +1,75 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-7",
+  "items": [
+    {
+      "id": "message-409-10",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Вид с дюны на море",
+        "en": "The view of the sea from the dune"
+      },
+      "caption": {
+        "ru": "Вид с дюны на море",
+        "en": "The view of the sea from the dune"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/528d97e7a7e176a3054c909be12bf0e2d9f287ed4fc70b3cf020b5646d5484e0/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/528d97e7a7e176a3054c909be12bf0e2d9f287ed4fc70b3cf020b5646d5484e0/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/528d97e7a7e176a3054c909be12bf0e2d9f287ed4fc70b3cf020b5646d5484e0/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/528d97e7a7e176a3054c909be12bf0e2d9f287ed4fc70b3cf020b5646d5484e0/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/528d97e7a7e176a3054c909be12bf0e2d9f287ed4fc70b3cf020b5646d5484e0/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/528d97e7a7e176a3054c909be12bf0e2d9f287ed4fc70b3cf020b5646d5484e0/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/94300fc200365fbf64b99e0e155aac312d6f9549ae4b2fc73bf8e887cc52af6b/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/94300fc200365fbf64b99e0e155aac312d6f9549ae4b2fc73bf8e887cc52af6b/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/94300fc200365fbf64b99e0e155aac312d6f9549ae4b2fc73bf8e887cc52af6b/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-15",
+  "items": [
+    {
+      "id": "message-409-29",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Светлогорск: старый Раушен у моря",
+        "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/3849a995dca5372baa8282200e8850132abd59d02011e9b84d8ece65c901f9d1/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3849a995dca5372baa8282200e8850132abd59d02011e9b84d8ece65c901f9d1/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3849a995dca5372baa8282200e8850132abd59d02011e9b84d8ece65c901f9d1/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3849a995dca5372baa8282200e8850132abd59d02011e9b84d8ece65c901f9d1/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3849a995dca5372baa8282200e8850132abd59d02011e9b84d8ece65c901f9d1/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3849a995dca5372baa8282200e8850132abd59d02011e9b84d8ece65c901f9d1/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7b18325bb4e19ce23af35d31065b3ba3d60a26f5eecd9aea1201932388dc4f9c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/7b18325bb4e19ce23af35d31065b3ba3d60a26f5eecd9aea1201932388dc4f9c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/7b18325bb4e19ce23af35d31065b3ba3d60a26f5eecd9aea1201932388dc4f9c/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-409-30",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Светлогорск: старый Раушен у моря",
+        "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/3ade9887342ecb46c305905332553eafe40ecfeb7c9f99d92e052ce5d5c265c9/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3ade9887342ecb46c305905332553eafe40ecfeb7c9f99d92e052ce5d5c265c9/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3ade9887342ecb46c305905332553eafe40ecfeb7c9f99d92e052ce5d5c265c9/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3ade9887342ecb46c305905332553eafe40ecfeb7c9f99d92e052ce5d5c265c9/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3ade9887342ecb46c305905332553eafe40ecfeb7c9f99d92e052ce5d5c265c9/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3ade9887342ecb46c305905332553eafe40ecfeb7c9f99d92e052ce5d5c265c9/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d43598fdf0b9e509c75cdd15db609592f2f9775f74adbf8d0b0c70a587ca8170/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d43598fdf0b9e509c75cdd15db609592f2f9775f74adbf8d0b0c70a587ca8170/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d43598fdf0b9e509c75cdd15db609592f2f9775f74adbf8d0b0c70a587ca8170/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

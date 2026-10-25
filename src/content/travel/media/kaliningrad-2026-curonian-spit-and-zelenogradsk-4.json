@@ -1,0 +1,22 @@
+{
+  "id": "kaliningrad-2026-curonian-spit-and-zelenogradsk-4",
+  "items": [
+    {
+      "id": "message-412-6",
+      "width": 604,
+      "height": 1080,
+      "alt": {
+        "ru": "Балтийское море",
+        "en": "The Baltic Sea"
+      },
+      "caption": {
+        "ru": "Балтийское море",
+        "en": "The Baltic Sea"
+      },
+      "kind": "video",
+      "url": "/media/a4b08849adf3ca9c26a1835657c43b9dc49ae73c50e638a568c19c7ceca1d0b2/video.mp4",
+      "poster": "/media/a4b08849adf3ca9c26a1835657c43b9dc49ae73c50e638a568c19c7ceca1d0b2/poster.jpeg",
+      "duration": 26.566667
+    }
+  ]
+}

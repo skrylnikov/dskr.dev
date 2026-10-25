@@ -1,0 +1,18 @@
+---
+import { type TravelTrip, travelPath, formatTravelDate } from '../../data/travel.mts';
+import TravelCollage from './TravelCollage.astro';
+interface Props { trip: TravelTrip; featured?: boolean }
+const { trip, featured = false } = Astro.props;
+const { data } = trip;
+---
+<article class:list={['travel-trip-card', { 'travel-trip-card--featured': featured }]}>
+	<a class="travel-card-link" href={travelPath(data.locale, data.slug)}>
+		<TravelCollage refs={data.collage} />
+		<div class="travel-card-copy">
+			<p class="eyebrow">{data.destinations.join(' · ')}</p>
+			<h2>{data.title} <span aria-hidden="true">↗</span></h2>
+			<p class="travel-date"><time datetime={data.startDate.toISOString()}>{formatTravelDate(data.startDate, data.locale)}</time>{data.endDate && <> — <time datetime={data.endDate.toISOString()}>{formatTravelDate(data.endDate, data.locale)}</time></>}</p>
+			<p>{data.description}</p>
+		</div>
+	</a>
+</article>

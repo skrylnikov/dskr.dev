@@ -1,0 +1,84 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-13",
+  "items": [
+    {
+      "id": "message-409-26",
+      "width": 2560,
+      "height": 1920,
+      "alt": {
+        "ru": "Светлогорск: старый Раушен у моря",
+        "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/43195e8c2eeef9d514e9bc5bece89ea37c88e81ffc273bfacf05332a87a9f7dd/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/43195e8c2eeef9d514e9bc5bece89ea37c88e81ffc273bfacf05332a87a9f7dd/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/43195e8c2eeef9d514e9bc5bece89ea37c88e81ffc273bfacf05332a87a9f7dd/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/43195e8c2eeef9d514e9bc5bece89ea37c88e81ffc273bfacf05332a87a9f7dd/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/43195e8c2eeef9d514e9bc5bece89ea37c88e81ffc273bfacf05332a87a9f7dd/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/43195e8c2eeef9d514e9bc5bece89ea37c88e81ffc273bfacf05332a87a9f7dd/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8167abb41a3fd607a9936b24d637be417b3964ff5b7a397ebeb0c2955e3d2219/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/8167abb41a3fd607a9936b24d637be417b3964ff5b7a397ebeb0c2955e3d2219/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/8167abb41a3fd607a9936b24d637be417b3964ff5b7a397ebeb0c2955e3d2219/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-409-27",
+      "width": 604,
+      "height": 1080,
+      "alt": {
+        "ru": "Светлогорск: старый Раушен у моря",
+        "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "kind": "video",
+      "url": "/media/4ee98763f50494201e5f86d2074e1f4942b3fd9b42e8c01cb371bf8df795a06f/video.mp4",
+      "poster": "/media/4ee98763f50494201e5f86d2074e1f4942b3fd9b42e8c01cb371bf8df795a06f/poster.jpeg",
+      "duration": 56.7
+    }
+  ]
+}

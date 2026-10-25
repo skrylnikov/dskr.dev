@@ -5,6 +5,7 @@ import HCard from '../components/HCard.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { projects } from '../data/projects';
+import LatestTrip from '../components/travel/LatestTrip.astro';
 import { L } from '../i18n/i18n-node';
 import { absoluteUrl, AUTHOR_NAME, AUTHOR_URL, languageAlternates, SITE_META, SITE_TITLE, SOCIAL_PROFILES } from '../consts';
 
@@ -70,6 +71,7 @@ const posts = (await getCollection('blog'))
 		</div>
 	</section>
 
+	<LatestTrip />
 	<section class="content-section projects-preview" aria-labelledby="projects-heading">
 		<div class="section-heading">
 			<div>

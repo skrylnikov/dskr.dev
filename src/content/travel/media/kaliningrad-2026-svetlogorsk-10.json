@@ -1,0 +1,75 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-10",
+  "items": [
+    {
+      "id": "message-409-17",
+      "width": 1975,
+      "height": 2560,
+      "alt": {
+        "ru": "Лифт",
+        "en": "The elevator"
+      },
+      "caption": {
+        "ru": "Лифт",
+        "en": "The elevator"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/c2b4887d64df17968a2b67385dee6a3721b62415a92372ee044008f6b5262545/640.webp",
+          "width": 640,
+          "height": 830,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c2b4887d64df17968a2b67385dee6a3721b62415a92372ee044008f6b5262545/640.jpeg",
+          "width": 640,
+          "height": 830,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c2b4887d64df17968a2b67385dee6a3721b62415a92372ee044008f6b5262545/1280.webp",
+          "width": 1280,
+          "height": 1659,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c2b4887d64df17968a2b67385dee6a3721b62415a92372ee044008f6b5262545/1280.jpeg",
+          "width": 1280,
+          "height": 1659,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c2b4887d64df17968a2b67385dee6a3721b62415a92372ee044008f6b5262545/1975.webp",
+          "width": 1975,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c2b4887d64df17968a2b67385dee6a3721b62415a92372ee044008f6b5262545/1975.jpeg",
+          "width": 1975,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f1f20c492a1039f2d9af8711c6f9daa5480c7dad83d7815cf9c59d119d46e544/640.jxl",
+          "width": 640,
+          "height": 830,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f1f20c492a1039f2d9af8711c6f9daa5480c7dad83d7815cf9c59d119d46e544/1280.jxl",
+          "width": 1280,
+          "height": 1659,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f1f20c492a1039f2d9af8711c6f9daa5480c7dad83d7815cf9c59d119d46e544/1975.jxl",
+          "width": 1975,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

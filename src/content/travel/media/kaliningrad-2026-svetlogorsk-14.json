@@ -1,0 +1,71 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-14",
+  "items": [
+    {
+      "id": "message-409-28",
+      "width": 1805,
+      "height": 2560,
+      "alt": {
+        "ru": "Светлогорск: старый Раушен у моря",
+        "en": "Svetlogorsk: old Rauschen by the sea"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/75f1e1bbb338f0fd35df0b55d347b1235f254ca6c8c14cc4cb470cd8c3340241/640.webp",
+          "width": 640,
+          "height": 908,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75f1e1bbb338f0fd35df0b55d347b1235f254ca6c8c14cc4cb470cd8c3340241/640.jpeg",
+          "width": 640,
+          "height": 908,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/75f1e1bbb338f0fd35df0b55d347b1235f254ca6c8c14cc4cb470cd8c3340241/1280.webp",
+          "width": 1280,
+          "height": 1815,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75f1e1bbb338f0fd35df0b55d347b1235f254ca6c8c14cc4cb470cd8c3340241/1280.jpeg",
+          "width": 1280,
+          "height": 1815,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/75f1e1bbb338f0fd35df0b55d347b1235f254ca6c8c14cc4cb470cd8c3340241/1805.webp",
+          "width": 1805,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75f1e1bbb338f0fd35df0b55d347b1235f254ca6c8c14cc4cb470cd8c3340241/1805.jpeg",
+          "width": 1805,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b050ce213bb747d879f621481951a88d02b533f98a35a2e32b6152cb41da3a0b/640.jxl",
+          "width": 640,
+          "height": 908,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b050ce213bb747d879f621481951a88d02b533f98a35a2e32b6152cb41da3a0b/1280.jxl",
+          "width": 1280,
+          "height": 1815,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b050ce213bb747d879f621481951a88d02b533f98a35a2e32b6152cb41da3a0b/1805.jxl",
+          "width": 1805,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

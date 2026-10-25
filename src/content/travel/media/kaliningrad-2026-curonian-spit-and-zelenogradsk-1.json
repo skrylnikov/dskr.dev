@@ -1,0 +1,150 @@
+{
+  "id": "kaliningrad-2026-curonian-spit-and-zelenogradsk-1",
+  "items": [
+    {
+      "id": "message-412-1",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Куршская коса и Зеленоградск",
+        "en": "The Curonian Spit and Zelenogradsk"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/cea8aa975c2604e4d293ad72d551d6ce3d8279bff0023cc3ee916bff6c5443ab/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cea8aa975c2604e4d293ad72d551d6ce3d8279bff0023cc3ee916bff6c5443ab/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cea8aa975c2604e4d293ad72d551d6ce3d8279bff0023cc3ee916bff6c5443ab/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cea8aa975c2604e4d293ad72d551d6ce3d8279bff0023cc3ee916bff6c5443ab/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cea8aa975c2604e4d293ad72d551d6ce3d8279bff0023cc3ee916bff6c5443ab/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cea8aa975c2604e4d293ad72d551d6ce3d8279bff0023cc3ee916bff6c5443ab/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c9be96f0314b83765a566a50d6346d4d4ae01ff71d814cc20d21b9f64c171ca8/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c9be96f0314b83765a566a50d6346d4d4ae01ff71d814cc20d21b9f64c171ca8/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c9be96f0314b83765a566a50d6346d4d4ae01ff71d814cc20d21b9f64c171ca8/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-412-2",
+      "width": 2560,
+      "height": 1920,
+      "alt": {
+        "ru": "Куршская коса и Зеленоградск",
+        "en": "The Curonian Spit and Zelenogradsk"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/62738b2438c63583ef1507f7df6b85d36e7f4d122c4b7274e87a115560abdbed/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/62738b2438c63583ef1507f7df6b85d36e7f4d122c4b7274e87a115560abdbed/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/62738b2438c63583ef1507f7df6b85d36e7f4d122c4b7274e87a115560abdbed/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/62738b2438c63583ef1507f7df6b85d36e7f4d122c4b7274e87a115560abdbed/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/62738b2438c63583ef1507f7df6b85d36e7f4d122c4b7274e87a115560abdbed/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/62738b2438c63583ef1507f7df6b85d36e7f4d122c4b7274e87a115560abdbed/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/581bedbca8c22e6be357dac1c9fdd54806213afc1b4ea1c83f014834ad92a803/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/581bedbca8c22e6be357dac1c9fdd54806213afc1b4ea1c83f014834ad92a803/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/581bedbca8c22e6be357dac1c9fdd54806213afc1b4ea1c83f014834ad92a803/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-412-3",
+      "width": 604,
+      "height": 1080,
+      "alt": {
+        "ru": "Куршская коса и Зеленоградск",
+        "en": "The Curonian Spit and Zelenogradsk"
+      },
+      "kind": "video",
+      "url": "/media/265b159557fafc91c40107afcb909145c222d0dc7606c433d368257a6eb7355b/video.mp4",
+      "poster": "/media/265b159557fafc91c40107afcb909145c222d0dc7606c433d368257a6eb7355b/poster.jpeg",
+      "duration": 21.35
+    }
+  ]
+}

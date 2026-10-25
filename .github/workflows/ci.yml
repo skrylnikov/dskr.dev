@@ -21,4 +21,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm indie:test
       - run: pnpm indie:build
-      - run: pnpm build
+      - name: Install media tools
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg libjxl-tools
+      - run: pnpm test
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm travel:e2e

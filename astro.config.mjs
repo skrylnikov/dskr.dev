@@ -14,6 +14,7 @@ const hiddenPages = new Set([
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://dskr.dev',
+	outDir: process.env.TRAVEL_TEST_BUILD ? './.state/travel-dist' : './dist',
 	integrations: [
 		mdx(),
 		sitemap({

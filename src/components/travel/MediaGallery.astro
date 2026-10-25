@@ -1,0 +1,34 @@
+---
+import { getGallery } from '../../lib/travel';
+import { mediaPreview, mediaSource, srcset, travelCopy } from '../../data/travel.mts';
+interface Props { gallery: string }
+const { gallery: id } = Astro.props;
+const gallery = getGallery(id);
+const locale = Astro.currentLocale === 'en' ? 'en' : 'ru';
+const copy = travelCopy[locale];
+const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+---
+<travel-gallery data-locale={locale} data-error={copy.error} data-close={copy.close} data-frame={copy.frame}>
+	<div class:list={['travel-media-grid', { 'travel-media-grid--single': gallery.items.length === 1 }]}>
+		{gallery.items.map((media, index) => <>
+			{index === 0 && <span class="sr-only">{gallery.items.length} {locale === 'ru' ? 'фото и видео' : 'photos and videos'}</span>}
+			{index < 6 ? <figure>
+				<a href={mediaSource(media)} data-media-index={index} aria-label={`${media.kind === 'video' ? copy.play : copy.view}: ${media.alt[locale]}`}>
+					<picture>
+						{media.kind === 'image' && srcset(media, 'jxl') && <source type="image/jxl" srcset={srcset(media, 'jxl')} sizes="(max-width: 600px) 90vw, 400px" />}
+						{media.kind === 'image' && <source type="image/webp" srcset={srcset(media, 'webp')} sizes="(max-width: 600px) 90vw, 400px" />}
+						<img src={mediaPreview(media)} srcset={srcset(media, 'jpeg') || undefined} sizes="(max-width: 600px) 90vw, 400px" width={media.width} height={media.height} alt={media.alt[locale]} loading="lazy" decoding="async" />
+					</picture>
+					{media.kind === 'video' && <span class="travel-video-badge">▶ {duration(media.duration)}</span>}
+				</a>
+				{media.caption?.[locale] && <figcaption>{media.caption[locale]}</figcaption>}
+			</figure> : null}
+		</>)}
+	</div>
+	{gallery.items.length > 6 && <button class="button button--quiet travel-show-more" type="button" data-show-more hidden>{copy.more} · <span data-remaining>{gallery.items.length - 6}</span></button>}
+	<noscript>{gallery.items.slice(6).map((media) => <p><a href={mediaSource(media)}>{media.alt[locale]}</a></p>)}</noscript>
+	<script type="application/json" data-gallery-items set:html={JSON.stringify(gallery.items).replace(/</g, '\\u003c')} />
+</travel-gallery>
+<script>
+	import '../../scripts/travel-gallery';
+</script>

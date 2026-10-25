@@ -1,0 +1,75 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-18",
+  "items": [
+    {
+      "id": "message-409-46",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Крендель с корицей",
+        "en": "A cinnamon pretzel"
+      },
+      "caption": {
+        "ru": "Крендель с корицей",
+        "en": "A cinnamon pretzel"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/a890293c7d3244c95eda85bcb2ef01021389b4ddc6ca9378a6dd6d6f9f5ea708/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a890293c7d3244c95eda85bcb2ef01021389b4ddc6ca9378a6dd6d6f9f5ea708/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a890293c7d3244c95eda85bcb2ef01021389b4ddc6ca9378a6dd6d6f9f5ea708/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a890293c7d3244c95eda85bcb2ef01021389b4ddc6ca9378a6dd6d6f9f5ea708/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a890293c7d3244c95eda85bcb2ef01021389b4ddc6ca9378a6dd6d6f9f5ea708/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a890293c7d3244c95eda85bcb2ef01021389b4ddc6ca9378a6dd6d6f9f5ea708/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ac628bb3162c296b19220db065cd551ed14485c48ab87ba5a3f451ac52db54db/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ac628bb3162c296b19220db065cd551ed14485c48ab87ba5a3f451ac52db54db/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ac628bb3162c296b19220db065cd551ed14485c48ab87ba5a3f451ac52db54db/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

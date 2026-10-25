@@ -1,0 +1,232 @@
+{
+  "id": "kaliningrad-2026-kaliningrad-walk-1",
+  "items": [
+    {
+      "id": "message-407-1",
+      "width": 604,
+      "height": 1080,
+      "alt": {
+        "ru": "Нижний пруд",
+        "en": "The Lower Pond"
+      },
+      "caption": {
+        "ru": "Нижний пруд",
+        "en": "The Lower Pond"
+      },
+      "kind": "video",
+      "url": "/media/7c75d4ccbde416c8c9812e7126d00297662ab1ebbd26449eaa571b2a0d374725/video.mp4",
+      "poster": "/media/7c75d4ccbde416c8c9812e7126d00297662ab1ebbd26449eaa571b2a0d374725/poster.jpeg",
+      "duration": 15.5
+    },
+    {
+      "id": "message-407-2",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Уцелевший кусок террасы замка",
+        "en": "A surviving section of the castle terrace"
+      },
+      "caption": {
+        "ru": "Уцелевший кусок террасы замка",
+        "en": "A surviving section of the castle terrace"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/ceb80a77cbd5054d12acce7c78e322d335d5edcac1ed1cfa6346dd8f76a38adc/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ceb80a77cbd5054d12acce7c78e322d335d5edcac1ed1cfa6346dd8f76a38adc/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ceb80a77cbd5054d12acce7c78e322d335d5edcac1ed1cfa6346dd8f76a38adc/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ceb80a77cbd5054d12acce7c78e322d335d5edcac1ed1cfa6346dd8f76a38adc/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ceb80a77cbd5054d12acce7c78e322d335d5edcac1ed1cfa6346dd8f76a38adc/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ceb80a77cbd5054d12acce7c78e322d335d5edcac1ed1cfa6346dd8f76a38adc/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/717bff311cbde36cbe6cb2f5ccf6b0cb90e76f11fcb8feffd15be44cabd40a08/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/717bff311cbde36cbe6cb2f5ccf6b0cb90e76f11fcb8feffd15be44cabd40a08/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/717bff311cbde36cbe6cb2f5ccf6b0cb90e76f11fcb8feffd15be44cabd40a08/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-407-3",
+      "width": 2560,
+      "height": 1920,
+      "alt": {
+        "ru": "Одно из немногих старых зданий в центре — здание биржи 1875 года",
+        "en": "One of the few old buildings in the center: the stock exchange, built in 1875"
+      },
+      "caption": {
+        "ru": "Одно из немногих старых зданий в центре — здание биржи 1875 года",
+        "en": "One of the few old buildings in the center: the stock exchange, built in 1875"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/ac853e5c2725cc091344fb1c02ea3e0df17b46ee472a85e45f9cbe750e35042e/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ac853e5c2725cc091344fb1c02ea3e0df17b46ee472a85e45f9cbe750e35042e/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ac853e5c2725cc091344fb1c02ea3e0df17b46ee472a85e45f9cbe750e35042e/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ac853e5c2725cc091344fb1c02ea3e0df17b46ee472a85e45f9cbe750e35042e/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ac853e5c2725cc091344fb1c02ea3e0df17b46ee472a85e45f9cbe750e35042e/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ac853e5c2725cc091344fb1c02ea3e0df17b46ee472a85e45f9cbe750e35042e/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0b49ed306682a1a1b59275589919ebbebe3cffe2ae98be3fa3415a94569b303f/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0b49ed306682a1a1b59275589919ebbebe3cffe2ae98be3fa3415a94569b303f/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0b49ed306682a1a1b59275589919ebbebe3cffe2ae98be3fa3415a94569b303f/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-407-4",
+      "width": 1728,
+      "height": 2560,
+      "alt": {
+        "ru": "Памятник Канту",
+        "en": "The monument to Kant"
+      },
+      "caption": {
+        "ru": "Памятник Канту",
+        "en": "The monument to Kant"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/5acb6774ebd9349487986ac7a9848d73396e03feeff8a13b59854cb695c4426d/640.webp",
+          "width": 640,
+          "height": 948,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5acb6774ebd9349487986ac7a9848d73396e03feeff8a13b59854cb695c4426d/640.jpeg",
+          "width": 640,
+          "height": 948,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5acb6774ebd9349487986ac7a9848d73396e03feeff8a13b59854cb695c4426d/1280.webp",
+          "width": 1280,
+          "height": 1896,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5acb6774ebd9349487986ac7a9848d73396e03feeff8a13b59854cb695c4426d/1280.jpeg",
+          "width": 1280,
+          "height": 1896,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5acb6774ebd9349487986ac7a9848d73396e03feeff8a13b59854cb695c4426d/1728.webp",
+          "width": 1728,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5acb6774ebd9349487986ac7a9848d73396e03feeff8a13b59854cb695c4426d/1728.jpeg",
+          "width": 1728,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0a5b1ee7f54bff7cd7dae758817792bdb6084a006e34c0f1653c733464b2f00d/640.jxl",
+          "width": 640,
+          "height": 948,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0a5b1ee7f54bff7cd7dae758817792bdb6084a006e34c0f1653c733464b2f00d/1280.jxl",
+          "width": 1280,
+          "height": 1896,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0a5b1ee7f54bff7cd7dae758817792bdb6084a006e34c0f1653c733464b2f00d/1728.jxl",
+          "width": 1728,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "test": "astro build && tsx --test src/data/projects.test.ts src/pages/_projects.test.ts",
+    "test": "astro build && node --import tsx --test src/data/projects.test.ts src/pages/_projects.test.ts src/pages/_travel.test.ts tests/travel/*.test.mts",
+    "travel:test": "node --import tsx --test tests/travel/*.test.mts",
+    "travel:fixtures": "node --import tsx tests/travel/fixtures.mts",
+    "travel:e2e": "playwright test",
+    "travel:import": "node --import tsx scripts/travel-import.mts",
+    "travel:media": "node --env-file-if-exists=.env --import tsx scripts/travel-media.mts",
     "typesafe-i18n": "typesafe-i18n",
     "indie:dev": "tsx watch services/indie/src/server.ts",
     "indie:build": "tsc -p services/indie/tsconfig.json",
@@ -36,10 +41,11 @@
   },
   "homepage": "https://github.com/skrylnikov/dskr.dev#readme",
   "devDependencies": {
-    "@astrojs/mdx": "7.0.7",
     "@astrojs/markdown-remark": "7.2.4",
+    "@astrojs/mdx": "7.0.7",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
+    "@playwright/test": "1.64.1",
     "@types/markdown-it": "14.2.0",
     "@types/node": "24.10.1",
     "@types/pg": "8.15.5",
@@ -53,11 +59,14 @@
     "@fastify/formbody": "8.0.2",
     "date-fns": "4.4.0",
     "fastify": "5.5.0",
+    "glightbox": "3.3.1",
     "highlight.js": "11.12.0",
     "linkedom": "0.18.9",
     "markdown-it": "15.0.0",
     "pg": "8.16.3",
     "remeda": "2.42.0",
+    "s3mini": "1.0.3",
+    "sharp": "0.35.3",
     "typesafe-i18n": "^5.27.1"
   }
 }

@@ -1,0 +1,216 @@
+{
+  "id": "kaliningrad-2026-kaliningrad-walk-4",
+  "items": [
+    {
+      "id": "message-407-12",
+      "width": 604,
+      "height": 1080,
+      "alt": {
+        "ru": "Прогулка по Калининграду",
+        "en": "A walk around Kaliningrad"
+      },
+      "kind": "video",
+      "url": "/media/54e3dba71b8af1d0acfe57b92646115accb676816664a03bd9ca94620c56046a/video.mp4",
+      "poster": "/media/54e3dba71b8af1d0acfe57b92646115accb676816664a03bd9ca94620c56046a/poster.jpeg",
+      "duration": 63.633333
+    },
+    {
+      "id": "message-407-13",
+      "width": 2314,
+      "height": 2560,
+      "alt": {
+        "ru": "Прогулка по Калининграду",
+        "en": "A walk around Kaliningrad"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/f255f3925b532fb7c3c8cb25fc90f7200628a8468411f428e6a9708cc960eb66/640.webp",
+          "width": 640,
+          "height": 708,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f255f3925b532fb7c3c8cb25fc90f7200628a8468411f428e6a9708cc960eb66/640.jpeg",
+          "width": 640,
+          "height": 708,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f255f3925b532fb7c3c8cb25fc90f7200628a8468411f428e6a9708cc960eb66/1280.webp",
+          "width": 1280,
+          "height": 1416,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f255f3925b532fb7c3c8cb25fc90f7200628a8468411f428e6a9708cc960eb66/1280.jpeg",
+          "width": 1280,
+          "height": 1416,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f255f3925b532fb7c3c8cb25fc90f7200628a8468411f428e6a9708cc960eb66/2314.webp",
+          "width": 2314,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f255f3925b532fb7c3c8cb25fc90f7200628a8468411f428e6a9708cc960eb66/2314.jpeg",
+          "width": 2314,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1fca5ff843b33a4a0437a320f2c3ea30c194058ccd1b50f35213c3cd82284393/640.jxl",
+          "width": 640,
+          "height": 708,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1fca5ff843b33a4a0437a320f2c3ea30c194058ccd1b50f35213c3cd82284393/1280.jxl",
+          "width": 1280,
+          "height": 1416,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1fca5ff843b33a4a0437a320f2c3ea30c194058ccd1b50f35213c3cd82284393/2314.jxl",
+          "width": 2314,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-407-14",
+      "width": 2560,
+      "height": 1920,
+      "alt": {
+        "ru": "Прогулка по Калининграду",
+        "en": "A walk around Kaliningrad"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/013ed53506cf6b2c6b8d35167d01f6ec73add644deef1def1286d5be82016fa6/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/013ed53506cf6b2c6b8d35167d01f6ec73add644deef1def1286d5be82016fa6/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/013ed53506cf6b2c6b8d35167d01f6ec73add644deef1def1286d5be82016fa6/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/013ed53506cf6b2c6b8d35167d01f6ec73add644deef1def1286d5be82016fa6/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/013ed53506cf6b2c6b8d35167d01f6ec73add644deef1def1286d5be82016fa6/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/013ed53506cf6b2c6b8d35167d01f6ec73add644deef1def1286d5be82016fa6/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b90a16c32a58dda370ed9ac2a0d13a993065666ceff85857c61570e68e0d22bb/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b90a16c32a58dda370ed9ac2a0d13a993065666ceff85857c61570e68e0d22bb/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b90a16c32a58dda370ed9ac2a0d13a993065666ceff85857c61570e68e0d22bb/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "message-407-15",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Прогулка по Калининграду",
+        "en": "A walk around Kaliningrad"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/5ede1259a1d63713fa76b41d2fbe5ba0aa4a1ae0dd1b6b5c96b174b10df3bb5f/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5ede1259a1d63713fa76b41d2fbe5ba0aa4a1ae0dd1b6b5c96b174b10df3bb5f/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5ede1259a1d63713fa76b41d2fbe5ba0aa4a1ae0dd1b6b5c96b174b10df3bb5f/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5ede1259a1d63713fa76b41d2fbe5ba0aa4a1ae0dd1b6b5c96b174b10df3bb5f/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5ede1259a1d63713fa76b41d2fbe5ba0aa4a1ae0dd1b6b5c96b174b10df3bb5f/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5ede1259a1d63713fa76b41d2fbe5ba0aa4a1ae0dd1b6b5c96b174b10df3bb5f/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1cd0ac3f7deccd875be3802dcf5b3be767ecf5c38940aab1691ce41ee8ef4e25/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1cd0ac3f7deccd875be3802dcf5b3be767ecf5c38940aab1691ce41ee8ef4e25/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1cd0ac3f7deccd875be3802dcf5b3be767ecf5c38940aab1691ce41ee8ef4e25/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

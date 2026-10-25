@@ -1,0 +1,17 @@
+---
+import type { Locale } from '../../consts';
+import { getTravelCatalog } from '../../lib/travel';
+import { travelCopy, travelPath } from '../../data/travel.mts';
+import TripCard from './TripCard.astro';
+import '../../styles/travel.css';
+const locale: Locale = Astro.currentLocale === 'en' ? 'en' : 'ru';
+const trip = (await getTravelCatalog()).trips.find((trip) => trip.data.locale === locale);
+const copy = travelCopy[locale];
+---
+{trip && <section class="content-section" aria-labelledby="latest-trip-heading">
+	<div class="section-heading">
+		<div><p class="eyebrow">{copy.title}</p><h2 id="latest-trip-heading">{copy.latest}</h2></div>
+		<a class="section-link" href={travelPath(locale)}>{copy.all} <span aria-hidden="true">↗</span></a>
+	</div>
+	<TripCard {trip} featured />
+</section>}

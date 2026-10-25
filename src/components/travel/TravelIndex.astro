@@ -1,0 +1,21 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import TripCard from './TripCard.astro';
+import { getTravelCatalog } from '../../lib/travel';
+import { travelCopy, travelPath } from '../../data/travel.mts';
+import { absoluteUrl } from '../../consts';
+import '../../styles/travel.css';
+const locale = Astro.currentLocale === 'en' ? 'en' : 'ru';
+const copy = travelCopy[locale];
+const trips = (await getTravelCatalog()).trips.filter((trip) => trip.data.locale === locale);
+const years = [...new Set(trips.map((trip) => trip.data.startDate.getUTCFullYear()))];
+const alternates = (['ru', 'en'] as const).map((lang) => ({ hreflang: lang, href: absoluteUrl(travelPath(lang)) }));
+---
+<SiteLayout title={`${copy.title} — Dskr.dev`} description={copy.intro} {alternates}>
+	<header class="travel-index-heading"><p class="eyebrow">{locale === 'ru' ? 'Вне кода' : 'Away from the keyboard'}</p><h1>{copy.title}</h1><p class="intro-lead">{copy.intro}</p></header>
+	{years.map((year) => <section class="travel-year" aria-labelledby={`year-${year}`}>
+		<h2 id={`year-${year}`} class="travel-year-label">{year}</h2>
+		<div class="travel-trip-grid">{trips.filter((trip) => trip.data.startDate.getUTCFullYear() === year).map((trip) => <TripCard {trip} />)}</div>
+	</section>)}
+	{!trips.length && <p class="travel-empty">{copy.empty}</p>}
+</SiteLayout>

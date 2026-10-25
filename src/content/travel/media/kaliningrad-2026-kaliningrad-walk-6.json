@@ -1,0 +1,18 @@
+{
+  "id": "kaliningrad-2026-kaliningrad-walk-6",
+  "items": [
+    {
+      "id": "message-407-17",
+      "width": 604,
+      "height": 1080,
+      "alt": {
+        "ru": "Прогулка по Калининграду",
+        "en": "A walk around Kaliningrad"
+      },
+      "kind": "video",
+      "url": "/media/6ac54c70f18e246c8c1395e079a3cf10b5c39850307a5fec9774b319dd9462c6/video.mp4",
+      "poster": "/media/6ac54c70f18e246c8c1395e079a3cf10b5c39850307a5fec9774b319dd9462c6/poster.jpeg",
+      "duration": 9
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "kaliningrad-2026-svetlogorsk-3",
+  "items": [
+    {
+      "id": "message-409-4",
+      "width": 1920,
+      "height": 2560,
+      "alt": {
+        "ru": "Водонапорная башня",
+        "en": "The water tower"
+      },
+      "caption": {
+        "ru": "Водонапорная башня",
+        "en": "The water tower"
+      },
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/c96d6168c024babeb805f5e17125fab3aa8454947f2f11fe37f76a0a6716530f/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c96d6168c024babeb805f5e17125fab3aa8454947f2f11fe37f76a0a6716530f/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c96d6168c024babeb805f5e17125fab3aa8454947f2f11fe37f76a0a6716530f/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c96d6168c024babeb805f5e17125fab3aa8454947f2f11fe37f76a0a6716530f/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c96d6168c024babeb805f5e17125fab3aa8454947f2f11fe37f76a0a6716530f/1920.webp",
+          "width": 1920,
+          "height": 2560,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c96d6168c024babeb805f5e17125fab3aa8454947f2f11fe37f76a0a6716530f/1920.jpeg",
+          "width": 1920,
+          "height": 2560,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/402ab4bdc4c7c27706c550ae48a2607775facf63894989d285eec2af9c03fa89/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/402ab4bdc4c7c27706c550ae48a2607775facf63894989d285eec2af9c03fa89/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/402ab4bdc4c7c27706c550ae48a2607775facf63894989d285eec2af9c03fa89/1920.jxl",
+          "width": 1920,
+          "height": 2560,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

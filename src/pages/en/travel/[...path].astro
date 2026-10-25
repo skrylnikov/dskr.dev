@@ -1,0 +1,12 @@
+---
+import TravelPage from '../../../components/travel/TravelPage.astro';
+import { getTravelCatalog } from '../../../lib/travel';
+export async function getStaticPaths() {
+	const { trips, entries } = await getTravelCatalog();
+	return trips.filter((trip) => trip.data.locale === 'en').flatMap((trip) => [
+		{ params: { path: trip.data.slug }, props: { trip } },
+		...entries.filter((entry) => entry.data.kind === 'chapter' && entry.data.trip === trip.data.slug && entry.data.locale === 'en').map((chapter) => ({ params: { path: `${trip.data.slug}/${chapter.data.slug}` }, props: { trip, chapter } })),
+	]);
+}
+---
+<TravelPage {...Astro.props} />
