@@ -6,6 +6,7 @@ import MediaGallery from './MediaGallery.astro';
 import { getTravelCatalog, getTravelMedia } from '../../lib/travel';
 import { travelCopy, travelPath, entryAnchor, formatTravelDate, mediaSource } from '../../data/travel.mts';
 import { absoluteUrl } from '../../consts';
+import { getTravelPreview } from '../../data/travel-previews.mts';
 import '../../styles/travel.css';
 interface Props { trip: CollectionEntry<'trips'>; chapter?: CollectionEntry<'travelEntries'> }
 const { trip, chapter } = Astro.props;
@@ -27,10 +28,12 @@ const translatedChapter = chapter && translatedTrip && catalog.entries.find((ent
 const languageSwitchUrl = translatedTrip && (!chapter || translatedChapter) ? travelPath(targetLocale, data.slug, translatedChapter?.data.slug) : travelPath(targetLocale);
 const ownPath = travelPath(locale, data.slug, chapter?.data.slug);
 const alternates = [{ hreflang: locale, href: absoluteUrl(ownPath) }, ...(translatedTrip && (!chapter || translatedChapter) ? [{ hreflang: targetLocale, href: absoluteUrl(languageSwitchUrl) }] : [])];
-const image = mediaSource(getTravelMedia(current.collage[0]));
+const collageSources = current.collage.map((ref) => mediaSource(getTravelMedia(ref)));
+const preview = getTravelPreview(collageSources);
+const image = preview?.url ?? collageSources[0];
 const toc = headings.filter((heading) => heading.depth === 2);
 ---
-<SiteLayout title={`${current.title} — Dskr.dev`} description={current.description} {image} {alternates} {languageSwitchUrl} type={chapter ? 'article' : 'website'}>
+<SiteLayout title={`${current.title} — Dskr.dev`} description={current.description} {image} imageWidth={preview?.width} imageHeight={preview?.height} {alternates} {languageSwitchUrl} type={chapter ? 'article' : 'website'}>
 	<nav class="travel-breadcrumbs" aria-label={locale === 'ru' ? 'Навигационная цепочка' : 'Breadcrumbs'}>
 		<a href={travelPath(locale)}>{copy.title}</a><span aria-hidden="true">/</span>
 		{chapter ? <><a href={travelPath(locale, data.slug)}>{data.title}</a><span aria-hidden="true">/</span><span aria-current="page">{current.title}</span></> : <span aria-current="page">{data.title}</span>}

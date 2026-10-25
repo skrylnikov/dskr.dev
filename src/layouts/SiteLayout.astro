@@ -6,14 +6,14 @@ import type { Props as BaseHeadProps } from '../components/BaseHead.astro';
 
 export interface Props extends BaseHeadProps { languageSwitchUrl?: string }
 
-const { title, description, image, imageAlt, type, noindex, publishedTime, modifiedTime, alternates, structuredData } = Astro.props;
+const { title, description, image, imageAlt, imageWidth, imageHeight, type, noindex, publishedTime, modifiedTime, alternates, structuredData } = Astro.props;
 const LL = L[Astro.currentLocale];
 const rssUrl = Astro.currentLocale === 'en' ? '/en/rss.xml' : '/rss.xml';
 ---
 
 <html lang={Astro.currentLocale || 'ru'}>
 	<head>
-		<BaseHead {title} {description} {image} {imageAlt} {type} {noindex} {publishedTime} {modifiedTime} {alternates} {structuredData} />
+		<BaseHead {title} {description} {image} {imageAlt} {imageWidth} {imageHeight} {type} {noindex} {publishedTime} {modifiedTime} {alternates} {structuredData} />
 	</head>
 	<body>
 		<a class="skip-link" href="#main-content">{LL.common.skipToContent()}</a>
