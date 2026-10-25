@@ -37,6 +37,7 @@
 .travel-note-permalink { color: var(--color-muted); font-size: .8rem; font-family: var(--font-mono); text-decoration: none; }
 .travel-note header h2 { margin-block: 1rem; }
 .travel-chapter-nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid var(--color-line); padding-top: 2rem; margin-top: 4rem; }
+.travel-breadcrumbs, .travel-chapter-nav { max-width: var(--reading-width); margin-inline: auto; }
 .travel-chapter-nav a { display: grid; max-width: 19rem; font-size: .9rem; }
 .travel-chapter-nav span { color: var(--color-muted); font-size: .8rem; }
 travel-gallery { display: block; margin-block: 1.75rem; }
