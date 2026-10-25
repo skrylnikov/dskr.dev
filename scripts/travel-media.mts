@@ -1,12 +1,14 @@
 import { createHash } from 'node:crypto';
 import { createReadStream, openAsBlob } from 'node:fs';
-import { mkdir, readFile, writeFile, stat, rename, rm } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile, stat, rename, rm } from 'node:fs/promises';
 import { resolve, dirname, join, extname } from 'node:path';
 import { spawn } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 import { z } from 'astro/zod';
 import { gallerySchema, slugSchema, type Gallery, type TravelMedia } from '../src/data/travel.mts';
+import { mediaPreview } from '../src/data/travel-media.mts';
+import { generateLqip } from './travel-lqip.mts';
 
 const text = z.object({ ru: z.string(), en: z.string() });
 export const inputSchema = z.object({ id: slugSchema, items: z.array(z.object({ id: slugSchema, file: z.string().min(1), alt: text, caption: text.optional() })).min(1) });
@@ -77,7 +79,7 @@ async function prepareImage(file: string, hash: string, jxlHash: string, signal?
 		}
 		sources.push({ url: `/media/${jxlHash}/${source.width}.jxl`, width: source.width, height: source.height, format: 'jxl' });
 	}
-	return { width, height, sources };
+	return { width, height, sources, lqip: await generateLqip(file) };
 }
 
 export async function prepareGallery(inputFile: string, mediaDir = 'src/content/travel/media', signal?: AbortSignal): Promise<Gallery> {
@@ -123,7 +125,9 @@ export async function prepareGallery(inputFile: string, mediaDir = 'src/content/
 			}
 			const posterHash = createHash('sha256').update(originalHash + 'poster-v1-' + recipe).digest('hex');
 			const posterJxlHash = createHash('sha256').update(originalHash + 'poster-v1-' + jxlRecipe).digest('hex');
-			media.posterSources = (await prepareImage(posterFile, posterHash, posterJxlHash, signal)).sources;
+			const poster = await prepareImage(posterFile, posterHash, posterJxlHash, signal);
+			media.posterSources = poster.sources;
+			media.lqip = poster.lqip;
 			media.poster = media.posterSources.filter((source) => source.format === 'jpeg').sort((a, b) => b.width - a.width)[0].url;
 		}
 		media = { ...media, id: item.id, alt: item.alt, caption: item.caption };
@@ -136,6 +140,29 @@ export async function prepareGallery(inputFile: string, mediaDir = 'src/content/
 	await writeJson(join(mediaDir, `${input.id}.json`), gallery);
 	await writeJson(join(stateRoot, 'prepared', `${input.id}.json`), { gallery, originals });
 	return gallery;
+}
+
+export async function preparePlaceholders(mediaDir = join(process.env.TRAVEL_CONTENT_ROOT || 'src/content/travel', 'media'), force = false) {
+	let count = 0;
+	for (const file of (await readdir(mediaDir)).filter((file) => file.endsWith('.json')).sort()) {
+		const path = join(mediaDir, file);
+		const manifest = JSON.parse(await readFile(path, 'utf8'));
+		const gallery = gallerySchema.parse(manifest);
+		let changed = false;
+		for (const [index, media] of gallery.items.entries()) {
+			if (Array.isArray(media.lqip) && !force) continue;
+			const jpeg = join(stateRoot, 'objects', mediaPreview(media).slice('/media/'.length));
+			if (!(await exists(jpeg))) throw new Error(`Missing local JPEG for ${gallery.id}/${media.id}: ${jpeg}`);
+			manifest.items[index].lqip = await generateLqip(jpeg);
+			changed = true;
+			count++;
+		}
+		if (changed) {
+			gallerySchema.parse(manifest);
+			await writeJson(path, manifest);
+		}
+	}
+	return count;
 }
 
 export async function publishGallery(id: string, itemIds?: string[], signal?: AbortSignal) {
@@ -179,7 +206,8 @@ export async function publishGallery(id: string, itemIds?: string[], signal?: Ab
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
 	const [command, file] = process.argv.slice(2);
-	if (!file || !['prepare', 'publish'].includes(command)) throw new Error('Usage: pnpm travel:media prepare <input.json> | publish <gallery-id>');
-	if (command === 'prepare') console.log(await prepareGallery(resolve(file)));
+	if (command === 'placeholders') console.log(`Prepared ${await preparePlaceholders(undefined, file === '--force')} CSS placeholders.`);
+	else if (!file || !['prepare', 'publish'].includes(command)) throw new Error('Usage: pnpm travel:media prepare <input.json> | publish <gallery-id> | placeholders [--force]');
+	else if (command === 'prepare') console.log(await prepareGallery(resolve(file)));
 	else await publishGallery(file);
 }

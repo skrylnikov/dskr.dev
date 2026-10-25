@@ -1,6 +1,6 @@
 ---
 import { getTravelMedia } from '../../lib/travel';
-import { mediaPreview, srcset } from '../../data/travel.mts';
+import { mediaPreview, srcset, mediaPlaceholderStyle } from '../../data/travel.mts';
 interface Props { refs: string[]; eager?: boolean }
 const { refs, eager = false } = Astro.props;
 const columns = refs.length <= 3 ? refs.length : Math.ceil(refs.length / 2);
@@ -9,10 +9,13 @@ const rows = Array.from({ length: Math.ceil(refs.length / columns) }, (_, index)
 <div class="travel-collage" aria-hidden="true">
 	{rows.map((row, rowIndex) => <div class="travel-collage-row">{row.map((ref, index) => {
 		const media = getTravelMedia(ref);
-		return <picture style={`flex-grow: ${media.width / media.height}; aspect-ratio: ${media.width} / ${media.height}`}>
+		return <picture style={`flex-grow: ${media.width / media.height}; aspect-ratio: ${media.width} / ${media.height};${mediaPlaceholderStyle(media) ?? ''}`}>
 			{media.kind === 'image' && srcset(media, 'jxl') && <source type="image/jxl" srcset={srcset(media, 'jxl')} sizes="(max-width: 600px) 60vw, 40vw" />}
 			{media.kind === 'image' && <source type="image/webp" srcset={srcset(media, 'webp')} sizes="(max-width: 600px) 60vw, 40vw" />}
 			<img src={mediaPreview(media)} srcset={srcset(media, 'jpeg') || undefined} sizes="(max-width: 600px) 60vw, 40vw" width={media.width} height={media.height} alt="" loading={eager && rowIndex === 0 && index === 0 ? 'eager' : 'lazy'} decoding="async" />
 		</picture>;
 	})}</div>)}
 </div>
+<script>
+	import '../../scripts/media-reveal';
+</script>

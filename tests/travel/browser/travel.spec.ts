@@ -57,8 +57,8 @@ test('JPEG XL sources precede fallbacks and the viewer follows browser decoding 
 	await picture.scrollIntoViewIfNeeded();
 	const supportsJxl = await picture.locator('img').evaluate(async (image: HTMLImageElement) => { await image.decode(); return image.currentSrc.endsWith('.jxl'); });
 	await page.locator('travel-gallery [data-media-index="0"]').click();
-	await expect(page.locator('.gslide.current img')).toHaveAttribute('src', supportsJxl ? /\.jxl$/ : /\.jpeg$/);
-	await expect(page.locator('.gslide.current img')).toBeVisible();
+	await expect(page.locator('.gslide.current .gslide-image img')).toHaveAttribute('src', supportsJxl ? /\.jxl$/ : /\.jpeg$/);
+	await expect(page.locator('.gslide.current .gslide-image img')).toBeVisible();
 	await page.keyboard.press('Escape');
 	await page.locator('travel-gallery [data-show-more]').click();
 	await expect(page.locator('[data-media-index="6"] source').first()).toHaveAttribute('type', 'image/jxl');
@@ -108,16 +108,16 @@ test('viewer keeps JPEG fallback when JPEG XL decoding is unavailable', async ({
 	});
 	await page.goto('/travel/sample-trip/first-walk/');
 	await page.locator('travel-gallery [data-media-index="0"]').click();
-	await expect(page.locator('.gslide.current img')).toHaveAttribute('src', /\.jpeg$/);
-	await expect.poll(() => page.locator('.gslide.current img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+	await expect(page.locator('.gslide.current .gslide-image img')).toHaveAttribute('src', /\.jpeg$/);
+	await expect.poll(() => page.locator('.gslide.current .gslide-image img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
 });
 
-for (const { index, reduced } of [{ index: 0, reduced: false }, { index: 2, reduced: false }, { index: 0, reduced: true }]) {
-	test(`photo preview stays visible until full-size decode (${index}${reduced ? ', reduced motion' : ''})`, async ({ page }, testInfo) => {
+for (const { index, reduced, cached } of [{ index: 0, reduced: false, cached: false }, { index: 2, reduced: false, cached: false }, { index: 0, reduced: true, cached: false }, { index: 0, reduced: false, cached: true }]) {
+	test(`photo preview stays visible until full-size decode (${index}${reduced ? ', reduced motion' : ''}${cached ? ', cached' : ''})`, async ({ page }, testInfo) => {
 		await page.emulateMedia({ reducedMotion: reduced ? 'reduce' : 'no-preference' });
 		await page.goto('/travel/sample-trip/first-walk/');
 		// Give viewer images distinct URLs so even cached thumbnails cannot satisfy them.
-		await page.locator('travel-gallery').evaluate((gallery) => {
+		if (!cached) await page.locator('travel-gallery').evaluate((gallery) => {
 			const script = gallery.querySelector('[data-gallery-items]')!;
 			const items = JSON.parse(script.textContent!);
 			for (const item of items) if (item.kind === 'image') for (const source of item.sources) source.url += '?full-size';
@@ -130,6 +130,17 @@ for (const { index, reduced } of [{ index: 0, reduced: false }, { index: 2, redu
 		const trigger = page.locator(`travel-gallery [data-media-index="${index}"]`);
 		await trigger.scrollIntoViewIfNeeded();
 		const thumbnail = await trigger.locator('img').evaluate(async (image: HTMLImageElement) => { await image.decode(); return image.currentSrc; });
+		const origin = await trigger.locator('img').boundingBox();
+		if (!reduced) await page.evaluate(() => {
+			const observer = new MutationObserver(() => {
+				const preview = document.querySelector('.travel-viewer-preview');
+				const flight = preview?.getAnimations()[0];
+				if (!flight) return;
+				flight.pause(); flight.currentTime = 0;
+				observer.disconnect();
+			});
+			observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+		});
 		try {
 			await trigger.click();
 			const preview = page.locator('.travel-viewer-preview');
@@ -137,22 +148,187 @@ for (const { index, reduced } of [{ index: 0, reduced: false }, { index: 2, redu
 			await expect(preview).toHaveAttribute('src', thumbnail);
 			await expect(preview).toHaveAttribute('aria-hidden', 'true');
 			await expect(page.locator('.gloader')).toBeHidden();
-			expect(await preview.evaluate((image) => getComputedStyle(image).animationName)).toBe(reduced ? 'none' : 'travel-viewer-in');
+			if (reduced) expect(await preview.evaluate((image) => image.getAnimations().length)).toBe(0);
+			else {
+				const start = await preview.evaluate((image) => {
+					const box = image.getBoundingClientRect();
+					const crop = getComputedStyle(image).clipPath.match(/^inset\(([\d.]+)% ([\d.]+)%/)!;
+					const x = Number(crop[2]) / 100, y = Number(crop[1]) / 100;
+					return { x: box.x + box.width * x, y: box.y + box.height * y, width: box.width * (1 - 2 * x), height: box.height * (1 - 2 * y) };
+				});
+				for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(start[key] - origin![key])).toBeLessThan(1);
+				await expect(page.locator('.travel-viewer-opening .gslide-image')).toHaveCSS('opacity', '0');
+				await page.screenshot({ path: testInfo.outputPath('photo-flight-start.png') });
+				await preview.evaluate((image) => { const flight = image.getAnimations()[0]; flight.currentTime = Number(flight.effect!.getTiming().duration) / 2; });
+				await page.screenshot({ path: testInfo.outputPath('photo-flight-middle.png') });
+			}
 			await expect(page.locator('.gclose')).toBeFocused();
-			expect(await preview.evaluate((image) => {
-				const box = image.getBoundingClientRect();
-				return box.left >= -1 && box.top >= -1 && box.right <= innerWidth + 1 && box.bottom <= innerHeight + 1;
-			})).toBe(true);
+			const destination = await preview.evaluate((image) => {
+				for (const animation of image.getAnimations()) animation.finish();
+				return image.getBoundingClientRect().toJSON();
+			});
+			expect(destination.left).toBeGreaterThanOrEqual(-1); expect(destination.top).toBeGreaterThanOrEqual(-1);
+			expect(destination.right).toBeLessThanOrEqual(page.viewportSize()!.width + 1); expect(destination.bottom).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
 			await page.screenshot({ path: testInfo.outputPath('photo-preview.png'), animations: 'disabled' });
 			release();
 			await expect(preview).toHaveCount(0);
-			await expect.poll(() => page.locator('.gslide.current img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+			await expect.poll(() => page.locator('.gslide.current .gslide-image img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+			await page.locator('.gslide.current').evaluate(async (slide) => { await Promise.allSettled(slide.getAnimations().map((animation) => animation.finished)); });
+			const full = page.locator('.gslide.current .gslide-image img');
+			const finalBounds = await full.boundingBox();
+			for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(destination[key] - finalBounds![key])).toBeLessThan(1);
+			const caption = page.locator('.gslide.current .gslide-description');
+			await expect(caption).toBeVisible();
+			const captionBounds = await caption.boundingBox();
+			expect(captionBounds!.y).toBeGreaterThanOrEqual(finalBounds!.y + finalBounds!.height - 1);
+			expect(captionBounds!.y + captionBounds!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+			if (testInfo.project.name === 'desktop' && index === 0 && !cached && !reduced) {
+				await full.click();
+				await expect(page.locator('.gslide.current')).toHaveClass(/zoomed/);
+				await full.click();
+				await expect(page.locator('.gslide.current')).not.toHaveClass(/zoomed/);
+				const afterZoom = await full.boundingBox();
+				for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(destination[key] - afterZoom![key])).toBeLessThan(1);
+			}
 			await page.keyboard.press('Escape');
 			await expect(page.locator('.glightbox-container')).toHaveCount(0);
 			await expect(trigger).toBeFocused();
 		} finally { release(); }
 	});
 }
+
+for (const reduced of [false, true]) {
+	test(`photo navigation handles slow and out-of-order images${reduced ? ' with reduced motion' : ''}`, async ({ page }) => {
+		const errors: string[] = []; page.on('pageerror', (error) => errors.push(error.message));
+		await page.emulateMedia({ reducedMotion: reduced ? 'reduce' : 'no-preference' });
+		await page.goto('/travel/sample-trip/first-walk/');
+		await page.locator('travel-gallery').evaluate((gallery) => {
+			const script = gallery.querySelector('[data-gallery-items]')!;
+			const items = JSON.parse(script.textContent!);
+			for (const source of items[1].sources) source.url += '?slow-full';
+			script.textContent = JSON.stringify(items); gallery.replaceWith(gallery.cloneNode(true));
+		});
+		let releaseFull!: () => void, releasePreview!: () => void;
+		const fullPending = new Promise<void>((resolve) => { releaseFull = resolve; });
+		const previewPending = new Promise<void>((resolve) => { releasePreview = resolve; });
+		await page.route((url) => url.searchParams.has('slow-full'), async (route) => { await fullPending; await route.continue(); });
+		await page.route((url) => url.searchParams.has('slow-preview'), async (route) => { await previewPending; await route.continue(); });
+		await page.locator('travel-gallery [data-media-index="1"] img').evaluate(async (image: HTMLImageElement) => {
+			await image.decode();
+			// Give the viewer an uncached thumbnail URL independently of the full image.
+			Object.defineProperty(image, 'currentSrc', { value: image.currentSrc + '?slow-preview' });
+		});
+		try {
+			await page.locator('travel-gallery [data-media-index="0"]').click();
+			await expect(page.locator('.gslide.current .gslide-image img')).toBeVisible();
+			await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+			await page.keyboard.press('ArrowRight');
+			await expect(page.locator('.travel-viewer-counter')).toHaveText('2 / 200');
+			const previous = page.locator('.gslider > .gslide').nth(0);
+			if (!reduced) {
+				// Wait past the 220 ms fade: the old photo must remain while the next one is unavailable.
+				await page.waitForTimeout(260);
+				await expect(previous).toHaveCSS('opacity', '1');
+			}
+			releasePreview();
+			await expect.poll(() => page.locator('.gslide[data-media-index="1"] > .travel-viewer-preview').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+			if (!reduced) {
+				const incoming = page.locator('.gslider > .gslide').nth(1);
+				await expect.poll(() => incoming.evaluate((slide) => slide.getAnimations().length)).toBe(1);
+				const movement = await page.evaluate(() => {
+					const slides = document.querySelectorAll<HTMLElement>('.gslider > .gslide');
+					for (const slide of [slides[0], slides[1]]) for (const animation of slide.getAnimations()) { animation.pause(); animation.currentTime = 180; }
+					const image = slides[1].querySelector('.gslide-image img')!.getBoundingClientRect();
+					const preview = slides[1].querySelector('.travel-viewer-preview')!.getBoundingClientRect();
+					return { outgoingX: slides[0].getBoundingClientRect().left, incomingX: slides[1].getBoundingClientRect().left, offset: Math.max(Math.abs(image.left - preview.left), Math.abs(image.top - preview.top)) };
+				});
+				expect(movement.outgoingX).toBeLessThan(0); expect(movement.incomingX).toBeGreaterThan(0);
+				expect(movement.offset).toBeLessThan(1);
+				await incoming.evaluate((slide) => { for (const animation of slide.getAnimations()) animation.finish(); });
+				await expect.poll(() => incoming.evaluate((slide) => slide.getAnimations().length)).toBe(0);
+			}
+			await expect(page.locator('.gslide[data-media-index="1"]')).toHaveCSS('opacity', '1');
+			await page.keyboard.press('ArrowRight');
+			await expect(page.locator('.travel-viewer-counter')).toHaveText('3 / 200');
+			await expect(page.locator('.gslide.current')).toHaveAttribute('data-media-index', '2');
+			await page.keyboard.press('ArrowLeft');
+			await expect(page.locator('.travel-viewer-counter')).toHaveText('2 / 200');
+			await expect(page.locator('.gslide[data-media-index="1"] > .travel-viewer-preview')).toBeVisible();
+			await page.keyboard.press('ArrowRight');
+			await expect(page.locator('.travel-viewer-counter')).toHaveText('3 / 200');
+			const response = page.waitForResponse((response) => response.url().includes('?slow-full') && response.ok());
+			releaseFull(); await response;
+			await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+			await expect(page.locator('.gslide.current')).toHaveCount(1);
+			await expect(page.locator('.gslide.current')).toHaveAttribute('data-media-index', '2');
+			await page.keyboard.press('ArrowLeft');
+			await expect(page.locator('.gslide.current')).toHaveAttribute('data-media-index', '1');
+			await expect(page.locator('.travel-viewer-counter')).toHaveText('2 / 200');
+			await page.keyboard.press('Escape');
+			await expect(page.locator('.glightbox-container')).toHaveCount(0);
+			expect(errors).toEqual([]);
+		} finally { releasePreview(); releaseFull(); }
+	});
+}
+
+test('captioned photo layout stays within the viewport when resized', async ({ page }) => {
+	const viewport = page.viewportSize()!;
+	await page.goto('/travel/sample-trip/first-walk/');
+	await page.locator('travel-gallery [data-media-index="2"]').click();
+	const photo = page.locator('.gslide.current .gslide-image img');
+	await expect(photo).toBeVisible();
+	await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+	const original = await photo.boundingBox();
+	await page.setViewportSize({ width: 900, height: 600 });
+	await expect.poll(() => page.locator('.gslide.current').evaluate((slide) => {
+		const image = slide.querySelector('img')!.getBoundingClientRect();
+		const caption = slide.querySelector('.gslide-description')!.getBoundingClientRect();
+		return image.left >= 0 && image.top >= 0 && image.right <= innerWidth && caption.top >= image.bottom - 1 && caption.bottom <= innerHeight;
+	})).toBe(true);
+	await page.setViewportSize(viewport);
+	await expect.poll(async () => {
+		const bounds = await photo.boundingBox();
+		return Math.max(...(['x', 'y', 'width', 'height'] as const).map((key) => Math.abs(bounds![key] - original![key])));
+	}).toBeLessThan(1);
+	await page.keyboard.press('Escape');
+	await expect(page.locator('.glightbox-container')).toHaveCount(0);
+});
+
+test('the sticky site header and page stay in place while the viewer opens and closes', async ({ page }) => {
+	await page.goto('/travel/sample-trip/first-walk/');
+	const trigger = page.locator('travel-gallery [data-media-index="0"]');
+	await trigger.scrollIntoViewIfNeeded();
+	await trigger.locator('img').evaluate((image: HTMLImageElement) => image.decode());
+	expect(await page.evaluate(() => scrollY)).toBeGreaterThan(100);
+	const before = await page.locator('.site-header').boundingBox();
+	await page.evaluate(() => {
+		const state = window as unknown as { headerFrames: number[][]; headerFrameId: number };
+		state.headerFrames = [];
+		const sample = () => {
+			const box = document.querySelector('.site-header')!.getBoundingClientRect();
+			state.headerFrames.push([box.x, box.y, box.width, box.height, scrollY]);
+			state.headerFrameId = requestAnimationFrame(sample);
+		};
+		sample();
+	});
+	await trigger.click();
+	await expect(page.locator('.gslide.current .gslide-image img')).toBeVisible();
+	await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+	await expect(page.locator('.site-header')).toHaveAttribute('aria-hidden', 'true');
+	await page.mouse.wheel(0, 350);
+	await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
+	await page.keyboard.press('Escape');
+	await expect(page.locator('.glightbox-container')).toHaveCount(0);
+	await expect(page.locator('.site-header')).not.toHaveAttribute('aria-hidden');
+	const frames = await page.evaluate(() => {
+		const state = window as unknown as { headerFrames: number[][]; headerFrameId: number };
+		cancelAnimationFrame(state.headerFrameId);
+		return state.headerFrames;
+	});
+	expect(frames.length).toBeGreaterThan(2);
+	const expected = [before!.x, before!.y, before!.width, before!.height, frames[0][4]];
+	for (const frame of frames) for (const [index, value] of frame.entries()) expect(Math.abs(value - expected[index]), `Header/page position changed in frame ${frame}`).toBeLessThan(1);
+});
 
 test('closing while a full-size photo is loading removes the preview and restores focus', async ({ page }) => {
 	const errors: string[] = []; page.on('pageerror', (error) => errors.push(error.message));
@@ -181,6 +357,70 @@ test('closing while a full-size photo is loading removes the preview and restore
 	} finally { release(); }
 });
 
+for (const { index, next, button, during } of [{ index: 0, next: false, button: false }, { index: 2, next: false, button: true }, { index: 0, next: true, button: false }, { index: 0, next: true, button: false, during: true }]) {
+	test(`closing photo flies back to its thumbnail (${index}${next ? ', next slide' : ''}${button ? ', button' : ', Escape'}${during ? ', during navigation' : ''})`, async ({ page }, testInfo) => {
+		await page.goto('/travel/sample-trip/first-walk/');
+		const gallery = page.locator('travel-gallery');
+		const trigger = gallery.locator(`[data-media-index="${index}"]`);
+		await trigger.click();
+		await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+		if (next) await page.locator('.gnext').click();
+		await expect(page.locator('.travel-viewer-counter')).toHaveText(`${index + (next ? 2 : 1)} / 200`);
+		await expect(page.locator('.gslide.current .gslide-image img')).toBeVisible();
+		await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+		await page.locator('.gslide.current').evaluate(async (slide, during) => {
+			if (during) for (const animation of slide.getAnimations()) { animation.pause(); animation.currentTime = 180; }
+			else await Promise.allSettled(slide.getAnimations().map((animation) => animation.finished));
+		}, during);
+		const enlarged = await page.locator('.gslide.current .gslide-image img').boundingBox();
+		const target = await gallery.locator(`[data-media-index="${index + (next ? 1 : 0)}"] img`).boundingBox();
+		await page.evaluate(() => {
+			const observer = new MutationObserver(() => {
+				const preview = document.querySelector('.travel-viewer-returning .travel-viewer-preview');
+				const flight = preview?.getAnimations()[0];
+				if (!flight) return;
+				flight.pause(); flight.currentTime = 0;
+				observer.disconnect();
+			});
+			observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+		});
+		if (button) await page.locator('.gclose').click();
+		else await page.keyboard.press('Escape');
+		const preview = page.locator('.travel-viewer-returning .travel-viewer-preview');
+		await expect(preview).toBeVisible();
+		const start = await preview.boundingBox();
+		for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(start![key] - enlarged![key])).toBeLessThan(1);
+		await preview.evaluate((image) => {
+			const flight = image.getAnimations()[0];
+			flight.currentTime = Number(flight.effect!.getTiming().duration);
+		});
+		const end = await preview.evaluate((image) => {
+			const box = image.getBoundingClientRect();
+			const crop = getComputedStyle(image).clipPath.match(/^inset\(([\d.]+)% ([\d.]+)%/)!;
+			const x = Number(crop[2]) / 100, y = Number(crop[1]) / 100;
+			return { x: box.x + box.width * x, y: box.y + box.height * y, width: box.width * (1 - 2 * x), height: box.height * (1 - 2 * y) };
+		});
+		for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(end[key] - target![key])).toBeLessThan(1);
+		await page.screenshot({ path: testInfo.outputPath('photo-return-end.png') });
+		await preview.evaluate((image) => image.getAnimations()[0].finish());
+		await expect(page.locator('.glightbox-container, .travel-viewer-preview')).toHaveCount(0);
+		await expect(trigger).toBeFocused();
+	});
+}
+
+test('closing a photo without a rendered thumbnail falls back to fading', async ({ page }) => {
+	await page.goto('/travel/sample-trip/first-walk/');
+	const trigger = page.locator('travel-gallery [data-media-index="5"]');
+	await trigger.click();
+	await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
+	await page.locator('.gnext').click();
+	await expect(page.locator('.travel-viewer-counter')).toHaveText('7 / 200');
+	await page.keyboard.press('Escape');
+	await expect(page.locator('.travel-viewer-returning')).toHaveCount(0);
+	await expect(page.locator('.glightbox-container')).toHaveCount(0);
+	await expect(trigger).toBeFocused();
+});
+
 test('200 media: only six thumbnails initially, progressive reveal, all slides and restored focus', async ({ page }) => {
 	const errors: string[] = []; page.on('pageerror', (error) => errors.push(error.message));
 	const mediaRequests: string[] = []; page.on('request', (request) => { if (request.url().includes('/media/')) mediaRequests.push(request.url()); });
@@ -197,7 +437,7 @@ test('200 media: only six thumbnails initially, progressive reveal, all slides a
 	await trigger.click();
 	await expect(page.locator('.glightbox-container')).toBeVisible();
 	await expect(page.locator('.travel-viewer-counter')).toHaveText('1 / 200');
-	await expect(page.locator('.gslide.current img')).toBeVisible();
+	await expect(page.locator('.gslide.current .gslide-image img')).toBeVisible();
 	expect(mediaRequests.some((url) => url.includes(createHash('sha256').update('199').digest('hex')))).toBe(false);
 	expect(mediaRequests.some((url) => url.endsWith('.mp4'))).toBe(false);
 	await page.locator('.gnext').click();

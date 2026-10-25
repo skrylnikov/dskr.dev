@@ -1,6 +1,6 @@
 ---
 import { getGallery } from '../../lib/travel';
-import { mediaPreview, mediaSource, srcset, travelCopy } from '../../data/travel.mts';
+import { mediaPreview, mediaSource, srcset, travelCopy, mediaPlaceholderStyle } from '../../data/travel.mts';
 interface Props { gallery: string }
 const { gallery: id } = Astro.props;
 const gallery = getGallery(id);
@@ -12,9 +12,9 @@ const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math
 	<div class:list={['travel-media-grid', { 'travel-media-grid--single': gallery.items.length === 1 }]}>
 		{gallery.items.map((media, index) => <>
 			{index === 0 && <span class="sr-only">{gallery.items.length} {locale === 'ru' ? 'фото и видео' : 'photos and videos'}</span>}
-			{index < 6 ? <figure>
+			{index < 6 ? <figure style={`--media-ratio:${media.width / media.height}`}>
 				<a href={mediaSource(media)} data-astro-prefetch="false" data-media-index={index} aria-label={`${media.kind === 'video' ? copy.play : copy.view}: ${media.alt[locale]}`}>
-					<picture>
+					<picture style={mediaPlaceholderStyle(media)}>
 						{srcset(media, 'jxl') && <source type="image/jxl" srcset={srcset(media, 'jxl')} sizes="(max-width: 600px) 90vw, 400px" />}
 						{srcset(media, 'webp') && <source type="image/webp" srcset={srcset(media, 'webp')} sizes="(max-width: 600px) 90vw, 400px" />}
 						<img src={mediaPreview(media)} srcset={srcset(media, 'jpeg') || undefined} sizes="(max-width: 600px) 90vw, 400px" width={media.width} height={media.height} alt={media.alt[locale]} loading="lazy" decoding="async" />

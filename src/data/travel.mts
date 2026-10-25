@@ -6,7 +6,7 @@ const copySchema = z.object({ ru: z.string(), en: z.string() });
 const mediaUrl = z.string().regex(/^\/media\/[a-f0-9]{64}\/[a-z0-9.-]+$/);
 const sourceSchema = z.object({ url: mediaUrl, width: z.number().int().positive(), height: z.number().int().positive(), format: z.enum(['jpeg', 'webp', 'jxl']) });
 const imageSourcesSchema = z.array(sourceSchema).min(1).refine((sources) => sources.some((s) => s.format === 'jpeg'), 'JPEG fallback required');
-const mediaBase = { id: slugSchema, width: z.number().int().positive(), height: z.number().int().positive(), alt: copySchema, caption: copySchema.optional() };
+const mediaBase = { id: slugSchema, width: z.number().int().positive(), height: z.number().int().positive(), alt: copySchema, caption: copySchema.optional(), lqip: z.union([z.array(z.string().regex(/^#[a-fA-F0-9]{6}$/)).length(6), z.number().int().min(-524288).max(524287)]).optional() };
 export const mediaSchema = z.discriminatedUnion('kind', [
 	z.object({ ...mediaBase, kind: z.literal('image'), sources: imageSourcesSchema }),
 	z.object({ ...mediaBase, kind: z.literal('video'), url: mediaUrl, poster: mediaUrl, posterSources: imageSourcesSchema.optional(), duration: z.number().nonnegative() }),
@@ -37,7 +37,7 @@ export const travelCopy = {
 export const travelPath = (locale: Locale, trip?: string, chapter?: string) => `${locale === 'en' ? '/en' : ''}/travel/${trip ? `${trip}/` : ''}${chapter ? `${chapter}/` : ''}`;
 export const entryAnchor = (entry: EntryData) => `${entry.kind}-${entry.slug}`;
 export const formatTravelDate = (date: Date, locale: Locale) => new Intl.DateTimeFormat(locale === 'ru' ? 'ru-RU' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date);
-export { mediaPreview, mediaSource, srcset } from './travel-media.mts';
+export { mediaPreview, mediaSource, srcset, mediaPlaceholderStyle } from './travel-media.mts';
 
 export function buildTravelCatalog(trips: TravelTrip[], entries: TravelEntry[], includeDrafts = false) {
 	const tripKeys = new Set<string>();

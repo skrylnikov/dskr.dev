@@ -9,3 +9,4 @@ export function pickCollagePhotos(refs: string[]): string[] {
 export const mediaPreview = (media: TravelMedia) => media.kind === 'video' ? media.posterSources?.filter((s) => s.format === 'jpeg').sort((a, b) => a.width - b.width)[0]?.url ?? media.poster : [...media.sources].filter((s) => s.format === 'jpeg').sort((a, b) => a.width - b.width)[0].url;
 export const mediaSource = (media: TravelMedia) => media.kind === 'video' ? media.url : [...media.sources].filter((s) => s.format === 'jpeg').sort((a, b) => b.width - a.width)[0].url;
 export const srcset = (media: TravelMedia, format: 'jpeg' | 'webp' | 'jxl') => (media.kind === 'image' ? media.sources : media.posterSources ?? []).filter((s) => s.format === format).map((s) => `${s.url} ${s.width}w`).join(', ');
+export const mediaPlaceholderStyle = (media: TravelMedia) => Array.isArray(media.lqip) ? media.lqip.map((colour, index) => `--lqip-${'abcdef'[index]}:${colour}`).join(';') : undefined;

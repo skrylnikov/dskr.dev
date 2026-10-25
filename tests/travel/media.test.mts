@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import sharp from 'sharp';
 import { prepareGallery, publishGallery, run } from '../../scripts/travel-media.mts';
+import { generateLqip } from '../../scripts/travel-lqip.mts';
 
 test('preparation orients photos, strips metadata, avoids enlargement and reuses content keys', async () => {
 	const dir = await mkdtemp(join(tmpdir(), 'travel-prepare-'));
@@ -18,6 +19,7 @@ test('preparation orients photos, strips metadata, avoids enlargement and reuses
 		const image = first.items[0]; assert.equal(image.kind, 'image');
 		if (image.kind !== 'image') return;
 		assert.equal(image.width, 20); assert.equal(image.height, 40); assert.equal(image.sources.length, 3);
+		assert.deepEqual(image.lqip, await generateLqip(join(dir, 'source.jpg')));
 		for (const source of image.sources) {
 			let file = join('.state/travel/objects', source.url.replace('/media/', ''));
 			if (source.format === 'jxl') { await run('djxl', [file, join(dir, 'decoded.png')]); file = join(dir, 'decoded.png'); }
@@ -42,6 +44,7 @@ test('video preparation creates browser-compatible MP4, poster and duration', as
 		if (video.kind !== 'video') return;
 		assert.ok(video.duration > 0); assert.equal(video.width, 160);
 		assert.match(video.poster, /160.jpeg$/);
+		assert.ok(Array.isArray(video.lqip) && video.lqip.length === 6);
 		assert.deepEqual(video.posterSources?.map((source) => source.format).sort(), ['jpeg', 'jxl', 'webp']);
 		for (const source of video.posterSources!) {
 			let file = join('.state/travel/objects', source.url.replace('/media/', ''));
@@ -52,7 +55,7 @@ test('video preparation creates browser-compatible MP4, poster and duration', as
 		}
 		const videoFile = join('.state/travel/objects', video.url.replace('/media/', ''));
 		const videoMtime = (await stat(videoFile)).mtimeMs;
-		const legacy = { ...video }; delete legacy.posterSources;
+		const legacy = { ...video }; delete legacy.posterSources; delete legacy.lqip;
 		await writeFile(join(videoFile, '..', 'metadata.json'), JSON.stringify(legacy));
 		await rm(join('.state/travel/objects', video.posterSources![0].url.replace('/media/', '')));
 		const regenerated = await prepareGallery(input, join(dir, 'manifests'));
