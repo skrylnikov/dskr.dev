@@ -211,6 +211,13 @@ pre {
 	backdrop-filter: blur(18px);
 }
 
+@supports (-webkit-touch-callout: none) {
+	/* shortcut: let the iOS header scroll until WebKit fixes sticky offsets in in-app browsers. */
+	.site-header {
+		position: relative;
+	}
+}
+
 .header-inner {
 	display: flex;
 	min-height: 5.25rem;
