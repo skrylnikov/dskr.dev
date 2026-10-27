@@ -1,0 +1,239 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-14",
+  "items": [
+    {
+      "id": "media-34c5b5a8-d283-44d5-923b-a9c5e0e072bc",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Внутренний двор форта ночью",
+        "en": "The fort's inner courtyard at night"
+      },
+      "caption": {
+        "ru": "Внутренний двор",
+        "en": "The inner courtyard"
+      },
+      "lqip": [
+        "#3e2d1b",
+        "#624c23",
+        "#483919",
+        "#765f4e",
+        "#7e6045",
+        "#664c2b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/0a7d9aa35e7edd0640b134534159efdc8bd9df07a6c7726e6e6eb94f7d7d8324/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0a7d9aa35e7edd0640b134534159efdc8bd9df07a6c7726e6e6eb94f7d7d8324/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0a7d9aa35e7edd0640b134534159efdc8bd9df07a6c7726e6e6eb94f7d7d8324/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0a7d9aa35e7edd0640b134534159efdc8bd9df07a6c7726e6e6eb94f7d7d8324/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0a7d9aa35e7edd0640b134534159efdc8bd9df07a6c7726e6e6eb94f7d7d8324/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0a7d9aa35e7edd0640b134534159efdc8bd9df07a6c7726e6e6eb94f7d7d8324/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c70f1cf3507301439500be621f42ae6a0ca99674c60ed0ee30d2090b95a6abd9/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c70f1cf3507301439500be621f42ae6a0ca99674c60ed0ee30d2090b95a6abd9/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c70f1cf3507301439500be621f42ae6a0ca99674c60ed0ee30d2090b95a6abd9/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-5b992271-3a91-4c16-a367-c249bd77b09d",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Наблюдательный пост «улитка»",
+        "en": "The “snail” observation post"
+      },
+      "caption": {
+        "ru": "Наблюдательный пост «улитка»",
+        "en": "The “snail” observation post"
+      },
+      "lqip": [
+        "#2a2314",
+        "#44381c",
+        "#453b28",
+        "#b1946c",
+        "#bda881",
+        "#8a7e6b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/03f85dc22586dd58dbf2dfe98ac8b781d94504339884820ca62c0949a430406e/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/03f85dc22586dd58dbf2dfe98ac8b781d94504339884820ca62c0949a430406e/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/03f85dc22586dd58dbf2dfe98ac8b781d94504339884820ca62c0949a430406e/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/03f85dc22586dd58dbf2dfe98ac8b781d94504339884820ca62c0949a430406e/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/03f85dc22586dd58dbf2dfe98ac8b781d94504339884820ca62c0949a430406e/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/03f85dc22586dd58dbf2dfe98ac8b781d94504339884820ca62c0949a430406e/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6bd9aa580d39b9f5f01c980e7dd7cd19f94276a979ae5d653a256981f5a9975b/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/6bd9aa580d39b9f5f01c980e7dd7cd19f94276a979ae5d653a256981f5a9975b/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/6bd9aa580d39b9f5f01c980e7dd7cd19f94276a979ae5d653a256981f5a9975b/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-a255ddc3-1ef7-4f1b-82d3-57cfb2be1fa2",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Вентиляционная шахта форта",
+        "en": "The fort's ventilation shaft"
+      },
+      "caption": {
+        "ru": "Вентиляционная шахта",
+        "en": "Ventilation shaft"
+      },
+      "lqip": [
+        "#555157",
+        "#453530",
+        "#3d3231",
+        "#624d33",
+        "#a27d57",
+        "#6b5745"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/03fe7b547471ae25ee0d99485a712297818954f342b36722a665b9dc9a5d8f45/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/03fe7b547471ae25ee0d99485a712297818954f342b36722a665b9dc9a5d8f45/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/03fe7b547471ae25ee0d99485a712297818954f342b36722a665b9dc9a5d8f45/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/03fe7b547471ae25ee0d99485a712297818954f342b36722a665b9dc9a5d8f45/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/03fe7b547471ae25ee0d99485a712297818954f342b36722a665b9dc9a5d8f45/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/03fe7b547471ae25ee0d99485a712297818954f342b36722a665b9dc9a5d8f45/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/581c2e85444e6bced05744d044f465ef4fa8a3f0cfdfbec2950d7dcefc34156c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/581c2e85444e6bced05744d044f465ef4fa8a3f0cfdfbec2950d7dcefc34156c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/581c2e85444e6bced05744d044f465ef4fa8a3f0cfdfbec2950d7dcefc34156c/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

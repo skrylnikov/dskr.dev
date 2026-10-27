@@ -1,0 +1,157 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-15",
+  "items": [
+    {
+      "id": "media-2ea14bbb-f00a-4b19-a094-629f9bcdf5f1",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Сводчатый коридор форта",
+        "en": "A vaulted corridor in the fort"
+      },
+      "lqip": [
+        "#807469",
+        "#6b6562",
+        "#8f8376",
+        "#887461",
+        "#69574d",
+        "#9e8b7b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/93688c4932b789edefea5a86fb274a22f257b94be2439c4dbaa61892bc9d2c0f/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/93688c4932b789edefea5a86fb274a22f257b94be2439c4dbaa61892bc9d2c0f/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/93688c4932b789edefea5a86fb274a22f257b94be2439c4dbaa61892bc9d2c0f/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/93688c4932b789edefea5a86fb274a22f257b94be2439c4dbaa61892bc9d2c0f/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/93688c4932b789edefea5a86fb274a22f257b94be2439c4dbaa61892bc9d2c0f/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/93688c4932b789edefea5a86fb274a22f257b94be2439c4dbaa61892bc9d2c0f/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/43902c6fe16336e34213ddd97b8f57bd0673d2163329de8c78daa72f5643913d/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/43902c6fe16336e34213ddd97b8f57bd0673d2163329de8c78daa72f5643913d/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/43902c6fe16336e34213ddd97b8f57bd0673d2163329de8c78daa72f5643913d/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-12239ff2-6d61-476c-b877-479b01fe5615",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Механизм у скважины внутри форта",
+        "en": "The mechanism by the well inside the fort"
+      },
+      "lqip": [
+        "#a59487",
+        "#736861",
+        "#765c4b",
+        "#af9c83",
+        "#aea299",
+        "#846e60"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/86f80906448e003f00351a36e81d6466e815b49657545ee87545c3187a0c1db4/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/86f80906448e003f00351a36e81d6466e815b49657545ee87545c3187a0c1db4/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/86f80906448e003f00351a36e81d6466e815b49657545ee87545c3187a0c1db4/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/86f80906448e003f00351a36e81d6466e815b49657545ee87545c3187a0c1db4/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/86f80906448e003f00351a36e81d6466e815b49657545ee87545c3187a0c1db4/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/86f80906448e003f00351a36e81d6466e815b49657545ee87545c3187a0c1db4/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4fd9c79af7ccd7bbb6efff230dc75b17e2a2810f58cb625943c125c3812b0b4c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4fd9c79af7ccd7bbb6efff230dc75b17e2a2810f58cb625943c125c3812b0b4c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4fd9c79af7ccd7bbb6efff230dc75b17e2a2810f58cb625943c125c3812b0b4c/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Механизм у скважины",
+        "en": "The mechanism by the well"
+      }
+    }
+  ]
+}

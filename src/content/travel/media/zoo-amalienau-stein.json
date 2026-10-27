@@ -1,0 +1,539 @@
+{
+  "id": "zoo-amalienau-stein",
+  "items": [
+    {
+      "id": "media-5567c6ee-14ea-4275-bbdd-3099e0fec942",
+      "width": 5712,
+      "height": 4284,
+      "alt": {
+        "ru": "Осенняя аллея у воды в Калининградском зоопарке",
+        "en": "An autumn path by the water at Kaliningrad Zoo"
+      },
+      "lqip": [
+        "#a68a63",
+        "#ad9f8e",
+        "#837f75",
+        "#69511e",
+        "#72592f",
+        "#554738"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/257b7110ba39ef60fdfa5395d9db37fe828525422cb09eec5ee5872e01fa9e05/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/257b7110ba39ef60fdfa5395d9db37fe828525422cb09eec5ee5872e01fa9e05/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/257b7110ba39ef60fdfa5395d9db37fe828525422cb09eec5ee5872e01fa9e05/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/257b7110ba39ef60fdfa5395d9db37fe828525422cb09eec5ee5872e01fa9e05/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/257b7110ba39ef60fdfa5395d9db37fe828525422cb09eec5ee5872e01fa9e05/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/257b7110ba39ef60fdfa5395d9db37fe828525422cb09eec5ee5872e01fa9e05/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/bf139a6a59784026f9251e78540e1cbd86944a748c67e0105bbcc124b2795b97/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/bf139a6a59784026f9251e78540e1cbd86944a748c67e0105bbcc124b2795b97/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/bf139a6a59784026f9251e78540e1cbd86944a748c67e0105bbcc124b2795b97/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Осень в зоопарке",
+        "en": "Autumn at the zoo"
+      }
+    },
+    {
+      "id": "media-fe0ad5c6-af0b-4333-b4dc-d6e8ff941bce",
+      "width": 5712,
+      "height": 4284,
+      "alt": {
+        "ru": "Большой пешеходный мост в зоопарке",
+        "en": "The large pedestrian bridge at the zoo"
+      },
+      "caption": {
+        "ru": "Большой пешеходный мост",
+        "en": "The large pedestrian bridge"
+      },
+      "lqip": [
+        "#665b29",
+        "#9b8e73",
+        "#a39683",
+        "#635128",
+        "#6a5331",
+        "#84684f"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d8aaf59b705ced9e87f0c3a290d92680ff2b8dc4ff328f1e5c4c229ddcc85a07/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d8aaf59b705ced9e87f0c3a290d92680ff2b8dc4ff328f1e5c4c229ddcc85a07/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d8aaf59b705ced9e87f0c3a290d92680ff2b8dc4ff328f1e5c4c229ddcc85a07/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d8aaf59b705ced9e87f0c3a290d92680ff2b8dc4ff328f1e5c4c229ddcc85a07/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d8aaf59b705ced9e87f0c3a290d92680ff2b8dc4ff328f1e5c4c229ddcc85a07/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d8aaf59b705ced9e87f0c3a290d92680ff2b8dc4ff328f1e5c4c229ddcc85a07/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/887fe088c34e7a6772952e28c7e9ec2ea415b06c678f48d2e6cb8f26693f76f3/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/887fe088c34e7a6772952e28c7e9ec2ea415b06c678f48d2e6cb8f26693f76f3/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/887fe088c34e7a6772952e28c7e9ec2ea415b06c678f48d2e6cb8f26693f76f3/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-49d7e56b-f5a6-4abe-a688-e303be703e09",
+      "width": 6094,
+      "height": 4062,
+      "alt": {
+        "ru": "Скульптура «Мальчик со львицей и львятами»",
+        "en": "The sculpture “Boy with a Lioness and Cubs”"
+      },
+      "caption": {
+        "ru": "Мальчик со львицей и львятами",
+        "en": "Boy with a Lioness and Cubs"
+      },
+      "lqip": [
+        "#5e4e1e",
+        "#746831",
+        "#574c1e",
+        "#727951",
+        "#928a96",
+        "#5e6248"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/1fa86219b2950c351438183effb4e247df93c0f7fd8d035cded92b4fab3b2586/640.webp",
+          "width": 640,
+          "height": 426,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1fa86219b2950c351438183effb4e247df93c0f7fd8d035cded92b4fab3b2586/640.jpeg",
+          "width": 640,
+          "height": 426,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1fa86219b2950c351438183effb4e247df93c0f7fd8d035cded92b4fab3b2586/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1fa86219b2950c351438183effb4e247df93c0f7fd8d035cded92b4fab3b2586/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1fa86219b2950c351438183effb4e247df93c0f7fd8d035cded92b4fab3b2586/2560.webp",
+          "width": 2560,
+          "height": 1706,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1fa86219b2950c351438183effb4e247df93c0f7fd8d035cded92b4fab3b2586/2560.jpeg",
+          "width": 2560,
+          "height": 1706,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1f3271749c8eef845101a85a0833216ba5d441bb7e68b2c0b4663adb2357de48/640.jxl",
+          "width": 640,
+          "height": 426,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1f3271749c8eef845101a85a0833216ba5d441bb7e68b2c0b4663adb2357de48/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1f3271749c8eef845101a85a0833216ba5d441bb7e68b2c0b4663adb2357de48/2560.jxl",
+          "width": 2560,
+          "height": 1706,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-463f1271-1825-4138-91a6-f60e6b4d32a3",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Фонтан среди осенних клумб",
+        "en": "A fountain surrounded by autumn flower beds"
+      },
+      "caption": {
+        "ru": "Каскадный фонтан, 1937 год",
+        "en": "Cascade fountain, 1937"
+      },
+      "lqip": [
+        "#a29383",
+        "#b6b3b1",
+        "#8b785c",
+        "#7b6437",
+        "#896a49",
+        "#815d3a"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/6f51a72dd49aab31e3674d0bf767bdf741b09c3197209772bef983a34b45fc4b/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f51a72dd49aab31e3674d0bf767bdf741b09c3197209772bef983a34b45fc4b/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6f51a72dd49aab31e3674d0bf767bdf741b09c3197209772bef983a34b45fc4b/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f51a72dd49aab31e3674d0bf767bdf741b09c3197209772bef983a34b45fc4b/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6f51a72dd49aab31e3674d0bf767bdf741b09c3197209772bef983a34b45fc4b/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f51a72dd49aab31e3674d0bf767bdf741b09c3197209772bef983a34b45fc4b/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5bde647f9b349732241bbaa11e49ec5887814f23fa898be4b6c936252c10112c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5bde647f9b349732241bbaa11e49ec5887814f23fa898be4b6c936252c10112c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5bde647f9b349732241bbaa11e49ec5887814f23fa898be4b6c936252c10112c/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-332ee74e-0d34-4166-9afd-d1b4c1f9cd48",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Осеннее дерево у воды",
+        "en": "A tree in autumn colors by the water"
+      },
+      "lqip": [
+        "#959997",
+        "#938873",
+        "#8c7142",
+        "#585734",
+        "#5b5a34",
+        "#464b2b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/cfc87f94b968aa0dd8bde7d2d1093b505a1c8702f924e75ba02d41c3347062c7/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cfc87f94b968aa0dd8bde7d2d1093b505a1c8702f924e75ba02d41c3347062c7/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cfc87f94b968aa0dd8bde7d2d1093b505a1c8702f924e75ba02d41c3347062c7/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cfc87f94b968aa0dd8bde7d2d1093b505a1c8702f924e75ba02d41c3347062c7/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cfc87f94b968aa0dd8bde7d2d1093b505a1c8702f924e75ba02d41c3347062c7/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cfc87f94b968aa0dd8bde7d2d1093b505a1c8702f924e75ba02d41c3347062c7/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4885202b1a7936e23881d80058ce40418f48fdf445ebfbd3ec7a90e30c8c8846/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4885202b1a7936e23881d80058ce40418f48fdf445ebfbd3ec7a90e30c8c8846/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4885202b1a7936e23881d80058ce40418f48fdf445ebfbd3ec7a90e30c8c8846/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-4f0afaa8-c514-4088-8e9d-e51c4d6b7894",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Памятный камень с табличкой в зоопарке",
+        "en": "A memorial stone with a plaque at the zoo"
+      },
+      "lqip": [
+        "#979d9f",
+        "#7d857d",
+        "#5f6351",
+        "#7f6d52",
+        "#8f7663",
+        "#80715b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/7cba633eae9798786b10e57038f02219d9a469c679518b6ca758df58637b6aa8/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7cba633eae9798786b10e57038f02219d9a469c679518b6ca758df58637b6aa8/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7cba633eae9798786b10e57038f02219d9a469c679518b6ca758df58637b6aa8/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7cba633eae9798786b10e57038f02219d9a469c679518b6ca758df58637b6aa8/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7cba633eae9798786b10e57038f02219d9a469c679518b6ca758df58637b6aa8/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7cba633eae9798786b10e57038f02219d9a469c679518b6ca758df58637b6aa8/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fe75b930afec0f93ed346d6b4f47dc2e8f7df6d02a758ac253afdb08ac3bafbe/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fe75b930afec0f93ed346d6b4f47dc2e8f7df6d02a758ac253afdb08ac3bafbe/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fe75b930afec0f93ed346d6b4f47dc2e8f7df6d02a758ac253afdb08ac3bafbe/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-13f7d07b-2ff7-4fde-94d5-0e4eac23cb45",
+      "width": 6098,
+      "height": 4066,
+      "alt": {
+        "ru": "Скульптура у воды в зоопарке",
+        "en": "A sculpture by the water at the zoo"
+      },
+      "lqip": [
+        "#575026",
+        "#6a603c",
+        "#49432d",
+        "#3b362d",
+        "#666167",
+        "#585155"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/f9054a44d7ff2b2de3a03911ba8978a2a65d3711b37b2ee99858292bd724e362/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f9054a44d7ff2b2de3a03911ba8978a2a65d3711b37b2ee99858292bd724e362/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f9054a44d7ff2b2de3a03911ba8978a2a65d3711b37b2ee99858292bd724e362/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f9054a44d7ff2b2de3a03911ba8978a2a65d3711b37b2ee99858292bd724e362/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f9054a44d7ff2b2de3a03911ba8978a2a65d3711b37b2ee99858292bd724e362/2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f9054a44d7ff2b2de3a03911ba8978a2a65d3711b37b2ee99858292bd724e362/2560.jpeg",
+          "width": 2560,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/24004912ec7e451ef217c4a6906fe9cc60d98f4813d69b3f21cb7d4c448f3fcc/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/24004912ec7e451ef217c4a6906fe9cc60d98f4813d69b3f21cb7d4c448f3fcc/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/24004912ec7e451ef217c4a6906fe9cc60d98f4813d69b3f21cb7d4c448f3fcc/2560.jxl",
+          "width": 2560,
+          "height": 1707,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

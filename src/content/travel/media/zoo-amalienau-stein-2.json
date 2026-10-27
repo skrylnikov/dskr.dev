@@ -1,0 +1,1669 @@
+{
+  "id": "zoo-amalienau-stein-2",
+  "items": [
+    {
+      "id": "media-8d54d2f8-a4ee-4559-b0ca-30a81c2a09d5",
+      "width": 6240,
+      "height": 4160,
+      "alt": {
+        "ru": "Ящерица под красной лампой в террариуме",
+        "en": "A lizard under a red lamp in a terrarium"
+      },
+      "lqip": [
+        "#42262c",
+        "#714247",
+        "#653f37",
+        "#923f3d",
+        "#936756",
+        "#705441"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/fb799a9841392a6e5c359d8a461681805f4a4e7aea1bcd173fa0482e78ed178d/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/fb799a9841392a6e5c359d8a461681805f4a4e7aea1bcd173fa0482e78ed178d/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fb799a9841392a6e5c359d8a461681805f4a4e7aea1bcd173fa0482e78ed178d/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/fb799a9841392a6e5c359d8a461681805f4a4e7aea1bcd173fa0482e78ed178d/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fb799a9841392a6e5c359d8a461681805f4a4e7aea1bcd173fa0482e78ed178d/2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/fb799a9841392a6e5c359d8a461681805f4a4e7aea1bcd173fa0482e78ed178d/2560.jpeg",
+          "width": 2560,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/dc663a25e5d5cab46f994853793cb7f58d8eb400abab70641bbd705a387a0682/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dc663a25e5d5cab46f994853793cb7f58d8eb400abab70641bbd705a387a0682/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dc663a25e5d5cab46f994853793cb7f58d8eb400abab70641bbd705a387a0682/2560.jxl",
+          "width": 2560,
+          "height": 1707,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-ebeefdae-3134-49d4-b126-a1d945904c97",
+      "width": 6094,
+      "height": 4062,
+      "alt": {
+        "ru": "Медведь лежит на деревянном настиле",
+        "en": "A bear lying on a wooden platform"
+      },
+      "caption": {
+        "ru": "Медведь отдыхает",
+        "en": "A bear taking a break"
+      },
+      "lqip": [
+        "#82754d",
+        "#8c8765",
+        "#7e7675",
+        "#857f63",
+        "#7b6b63",
+        "#7b6d63"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/30fc23a53358d520e12f354df0de90d9413d171b71fb99bc89185784966c144c/640.webp",
+          "width": 640,
+          "height": 426,
+          "format": "webp"
+        },
+        {
+          "url": "/media/30fc23a53358d520e12f354df0de90d9413d171b71fb99bc89185784966c144c/640.jpeg",
+          "width": 640,
+          "height": 426,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/30fc23a53358d520e12f354df0de90d9413d171b71fb99bc89185784966c144c/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/30fc23a53358d520e12f354df0de90d9413d171b71fb99bc89185784966c144c/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/30fc23a53358d520e12f354df0de90d9413d171b71fb99bc89185784966c144c/2560.webp",
+          "width": 2560,
+          "height": 1706,
+          "format": "webp"
+        },
+        {
+          "url": "/media/30fc23a53358d520e12f354df0de90d9413d171b71fb99bc89185784966c144c/2560.jpeg",
+          "width": 2560,
+          "height": 1706,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/96284bcf6e8b8f325651b38abce7f8bc19f231a7ea94cbb77564e1ac55811f52/640.jxl",
+          "width": 640,
+          "height": 426,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/96284bcf6e8b8f325651b38abce7f8bc19f231a7ea94cbb77564e1ac55811f52/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/96284bcf6e8b8f325651b38abce7f8bc19f231a7ea94cbb77564e1ac55811f52/2560.jxl",
+          "width": 2560,
+          "height": 1706,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-8a6738e7-7bae-46b9-bc35-9646d547adc1",
+      "width": 6060,
+      "height": 4040,
+      "alt": {
+        "ru": "Рогатое копытное в вольере",
+        "en": "A horned hoofed animal in an enclosure"
+      },
+      "lqip": [
+        "#817d86",
+        "#b1a6ab",
+        "#6a6770",
+        "#7d716d",
+        "#938478",
+        "#78736f"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/e6e1b8ee5c199475b7a274d586cef16e1b84778fe88f54c3cc05fb8d8ba6c075/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e6e1b8ee5c199475b7a274d586cef16e1b84778fe88f54c3cc05fb8d8ba6c075/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e6e1b8ee5c199475b7a274d586cef16e1b84778fe88f54c3cc05fb8d8ba6c075/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e6e1b8ee5c199475b7a274d586cef16e1b84778fe88f54c3cc05fb8d8ba6c075/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e6e1b8ee5c199475b7a274d586cef16e1b84778fe88f54c3cc05fb8d8ba6c075/2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e6e1b8ee5c199475b7a274d586cef16e1b84778fe88f54c3cc05fb8d8ba6c075/2560.jpeg",
+          "width": 2560,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/631981db239688404f10bab6cb5cef324a0b598ec672056018d3d7ce26ca05a9/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/631981db239688404f10bab6cb5cef324a0b598ec672056018d3d7ce26ca05a9/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/631981db239688404f10bab6cb5cef324a0b598ec672056018d3d7ce26ca05a9/2560.jxl",
+          "width": 2560,
+          "height": 1707,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-dde22b0b-4749-4ef9-a2df-042f37f629a8",
+      "width": 6094,
+      "height": 4062,
+      "alt": {
+        "ru": "Белый аист на фоне осенней листвы",
+        "en": "A white stork against autumn foliage"
+      },
+      "lqip": [
+        "#1c1a0d",
+        "#635d50",
+        "#352d1e",
+        "#5e5245",
+        "#7b7863",
+        "#52543e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/b48788b35eb95ca23a69ad1ce0a4f17ac2d4f3ce75fa397a8d1d29ef45e7c5aa/640.webp",
+          "width": 640,
+          "height": 426,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b48788b35eb95ca23a69ad1ce0a4f17ac2d4f3ce75fa397a8d1d29ef45e7c5aa/640.jpeg",
+          "width": 640,
+          "height": 426,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b48788b35eb95ca23a69ad1ce0a4f17ac2d4f3ce75fa397a8d1d29ef45e7c5aa/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b48788b35eb95ca23a69ad1ce0a4f17ac2d4f3ce75fa397a8d1d29ef45e7c5aa/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b48788b35eb95ca23a69ad1ce0a4f17ac2d4f3ce75fa397a8d1d29ef45e7c5aa/2560.webp",
+          "width": 2560,
+          "height": 1706,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b48788b35eb95ca23a69ad1ce0a4f17ac2d4f3ce75fa397a8d1d29ef45e7c5aa/2560.jpeg",
+          "width": 2560,
+          "height": 1706,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/19ed7c8f8c1debfbc2ccaa9eebb1dc76cbd598d4b5c192a63c5c53d7d97910bf/640.jxl",
+          "width": 640,
+          "height": 426,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/19ed7c8f8c1debfbc2ccaa9eebb1dc76cbd598d4b5c192a63c5c53d7d97910bf/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/19ed7c8f8c1debfbc2ccaa9eebb1dc76cbd598d4b5c192a63c5c53d7d97910bf/2560.jxl",
+          "width": 2560,
+          "height": 1706,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-951f83da-18cc-4286-8986-78884bb81fed",
+      "width": 5432,
+      "height": 3621,
+      "alt": {
+        "ru": "Белая птица с жёлтой кожей вокруг клюва",
+        "en": "A white bird with yellow skin around its beak"
+      },
+      "lqip": [
+        "#59462e",
+        "#7b6757",
+        "#4e3b2b",
+        "#6a5543",
+        "#7d695d",
+        "#534134"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/adc901f596c1224a2484d6f2a2b34351269618961a45771d8cfe6708b7dcb7c6/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/adc901f596c1224a2484d6f2a2b34351269618961a45771d8cfe6708b7dcb7c6/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/adc901f596c1224a2484d6f2a2b34351269618961a45771d8cfe6708b7dcb7c6/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/adc901f596c1224a2484d6f2a2b34351269618961a45771d8cfe6708b7dcb7c6/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/adc901f596c1224a2484d6f2a2b34351269618961a45771d8cfe6708b7dcb7c6/2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/adc901f596c1224a2484d6f2a2b34351269618961a45771d8cfe6708b7dcb7c6/2560.jpeg",
+          "width": 2560,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5b70928d7643597124b856707ce4141a81aa793ef70dbd6efbc57062463d94ca/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5b70928d7643597124b856707ce4141a81aa793ef70dbd6efbc57062463d94ca/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5b70928d7643597124b856707ce4141a81aa793ef70dbd6efbc57062463d94ca/2560.jxl",
+          "width": 2560,
+          "height": 1707,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-38f8c0e8-a6dc-4fbf-984a-eea144f281a9",
+      "width": 5554,
+      "height": 3703,
+      "alt": {
+        "ru": "Белая лама лежит на траве",
+        "en": "A white llama lying on the grass"
+      },
+      "lqip": [
+        "#837267",
+        "#998b79",
+        "#777253",
+        "#828c52",
+        "#afa893",
+        "#90886e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/bc0dba1244c5bdf8e14bb08f222fb45cea8061bdbc27c3c2ff8c7ce1f0929b74/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/bc0dba1244c5bdf8e14bb08f222fb45cea8061bdbc27c3c2ff8c7ce1f0929b74/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/bc0dba1244c5bdf8e14bb08f222fb45cea8061bdbc27c3c2ff8c7ce1f0929b74/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/bc0dba1244c5bdf8e14bb08f222fb45cea8061bdbc27c3c2ff8c7ce1f0929b74/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/bc0dba1244c5bdf8e14bb08f222fb45cea8061bdbc27c3c2ff8c7ce1f0929b74/2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/bc0dba1244c5bdf8e14bb08f222fb45cea8061bdbc27c3c2ff8c7ce1f0929b74/2560.jpeg",
+          "width": 2560,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/214392b0b3581825f3a76e12f917439d08a08029ef3509793146cdae719ca876/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/214392b0b3581825f3a76e12f917439d08a08029ef3509793146cdae719ca876/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/214392b0b3581825f3a76e12f917439d08a08029ef3509793146cdae719ca876/2560.jxl",
+          "width": 2560,
+          "height": 1707,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-1600e2c0-71ed-41be-8577-a986f1a9678a",
+      "width": 5712,
+      "height": 4284,
+      "alt": {
+        "ru": "Группа копытных у ограды вольера",
+        "en": "A group of hoofed animals by the enclosure fence"
+      },
+      "lqip": [
+        "#747d62",
+        "#8c7e67",
+        "#837262",
+        "#958f82",
+        "#99887a",
+        "#978976"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/014d0e17d6610792b3d3ec560804743bf576ae6d9f5137b08c010228e8654d5f/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/014d0e17d6610792b3d3ec560804743bf576ae6d9f5137b08c010228e8654d5f/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/014d0e17d6610792b3d3ec560804743bf576ae6d9f5137b08c010228e8654d5f/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/014d0e17d6610792b3d3ec560804743bf576ae6d9f5137b08c010228e8654d5f/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/014d0e17d6610792b3d3ec560804743bf576ae6d9f5137b08c010228e8654d5f/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/014d0e17d6610792b3d3ec560804743bf576ae6d9f5137b08c010228e8654d5f/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a8b418ab4a322d80befc9011331c1abea7f083822697d9fe97bf84daf2fff580/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a8b418ab4a322d80befc9011331c1abea7f083822697d9fe97bf84daf2fff580/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a8b418ab4a322d80befc9011331c1abea7f083822697d9fe97bf84daf2fff580/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-090f108d-850e-44d3-b340-6d14ada9b707",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Фламинго у пруда",
+        "en": "Flamingos by a pond"
+      },
+      "lqip": [
+        "#8a7b3f",
+        "#83703c",
+        "#846b3b",
+        "#816e49",
+        "#8f7c57",
+        "#a69683"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d50f0b493cf2dbc2f4b8006adf747e000d7c8c631a55ff04cf33cc678d674dce/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d50f0b493cf2dbc2f4b8006adf747e000d7c8c631a55ff04cf33cc678d674dce/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d50f0b493cf2dbc2f4b8006adf747e000d7c8c631a55ff04cf33cc678d674dce/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d50f0b493cf2dbc2f4b8006adf747e000d7c8c631a55ff04cf33cc678d674dce/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d50f0b493cf2dbc2f4b8006adf747e000d7c8c631a55ff04cf33cc678d674dce/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d50f0b493cf2dbc2f4b8006adf747e000d7c8c631a55ff04cf33cc678d674dce/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/636e3e859cbfacc5d17883a45baa96a8de8359d31d2d4e0c86ef7d8862d64351/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/636e3e859cbfacc5d17883a45baa96a8de8359d31d2d4e0c86ef7d8862d64351/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/636e3e859cbfacc5d17883a45baa96a8de8359d31d2d4e0c86ef7d8862d64351/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-80c67c96-4126-484d-bbfc-cdbc45164158",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Рыбы среди аквариумных растений",
+        "en": "Fish among aquarium plants"
+      },
+      "lqip": [
+        "#859617",
+        "#858118",
+        "#968d14",
+        "#6a8d04",
+        "#586b06",
+        "#707b06"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/9193affcbeb64d161cd52fe7febcfd0ed05e9a39559db0f9977d0a2573a95f6f/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9193affcbeb64d161cd52fe7febcfd0ed05e9a39559db0f9977d0a2573a95f6f/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9193affcbeb64d161cd52fe7febcfd0ed05e9a39559db0f9977d0a2573a95f6f/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9193affcbeb64d161cd52fe7febcfd0ed05e9a39559db0f9977d0a2573a95f6f/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9193affcbeb64d161cd52fe7febcfd0ed05e9a39559db0f9977d0a2573a95f6f/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9193affcbeb64d161cd52fe7febcfd0ed05e9a39559db0f9977d0a2573a95f6f/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/84548900949058f79d0e0be196bc9ac852ff5e8a8c24c0ecc4ba3664f4c4397d/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/84548900949058f79d0e0be196bc9ac852ff5e8a8c24c0ecc4ba3664f4c4397d/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/84548900949058f79d0e0be196bc9ac852ff5e8a8c24c0ecc4ba3664f4c4397d/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-ec26238a-6b07-411d-a95c-d1cfdb4e1a0a",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Кошачий лемур сидит на ветке",
+        "en": "A ring-tailed lemur sitting on a branch"
+      },
+      "caption": {
+        "ru": "Лемур",
+        "en": "Lemur"
+      },
+      "lqip": [
+        "#927662",
+        "#968474",
+        "#ada398",
+        "#a88e7a",
+        "#806b5e",
+        "#836655"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/ea71d851a7c11d47c52ea2b5983edcbeed1ed34ee12b55fc1dd1926b0bfdaf62/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ea71d851a7c11d47c52ea2b5983edcbeed1ed34ee12b55fc1dd1926b0bfdaf62/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ea71d851a7c11d47c52ea2b5983edcbeed1ed34ee12b55fc1dd1926b0bfdaf62/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ea71d851a7c11d47c52ea2b5983edcbeed1ed34ee12b55fc1dd1926b0bfdaf62/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ea71d851a7c11d47c52ea2b5983edcbeed1ed34ee12b55fc1dd1926b0bfdaf62/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ea71d851a7c11d47c52ea2b5983edcbeed1ed34ee12b55fc1dd1926b0bfdaf62/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a6bf066db9cbcfc5fd35220b65d251f0ad0646a34e702a526ec840d2daa33986/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a6bf066db9cbcfc5fd35220b65d251f0ad0646a34e702a526ec840d2daa33986/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a6bf066db9cbcfc5fd35220b65d251f0ad0646a34e702a526ec840d2daa33986/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-45b96ffc-e794-4a23-a61e-a3377f7e51c4",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Хищная птица с расправленными крыльями",
+        "en": "A bird of prey with its wings spread"
+      },
+      "lqip": [
+        "#2f281f",
+        "#85725f",
+        "#8c8364",
+        "#7b6654",
+        "#9c816d",
+        "#8b7766"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/fa4774b07e049d6b2db3e0fc40fc52f88e6206156391d9deb9dc6624e716c5d5/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/fa4774b07e049d6b2db3e0fc40fc52f88e6206156391d9deb9dc6624e716c5d5/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fa4774b07e049d6b2db3e0fc40fc52f88e6206156391d9deb9dc6624e716c5d5/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/fa4774b07e049d6b2db3e0fc40fc52f88e6206156391d9deb9dc6624e716c5d5/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fa4774b07e049d6b2db3e0fc40fc52f88e6206156391d9deb9dc6624e716c5d5/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/fa4774b07e049d6b2db3e0fc40fc52f88e6206156391d9deb9dc6624e716c5d5/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/68f9af840e7be79fbf52ecdc0764afef567bf510c1cf7f6e63a529cf0abf981f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/68f9af840e7be79fbf52ecdc0764afef567bf510c1cf7f6e63a529cf0abf981f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/68f9af840e7be79fbf52ecdc0764afef567bf510c1cf7f6e63a529cf0abf981f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-004cb795-c98e-4c09-b5d2-a152ee084ccc",
+      "width": 608,
+      "height": 1080,
+      "alt": {
+        "ru": "Белый аист у воды",
+        "en": "A white stork by the water"
+      },
+      "lqip": [
+        "#999a7f",
+        "#85816e",
+        "#878470",
+        "#aca88a",
+        "#a29d92",
+        "#bfbdb7"
+      ],
+      "kind": "video",
+      "url": "/media/d64571930d93b347da53faf8fc7bd93e4fb1fb539520cf2e899767920555222b/video.mp4",
+      "poster": "/media/8c74a2b284d172b23699000d3aa10e0889033afdc7b3ee1a7cc0031c6d865ec1/608.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/8c74a2b284d172b23699000d3aa10e0889033afdc7b3ee1a7cc0031c6d865ec1/608.webp",
+          "width": 608,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8c74a2b284d172b23699000d3aa10e0889033afdc7b3ee1a7cc0031c6d865ec1/608.jpeg",
+          "width": 608,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fb20119222c27a3856f532723e0bb7a278b37dd4213c677891296cafdd5471d4/608.jxl",
+          "width": 608,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
+      "duration": 44.878167
+    },
+    {
+      "id": "media-48d8a6b9-88a0-4d37-9bc8-12a0ec76a04b",
+      "width": 3572,
+      "height": 4763,
+      "alt": {
+        "ru": "Животное выглядывает из углубления в камнях",
+        "en": "An animal peeking out of a hollow in the rocks"
+      },
+      "lqip": [
+        "#bead97",
+        "#8b7963",
+        "#887458",
+        "#c7b2a4",
+        "#a99484",
+        "#a9978c"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/64acf8274cc84158005c9fc5c051e244651d7a0e17bc5f155bd0cdb14fb173c3/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/64acf8274cc84158005c9fc5c051e244651d7a0e17bc5f155bd0cdb14fb173c3/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/64acf8274cc84158005c9fc5c051e244651d7a0e17bc5f155bd0cdb14fb173c3/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/64acf8274cc84158005c9fc5c051e244651d7a0e17bc5f155bd0cdb14fb173c3/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/64acf8274cc84158005c9fc5c051e244651d7a0e17bc5f155bd0cdb14fb173c3/2560.webp",
+          "width": 2560,
+          "height": 3414,
+          "format": "webp"
+        },
+        {
+          "url": "/media/64acf8274cc84158005c9fc5c051e244651d7a0e17bc5f155bd0cdb14fb173c3/2560.jpeg",
+          "width": 2560,
+          "height": 3414,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/61d64533fc2caa7ab260b9ee0a0e2a7404562cdc5bcd935ae937ca92dad03421/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/61d64533fc2caa7ab260b9ee0a0e2a7404562cdc5bcd935ae937ca92dad03421/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/61d64533fc2caa7ab260b9ee0a0e2a7404562cdc5bcd935ae937ca92dad03421/2560.jxl",
+          "width": 2560,
+          "height": 3414,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-fad6e5bd-8c20-4d37-80e2-f30086fe3861",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Зелёная ящерица на ветке",
+        "en": "A green lizard on a branch"
+      },
+      "lqip": [
+        "#5d5e54",
+        "#80845d",
+        "#7f8261",
+        "#7a5646",
+        "#69553f",
+        "#724f3a"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/af01f19d4f47f91d97d577efc0c1624411e775dc0f69ee27600031cc62263b1e/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/af01f19d4f47f91d97d577efc0c1624411e775dc0f69ee27600031cc62263b1e/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/af01f19d4f47f91d97d577efc0c1624411e775dc0f69ee27600031cc62263b1e/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/af01f19d4f47f91d97d577efc0c1624411e775dc0f69ee27600031cc62263b1e/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/af01f19d4f47f91d97d577efc0c1624411e775dc0f69ee27600031cc62263b1e/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/af01f19d4f47f91d97d577efc0c1624411e775dc0f69ee27600031cc62263b1e/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6888ae6f6e6cb6e1e5f41bb29717c13b8eae04e89a74446662aff529c2f28bdb/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/6888ae6f6e6cb6e1e5f41bb29717c13b8eae04e89a74446662aff529c2f28bdb/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/6888ae6f6e6cb6e1e5f41bb29717c13b8eae04e89a74446662aff529c2f28bdb/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-53af1e48-1c29-4167-b592-4b5699f2b4ad",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Крупные насекомые на ветках в террариуме",
+        "en": "Large insects on branches in a terrarium"
+      },
+      "lqip": [
+        "#8e807d",
+        "#afa097",
+        "#d6c3b4",
+        "#7b6d67",
+        "#897a71",
+        "#b3a59e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/abd8a2a6868ab9b6df09c4e7c7468529da0c90311e37744cb05f6f31830949f8/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/abd8a2a6868ab9b6df09c4e7c7468529da0c90311e37744cb05f6f31830949f8/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/abd8a2a6868ab9b6df09c4e7c7468529da0c90311e37744cb05f6f31830949f8/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/abd8a2a6868ab9b6df09c4e7c7468529da0c90311e37744cb05f6f31830949f8/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/abd8a2a6868ab9b6df09c4e7c7468529da0c90311e37744cb05f6f31830949f8/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/abd8a2a6868ab9b6df09c4e7c7468529da0c90311e37744cb05f6f31830949f8/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/dc979eb78d7a648732f06d457e2ea6237ec2ee8d96b4f8ddbc8a2f07f8a6f05f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dc979eb78d7a648732f06d457e2ea6237ec2ee8d96b4f8ddbc8a2f07f8a6f05f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dc979eb78d7a648732f06d457e2ea6237ec2ee8d96b4f8ddbc8a2f07f8a6f05f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-3cfb4582-497c-4c8c-bccd-54cbee96c9fd",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Змея на камнях в террариуме",
+        "en": "A snake on rocks in a terrarium"
+      },
+      "lqip": [
+        "#a9948a",
+        "#a39485",
+        "#ab9280",
+        "#837466",
+        "#8e7468",
+        "#a77566"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/aec4a711fe11903f0fa56da6d81649398d7469262d3513b5d2c0ec4c01cf02ac/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/aec4a711fe11903f0fa56da6d81649398d7469262d3513b5d2c0ec4c01cf02ac/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/aec4a711fe11903f0fa56da6d81649398d7469262d3513b5d2c0ec4c01cf02ac/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/aec4a711fe11903f0fa56da6d81649398d7469262d3513b5d2c0ec4c01cf02ac/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/aec4a711fe11903f0fa56da6d81649398d7469262d3513b5d2c0ec4c01cf02ac/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/aec4a711fe11903f0fa56da6d81649398d7469262d3513b5d2c0ec4c01cf02ac/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/85ffa7864f08817a880a9f5f2c7416203e43fed524b583490b06e28d96935400/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/85ffa7864f08817a880a9f5f2c7416203e43fed524b583490b06e28d96935400/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/85ffa7864f08817a880a9f5f2c7416203e43fed524b583490b06e28d96935400/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-5343f6cc-514a-4c2c-95ed-0a410d3436f2",
+      "width": 2554,
+      "height": 3405,
+      "alt": {
+        "ru": "Ветки и красная ёмкость в террариуме",
+        "en": "Branches and a red container in a terrarium"
+      },
+      "lqip": [
+        "#9e6951",
+        "#805644",
+        "#794f48",
+        "#683e31",
+        "#863536",
+        "#531b18"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/f4f826d6c366bb19b806019870d96147c8b22d41aa4ffbe66f7761a4f965b82e/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f4f826d6c366bb19b806019870d96147c8b22d41aa4ffbe66f7761a4f965b82e/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f4f826d6c366bb19b806019870d96147c8b22d41aa4ffbe66f7761a4f965b82e/1280.webp",
+          "width": 1280,
+          "height": 1706,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f4f826d6c366bb19b806019870d96147c8b22d41aa4ffbe66f7761a4f965b82e/1280.jpeg",
+          "width": 1280,
+          "height": 1706,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f4f826d6c366bb19b806019870d96147c8b22d41aa4ffbe66f7761a4f965b82e/2554.webp",
+          "width": 2554,
+          "height": 3405,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f4f826d6c366bb19b806019870d96147c8b22d41aa4ffbe66f7761a4f965b82e/2554.jpeg",
+          "width": 2554,
+          "height": 3405,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a11c987c1b3b3e4b32bf0e1b5e0654a16355927bc2557a1a2bea8bcd8cf180b2/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a11c987c1b3b3e4b32bf0e1b5e0654a16355927bc2557a1a2bea8bcd8cf180b2/1280.jxl",
+          "width": 1280,
+          "height": 1706,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a11c987c1b3b3e4b32bf0e1b5e0654a16355927bc2557a1a2bea8bcd8cf180b2/2554.jxl",
+          "width": 2554,
+          "height": 3405,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-2c08afdf-7d23-4700-824e-44ae67f34a69",
+      "width": 3627,
+      "height": 4836,
+      "alt": {
+        "ru": "Зелёные ящерицы на ветках",
+        "en": "Green lizards on branches"
+      },
+      "lqip": [
+        "#936345",
+        "#7c6f54",
+        "#707345",
+        "#6b5a26",
+        "#675d20",
+        "#636a44"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/43eb686b28739948f15b305764f2f68868abf4f703b596114be7b510c40997d9/640.webp",
+          "width": 640,
+          "height": 854,
+          "format": "webp"
+        },
+        {
+          "url": "/media/43eb686b28739948f15b305764f2f68868abf4f703b596114be7b510c40997d9/640.jpeg",
+          "width": 640,
+          "height": 854,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/43eb686b28739948f15b305764f2f68868abf4f703b596114be7b510c40997d9/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/43eb686b28739948f15b305764f2f68868abf4f703b596114be7b510c40997d9/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/43eb686b28739948f15b305764f2f68868abf4f703b596114be7b510c40997d9/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/43eb686b28739948f15b305764f2f68868abf4f703b596114be7b510c40997d9/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/05948b8c97aa0cd2fb77b728bff106818ff09336cb198a9ed1bd6bf3534c9b62/640.jxl",
+          "width": 640,
+          "height": 854,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/05948b8c97aa0cd2fb77b728bff106818ff09336cb198a9ed1bd6bf3534c9b62/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/05948b8c97aa0cd2fb77b728bff106818ff09336cb198a9ed1bd6bf3534c9b62/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-29909dff-3b2d-47f8-8185-30b3b9cb6d90",
+      "width": 2210,
+      "height": 2947,
+      "alt": {
+        "ru": "Орангутан у подвесных канатов",
+        "en": "An orangutan beside hanging ropes"
+      },
+      "caption": {
+        "ru": "Орангутан",
+        "en": "Orangutan"
+      },
+      "lqip": [
+        "#9c7f6e",
+        "#9a7c68",
+        "#827261",
+        "#97775f",
+        "#a1745a",
+        "#55533f"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/de4d686a07abb3fafcde34e4141763d826c517cafead25fbb0a551e6f6cf0259/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de4d686a07abb3fafcde34e4141763d826c517cafead25fbb0a551e6f6cf0259/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/de4d686a07abb3fafcde34e4141763d826c517cafead25fbb0a551e6f6cf0259/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de4d686a07abb3fafcde34e4141763d826c517cafead25fbb0a551e6f6cf0259/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/de4d686a07abb3fafcde34e4141763d826c517cafead25fbb0a551e6f6cf0259/2210.webp",
+          "width": 2210,
+          "height": 2947,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de4d686a07abb3fafcde34e4141763d826c517cafead25fbb0a551e6f6cf0259/2210.jpeg",
+          "width": 2210,
+          "height": 2947,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f3d27a4065ceb9e433f52f268201a9b161595bb644872b3dfb2d4332312ea5c4/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f3d27a4065ceb9e433f52f268201a9b161595bb644872b3dfb2d4332312ea5c4/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f3d27a4065ceb9e433f52f268201a9b161595bb644872b3dfb2d4332312ea5c4/2210.jxl",
+          "width": 2210,
+          "height": 2947,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-20f0c762-9bf0-4395-b337-d8b7e5266a78",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Рыбы в морском аквариуме",
+        "en": "Fish in a saltwater aquarium"
+      },
+      "lqip": [
+        "#c09b49",
+        "#967d5d",
+        "#514c69",
+        "#90783c",
+        "#6c5b4c",
+        "#5d4d53"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/8bcd989be83b40fc935739cacb4986912efb25cf30a6e426674b2a3f9788b3c9/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8bcd989be83b40fc935739cacb4986912efb25cf30a6e426674b2a3f9788b3c9/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8bcd989be83b40fc935739cacb4986912efb25cf30a6e426674b2a3f9788b3c9/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8bcd989be83b40fc935739cacb4986912efb25cf30a6e426674b2a3f9788b3c9/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8bcd989be83b40fc935739cacb4986912efb25cf30a6e426674b2a3f9788b3c9/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8bcd989be83b40fc935739cacb4986912efb25cf30a6e426674b2a3f9788b3c9/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/084d0e5aaaf02fd63b9bed33a57a8b14c0c33c886453ca72e7f7f72b0647dd70/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/084d0e5aaaf02fd63b9bed33a57a8b14c0c33c886453ca72e7f7f72b0647dd70/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/084d0e5aaaf02fd63b9bed33a57a8b14c0c33c886453ca72e7f7f72b0647dd70/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-80442750-1201-433a-aa22-183d6f0a785d",
+      "width": 608,
+      "height": 1080,
+      "alt": {
+        "ru": "Сине-жёлтый попугай ара",
+        "en": "A blue-and-yellow macaw"
+      },
+      "caption": {
+        "ru": "Сине-жёлтый ара",
+        "en": "Blue-and-yellow macaw"
+      },
+      "lqip": [
+        "#979182",
+        "#969180",
+        "#b7b3aa",
+        "#aaa396",
+        "#89846f",
+        "#bfbbae"
+      ],
+      "kind": "video",
+      "url": "/media/842a956d6fbac97843dd03a664da1e79aca80877952070f685f51d8c6995014c/video.mp4",
+      "poster": "/media/56e6e787f22a1e37b28050d136f53e722f3d6477d2c579db70af66e388a211d8/608.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/56e6e787f22a1e37b28050d136f53e722f3d6477d2c579db70af66e388a211d8/608.webp",
+          "width": 608,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/56e6e787f22a1e37b28050d136f53e722f3d6477d2c579db70af66e388a211d8/608.jpeg",
+          "width": 608,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e277cff8efbffb4483e129cce92d85f1adc9cc0206486d76c644bd463aadd40a/608.jxl",
+          "width": 608,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
+      "duration": 11.661667
+    },
+    {
+      "id": "media-7d12b1ba-620e-4b93-a1bb-c02dc619cfc2",
+      "width": 608,
+      "height": 1080,
+      "alt": {
+        "ru": "Дикобраз в уличном вольере",
+        "en": "A porcupine in an outdoor enclosure"
+      },
+      "caption": {
+        "ru": "Дикобраз",
+        "en": "Porcupine"
+      },
+      "lqip": [
+        "#a7a094",
+        "#989481",
+        "#97947a",
+        "#9a938b",
+        "#847d78",
+        "#948c7c"
+      ],
+      "kind": "video",
+      "url": "/media/1fbc271a02a53e6b7d8d6cd6db5c79bee9f1c19b7a8d008dc27d4a871455e9ea/video.mp4",
+      "poster": "/media/282298ec37a8c037c1bcf6a8c84cfd056ac29484e19225cceea97a99fe591a44/608.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/282298ec37a8c037c1bcf6a8c84cfd056ac29484e19225cceea97a99fe591a44/608.webp",
+          "width": 608,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/282298ec37a8c037c1bcf6a8c84cfd056ac29484e19225cceea97a99fe591a44/608.jpeg",
+          "width": 608,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7fcc6c4dc522db92a9e5dc6163f0e3e2329ff3e7142799323244a1afcf8503b4/608.jxl",
+          "width": 608,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
+      "duration": 19
+    },
+    {
+      "id": "media-f1c3fd3f-91c0-498c-9aad-a93ad06f15c8",
+      "width": 608,
+      "height": 1080,
+      "alt": {
+        "ru": "Животные отдыхают в вольере",
+        "en": "Animals resting in an enclosure"
+      },
+      "lqip": [
+        "#97938f",
+        "#949293",
+        "#84848b",
+        "#928a85",
+        "#ada8a2",
+        "#a3a19f"
+      ],
+      "kind": "video",
+      "url": "/media/e05c89f346aa83d7b785394bd9d4bbf91232a967e158b5034356d6f135e83419/video.mp4",
+      "poster": "/media/e8c923509b4a6a31d69feca353f91a9bdaca328aea55ed1af35ed2c146f847f6/608.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/e8c923509b4a6a31d69feca353f91a9bdaca328aea55ed1af35ed2c146f847f6/608.webp",
+          "width": 608,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e8c923509b4a6a31d69feca353f91a9bdaca328aea55ed1af35ed2c146f847f6/608.jpeg",
+          "width": 608,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f3c7021a5c03f05051c78b5eee228ad85f5cecc788786debeca918a7086314c4/608.jxl",
+          "width": 608,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
+      "duration": 36.635
+    },
+    {
+      "id": "media-1f4bdc88-d9c9-45c1-8394-70c689114ba7",
+      "width": 5211,
+      "height": 3474,
+      "alt": {
+        "ru": "Лама у ограды вольера",
+        "en": "A llama by the enclosure fence"
+      },
+      "lqip": [
+        "#634a44",
+        "#876966",
+        "#74686a",
+        "#787c4d",
+        "#888a60",
+        "#7f9156"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/29212f15161c1d1b0915f7293ff039bf273b380b511bd02927550fc5620ced61/640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "webp"
+        },
+        {
+          "url": "/media/29212f15161c1d1b0915f7293ff039bf273b380b511bd02927550fc5620ced61/640.jpeg",
+          "width": 640,
+          "height": 427,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/29212f15161c1d1b0915f7293ff039bf273b380b511bd02927550fc5620ced61/1280.webp",
+          "width": 1280,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/29212f15161c1d1b0915f7293ff039bf273b380b511bd02927550fc5620ced61/1280.jpeg",
+          "width": 1280,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/29212f15161c1d1b0915f7293ff039bf273b380b511bd02927550fc5620ced61/2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/29212f15161c1d1b0915f7293ff039bf273b380b511bd02927550fc5620ced61/2560.jpeg",
+          "width": 2560,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/96776ddbfb808b198f8bc0bae696b5f6769d1d33cbf195759bb6dba1bc2a3a8d/640.jxl",
+          "width": 640,
+          "height": 427,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/96776ddbfb808b198f8bc0bae696b5f6769d1d33cbf195759bb6dba1bc2a3a8d/1280.jxl",
+          "width": 1280,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/96776ddbfb808b198f8bc0bae696b5f6769d1d33cbf195759bb6dba1bc2a3a8d/2560.jxl",
+          "width": 2560,
+          "height": 1707,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

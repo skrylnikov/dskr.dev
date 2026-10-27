@@ -1,0 +1,354 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-9",
+  "items": [
+    {
+      "id": "media-8f0a3952-6830-41be-8784-57bf04190f71",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Центральная потерна форта № 1 «Штайн»",
+        "en": "The central postern passage of Fort No. 1 Stein"
+      },
+      "caption": {
+        "ru": "Центральная потерна",
+        "en": "The central postern passage"
+      },
+      "lqip": [
+        "#c7a530",
+        "#7e756f",
+        "#82756b",
+        "#7b5811",
+        "#5c4325",
+        "#56412e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/3afcce88c07cabb0c4b98d08c9e98753d1f7fe2933de9126e7c59575ff33e280/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3afcce88c07cabb0c4b98d08c9e98753d1f7fe2933de9126e7c59575ff33e280/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3afcce88c07cabb0c4b98d08c9e98753d1f7fe2933de9126e7c59575ff33e280/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3afcce88c07cabb0c4b98d08c9e98753d1f7fe2933de9126e7c59575ff33e280/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3afcce88c07cabb0c4b98d08c9e98753d1f7fe2933de9126e7c59575ff33e280/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3afcce88c07cabb0c4b98d08c9e98753d1f7fe2933de9126e7c59575ff33e280/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b79e57cef272af04c932b4c39b93a6db566305c415c05bd1bb58543031137d8c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b79e57cef272af04c932b4c39b93a6db566305c415c05bd1bb58543031137d8c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b79e57cef272af04c932b4c39b93a6db566305c415c05bd1bb58543031137d8c/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-ceb5b1cd-a6b6-438e-9422-93795d310729",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Старые предметы в кирпичном каземате",
+        "en": "Old objects in a brick casemate"
+      },
+      "lqip": [
+        "#492f20",
+        "#5f402f",
+        "#754f3d",
+        "#726456",
+        "#9e908b",
+        "#887368"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/a460b38a65b7cb4edca22abe847d67d1fbe857197c87ae71205062a07defd12c/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a460b38a65b7cb4edca22abe847d67d1fbe857197c87ae71205062a07defd12c/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a460b38a65b7cb4edca22abe847d67d1fbe857197c87ae71205062a07defd12c/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a460b38a65b7cb4edca22abe847d67d1fbe857197c87ae71205062a07defd12c/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a460b38a65b7cb4edca22abe847d67d1fbe857197c87ae71205062a07defd12c/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a460b38a65b7cb4edca22abe847d67d1fbe857197c87ae71205062a07defd12c/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d3c777042dbe0f70f0d5c6cf60588cf73b19d119ebdf8565cdaa7c1e4d38c5c7/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d3c777042dbe0f70f0d5c6cf60588cf73b19d119ebdf8565cdaa7c1e4d38c5c7/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d3c777042dbe0f70f0d5c6cf60588cf73b19d119ebdf8565cdaa7c1e4d38c5c7/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-fd2e086a-9ea4-4a49-8ebf-221b096f0ba4",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Каземат с письменным столом, часами и военной формой",
+        "en": "A casemate with a desk, a clock and a military uniform"
+      },
+      "lqip": [
+        "#6a5342",
+        "#70594e",
+        "#6f5141",
+        "#524535",
+        "#796b5e",
+        "#64564a"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/f4257cd09c0783f9945156ff9037e35205f4ad411812d078b4048f080255bed5/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f4257cd09c0783f9945156ff9037e35205f4ad411812d078b4048f080255bed5/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f4257cd09c0783f9945156ff9037e35205f4ad411812d078b4048f080255bed5/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f4257cd09c0783f9945156ff9037e35205f4ad411812d078b4048f080255bed5/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f4257cd09c0783f9945156ff9037e35205f4ad411812d078b4048f080255bed5/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f4257cd09c0783f9945156ff9037e35205f4ad411812d078b4048f080255bed5/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ee1e99e5f05bc7e47f92cf94100f8da0dc546d2b8fbe131c83330ffb6e470370/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ee1e99e5f05bc7e47f92cf94100f8da0dc546d2b8fbe131c83330ffb6e470370/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ee1e99e5f05bc7e47f92cf94100f8da0dc546d2b8fbe131c83330ffb6e470370/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-4f96a8e4-9a0d-42a0-9836-98458a0cb41c",
+      "width": 608,
+      "height": 1080,
+      "alt": {
+        "ru": "Граммофон в экспозиции форта",
+        "en": "A gramophone on display at the fort"
+      },
+      "caption": {
+        "ru": "Граммофон в экспозиции",
+        "en": "A gramophone on display"
+      },
+      "lqip": [
+        "#6b685c",
+        "#555142",
+        "#726660",
+        "#aaabbe",
+        "#8a8ea2",
+        "#83838c"
+      ],
+      "kind": "video",
+      "url": "/media/7240983b969893d670949992d8698910edd8e235574aef146b0cf65db79fcda7/video.mp4",
+      "poster": "/media/f8162457ead7dd4800e2b3657fe6569145e2aa59c0f09e597b1cfea18901f072/608.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/f8162457ead7dd4800e2b3657fe6569145e2aa59c0f09e597b1cfea18901f072/608.webp",
+          "width": 608,
+          "height": 1080,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f8162457ead7dd4800e2b3657fe6569145e2aa59c0f09e597b1cfea18901f072/608.jpeg",
+          "width": 608,
+          "height": 1080,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/01b8fee8d7d2a22f7f61ab0e6b22c2ecd794f1616c2c4d78ac1a1d21c601344d/608.jxl",
+          "width": 608,
+          "height": 1080,
+          "format": "jxl"
+        }
+      ],
+      "duration": 22.316667
+    },
+    {
+      "id": "media-8e560703-5a33-4bb2-9164-f3f0b7538d93",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Раскопанный пол каземата",
+        "en": "The excavated floor of a casemate"
+      },
+      "caption": {
+        "ru": "Следы поисков клада в каземате",
+        "en": "Traces of treasure hunting in a casemate"
+      },
+      "lqip": [
+        "#644734",
+        "#856859",
+        "#b7948d",
+        "#a79a8b",
+        "#ab9d97",
+        "#a38e83"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/8c396fe3f2105e9f22512d65b28cd0db66181952c6f97c548bbbd517dd91736d/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8c396fe3f2105e9f22512d65b28cd0db66181952c6f97c548bbbd517dd91736d/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8c396fe3f2105e9f22512d65b28cd0db66181952c6f97c548bbbd517dd91736d/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8c396fe3f2105e9f22512d65b28cd0db66181952c6f97c548bbbd517dd91736d/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8c396fe3f2105e9f22512d65b28cd0db66181952c6f97c548bbbd517dd91736d/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8c396fe3f2105e9f22512d65b28cd0db66181952c6f97c548bbbd517dd91736d/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/642f54444aa0dfd73ab0a6292fabde58ab4203cd748a28d30ed2c5af48c7db97/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/642f54444aa0dfd73ab0a6292fabde58ab4203cd748a28d30ed2c5af48c7db97/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/642f54444aa0dfd73ab0a6292fabde58ab4203cd748a28d30ed2c5af48c7db97/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

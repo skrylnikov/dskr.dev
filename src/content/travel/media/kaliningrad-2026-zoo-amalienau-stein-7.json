@@ -1,0 +1,749 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-7",
+  "items": [
+    {
+      "id": "media-a7f082f9-781e-4d6a-a7e2-6c87630e805d",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Светлое здание с красной отделкой в Амалиенау",
+        "en": "A light-colored building with red trim in Amalienau"
+      },
+      "lqip": [
+        "#8a8471",
+        "#bdb9c0",
+        "#71797a",
+        "#8d7a73",
+        "#8e736f",
+        "#645a51"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/9d7ee8ab1506907a85eb2b8bc138e45809a32c0c310edb889bc89161ffb8e61b/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9d7ee8ab1506907a85eb2b8bc138e45809a32c0c310edb889bc89161ffb8e61b/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9d7ee8ab1506907a85eb2b8bc138e45809a32c0c310edb889bc89161ffb8e61b/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9d7ee8ab1506907a85eb2b8bc138e45809a32c0c310edb889bc89161ffb8e61b/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9d7ee8ab1506907a85eb2b8bc138e45809a32c0c310edb889bc89161ffb8e61b/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9d7ee8ab1506907a85eb2b8bc138e45809a32c0c310edb889bc89161ffb8e61b/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4daa3ec9b554ea59a752e56c1c87e5f089ed90c142a98b30f0014da806a2ce1e/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4daa3ec9b554ea59a752e56c1c87e5f089ed90c142a98b30f0014da806a2ce1e/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4daa3ec9b554ea59a752e56c1c87e5f089ed90c142a98b30f0014da806a2ce1e/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-5d36baac-6e71-438c-9ce2-80fa04038242",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Вилла с деревянными деталями фасада",
+        "en": "A villa with wooden facade details"
+      },
+      "lqip": [
+        "#8aa7b2",
+        "#4b4f4f",
+        "#73868c",
+        "#6e7574",
+        "#6b7270",
+        "#666e63"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/89517f4aacb1c9fa7f654f924f53532deb75abb6d2708d1005e3b1b9e21f0f94/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/89517f4aacb1c9fa7f654f924f53532deb75abb6d2708d1005e3b1b9e21f0f94/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/89517f4aacb1c9fa7f654f924f53532deb75abb6d2708d1005e3b1b9e21f0f94/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/89517f4aacb1c9fa7f654f924f53532deb75abb6d2708d1005e3b1b9e21f0f94/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/89517f4aacb1c9fa7f654f924f53532deb75abb6d2708d1005e3b1b9e21f0f94/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/89517f4aacb1c9fa7f654f924f53532deb75abb6d2708d1005e3b1b9e21f0f94/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/466f7cc82df52f10266b66cc76d64d64f525fb2ff2a5ffd6bef475291f54c11f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/466f7cc82df52f10266b66cc76d64d64f525fb2ff2a5ffd6bef475291f54c11f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/466f7cc82df52f10266b66cc76d64d64f525fb2ff2a5ffd6bef475291f54c11f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-4de2ad9d-eb47-44a7-b119-c54d670fd279",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Светлый дом с высокой красной крышей",
+        "en": "A light-colored house with a tall red roof"
+      },
+      "lqip": [
+        "#39434f",
+        "#989eb3",
+        "#aabcdb",
+        "#202323",
+        "#696361",
+        "#8b8b90"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/5e74613204fa72cb7072197448cc9df3b2873b68ea5a8748849c5246aa4d88d6/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5e74613204fa72cb7072197448cc9df3b2873b68ea5a8748849c5246aa4d88d6/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5e74613204fa72cb7072197448cc9df3b2873b68ea5a8748849c5246aa4d88d6/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5e74613204fa72cb7072197448cc9df3b2873b68ea5a8748849c5246aa4d88d6/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5e74613204fa72cb7072197448cc9df3b2873b68ea5a8748849c5246aa4d88d6/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/5e74613204fa72cb7072197448cc9df3b2873b68ea5a8748849c5246aa4d88d6/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7af3571626e5570710e101e60cf7d40c6e775d13b7d013d82749282b64bf5a88/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/7af3571626e5570710e101e60cf7d40c6e775d13b7d013d82749282b64bf5a88/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/7af3571626e5570710e101e60cf7d40c6e775d13b7d013d82749282b64bf5a88/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-edbf8f34-1844-497a-9c6c-6caf3eb0b9f1",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Шары омелы на ветках над улицей",
+        "en": "Clumps of mistletoe on branches above the street"
+      },
+      "caption": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#7b8184",
+        "#a7b7cb",
+        "#b1cbe4",
+        "#71573c",
+        "#795d49",
+        "#705a49"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/75f31053796838ed7f3272c091df132f60f5a4454a47cae8f1a7a69cfca4af30/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75f31053796838ed7f3272c091df132f60f5a4454a47cae8f1a7a69cfca4af30/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/75f31053796838ed7f3272c091df132f60f5a4454a47cae8f1a7a69cfca4af30/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75f31053796838ed7f3272c091df132f60f5a4454a47cae8f1a7a69cfca4af30/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/75f31053796838ed7f3272c091df132f60f5a4454a47cae8f1a7a69cfca4af30/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75f31053796838ed7f3272c091df132f60f5a4454a47cae8f1a7a69cfca4af30/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/27053ad058357332763b3d73f5d40194a4dc1ac7a638de7c6b2728a43dcafb95/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/27053ad058357332763b3d73f5d40194a4dc1ac7a638de7c6b2728a43dcafb95/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/27053ad058357332763b3d73f5d40194a4dc1ac7a638de7c6b2728a43dcafb95/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-d4dce20e-3dc4-4f29-b5c3-c7ec01b777df",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Красная вилла с высоким остеклённым выступом",
+        "en": "A red villa with a tall glazed bay"
+      },
+      "lqip": [
+        "#5a4b24",
+        "#7d716e",
+        "#878d98",
+        "#5c452b",
+        "#4a321d",
+        "#433120"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/4a396ce9bf53ff47f535d2c7b052625bb98298e33bba1710e5b4ed43c62b4c87/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/4a396ce9bf53ff47f535d2c7b052625bb98298e33bba1710e5b4ed43c62b4c87/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4a396ce9bf53ff47f535d2c7b052625bb98298e33bba1710e5b4ed43c62b4c87/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/4a396ce9bf53ff47f535d2c7b052625bb98298e33bba1710e5b4ed43c62b4c87/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4a396ce9bf53ff47f535d2c7b052625bb98298e33bba1710e5b4ed43c62b4c87/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/4a396ce9bf53ff47f535d2c7b052625bb98298e33bba1710e5b4ed43c62b4c87/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7f768cd8ecf7a3e32b145ecf3de3932c03ea380d941c663329bd26a783eb1a2c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/7f768cd8ecf7a3e32b145ecf3de3932c03ea380d941c663329bd26a783eb1a2c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/7f768cd8ecf7a3e32b145ecf3de3932c03ea380d941c663329bd26a783eb1a2c/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-fcce6ec0-d28c-4061-a4ae-9994c5f03b48",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Вилла за металлической оградой",
+        "en": "A villa behind a metal fence"
+      },
+      "lqip": [
+        "#55595a",
+        "#6c6562",
+        "#6f6767",
+        "#4a2c0e",
+        "#643f1f",
+        "#583619"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/1bccec66bdce41ef62414906df6fb6494d7cbc412f543e0795d4c05651ffa207/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1bccec66bdce41ef62414906df6fb6494d7cbc412f543e0795d4c05651ffa207/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1bccec66bdce41ef62414906df6fb6494d7cbc412f543e0795d4c05651ffa207/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1bccec66bdce41ef62414906df6fb6494d7cbc412f543e0795d4c05651ffa207/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1bccec66bdce41ef62414906df6fb6494d7cbc412f543e0795d4c05651ffa207/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1bccec66bdce41ef62414906df6fb6494d7cbc412f543e0795d4c05651ffa207/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f4b95970fe55376dc28576c28e355ff0ecfcfe0d519a5e88eca4f5933646d59a/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f4b95970fe55376dc28576c28e355ff0ecfcfe0d519a5e88eca4f5933646d59a/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f4b95970fe55376dc28576c28e355ff0ecfcfe0d519a5e88eca4f5933646d59a/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-3af07d09-5c06-413b-b38e-b0cd658684af",
+      "width": 5712,
+      "height": 4284,
+      "alt": {
+        "ru": "Невысокие дома вдоль улицы Амалиенау",
+        "en": "Low houses along a street in Amalienau"
+      },
+      "lqip": [
+        "#6f5e3e",
+        "#a6b3bd",
+        "#7e7f73",
+        "#484232",
+        "#5f5249",
+        "#6c6969"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/b9919998847ab0cafb925f3b752c97b3de8f0902ef553c209e41cc63d9c5c77f/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b9919998847ab0cafb925f3b752c97b3de8f0902ef553c209e41cc63d9c5c77f/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b9919998847ab0cafb925f3b752c97b3de8f0902ef553c209e41cc63d9c5c77f/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b9919998847ab0cafb925f3b752c97b3de8f0902ef553c209e41cc63d9c5c77f/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b9919998847ab0cafb925f3b752c97b3de8f0902ef553c209e41cc63d9c5c77f/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b9919998847ab0cafb925f3b752c97b3de8f0902ef553c209e41cc63d9c5c77f/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9659fffbb343b848440d0799847c053784b73798215db9d033c718fd118826c2/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/9659fffbb343b848440d0799847c053784b73798215db9d033c718fd118826c2/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/9659fffbb343b848440d0799847c053784b73798215db9d033c718fd118826c2/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-f7dd1057-f6b2-45d5-8cf6-9302b0f09c72",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Вилла с деревянным балконом в вечернем свете",
+        "en": "A villa with a wooden balcony in the evening light"
+      },
+      "lqip": [
+        "#281f1d",
+        "#422f25",
+        "#45342e",
+        "#392e18",
+        "#6f573c",
+        "#7d5e48"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/3fa563e4987c8a4e3a9a8da1a8b22e7b2511350129726049c060e5e9755200e8/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3fa563e4987c8a4e3a9a8da1a8b22e7b2511350129726049c060e5e9755200e8/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3fa563e4987c8a4e3a9a8da1a8b22e7b2511350129726049c060e5e9755200e8/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3fa563e4987c8a4e3a9a8da1a8b22e7b2511350129726049c060e5e9755200e8/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3fa563e4987c8a4e3a9a8da1a8b22e7b2511350129726049c060e5e9755200e8/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/3fa563e4987c8a4e3a9a8da1a8b22e7b2511350129726049c060e5e9755200e8/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/674ce2a7eb4f5b52e237749a4e29854f2d6dd234c305516fe069b1f7998e81bd/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/674ce2a7eb4f5b52e237749a4e29854f2d6dd234c305516fe069b1f7998e81bd/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/674ce2a7eb4f5b52e237749a4e29854f2d6dd234c305516fe069b1f7998e81bd/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-035bf3fc-f033-4ffa-8973-c3b802767c0a",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Заросший растениями фасад старого дома",
+        "en": "The facade of an old house covered in climbing plants"
+      },
+      "lqip": [
+        "#826e5e",
+        "#6b5e51",
+        "#6e635e",
+        "#836843",
+        "#574a22",
+        "#463e1c"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d547e0b8d04de62bcb742d101205db56726bc558af0d17b2f8d1e1ad21d4eb91/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d547e0b8d04de62bcb742d101205db56726bc558af0d17b2f8d1e1ad21d4eb91/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d547e0b8d04de62bcb742d101205db56726bc558af0d17b2f8d1e1ad21d4eb91/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d547e0b8d04de62bcb742d101205db56726bc558af0d17b2f8d1e1ad21d4eb91/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d547e0b8d04de62bcb742d101205db56726bc558af0d17b2f8d1e1ad21d4eb91/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d547e0b8d04de62bcb742d101205db56726bc558af0d17b2f8d1e1ad21d4eb91/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fdd0601b92dd1c226c40df8a0c6212bb8fb7557c19cf613903e517fa0ebecf4e/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fdd0601b92dd1c226c40df8a0c6212bb8fb7557c19cf613903e517fa0ebecf4e/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fdd0601b92dd1c226c40df8a0c6212bb8fb7557c19cf613903e517fa0ebecf4e/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-0340878e-762d-445b-9a7d-a2b6d25b3eea",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Деревянная дверь в кирпичном портале",
+        "en": "A wooden door in a brick entrance surround"
+      },
+      "lqip": [
+        "#a2785d",
+        "#704b34",
+        "#8e674d",
+        "#957860",
+        "#8c7761",
+        "#634c38"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/a305eea7c458259baf5ed8d6a5b4922c50c935914696ffc8ce9d1e844681fdad/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a305eea7c458259baf5ed8d6a5b4922c50c935914696ffc8ce9d1e844681fdad/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a305eea7c458259baf5ed8d6a5b4922c50c935914696ffc8ce9d1e844681fdad/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a305eea7c458259baf5ed8d6a5b4922c50c935914696ffc8ce9d1e844681fdad/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a305eea7c458259baf5ed8d6a5b4922c50c935914696ffc8ce9d1e844681fdad/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/a305eea7c458259baf5ed8d6a5b4922c50c935914696ffc8ce9d1e844681fdad/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/edae0962688027efc085d471d6342ef5a4ee3770ba083711c0c0da86c693d78a/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/edae0962688027efc085d471d6342ef5a4ee3770ba083711c0c0da86c693d78a/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/edae0962688027efc085d471d6342ef5a4ee3770ba083711c0c0da86c693d78a/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

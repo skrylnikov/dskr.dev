@@ -1,0 +1,239 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-11",
+  "items": [
+    {
+      "id": "media-0a6f8d3c-bedd-4b6c-b3c9-19f599724f9c",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Металлические солдатские туалеты",
+        "en": "Officers' toilets"
+      },
+      "caption": {
+        "ru": "Туалеты для офицеров",
+        "en": "Officers' toilets"
+      },
+      "lqip": [
+        "#4f4746",
+        "#594f50",
+        "#423c37",
+        "#6c6057",
+        "#c6b9ab",
+        "#9e8f82"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/55eb40b09d859effb8ed09044c349212facbe3250b358f91db1cd61895df9e5b/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/55eb40b09d859effb8ed09044c349212facbe3250b358f91db1cd61895df9e5b/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/55eb40b09d859effb8ed09044c349212facbe3250b358f91db1cd61895df9e5b/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/55eb40b09d859effb8ed09044c349212facbe3250b358f91db1cd61895df9e5b/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/55eb40b09d859effb8ed09044c349212facbe3250b358f91db1cd61895df9e5b/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/55eb40b09d859effb8ed09044c349212facbe3250b358f91db1cd61895df9e5b/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fd428bc711a9086056683c2a15e22ee92935d196819298bc8d4563c64b9ae507/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fd428bc711a9086056683c2a15e22ee92935d196819298bc8d4563c64b9ae507/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fd428bc711a9086056683c2a15e22ee92935d196819298bc8d4563c64b9ae507/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-b0f4d94e-9c13-4815-a19a-3e316f112701",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Керамический туалет для командования",
+        "en": "A maker's mark on a ceramic officers' toilet"
+      },
+      "caption": {
+        "ru": "Клеймо на офицерском туалете",
+        "en": "A maker's mark on an officers' toilet"
+      },
+      "lqip": [
+        "#ada297",
+        "#c2bcb8",
+        "#ccc4bf",
+        "#a79f93",
+        "#656057",
+        "#494135"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/4cf0f7903497196571c523c718678750aed7fd34014df7f712985d14242c3d7f/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/4cf0f7903497196571c523c718678750aed7fd34014df7f712985d14242c3d7f/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4cf0f7903497196571c523c718678750aed7fd34014df7f712985d14242c3d7f/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/4cf0f7903497196571c523c718678750aed7fd34014df7f712985d14242c3d7f/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4cf0f7903497196571c523c718678750aed7fd34014df7f712985d14242c3d7f/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/4cf0f7903497196571c523c718678750aed7fd34014df7f712985d14242c3d7f/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/a6895326adf84f26c83a94414b7a718c44af7cc64fa0e657cafbc35209ef0ca8/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a6895326adf84f26c83a94414b7a718c44af7cc64fa0e657cafbc35209ef0ca8/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/a6895326adf84f26c83a94414b7a718c44af7cc64fa0e657cafbc35209ef0ca8/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-8190a987-8f5c-493d-9ad9-34102999374a",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Солдатские туалеты и писсуар",
+        "en": "Soldiers' toilets and a urinal"
+      },
+      "caption": {
+        "ru": "Солдатские туалеты и писсуар",
+        "en": "Soldiers' toilets and a urinal"
+      },
+      "lqip": [
+        "#413322",
+        "#846f53",
+        "#af9c86",
+        "#b0a394",
+        "#c7b7b6",
+        "#c6b6a9"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/ef6b451e6a0c3726070ced8db354d3ab6df103551cf5f2e57df0e875ec72772c/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ef6b451e6a0c3726070ced8db354d3ab6df103551cf5f2e57df0e875ec72772c/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ef6b451e6a0c3726070ced8db354d3ab6df103551cf5f2e57df0e875ec72772c/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ef6b451e6a0c3726070ced8db354d3ab6df103551cf5f2e57df0e875ec72772c/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ef6b451e6a0c3726070ced8db354d3ab6df103551cf5f2e57df0e875ec72772c/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ef6b451e6a0c3726070ced8db354d3ab6df103551cf5f2e57df0e875ec72772c/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b7f607842fe9238036283b13a39111dfc5d2cce92713aa31cfc2b8fdc406c8e7/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b7f607842fe9238036283b13a39111dfc5d2cce92713aa31cfc2b8fdc406c8e7/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b7f607842fe9238036283b13a39111dfc5d2cce92713aa31cfc2b8fdc406c8e7/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

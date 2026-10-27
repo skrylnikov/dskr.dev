@@ -1,0 +1,157 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-16",
+  "items": [
+    {
+      "id": "media-2d3c9c7b-8416-4313-874d-9d9d5f0a0865",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Затопленный спуск к головному капониру",
+        "en": "The flooded descent to the front caponier"
+      },
+      "lqip": [
+        "#a4746b",
+        "#b98364",
+        "#cf8d74",
+        "#895e4e",
+        "#4f422d",
+        "#8f6b52"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/02f01f703fe77cb55c146796e49924699facf2ba44f1e35377a344919508ad94/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/02f01f703fe77cb55c146796e49924699facf2ba44f1e35377a344919508ad94/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/02f01f703fe77cb55c146796e49924699facf2ba44f1e35377a344919508ad94/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/02f01f703fe77cb55c146796e49924699facf2ba44f1e35377a344919508ad94/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/02f01f703fe77cb55c146796e49924699facf2ba44f1e35377a344919508ad94/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/02f01f703fe77cb55c146796e49924699facf2ba44f1e35377a344919508ad94/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f1d396071d873ba7e6f7b432fa15c93b85182694110d534799a72001a080859a/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f1d396071d873ba7e6f7b432fa15c93b85182694110d534799a72001a080859a/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/f1d396071d873ba7e6f7b432fa15c93b85182694110d534799a72001a080859a/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Затопленная потерна к головному капониру",
+        "en": "The flooded postern passage to the front caponier"
+      }
+    },
+    {
+      "id": "media-c91bc383-8a57-465c-b396-50c014587e68",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Участники экскурсии у затопленного прохода",
+        "en": "Tour participants beside the flooded passage"
+      },
+      "lqip": [
+        "#5a3c2e",
+        "#927460",
+        "#644739",
+        "#15100c",
+        "#4b3f31",
+        "#1c1510"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/96249c3f2c34b61d26fd9e8a394566353e7da2803ab6b0218f3cb80ba5e67b75/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/96249c3f2c34b61d26fd9e8a394566353e7da2803ab6b0218f3cb80ba5e67b75/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/96249c3f2c34b61d26fd9e8a394566353e7da2803ab6b0218f3cb80ba5e67b75/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/96249c3f2c34b61d26fd9e8a394566353e7da2803ab6b0218f3cb80ba5e67b75/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/96249c3f2c34b61d26fd9e8a394566353e7da2803ab6b0218f3cb80ba5e67b75/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/96249c3f2c34b61d26fd9e8a394566353e7da2803ab6b0218f3cb80ba5e67b75/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d998d6e53542b50da29f41107c71d06df90a89bc24e6f95e3befd2e02208a998/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d998d6e53542b50da29f41107c71d06df90a89bc24e6f95e3befd2e02208a998/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d998d6e53542b50da29f41107c71d06df90a89bc24e6f95e3befd2e02208a998/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

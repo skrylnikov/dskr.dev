@@ -1,0 +1,235 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-17",
+  "items": [
+    {
+      "id": "media-00daf285-8035-4b71-9be9-473d40bbd39b",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Световой колодец с круглой кирпичной шахтой",
+        "en": "A light well with a round brick shaft"
+      },
+      "lqip": [
+        "#caad9f",
+        "#756458",
+        "#937e6b",
+        "#c3b2a6",
+        "#907969",
+        "#987d67"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/c105ad84abfe09f572c07d1caf8c2fe7cb3eb5899dcf5779c6f5bf42a750aaef/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c105ad84abfe09f572c07d1caf8c2fe7cb3eb5899dcf5779c6f5bf42a750aaef/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c105ad84abfe09f572c07d1caf8c2fe7cb3eb5899dcf5779c6f5bf42a750aaef/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c105ad84abfe09f572c07d1caf8c2fe7cb3eb5899dcf5779c6f5bf42a750aaef/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c105ad84abfe09f572c07d1caf8c2fe7cb3eb5899dcf5779c6f5bf42a750aaef/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c105ad84abfe09f572c07d1caf8c2fe7cb3eb5899dcf5779c6f5bf42a750aaef/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c54172b23ba98db07ede8ba28447e9608589479b6ed6bd61a4f4cfddac025ecf/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c54172b23ba98db07ede8ba28447e9608589479b6ed6bd61a4f4cfddac025ecf/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c54172b23ba98db07ede8ba28447e9608589479b6ed6bd61a4f4cfddac025ecf/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Световой колодец",
+        "en": "Light well"
+      }
+    },
+    {
+      "id": "media-ceeb9352-c9d2-4b69-bdde-09b98cb056e8",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Отверстия в кирпичной кладке внутри форта",
+        "en": "Openings in the brickwork inside the fort"
+      },
+      "lqip": [
+        "#ac9099",
+        "#bca493",
+        "#978680",
+        "#564846",
+        "#d2b69b",
+        "#90766a"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/563b0c36d3327cc4554b225886ba5a70c33cbb13cfb9f63a2df1d59fcd6a0ab6/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/563b0c36d3327cc4554b225886ba5a70c33cbb13cfb9f63a2df1d59fcd6a0ab6/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/563b0c36d3327cc4554b225886ba5a70c33cbb13cfb9f63a2df1d59fcd6a0ab6/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/563b0c36d3327cc4554b225886ba5a70c33cbb13cfb9f63a2df1d59fcd6a0ab6/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/563b0c36d3327cc4554b225886ba5a70c33cbb13cfb9f63a2df1d59fcd6a0ab6/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/563b0c36d3327cc4554b225886ba5a70c33cbb13cfb9f63a2df1d59fcd6a0ab6/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/2945b29146f97881dd24a5c6b877264dbe232c80a82969d0d25af475248140a0/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/2945b29146f97881dd24a5c6b877264dbe232c80a82969d0d25af475248140a0/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/2945b29146f97881dd24a5c6b877264dbe232c80a82969d0d25af475248140a0/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-c2b3bd4f-68fe-4113-94b5-d3bbf9d680d3",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Сохранившиеся постаменты под дизельную установку",
+        "en": "Surviving mounting bases for a diesel engine"
+      },
+      "caption": {
+        "ru": "Постамент для дизеля",
+        "en": "A mounting base for a diesel engine"
+      },
+      "lqip": [
+        "#7b6c67",
+        "#928788",
+        "#bba79a",
+        "#ab967a",
+        "#b29f82",
+        "#7a6245"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/1ceb15f0a7e6e69a8ad9f973f3b7ebe6158da55d2ec0a57d6dc47185cfab1267/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1ceb15f0a7e6e69a8ad9f973f3b7ebe6158da55d2ec0a57d6dc47185cfab1267/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1ceb15f0a7e6e69a8ad9f973f3b7ebe6158da55d2ec0a57d6dc47185cfab1267/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1ceb15f0a7e6e69a8ad9f973f3b7ebe6158da55d2ec0a57d6dc47185cfab1267/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1ceb15f0a7e6e69a8ad9f973f3b7ebe6158da55d2ec0a57d6dc47185cfab1267/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1ceb15f0a7e6e69a8ad9f973f3b7ebe6158da55d2ec0a57d6dc47185cfab1267/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ae7110a60d6bdd1df1fe66e557d0df1685c1493fbcbcb3686ccf5e31ad609184/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ae7110a60d6bdd1df1fe66e557d0df1685c1493fbcbcb3686ccf5e31ad609184/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ae7110a60d6bdd1df1fe66e557d0df1685c1493fbcbcb3686ccf5e31ad609184/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

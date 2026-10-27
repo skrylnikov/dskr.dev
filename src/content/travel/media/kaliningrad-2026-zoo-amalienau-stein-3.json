@@ -1,0 +1,83 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-3",
+  "items": [
+    {
+      "id": "media-e71aeb86-dfdf-41b0-8a7b-9e914adfe33f",
+      "width": 3753,
+      "height": 5004,
+      "alt": {
+        "ru": "Хомлин Уля верхом на улитке у входа в зоопарк",
+        "en": "Ulya the khomlin riding a snail by the zoo entrance"
+      },
+      "caption": {
+        "ru": "Крошка Уля верхом на улитке",
+        "en": "Little Ulya riding a snail"
+      },
+      "lqip": [
+        "#cebdb0",
+        "#927950",
+        "#716a48",
+        "#82754f",
+        "#776b3e",
+        "#73763c"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d768b5571309bbb4a3373930e6daadaf9c25faef87e0c87687f9a3eebbdecf5d/640.webp",
+          "width": 640,
+          "height": 854,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d768b5571309bbb4a3373930e6daadaf9c25faef87e0c87687f9a3eebbdecf5d/640.jpeg",
+          "width": 640,
+          "height": 854,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d768b5571309bbb4a3373930e6daadaf9c25faef87e0c87687f9a3eebbdecf5d/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d768b5571309bbb4a3373930e6daadaf9c25faef87e0c87687f9a3eebbdecf5d/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d768b5571309bbb4a3373930e6daadaf9c25faef87e0c87687f9a3eebbdecf5d/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d768b5571309bbb4a3373930e6daadaf9c25faef87e0c87687f9a3eebbdecf5d/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b232a7e2181b08353a20675cf54fc47d2093be14d08f88af44c5e7d9de1e29b2/640.jxl",
+          "width": 640,
+          "height": 854,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b232a7e2181b08353a20675cf54fc47d2093be14d08f88af44c5e7d9de1e29b2/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b232a7e2181b08353a20675cf54fc47d2093be14d08f88af44c5e7d9de1e29b2/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

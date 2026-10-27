@@ -1,0 +1,317 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-5",
+  "items": [
+    {
+      "id": "media-3f3e54b9-3098-4dcb-88be-a7a9efba76e4",
+      "width": 3716,
+      "height": 4954,
+      "alt": {
+        "ru": "Старый пожарный гидрант у пешеходного перехода",
+        "en": "An old fire hydrant by a pedestrian crossing"
+      },
+      "caption": {
+        "ru": "Старый пожарный гидрант",
+        "en": "An old fire hydrant"
+      },
+      "lqip": [
+        "#a08c87",
+        "#8b6a60",
+        "#9b8f8f",
+        "#9e8e89",
+        "#92786e",
+        "#a69891"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/0ac54509c1cb5f81a63771b62dbf773056e26856bded3933dc3f2c622b08a265/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0ac54509c1cb5f81a63771b62dbf773056e26856bded3933dc3f2c622b08a265/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0ac54509c1cb5f81a63771b62dbf773056e26856bded3933dc3f2c622b08a265/1280.webp",
+          "width": 1280,
+          "height": 1706,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0ac54509c1cb5f81a63771b62dbf773056e26856bded3933dc3f2c622b08a265/1280.jpeg",
+          "width": 1280,
+          "height": 1706,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0ac54509c1cb5f81a63771b62dbf773056e26856bded3933dc3f2c622b08a265/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0ac54509c1cb5f81a63771b62dbf773056e26856bded3933dc3f2c622b08a265/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/699eb97bdecf40475e919af2d839dba43d6d0a90da2bd3ac6e59ab4bc15df043/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/699eb97bdecf40475e919af2d839dba43d6d0a90da2bd3ac6e59ab4bc15df043/1280.jxl",
+          "width": 1280,
+          "height": 1706,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/699eb97bdecf40475e919af2d839dba43d6d0a90da2bd3ac6e59ab4bc15df043/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-9786013e-51db-4c08-b073-f80ff3b51c6b",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Металлическая решётка среди брусчатки",
+        "en": "A metal grate among the cobblestones"
+      },
+      "caption": {
+        "ru": "Старый люк",
+        "en": "An old manhole cover"
+      },
+      "lqip": [
+        "#878370",
+        "#8d8776",
+        "#8b887d",
+        "#a39988",
+        "#a99d89",
+        "#afa89e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/bc48881335b8f87b03bfc2b9c358c3fd79d7783b63645eb8feecaea701ca57a1/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/bc48881335b8f87b03bfc2b9c358c3fd79d7783b63645eb8feecaea701ca57a1/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/bc48881335b8f87b03bfc2b9c358c3fd79d7783b63645eb8feecaea701ca57a1/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/bc48881335b8f87b03bfc2b9c358c3fd79d7783b63645eb8feecaea701ca57a1/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/bc48881335b8f87b03bfc2b9c358c3fd79d7783b63645eb8feecaea701ca57a1/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/bc48881335b8f87b03bfc2b9c358c3fd79d7783b63645eb8feecaea701ca57a1/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6a1379ef1a61f52685b567929047ad030f668d8710631a9f17aa2a9e872de271/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/6a1379ef1a61f52685b567929047ad030f668d8710631a9f17aa2a9e872de271/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/6a1379ef1a61f52685b567929047ad030f668d8710631a9f17aa2a9e872de271/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-cbfb94ad-8c3a-4a04-b8aa-9c09f69731cc",
+      "width": 4075,
+      "height": 5433,
+      "alt": {
+        "ru": "Старый люк с надписями",
+        "en": "An old manhole cover with inscriptions"
+      },
+      "caption": {
+        "ru": "Старый люк",
+        "en": "An old manhole cover"
+      },
+      "lqip": [
+        "#695846",
+        "#625548",
+        "#625546",
+        "#5d4d38",
+        "#584a3b",
+        "#625242"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/9a358428f2a2fb3c9e2366760df56fa2f8a68708817aac10ebd6f7548d0361fc/640.webp",
+          "width": 640,
+          "height": 854,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9a358428f2a2fb3c9e2366760df56fa2f8a68708817aac10ebd6f7548d0361fc/640.jpeg",
+          "width": 640,
+          "height": 854,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9a358428f2a2fb3c9e2366760df56fa2f8a68708817aac10ebd6f7548d0361fc/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9a358428f2a2fb3c9e2366760df56fa2f8a68708817aac10ebd6f7548d0361fc/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9a358428f2a2fb3c9e2366760df56fa2f8a68708817aac10ebd6f7548d0361fc/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9a358428f2a2fb3c9e2366760df56fa2f8a68708817aac10ebd6f7548d0361fc/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c81fffa3779650358b6bf4687b8fd3023202d5561a7900cd7c9857eee91582cf/640.jxl",
+          "width": 640,
+          "height": 854,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c81fffa3779650358b6bf4687b8fd3023202d5561a7900cd7c9857eee91582cf/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c81fffa3779650358b6bf4687b8fd3023202d5561a7900cd7c9857eee91582cf/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-4cc88ae1-cff5-494d-880c-d4e8502213ce",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Брусчатка под повреждённым слоем асфальта",
+        "en": "Cobblestones beneath a damaged layer of asphalt"
+      },
+      "caption": {
+        "ru": "Брусчатка под асфальтом",
+        "en": "Cobblestones beneath the asphalt"
+      },
+      "lqip": [
+        "#806b5c",
+        "#776151",
+        "#907764",
+        "#6d5d50",
+        "#6d5e4d",
+        "#746455"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/9a0a30e382ba891cd0582550a186c17143b96dbb3e2eb0202dfdb59df64db271/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9a0a30e382ba891cd0582550a186c17143b96dbb3e2eb0202dfdb59df64db271/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9a0a30e382ba891cd0582550a186c17143b96dbb3e2eb0202dfdb59df64db271/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9a0a30e382ba891cd0582550a186c17143b96dbb3e2eb0202dfdb59df64db271/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9a0a30e382ba891cd0582550a186c17143b96dbb3e2eb0202dfdb59df64db271/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9a0a30e382ba891cd0582550a186c17143b96dbb3e2eb0202dfdb59df64db271/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b82744685810c6c3427a78273359aa7e5eb29d12ccdc66a7d5c265faf186e2d3/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b82744685810c6c3427a78273359aa7e5eb29d12ccdc66a7d5c265faf186e2d3/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b82744685810c6c3427a78273359aa7e5eb29d12ccdc66a7d5c265faf186e2d3/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-13",
+  "items": [
+    {
+      "id": "media-899cea1f-0b3b-4b7b-aa1d-1b2ec5ac3597",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Проходы между уровнями форта",
+        "en": "Passages between the fort's levels"
+      },
+      "lqip": [
+        "#685947",
+        "#5e564d",
+        "#898274",
+        "#4f3f30",
+        "#50443e",
+        "#817365"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/01cf07e909134443c0c0117643e35291a4451b3dff064f268fc3681b6eb186ad/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/01cf07e909134443c0c0117643e35291a4451b3dff064f268fc3681b6eb186ad/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/01cf07e909134443c0c0117643e35291a4451b3dff064f268fc3681b6eb186ad/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/01cf07e909134443c0c0117643e35291a4451b3dff064f268fc3681b6eb186ad/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/01cf07e909134443c0c0117643e35291a4451b3dff064f268fc3681b6eb186ad/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/01cf07e909134443c0c0117643e35291a4451b3dff064f268fc3681b6eb186ad/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d6a14f21a30a492888239793a6671bc0f410731d851ec6bdbda95f3879ea3bd8/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d6a14f21a30a492888239793a6671bc0f410731d851ec6bdbda95f3879ea3bd8/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d6a14f21a30a492888239793a6671bc0f410731d851ec6bdbda95f3879ea3bd8/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-03559379-e059-4b63-8f03-fedda693cde8",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Механизм снарядного лифта",
+        "en": "The ammunition lift mechanism"
+      },
+      "lqip": [
+        "#90776a",
+        "#a28f89",
+        "#b9a08b",
+        "#6c5749",
+        "#635652",
+        "#76665e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/b25bd6bac544064df0aff27d6cd5bda099accc9af69da2b129e765530500efd0/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b25bd6bac544064df0aff27d6cd5bda099accc9af69da2b129e765530500efd0/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b25bd6bac544064df0aff27d6cd5bda099accc9af69da2b129e765530500efd0/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b25bd6bac544064df0aff27d6cd5bda099accc9af69da2b129e765530500efd0/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b25bd6bac544064df0aff27d6cd5bda099accc9af69da2b129e765530500efd0/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b25bd6bac544064df0aff27d6cd5bda099accc9af69da2b129e765530500efd0/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d14c641d96a9e1d2968e656eac6d6782be669138cdf927f4f477e35a2ad1544c/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d14c641d96a9e1d2968e656eac6d6782be669138cdf927f4f477e35a2ad1544c/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/d14c641d96a9e1d2968e656eac6d6782be669138cdf927f4f477e35a2ad1544c/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Снарядный лифт",
+        "en": "Ammunition lift"
+      }
+    },
+    {
+      "id": "media-763520a4-ef56-4c0c-bfbb-07c4c086918e",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Крюк в сводчатом потолке",
+        "en": "A hook in the vaulted ceiling"
+      },
+      "lqip": [
+        "#846559",
+        "#8d6f65",
+        "#8c6653",
+        "#604337",
+        "#6d4c3d",
+        "#6f5243"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d8a6c6289977db183659e3cf5638a99c58d730c97f61239ae14801d2d51f57a4/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d8a6c6289977db183659e3cf5638a99c58d730c97f61239ae14801d2d51f57a4/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d8a6c6289977db183659e3cf5638a99c58d730c97f61239ae14801d2d51f57a4/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d8a6c6289977db183659e3cf5638a99c58d730c97f61239ae14801d2d51f57a4/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d8a6c6289977db183659e3cf5638a99c58d730c97f61239ae14801d2d51f57a4/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d8a6c6289977db183659e3cf5638a99c58d730c97f61239ae14801d2d51f57a4/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/dbf51c04817746ea837d6f3ffd934555f9073216365f886318c70de5c31d4f78/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dbf51c04817746ea837d6f3ffd934555f9073216365f886318c70de5c31d4f78/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dbf51c04817746ea837d6f3ffd934555f9073216365f886318c70de5c31d4f78/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Крюк для подъёма тяжёлых грузов",
+        "en": "A hook for lifting heavy loads"
+      }
+    },
+    {
+      "id": "media-917a802a-9fe6-42c3-b51f-205653ff1ad5",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Люк между уровнями форта",
+        "en": "A hatch between the fort's levels"
+      },
+      "lqip": [
+        "#7b6853",
+        "#625347",
+        "#70615a",
+        "#b6a7a4",
+        "#786470",
+        "#a8959c"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/434168079d297e8d30c2f35dc4127d5646f8ee056e34785d0a9bb4b1857396cf/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/434168079d297e8d30c2f35dc4127d5646f8ee056e34785d0a9bb4b1857396cf/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/434168079d297e8d30c2f35dc4127d5646f8ee056e34785d0a9bb4b1857396cf/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/434168079d297e8d30c2f35dc4127d5646f8ee056e34785d0a9bb4b1857396cf/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/434168079d297e8d30c2f35dc4127d5646f8ee056e34785d0a9bb4b1857396cf/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/434168079d297e8d30c2f35dc4127d5646f8ee056e34785d0a9bb4b1857396cf/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/2e379cbce3eda43a81ad53ea0dff3c866bf637a86cb1398d158ebb53206716dc/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/2e379cbce3eda43a81ad53ea0dff3c866bf637a86cb1398d158ebb53206716dc/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/2e379cbce3eda43a81ad53ea0dff3c866bf637a86cb1398d158ebb53206716dc/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Люк между этажами",
+        "en": "A hatch between floors"
+      }
+    }
+  ]
+}

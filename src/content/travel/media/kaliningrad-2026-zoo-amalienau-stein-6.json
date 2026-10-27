@@ -1,0 +1,161 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-6",
+  "items": [
+    {
+      "id": "media-704cd4af-0267-4406-beca-5f5860eb6822",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Керамическая табличка «Место для поцелуев» на ограде",
+        "en": "A ceramic sign reading “A place for kisses” on the fence"
+      },
+      "lqip": [
+        "#848387",
+        "#9d9b9e",
+        "#969ba4",
+        "#9ea4af",
+        "#9e9fa5",
+        "#999da8"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/6f8caa310909d22144e1bd90e4b461cc3c3c1fddd6dd2a5a74e63b6a7d352561/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f8caa310909d22144e1bd90e4b461cc3c3c1fddd6dd2a5a74e63b6a7d352561/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6f8caa310909d22144e1bd90e4b461cc3c3c1fddd6dd2a5a74e63b6a7d352561/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f8caa310909d22144e1bd90e4b461cc3c3c1fddd6dd2a5a74e63b6a7d352561/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6f8caa310909d22144e1bd90e4b461cc3c3c1fddd6dd2a5a74e63b6a7d352561/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f8caa310909d22144e1bd90e4b461cc3c3c1fddd6dd2a5a74e63b6a7d352561/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/81e0793bda179405bebf3bce3e5fe489b63a29c0609e3902eb545d655c743e59/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/81e0793bda179405bebf3bce3e5fe489b63a29c0609e3902eb545d655c743e59/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/81e0793bda179405bebf3bce3e5fe489b63a29c0609e3902eb545d655c743e59/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "«Место для поцелуев»",
+        "en": "“A place for kisses”"
+      }
+    },
+    {
+      "id": "media-0f56462e-f608-4e9b-90c6-b8b14672b7f1",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Табличка «Место для поцелуев» на каменном столбе ограды рядом с омелой",
+        "en": "A sign reading “A place for kisses” on a stone fence post next to mistletoe"
+      },
+      "lqip": [
+        "#787d7d",
+        "#767171",
+        "#6b6567",
+        "#302b16",
+        "#6b686c",
+        "#737884"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/931ab65cc3a8f85aa123d0882d1f7d87938664abd2add52a4b153282af74e0e4/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/931ab65cc3a8f85aa123d0882d1f7d87938664abd2add52a4b153282af74e0e4/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/931ab65cc3a8f85aa123d0882d1f7d87938664abd2add52a4b153282af74e0e4/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/931ab65cc3a8f85aa123d0882d1f7d87938664abd2add52a4b153282af74e0e4/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/931ab65cc3a8f85aa123d0882d1f7d87938664abd2add52a4b153282af74e0e4/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/931ab65cc3a8f85aa123d0882d1f7d87938664abd2add52a4b153282af74e0e4/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1207b7e347c5f30f3261c0e6f93f29b83115158e42965c3af1f4c723ea1d84f7/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1207b7e347c5f30f3261c0e6f93f29b83115158e42965c3af1f4c723ea1d84f7/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1207b7e347c5f30f3261c0e6f93f29b83115158e42965c3af1f4c723ea1d84f7/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "«Место для поцелуев» рядом с омелой",
+        "en": "“A place for kisses” next to the mistletoe"
+      }
+    }
+  ]
+}

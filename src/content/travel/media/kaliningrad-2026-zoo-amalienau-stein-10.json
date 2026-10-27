@@ -1,0 +1,395 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-10",
+  "items": [
+    {
+      "id": "media-cb106998-f171-4253-b51f-302acafe9bda",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Скошенный кирпичный угол внутри форта",
+        "en": "A beveled brick corner inside the fort"
+      },
+      "caption": {
+        "ru": "Скошенный угол",
+        "en": "A beveled corner"
+      },
+      "lqip": [
+        "#9e9383",
+        "#ceb3a0",
+        "#988e86",
+        "#3f372f",
+        "#90827f",
+        "#534b48"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/95286dcf0c0dc1c9e8dc9fd0dce27e5bd1de2585cb39243776c1ab739aa2f952/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/95286dcf0c0dc1c9e8dc9fd0dce27e5bd1de2585cb39243776c1ab739aa2f952/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/95286dcf0c0dc1c9e8dc9fd0dce27e5bd1de2585cb39243776c1ab739aa2f952/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/95286dcf0c0dc1c9e8dc9fd0dce27e5bd1de2585cb39243776c1ab739aa2f952/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/95286dcf0c0dc1c9e8dc9fd0dce27e5bd1de2585cb39243776c1ab739aa2f952/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/95286dcf0c0dc1c9e8dc9fd0dce27e5bd1de2585cb39243776c1ab739aa2f952/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/4a62e24dfde449766d78a1646ccf658eb565db73e900834babc2abd800ef8eb7/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4a62e24dfde449766d78a1646ccf658eb565db73e900834babc2abd800ef8eb7/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/4a62e24dfde449766d78a1646ccf658eb565db73e900834babc2abd800ef8eb7/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-256bf609-2200-4edb-b1ee-cceda467185f",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Клеймо на кирпиче в стене форта",
+        "en": "A maker's mark on a brick in the fort wall"
+      },
+      "caption": {
+        "ru": "Клеймо на кирпиче",
+        "en": "A brick maker's mark"
+      },
+      "lqip": [
+        "#5d4634",
+        "#937968",
+        "#63584a",
+        "#6f5543",
+        "#9d8373",
+        "#5e5344"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/cd7c45a70c54a7244c9a0bd579264aa65ab2d558e8b03809b8636b3f53010489/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cd7c45a70c54a7244c9a0bd579264aa65ab2d558e8b03809b8636b3f53010489/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cd7c45a70c54a7244c9a0bd579264aa65ab2d558e8b03809b8636b3f53010489/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cd7c45a70c54a7244c9a0bd579264aa65ab2d558e8b03809b8636b3f53010489/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cd7c45a70c54a7244c9a0bd579264aa65ab2d558e8b03809b8636b3f53010489/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cd7c45a70c54a7244c9a0bd579264aa65ab2d558e8b03809b8636b3f53010489/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/06e4245819d5be49762ecb3d021981d74f9778835635ee8de91af63e70eb550e/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/06e4245819d5be49762ecb3d021981d74f9778835635ee8de91af63e70eb550e/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/06e4245819d5be49762ecb3d021981d74f9778835635ee8de91af63e70eb550e/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-b5bf33ea-1c13-4537-8015-c120e9dc1dbc",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Колокол для поднятия тревоги на кирпичной стене форта",
+        "en": "An alarm bell on the fort's brick wall"
+      },
+      "caption": {
+        "ru": "Колокол для поднятия тревоги",
+        "en": "Alarm bell"
+      },
+      "lqip": [
+        "#31261a",
+        "#998c77",
+        "#cac3b8",
+        "#080504",
+        "#b28467",
+        "#e8c5bd"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/de374332df004c0f0d7311419793fa4b78c2541a9417198a0e52f89dceb31dd9/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de374332df004c0f0d7311419793fa4b78c2541a9417198a0e52f89dceb31dd9/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/de374332df004c0f0d7311419793fa4b78c2541a9417198a0e52f89dceb31dd9/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de374332df004c0f0d7311419793fa4b78c2541a9417198a0e52f89dceb31dd9/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/de374332df004c0f0d7311419793fa4b78c2541a9417198a0e52f89dceb31dd9/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de374332df004c0f0d7311419793fa4b78c2541a9417198a0e52f89dceb31dd9/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1f8e95fde0d8eab7cde657d305a0d33f86b42bfc56506a0d617cd1b22a5b5c32/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1f8e95fde0d8eab7cde657d305a0d33f86b42bfc56506a0d617cd1b22a5b5c32/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1f8e95fde0d8eab7cde657d305a0d33f86b42bfc56506a0d617cd1b22a5b5c32/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-28e6038c-65a8-4439-b886-5fea571112c6",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Крепления противовзрывных жалюзи вокруг окна",
+        "en": "Blast shutter mounts around a window"
+      },
+      "caption": {
+        "ru": "Крепления противовзрывных жалюзи",
+        "en": "Blast shutter mounts"
+      },
+      "lqip": [
+        "#a5998b",
+        "#8d776a",
+        "#968374",
+        "#d5b6a7",
+        "#654435",
+        "#8c6a57"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/da59927672eaba0e36594e93f82d34237797f69f1691115d5ce04e1c112ac2b0/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/da59927672eaba0e36594e93f82d34237797f69f1691115d5ce04e1c112ac2b0/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/da59927672eaba0e36594e93f82d34237797f69f1691115d5ce04e1c112ac2b0/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/da59927672eaba0e36594e93f82d34237797f69f1691115d5ce04e1c112ac2b0/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/da59927672eaba0e36594e93f82d34237797f69f1691115d5ce04e1c112ac2b0/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/da59927672eaba0e36594e93f82d34237797f69f1691115d5ce04e1c112ac2b0/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/bb383160dda7fd768218b743188c7d22a9d4583fc34742af766978913ad02e97/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/bb383160dda7fd768218b743188c7d22a9d4583fc34742af766978913ad02e97/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/bb383160dda7fd768218b743188c7d22a9d4583fc34742af766978913ad02e97/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-d780453a-a48b-4ea1-87ef-fe14dd3f4672",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Следы попаданий на стене форта",
+        "en": "Impact marks on the fort wall"
+      },
+      "caption": {
+        "ru": "Следы попаданий",
+        "en": "Impact marks"
+      },
+      "lqip": [
+        "#71695b",
+        "#aba298",
+        "#8a7f75",
+        "#9d9584",
+        "#d0c5c2",
+        "#a89c93"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/25537360069af43cebd616c4c9443c18b6cd4297c87ab0452a0f545c88892b48/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/25537360069af43cebd616c4c9443c18b6cd4297c87ab0452a0f545c88892b48/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/25537360069af43cebd616c4c9443c18b6cd4297c87ab0452a0f545c88892b48/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/25537360069af43cebd616c4c9443c18b6cd4297c87ab0452a0f545c88892b48/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/25537360069af43cebd616c4c9443c18b6cd4297c87ab0452a0f545c88892b48/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/25537360069af43cebd616c4c9443c18b6cd4297c87ab0452a0f545c88892b48/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b0dd8da684bd92da115fdf512b68a8d7538f2c87d7baddabda28fd20cf2883e8/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b0dd8da684bd92da115fdf512b68a8d7538f2c87d7baddabda28fd20cf2883e8/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b0dd8da684bd92da115fdf512b68a8d7538f2c87d7baddabda28fd20cf2883e8/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

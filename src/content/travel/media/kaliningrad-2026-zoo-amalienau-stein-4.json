@@ -1,0 +1,161 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-4",
+  "items": [
+    {
+      "id": "media-e50a5d8e-3d19-4d8a-8fcb-e18fda237f9a",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Фея Армония перед деревянным охотничьим домиком",
+        "en": "Fairy Armonia in front of the wooden hunting lodge"
+      },
+      "caption": {
+        "ru": "Фея Армония",
+        "en": "Fairy Armonia"
+      },
+      "lqip": [
+        "#867d6b",
+        "#7e7264",
+        "#7b7156",
+        "#968c7e",
+        "#928e85",
+        "#9f9683"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/cca584831f3d9351fdeaee1a937385efc7885453a23ab760dedd8b340f22db70/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cca584831f3d9351fdeaee1a937385efc7885453a23ab760dedd8b340f22db70/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cca584831f3d9351fdeaee1a937385efc7885453a23ab760dedd8b340f22db70/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cca584831f3d9351fdeaee1a937385efc7885453a23ab760dedd8b340f22db70/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cca584831f3d9351fdeaee1a937385efc7885453a23ab760dedd8b340f22db70/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/cca584831f3d9351fdeaee1a937385efc7885453a23ab760dedd8b340f22db70/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5a656b433986be449b340f91502bc24840af4d293dfd7e8deeaab9fe0baa641f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5a656b433986be449b340f91502bc24840af4d293dfd7e8deeaab9fe0baa641f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5a656b433986be449b340f91502bc24840af4d293dfd7e8deeaab9fe0baa641f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-0d6652e9-a97c-487c-8696-67773de15c1d",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Памятник барону Мюнхгаузену в Центральном парке",
+        "en": "The Baron Munchausen monument in Central Park"
+      },
+      "caption": {
+        "ru": "Барон Мюнхгаузен",
+        "en": "Baron Munchausen"
+      },
+      "lqip": [
+        "#7b7868",
+        "#615f58",
+        "#7e7d74",
+        "#a99d7c",
+        "#6a665c",
+        "#a19790"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/9d0b662c196dec92b6a10c9fff7f0b13eb64015b95bc9deb982706c2376bd7a3/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9d0b662c196dec92b6a10c9fff7f0b13eb64015b95bc9deb982706c2376bd7a3/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9d0b662c196dec92b6a10c9fff7f0b13eb64015b95bc9deb982706c2376bd7a3/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9d0b662c196dec92b6a10c9fff7f0b13eb64015b95bc9deb982706c2376bd7a3/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9d0b662c196dec92b6a10c9fff7f0b13eb64015b95bc9deb982706c2376bd7a3/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/9d0b662c196dec92b6a10c9fff7f0b13eb64015b95bc9deb982706c2376bd7a3/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8b8c4dfdc07fff16d9535d3ff4b4767baf005d2f45bb8962aa3c1fbd89f6c363/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/8b8c4dfdc07fff16d9535d3ff4b4767baf005d2f45bb8962aa3c1fbd89f6c363/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/8b8c4dfdc07fff16d9535d3ff4b4767baf005d2f45bb8962aa3c1fbd89f6c363/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

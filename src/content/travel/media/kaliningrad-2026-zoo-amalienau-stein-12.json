@@ -1,0 +1,235 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-12",
+  "items": [
+    {
+      "id": "media-e665e7b3-db0f-432e-b8a1-0eebc3b118e2",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Вид вниз по маршевой лестнице",
+        "en": "Looking down the straight staircase"
+      },
+      "lqip": [
+        "#573d26",
+        "#4d3f33",
+        "#70543f",
+        "#ac9881",
+        "#9c8b86",
+        "#cab59f"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/6e2ba8b59d510bbe12564acc69aac42ce358034a9e99a326c4c8f025eac1264a/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6e2ba8b59d510bbe12564acc69aac42ce358034a9e99a326c4c8f025eac1264a/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6e2ba8b59d510bbe12564acc69aac42ce358034a9e99a326c4c8f025eac1264a/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6e2ba8b59d510bbe12564acc69aac42ce358034a9e99a326c4c8f025eac1264a/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6e2ba8b59d510bbe12564acc69aac42ce358034a9e99a326c4c8f025eac1264a/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6e2ba8b59d510bbe12564acc69aac42ce358034a9e99a326c4c8f025eac1264a/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/133495cca72ad86c67c919be6dfdf3500bcf772e6c406851de83fffbae21299d/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/133495cca72ad86c67c919be6dfdf3500bcf772e6c406851de83fffbae21299d/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/133495cca72ad86c67c919be6dfdf3500bcf772e6c406851de83fffbae21299d/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-76f0eece-eebf-4c0a-bb55-ba3f39545144",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "Маршевая лестница к артиллерийским позициям",
+        "en": "The straight staircase leading to the artillery positions"
+      },
+      "caption": {
+        "ru": "Маршевая лестница к артиллерийским позициям",
+        "en": "The staircase leading to the artillery positions"
+      },
+      "lqip": [
+        "#9a8a7d",
+        "#4d4544",
+        "#856f64",
+        "#a98d78",
+        "#aa917e",
+        "#92755e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/71bb1c7b645ae39c362c35534813b08dd096ec0364351a049fad8e56924a3fbb/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/71bb1c7b645ae39c362c35534813b08dd096ec0364351a049fad8e56924a3fbb/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/71bb1c7b645ae39c362c35534813b08dd096ec0364351a049fad8e56924a3fbb/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/71bb1c7b645ae39c362c35534813b08dd096ec0364351a049fad8e56924a3fbb/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/71bb1c7b645ae39c362c35534813b08dd096ec0364351a049fad8e56924a3fbb/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/71bb1c7b645ae39c362c35534813b08dd096ec0364351a049fad8e56924a3fbb/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/577b1a715ac03a519f7c4945211f442efa7d8ba0cff9d75d589826108ac4b1b1/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/577b1a715ac03a519f7c4945211f442efa7d8ba0cff9d75d589826108ac4b1b1/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/577b1a715ac03a519f7c4945211f442efa7d8ba0cff9d75d589826108ac4b1b1/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-0b34ccd1-5cf9-400f-af16-6a3422e32b28",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Деревянный настил на кирпичных ступенях другой лестницы",
+        "en": "Wooden boards covering the brick steps of another staircase"
+      },
+      "caption": {
+        "ru": "Деревянный настил на другой лестнице",
+        "en": "Wooden boards on another staircase"
+      },
+      "lqip": [
+        "#94877d",
+        "#867765",
+        "#5e4937",
+        "#ddcec5",
+        "#cbbba2",
+        "#7a684f"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/89a3b36172db0de49c89204a0cd6539e436402deeda6d0baafb30239e83f9055/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/89a3b36172db0de49c89204a0cd6539e436402deeda6d0baafb30239e83f9055/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/89a3b36172db0de49c89204a0cd6539e436402deeda6d0baafb30239e83f9055/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/89a3b36172db0de49c89204a0cd6539e436402deeda6d0baafb30239e83f9055/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/89a3b36172db0de49c89204a0cd6539e436402deeda6d0baafb30239e83f9055/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/89a3b36172db0de49c89204a0cd6539e436402deeda6d0baafb30239e83f9055/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/17767e7a163d560568cfa4d3fe49dcb6d6422d5cb2f6f2cfb2d054c87a0f543f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/17767e7a163d560568cfa4d3fe49dcb6d6422d5cb2f6f2cfb2d054c87a0f543f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/17767e7a163d560568cfa4d3fe49dcb6d6422d5cb2f6f2cfb2d054c87a0f543f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

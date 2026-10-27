@@ -1,0 +1,83 @@
+{
+  "id": "kaliningrad-2026-zoo-amalienau-stein-8",
+  "items": [
+    {
+      "id": "media-a51d3128-9819-43ca-b478-87ca88d143cb",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "Вход в форт № 1 «Штайн» в свете фонарика",
+        "en": "The entrance to Fort No. 1 Stein lit by a flashlight"
+      },
+      "lqip": [
+        "#8d5947",
+        "#92685b",
+        "#7b4d3f",
+        "#b89778",
+        "#b59d82",
+        "#7f5f5e"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/1639ca075c90898bf17a5ea7e72e6219635c7ee902508ee997acf3dd6adf6376/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1639ca075c90898bf17a5ea7e72e6219635c7ee902508ee997acf3dd6adf6376/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1639ca075c90898bf17a5ea7e72e6219635c7ee902508ee997acf3dd6adf6376/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1639ca075c90898bf17a5ea7e72e6219635c7ee902508ee997acf3dd6adf6376/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1639ca075c90898bf17a5ea7e72e6219635c7ee902508ee997acf3dd6adf6376/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1639ca075c90898bf17a5ea7e72e6219635c7ee902508ee997acf3dd6adf6376/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/93c4f1b2a277684850e0ed2948416514affa0e1ead69e0a0563fb21e03bf4060/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/93c4f1b2a277684850e0ed2948416514affa0e1ead69e0a0563fb21e03bf4060/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/93c4f1b2a277684850e0ed2948416514affa0e1ead69e0a0563fb21e03bf4060/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ],
+      "caption": {
+        "ru": "Вход в форт № 1 «Штайн»",
+        "en": "The entrance to Fort No. 1 Stein"
+      }
+    }
+  ]
+}
