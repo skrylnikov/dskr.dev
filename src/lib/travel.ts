@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { buildTravelCatalog, gallerySchema, type TravelMedia, type Gallery } from '../data/travel.mts';
+import { buildTravelCatalog, gallerySchema, slugSchema, type TravelMedia, type Gallery } from '../data/travel.mts';
 
 export const travelContentRoot = process.env.TRAVEL_CONTENT_ROOT || './src/content/travel';
 const mediaDir = resolve(travelContentRoot, 'media');
@@ -12,8 +12,10 @@ for (const file of readdirSync(mediaDir).filter((file) => file.endsWith('.json')
 	galleries.set(gallery.id, gallery);
 }
 export function getGallery(id: string): Gallery {
-	const gallery = galleries.get(id);
-	if (!gallery) throw new Error(`Missing travel gallery: ${id}`);
+	const gallery = import.meta.env.DEV
+		? gallerySchema.parse(JSON.parse(readFileSync(resolve(mediaDir, `${slugSchema.parse(id)}.json`), 'utf8')))
+		: galleries.get(id);
+	if (!gallery || gallery.id !== id) throw new Error(`Missing travel gallery: ${id}`);
 	return gallery;
 }
 export function getTravelMedia(ref: string): TravelMedia {

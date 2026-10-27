@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
 	Alert,
 	Badge,
@@ -23,12 +23,14 @@ export function MediaPanel({
 	onDirty,
 	onBusy,
 	initialGalleryId,
+	onInsertGallery,
 }: {
 	galleries: AdminGallery[];
 	refresh: () => Promise<void>;
 	onDirty: (value: boolean) => void;
 	onBusy: (value: boolean) => void;
 	initialGalleryId?: string;
+	onInsertGallery?: (id: string) => void;
 }) {
 	const [selected, setSelected] = useState<AdminGallery | null>(() =>
 		structuredClone(
@@ -40,6 +42,7 @@ export function MediaPanel({
 	const [busy, setBusy] = useState(false);
 	const [message, setMessage] = useState('');
 	const [error, setError] = useState('');
+	const resetUpload = useRef<() => void>(null);
 	useEffect(() => {
 		const pending = sessionStorage.getItem('admin-media-job');
 		if (pending) void watch(pending);
@@ -112,6 +115,7 @@ export function MediaPanel({
 			if (!response.ok) throw new Error(result.error);
 			await watch(result.id);
 		});
+		resetUpload.current?.();
 	}
 	function move(index: number, direction: number) {
 		if (!selected) return;
@@ -160,7 +164,16 @@ export function MediaPanel({
 				/>
 			)}
 			<Group>
+				{onInsertGallery && (
+					<Button
+						disabled={busy || dirty || !selected}
+						onClick={() => selected && onInsertGallery(selected.id)}
+					>
+						Вставить в текст
+					</Button>
+				)}
 				<FileButton
+					resetRef={resetUpload}
 					multiple
 					accept="image/*,video/*,.heic,.heif,.mkv"
 					onChange={(files) => void upload(files)}

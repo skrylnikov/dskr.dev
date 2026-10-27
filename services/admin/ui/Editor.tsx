@@ -80,12 +80,14 @@ export function VisualEditor({
 	onChange,
 	onReady,
 	onEditGallery,
+	onCreateGallery,
 }: {
 	document: EditorNode;
 	galleries: AdminGallery[];
 	onChange: (doc: EditorNode) => void;
 	onReady: (editor: Editor) => void;
 	onEditGallery: (id: string) => void;
+	onCreateGallery: () => void;
 }) {
 	const [image, setImage] = useState<{
 		src: string;
@@ -421,6 +423,15 @@ export function VisualEditor({
 						value={chosenGallery}
 						onChange={setChosenGallery}
 					/>
+					<Button
+						variant="default"
+						onClick={() => {
+							setGalleryPicker(false);
+							onCreateGallery();
+						}}
+					>
+						Создать галерею
+					</Button>
 					<Button
 						disabled={!chosenGallery}
 						onClick={() => {

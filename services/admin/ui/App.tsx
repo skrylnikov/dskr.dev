@@ -52,14 +52,16 @@ export default function App() {
 	const [error, setError] = useState('');
 	const [message, setMessage] = useState('');
 	const [picker, setPicker] = useState<'hero' | 'collage' | null>(null);
-	const [mediaGallery, setMediaGallery] = useState<string | null>(null);
+	const [mediaGallery, setMediaGallery] = useState<{ id?: string } | null>(
+		null,
+	);
 	const [mediaDirty, setMediaDirty] = useState(false);
 	const mediaSelection = useRef<SelectionBookmark | null>(null);
 	const editor = useRef<Editor | null>(null);
-	const editGallery = useCallback((id: string) => {
+	const editGallery = useCallback((id?: string) => {
 		const selection = editor.current?.state.selection;
 		mediaSelection.current = selection?.getBookmark() ?? null;
-		setMediaGallery(id);
+		setMediaGallery({ id });
 	}, []);
 	async function refresh() {
 		const [items, media] = await Promise.all([
@@ -613,6 +615,7 @@ export default function App() {
 										document={form.document as any}
 										galleries={galleries}
 										onEditGallery={editGallery}
+										onCreateGallery={() => editGallery()}
 										onReady={(value) => {
 											editor.current = value;
 										}}
@@ -638,7 +641,7 @@ export default function App() {
 			</AppShell.Main>
 			<Modal
 				opened={mediaGallery !== null}
-				title="Редактировать медиа"
+				title={mediaGallery?.id ? 'Редактировать медиа' : 'Создать галерею'}
 				size="xl"
 				returnFocus={false}
 				closeButtonProps={{ 'aria-label': 'Закрыть редактор медиа' }}
@@ -666,12 +669,34 @@ export default function App() {
 			>
 				{mediaGallery && (
 					<MediaPanel
-						key={mediaGallery}
-						initialGalleryId={mediaGallery}
+						key={mediaGallery.id ?? 'new'}
+						initialGalleryId={mediaGallery.id}
 						galleries={galleries}
 						refresh={refresh}
 						onDirty={setMediaDirty}
 						onBusy={setBusy}
+						onInsertGallery={
+							mediaGallery.id
+								? undefined
+								: (id) => {
+										const current = editor.current;
+										if (!current) return;
+										if (mediaSelection.current) {
+											current.view.dispatch(
+												current.state.tr.setSelection(
+													mediaSelection.current.resolve(current.state.doc),
+												),
+											);
+										}
+										current.commands.insertContent({
+											type: 'mediaGallery',
+											attrs: { gallery: id },
+										});
+										mediaSelection.current =
+											current.state.selection.getBookmark();
+										setMediaGallery(null);
+									}
+						}
 					/>
 				)}
 			</Modal>
