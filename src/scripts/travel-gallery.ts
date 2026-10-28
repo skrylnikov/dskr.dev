@@ -1,7 +1,7 @@
 import type { TravelMedia } from '../data/travel.mts';
 import { mediaPreview, mediaSource, srcset } from '../data/travel-media.mts';
 import './media-reveal';
-import { photoFlexLayout } from 'photo-flex-layout';
+import { galleryLayout } from './travel-gallery-layout';
 
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!);
 // A local 1×1 image checks decoding support without a network request or browser sniffing.
@@ -64,10 +64,10 @@ class TravelGallery extends HTMLElement {
 		const width = grid.clientWidth;
 		if (!width) return;
 		const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
-		const targetRowHeight = parseFloat(getComputedStyle(document.documentElement).fontSize) * (this.mobile.matches ? 11 : 17);
+		const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 		// The library counts a trailing gap and rounds box widths to hundredths.
 		const figures = [...grid.querySelectorAll<HTMLElement>('figure')];
-		const { boxes } = photoFlexLayout({ containerWidth: width + gap, targetRowHeight, boxSpacing: gap, items: this.items });
+		const boxes = galleryLayout(this.items, width, gap, rem * (this.mobile.matches ? 11 : 17), rem * (this.mobile.matches ? 9 : 14));
 		for (const [index, figure] of figures.entries()) figure.style.width = `${Math.max(0, boxes[index].width - .1)}px`;
 		grid.dataset.layout = '';
 	};

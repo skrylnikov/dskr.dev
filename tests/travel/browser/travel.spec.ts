@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { photoFlexLayout } from 'photo-flex-layout';
 
 test.beforeEach(async ({ page }) => {
 	// External font availability must not block local media tests.
@@ -64,14 +63,11 @@ test('gallery rows fit mixed aspect ratios without gaps or cropping', async ({ p
 	await expect.poll(async () => {
 		const layout = await gallery.locator('.travel-media-grid').evaluate((grid) => ({
 			width: grid.clientWidth,
-			gap: parseFloat(getComputedStyle(grid).columnGap),
-			rowHeight: parseFloat(getComputedStyle(document.documentElement).fontSize) * (matchMedia('(max-width: 600px)').matches ? 11 : 17),
-			items: [...grid.querySelectorAll('img')].map((image) => ({ width: Number(image.getAttribute('width')), height: Number(image.getAttribute('height')) })),
-			widths: [...grid.querySelectorAll('figure')].map((figure) => figure.getBoundingClientRect().width),
+			minimum: parseFloat(getComputedStyle(document.documentElement).fontSize) * (matchMedia('(max-width: 600px)').matches ? 9 : 14),
+			items: [...grid.querySelectorAll('img')].map((image) => ({ width: Number(image.getAttribute('width')), height: Number(image.getAttribute('height')), actualHeight: image.getBoundingClientRect().height })),
 		}));
-		const { boxes } = photoFlexLayout({ items: layout.items, containerWidth: layout.width + layout.gap, targetRowHeight: layout.rowHeight, boxSpacing: layout.gap });
-		return Math.max(...boxes.map((box, index) => Math.abs(box.width - layout.widths[index])));
-	}).toBeLessThan(.2);
+		return Math.min(...layout.items.map((item) => item.actualHeight - Math.min(layout.minimum, layout.width * item.height / item.width)));
+	}).toBeGreaterThan(-1);
 });
 
 test('localized routes, mixed feed, drafts, language fallback and home placement', async ({ page }) => {
@@ -531,9 +527,9 @@ test('video loads on opening, plays and pauses; galleries survive Astro navigati
 	await page.keyboard.press('Escape');
 	await page.locator('[data-theme-option="dark"]').click();
 	await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-	await page.screenshot({ path: `.state/travel-${test.info().project.name}-dark.png`, fullPage: true, animations: 'disabled' });
+	await page.screenshot({ path: `.state/travel-${test.info().project.name}-dark.png`, animations: 'disabled' });
 	await page.locator('[data-theme-option="light"]').click();
-	await page.screenshot({ path: `.state/travel-${test.info().project.name}-light.png`, fullPage: true, animations: 'disabled' });
+	await page.screenshot({ path: `.state/travel-${test.info().project.name}-light.png`, animations: 'disabled' });
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 	expect(errors).toEqual([]);
 });
