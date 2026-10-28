@@ -31,13 +31,11 @@ for (const javaScriptEnabled of [true, false]) {
 				await expect(photo).toHaveAttribute('alt', 'Тестовый кадр 0');
 				await expect(photo.locator('..')).toHaveAttribute('style', /--lqip-a:#[a-f0-9]{6};.*--lqip-f:#[a-f0-9]{6}/);
 				await expect(gallery.locator('[data-media-index="0"]')).toHaveAccessibleName('Открыть фото: Тестовый кадр 0');
-				await expect(gallery.locator('.travel-video-badge')).toHaveText('▶ 0:06');
+				await expect(gallery.locator('[data-media-index="4"] .travel-video-badge')).toHaveText('▶ 0:06');
 				await collage.scrollIntoViewIfNeeded();
 				await page.screenshot({ path: testInfo.outputPath('collage-pending.png') });
-				if (javaScriptEnabled) {
-					await gallery.locator('[data-show-more]').click();
-					await expect(gallery.locator('[data-media-index="6"] picture')).toHaveCSS('background-image', /radial-gradient/);
-				}
+				await expect(gallery.locator('figure')).toHaveCount(200);
+				await expect(gallery.locator('[data-media-index="6"] picture')).toHaveCSS('background-image', /radial-gradient/);
 				await photo.scrollIntoViewIfNeeded();
 				await page.screenshot({ path: testInfo.outputPath('gallery-pending.png') });
 				const before = await gallery.locator('[data-media-index="0"]').boundingBox();
@@ -81,7 +79,30 @@ for (const javaScriptEnabled of [true, false]) {
 					expect({ width: box.width, height: box.height }).toEqual(sizes[index]);
 				}
 				await page.screenshot({ path: testInfo.outputPath('single-loaded.png'), fullPage: true });
+				await page.setViewportSize({ ...page.viewportSize()!, height: 300 });
+				expect((await galleries.first().locator('img').boundingBox())!.height).toBeCloseTo(180, 0);
 			} finally { release(); }
+		});
+
+		test('long captions stay compact and are readable when focused', async ({ page }) => {
+			await page.goto('/travel/sample-trip/first-walk/');
+			const link = page.locator('travel-gallery [data-media-index="2"]');
+			const caption = link.locator('xpath=../figcaption/span');
+			const full = (await caption.textContent())!;
+			expect(full.length).toBeGreaterThan(200);
+			const clipped = await caption.evaluate((node) => ({ height: node.clientHeight, content: node.scrollHeight, lines: getComputedStyle(node).getPropertyValue('-webkit-line-clamp') }));
+			expect(clipped.lines).toBe('2');
+			expect(clipped.content).toBeGreaterThan(clipped.height);
+			await page.locator('travel-gallery [data-media-index="1"]').focus();
+			await page.keyboard.press('Tab');
+			await expect(link).toBeFocused();
+			await expect.poll(() => caption.evaluate((node) => node.clientHeight)).toBeGreaterThan(clipped.height);
+			expect(await caption.evaluate((node) => node.scrollHeight - node.clientHeight)).toBe(0);
+			await expect(caption).toHaveText(full);
+			if (javaScriptEnabled) {
+				await link.click();
+				await expect(page.locator('.gslide.current .gslide-desc')).toHaveText(full);
+			}
 		});
 	});
 }

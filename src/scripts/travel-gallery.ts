@@ -1,6 +1,7 @@
 import type { TravelMedia } from '../data/travel.mts';
-import { mediaPreview, mediaSource, srcset, mediaPlaceholderStyle } from '../data/travel-media.mts';
-import { prepareMediaReveal } from './media-reveal';
+import { mediaPreview, mediaSource, srcset } from '../data/travel-media.mts';
+import './media-reveal';
+import { photoFlexLayout } from 'photo-flex-layout';
 
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!);
 // A local 1×1 image checks decoding support without a network request or browser sniffing.
@@ -26,16 +27,23 @@ function thumbnailFrame(thumbnail: HTMLImageElement, bounds: DOMRect): Keyframe 
 }
 
 class TravelGallery extends HTMLElement {
-	private visible = 6;
 	private lightbox?: { destroy(): void; openAt(index: number): void };
 	private opener?: HTMLElement;
 	private loading = false;
 	private generation = 0;
 	private items: TravelMedia[] = [];
+	private resizeObserver?: ResizeObserver;
+	private mobile = matchMedia('(max-width: 600px)');
 	private get locale(): 'ru' | 'en' { return this.dataset.locale === 'en' ? 'en' : 'ru'; }
 	connectedCallback() {
 		this.items = JSON.parse(this.querySelector('[data-gallery-items]')!.textContent!);
-		this.querySelector<HTMLButtonElement>('[data-show-more]')?.removeAttribute('hidden');
+		const grid = this.querySelector<HTMLElement>('.travel-media-grid')!;
+		if (this.items.length > 1) {
+			this.resizeObserver = new ResizeObserver(this.layout);
+			this.resizeObserver.observe(grid);
+			this.mobile.addEventListener('change', this.layout);
+			this.layout();
+		}
 		this.addEventListener('click', this.onClick);
 		this.addEventListener('error', this.onMediaError, true);
 		// Cached failures can happen before the custom element is registered.
@@ -43,68 +51,37 @@ class TravelGallery extends HTMLElement {
 	}
 	disconnectedCallback() {
 		this.generation++;
+		this.resizeObserver?.disconnect();
+		this.mobile.removeEventListener('change', this.layout);
 		this.lightbox?.destroy();
 		this.lightbox = undefined;
 		this.loading = false;
 		this.removeEventListener('click', this.onClick);
 		this.removeEventListener('error', this.onMediaError, true);
 	}
+	private layout = () => {
+		const grid = this.querySelector<HTMLElement>('.travel-media-grid')!;
+		const width = grid.clientWidth;
+		if (!width) return;
+		const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
+		const targetRowHeight = parseFloat(getComputedStyle(document.documentElement).fontSize) * (this.mobile.matches ? 11 : 17);
+		// The library counts a trailing gap and rounds box widths to hundredths.
+		const figures = [...grid.querySelectorAll<HTMLElement>('figure')];
+		const { boxes } = photoFlexLayout({ containerWidth: width + gap, targetRowHeight, boxSpacing: gap, items: this.items });
+		for (const [index, figure] of figures.entries()) figure.style.width = `${Math.max(0, boxes[index].width - .1)}px`;
+		grid.dataset.layout = '';
+	};
 	private onMediaError = (event: Event) => {
 		const image = event.target;
 		if (image instanceof HTMLImageElement) image.closest('a')?.classList.add('travel-media-error');
 	};
 	private onClick = (event: MouseEvent) => {
 		const target = event.target instanceof Element ? event.target : null;
-		if (target?.closest('[data-show-more]')) {
-			const end = Math.min(this.items.length, this.visible + 24);
-			const grid = this.querySelector('.travel-media-grid')!;
-			for (let index = this.visible; index < end; index++) grid.append(this.thumbnail(this.items[index], index));
-			this.visible = end;
-			const button = this.querySelector<HTMLButtonElement>('[data-show-more]')!;
-			button.hidden = end === this.items.length;
-			button.querySelector('[data-remaining]')!.textContent = String(this.items.length - end);
-			if (button.hidden) this.querySelector<HTMLElement>(`[data-media-index="${end - 1}"]`)?.focus({ preventScroll: true });
-			return;
-		}
 		const link = target?.closest<HTMLAnchorElement>('[data-media-index]');
 		if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
 		event.preventDefault();
 		void this.open(Number(link.dataset.mediaIndex), link);
 	};
-	private thumbnail(media: TravelMedia, index: number) {
-		const figure = document.createElement('figure');
-		figure.style.setProperty('--media-ratio', String(media.width / media.height));
-		const link = document.createElement('a');
-		link.href = mediaSource(media);
-		link.dataset.astroPrefetch = 'false';
-		link.dataset.mediaIndex = String(index);
-		link.setAttribute('aria-label', media.alt[this.locale]);
-		const picture = document.createElement('picture');
-		picture.style.cssText = mediaPlaceholderStyle(media) ?? '';
-		if (srcset(media, 'jxl')) {
-			const source = document.createElement('source');
-			source.type = 'image/jxl'; source.srcset = srcset(media, 'jxl'); source.sizes = '(max-width: 600px) 90vw, 400px';
-			picture.append(source);
-		}
-		if (srcset(media, 'webp')) {
-			const source = document.createElement('source');
-			source.type = 'image/webp'; source.srcset = srcset(media, 'webp'); source.sizes = '(max-width: 600px) 90vw, 400px';
-			picture.append(source);
-		}
-		const image = document.createElement('img');
-		image.alt = media.alt[this.locale]; image.width = media.width; image.height = media.height;
-		image.loading = 'lazy'; image.decoding = 'async';
-		image.srcset = srcset(media, 'jpeg'); image.sizes = '(max-width: 600px) 90vw, 400px';
-		image.src = mediaPreview(media); picture.append(image); link.append(picture);
-		prepareMediaReveal(image);
-		if (media.kind === 'video') {
-			const badge = document.createElement('span'); badge.className = 'travel-video-badge';
-			badge.textContent = `▶ ${Math.floor(media.duration / 60)}:${String(Math.floor(media.duration % 60)).padStart(2, '0')}`; link.append(badge);
-		}
-		figure.append(link);
-		if (media.caption?.[this.locale]) { const caption = document.createElement('figcaption'); caption.textContent = media.caption[this.locale]; figure.append(caption); }
-		return figure;
-	}
 	private async open(index: number, link: HTMLElement) {
 		if (this.loading) return;
 		this.opener = link;

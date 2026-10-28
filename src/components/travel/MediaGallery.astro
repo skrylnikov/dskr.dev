@@ -12,7 +12,7 @@ const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math
 	<div class:list={['travel-media-grid', { 'travel-media-grid--single': gallery.items.length === 1 }]}>
 		{gallery.items.map((media, index) => <>
 			{index === 0 && <span class="sr-only">{gallery.items.length} {locale === 'ru' ? 'фото и видео' : 'photos and videos'}</span>}
-			{index < 6 ? <figure style={`--media-ratio:${media.width / media.height}`}>
+			<figure style={`--media-ratio:${media.width / media.height}`}>
 				<a href={mediaSource(media)} data-astro-prefetch="false" data-media-index={index} aria-label={`${media.kind === 'video' ? copy.play : copy.view}: ${media.alt[locale]}`}>
 					<picture style={mediaPlaceholderStyle(media)}>
 						{srcset(media, 'jxl') && <source type="image/jxl" srcset={srcset(media, 'jxl')} sizes="(max-width: 600px) 90vw, 400px" />}
@@ -21,12 +21,10 @@ const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math
 					</picture>
 					{media.kind === 'video' && <span class="travel-video-badge">▶ {duration(media.duration)}</span>}
 				</a>
-				{media.caption?.[locale] && <figcaption>{media.caption[locale]}</figcaption>}
-			</figure> : null}
+				{media.caption?.[locale] && <figcaption><span>{media.caption[locale]}</span></figcaption>}
+			</figure>
 		</>)}
 	</div>
-	{gallery.items.length > 6 && <button class="button button--quiet travel-show-more" type="button" data-show-more hidden>{copy.more} · <span data-remaining>{gallery.items.length - 6}</span></button>}
-	<noscript>{gallery.items.slice(6).map((media) => <p><a href={mediaSource(media)}>{media.alt[locale]}</a></p>)}</noscript>
 	<script type="application/json" data-gallery-items set:html={JSON.stringify(gallery.items).replace(/</g, '\\u003c')} />
 </travel-gallery>
 <script>

@@ -55,18 +55,22 @@ picture[data-media-state="loading"] > img { opacity: 0; }
 .travel-chapter-nav a { display: grid; max-width: 19rem; font-size: .9rem; }
 .travel-chapter-nav span { color: var(--color-muted); font-size: .8rem; }
 travel-gallery { display: block; margin-block: 1.75rem; }
-.travel-media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
-.travel-media-grid figure { margin: 0; min-width: 0; }
+.travel-media-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+.travel-media-grid::after { content: ''; flex: 999 1 17rem; }
+.travel-media-grid figure { margin: 0; min-width: 0; flex: var(--media-ratio) 1 calc(var(--media-ratio) * 17rem); }
+.travel-media-grid[data-layout]::after { content: none; }
+.travel-media-grid[data-layout] figure { flex: none; }
 .travel-media-grid a { position: relative; display: block; aspect-ratio: var(--media-ratio); background: var(--color-surface); border-radius: .3rem; overflow: hidden; }
 .travel-media-grid picture { display: block; height: 100%; }
 .travel-media-grid img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .travel-media-grid a:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
 .travel-media-grid figcaption { font-size: .8rem; color: var(--color-muted); padding-top: .35rem; }
-.travel-media-grid--single { grid-template-columns: 1fr; justify-items: center; }
-.travel-media-grid--single figure { width: min(calc((100% - 1rem) / 2), calc(60vh * var(--media-ratio))); }
+.travel-media-grid figcaption span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.travel-media-grid a:focus-visible + figcaption span { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.travel-media-grid--single { justify-content: center; }
+.travel-media-grid--single::after { content: none; }
+.travel-media-grid--single figure { flex: none; width: min(calc((100% - 1rem) / 2), calc(60vh * var(--media-ratio))); }
 .travel-video-badge { position: absolute; bottom: .5rem; left: .5rem; background: #000b; color: white; border-radius: .3rem; padding: .15rem .5rem; font: .8rem var(--font-mono); }
-.travel-show-more { margin-top: 1rem; cursor: pointer; }
-.travel-show-more[hidden] { display: none; }
 .travel-media-error { min-height: 8rem; outline: 1px dashed var(--color-muted); }
 .travel-viewer-video { width: 100%; display: grid; place-items: center; }
 .travel-viewer-video video { display: block; width: auto; max-width: 95vw; height: auto; max-height: 80vh; }
@@ -99,8 +103,8 @@ body.glightbox-open { overflow: clip; }
 }
 @media (max-width: 600px) {
 	.travel-trip-grid { grid-template-columns: 1fr; }
-	.travel-media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.travel-media-grid--single { grid-template-columns: 1fr; }
+	.travel-media-grid:not(.travel-media-grid--single):not([data-layout]) figure { flex-basis: calc(var(--media-ratio) * 11rem); }
+	.travel-media-grid::after { flex-basis: 11rem; }
 	.travel-media-grid--single figure { width: min(calc((100% - .5rem) * .75), calc(60vh * var(--media-ratio))); }
 	.travel-story-header h1 { font-size: 2.4rem; }
 	.site-nav { gap: .85rem; flex-wrap: wrap; }

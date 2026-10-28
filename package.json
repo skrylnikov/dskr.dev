@@ -94,6 +94,7 @@
     "linkedom": "0.18.14",
     "markdown-it": "15.0.3",
     "pg": "8.23.1",
+    "photo-flex-layout": "^1.0.0",
     "remeda": "2.54.1",
     "s3mini": "1.0.3",
     "sharp": "0.35.5",

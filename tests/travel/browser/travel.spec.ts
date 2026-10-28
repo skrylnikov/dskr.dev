@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { photoFlexLayout } from 'photo-flex-layout';
 
 test.beforeEach(async ({ page }) => {
 	// External font availability must not block local media tests.
@@ -29,6 +30,48 @@ test('six-photo collages preserve portrait and landscape frames on every surface
 	await page.goto('/travel/sample-trip/first-walk/');
 	await expect(page.locator('.travel-collage')).toHaveCount(0);
 	await expect(page.locator('.travel-prose travel-gallery')).toHaveCount(1);
+});
+
+test('gallery rows fit mixed aspect ratios without gaps or cropping', async ({ page }) => {
+	await page.goto('/travel/sample-trip/first-walk/');
+	const gallery = page.locator('travel-gallery');
+	await expect(gallery.locator('.travel-media-grid')).toHaveAttribute('data-layout', '');
+	{
+		const rows = await gallery.locator('.travel-media-grid').evaluate((grid) => {
+			const bounds = grid.getBoundingClientRect();
+			const rows: { top: number; left: number; right: number; height: number; ratioError: number }[][] = [];
+			for (const figure of grid.querySelectorAll('figure')) {
+				const link = figure.querySelector('a')!, image = link.querySelector('img')!;
+				const box = link.getBoundingClientRect();
+				const item = { top: box.top, left: box.left - bounds.left, right: bounds.right - box.right, height: box.height, ratioError: Math.abs(box.width / box.height - Number(image.getAttribute('width')) / Number(image.getAttribute('height'))) };
+				const row = rows.find((row) => Math.abs(row[0].top - item.top) < 1);
+				if (row) row.push(item); else rows.push([item]);
+			}
+			return rows;
+		});
+		expect(rows.length).toBeGreaterThan(1);
+		for (const [index, row] of rows.entries()) {
+			expect(row[0].left).toBeLessThan(1);
+			if (index < rows.length - 1) expect(row.at(-1)!.right).toBeLessThan(1);
+			for (const item of row) {
+				expect(Math.abs(item.height - row[0].height)).toBeLessThan(1);
+				expect(item.ratioError).toBeLessThan(.01);
+			}
+		}
+	}
+	const viewport = page.viewportSize()!;
+	await page.setViewportSize({ ...viewport, width: viewport.width - 100 });
+	await expect.poll(async () => {
+		const layout = await gallery.locator('.travel-media-grid').evaluate((grid) => ({
+			width: grid.clientWidth,
+			gap: parseFloat(getComputedStyle(grid).columnGap),
+			rowHeight: parseFloat(getComputedStyle(document.documentElement).fontSize) * (matchMedia('(max-width: 600px)').matches ? 11 : 17),
+			items: [...grid.querySelectorAll('img')].map((image) => ({ width: Number(image.getAttribute('width')), height: Number(image.getAttribute('height')) })),
+			widths: [...grid.querySelectorAll('figure')].map((figure) => figure.getBoundingClientRect().width),
+		}));
+		const { boxes } = photoFlexLayout({ items: layout.items, containerWidth: layout.width + layout.gap, targetRowHeight: layout.rowHeight, boxSpacing: layout.gap });
+		return Math.max(...boxes.map((box, index) => Math.abs(box.width - layout.widths[index])));
+	}).toBeLessThan(.2);
 });
 
 test('localized routes, mixed feed, drafts, language fallback and home placement', async ({ page }) => {
@@ -60,18 +103,16 @@ test('JPEG XL sources precede fallbacks and the viewer follows browser decoding 
 	await expect(page.locator('.gslide.current .gslide-image img')).toHaveAttribute('src', supportsJxl ? /\.jxl$/ : /\.jpeg$/);
 	await expect(page.locator('.gslide.current .gslide-image img')).toBeVisible();
 	await page.keyboard.press('Escape');
-	await page.locator('travel-gallery [data-show-more]').click();
 	await expect(page.locator('[data-media-index="6"] source').first()).toHaveAttribute('type', 'image/jxl');
 });
 
-test('gallery media links do not prefetch on hover or focus, including revealed thumbnails', async ({ page }) => {
+test('gallery media links do not prefetch on hover or focus', async ({ page }) => {
 	const prefetched: string[] = [];
 	page.on('request', (request) => {
 		if (request.url().includes('/media/') && request.resourceType() !== 'image') prefetched.push(request.url());
 	});
 	await page.goto('/travel/sample-trip/first-walk/');
 	const gallery = page.locator('travel-gallery');
-	await gallery.locator('[data-show-more]').click();
 	for (const index of [0, 4, 6]) {
 		const link = gallery.locator(`[data-media-index="${index}"]`);
 		await expect(link).toHaveAttribute('data-astro-prefetch', 'false');
@@ -83,10 +124,9 @@ test('gallery media links do not prefetch on hover or focus, including revealed 
 	expect(prefetched).toEqual([]);
 });
 
-test('video posters use picture formats in initial and revealed thumbnails and JXL in the viewer', async ({ page }) => {
+test('video posters use picture formats in thumbnails and JXL in the viewer', async ({ page }) => {
 	await page.goto('/travel/sample-trip/first-walk/');
 	const gallery = page.locator('travel-gallery');
-	for (let n = 0; n < 9; n++) await gallery.locator('[data-show-more]').click();
 	for (const index of [4, 199]) {
 		const thumbnail = gallery.locator(`[data-media-index="${index}"]`);
 		await expect(thumbnail.locator('source').first()).toHaveAttribute('type', 'image/jxl');
@@ -164,8 +204,8 @@ for (const { index, reduced, cached } of [{ index: 0, reduced: false, cached: fa
 			else {
 				const start = await preview.evaluate((image) => {
 					const box = image.getBoundingClientRect();
-					const crop = getComputedStyle(image).clipPath.match(/^inset\(([\d.]+)% ([\d.]+)%/)!;
-					const x = Number(crop[2]) / 100, y = Number(crop[1]) / 100;
+					const crop = getComputedStyle(image).clipPath.match(/^inset\(([\d.]+)%(?: ([\d.]+)%)?/)!;
+					const x = Number(crop[2] ?? crop[1]) / 100, y = Number(crop[1]) / 100;
 					return { x: box.x + box.width * x, y: box.y + box.height * y, width: box.width * (1 - 2 * x), height: box.height * (1 - 2 * y) };
 				});
 				for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(start[key] - origin![key])).toBeLessThan(1);
@@ -413,8 +453,8 @@ for (const { index, next, button, during } of [{ index: 0, next: false, button: 
 		});
 		const end = await preview.evaluate((image) => {
 			const box = image.getBoundingClientRect();
-			const crop = getComputedStyle(image).clipPath.match(/^inset\(([\d.]+)% ([\d.]+)%/)!;
-			const x = Number(crop[2]) / 100, y = Number(crop[1]) / 100;
+			const crop = getComputedStyle(image).clipPath.match(/^inset\(([\d.]+)%(?: ([\d.]+)%)?/)!;
+			const x = Number(crop[2] ?? crop[1]) / 100, y = Number(crop[1]) / 100;
 			return { x: box.x + box.width * x, y: box.y + box.height * y, width: box.width * (1 - 2 * x), height: box.height * (1 - 2 * y) };
 		});
 		for (const key of ['x', 'y', 'width', 'height'] as const) expect(Math.abs(end[key] - target![key])).toBeLessThan(1);
@@ -432,23 +472,23 @@ test('closing a photo without a rendered thumbnail falls back to fading', async 
 	await expect(page.locator('.travel-viewer-preview')).toHaveCount(0);
 	await page.locator('.gnext').click();
 	await expect(page.locator('.travel-viewer-counter')).toHaveText('7 / 200');
+	await page.locator('travel-gallery [data-media-index="6"]').evaluate((link) => link.closest('figure')!.remove());
 	await page.keyboard.press('Escape');
 	await expect(page.locator('.travel-viewer-returning')).toHaveCount(0);
 	await expect(page.locator('.glightbox-container')).toHaveCount(0);
 	await expect(trigger).toBeFocused();
 });
 
-test('200 media: only six thumbnails initially, progressive reveal, all slides and restored focus', async ({ page }) => {
+test('200 media: all thumbnails are visible, images load lazily and the viewer restores focus', async ({ page }) => {
 	const errors: string[] = []; page.on('pageerror', (error) => errors.push(error.message));
 	const mediaRequests: string[] = []; page.on('request', (request) => { if (request.url().includes('/media/')) mediaRequests.push(request.url()); });
 	await page.goto('/travel/sample-trip/first-walk/');
 	const gallery = page.locator('travel-gallery');
-	await expect(gallery.locator('figure')).toHaveCount(6);
-	await gallery.scrollIntoViewIfNeeded();
-	await expect(gallery.locator('[data-show-more]')).toBeVisible();
+	await expect(gallery.locator('figure')).toHaveCount(200);
+	await gallery.locator('[data-media-index="0"]').scrollIntoViewIfNeeded();
+	await expect(gallery.locator('button')).toHaveCount(0);
+	await expect(gallery.locator('[data-media-index="199"] img')).toHaveAttribute('loading', 'lazy');
 	expect(mediaRequests.some((url) => url.endsWith('.mp4'))).toBe(false);
-	await gallery.locator('[data-show-more]').click();
-	await expect(gallery.locator('figure')).toHaveCount(30);
 	expect(new Set(mediaRequests).size).toBeLessThan(50);
 	const trigger = gallery.locator('[data-media-index="0"]');
 	await trigger.click();
@@ -462,12 +502,11 @@ test('200 media: only six thumbnails initially, progressive reveal, all slides a
 	await page.keyboard.press('Escape');
 	await expect(page.locator('.glightbox-container')).toHaveCount(0);
 	await expect(trigger).toBeFocused();
-	for (let n = 0; n < 8; n++) await gallery.locator('[data-show-more]').click();
-	await expect(gallery.locator('figure')).toHaveCount(200);
-	await expect(gallery.locator('[data-show-more]')).toBeHidden();
-	await gallery.locator('[data-media-index="199"]').click();
+	const last = gallery.locator('[data-media-index="199"]');
+	await last.click();
 	await expect(page.locator('.travel-viewer-counter')).toHaveText('200 / 200');
 	await page.keyboard.press('Escape');
+	await expect(last).toBeFocused();
 	expect(errors).toEqual([]);
 });
 
@@ -502,7 +541,6 @@ test('video loads on opening, plays and pauses; galleries survive Astro navigati
 test('video frame fits its content and captions stay below the player', async ({ page }) => {
 	await page.goto('/travel/sample-trip/first-walk/');
 	const gallery = page.locator('travel-gallery');
-	for (let n = 0; n < 9; n++) await gallery.locator('[data-show-more]').click();
 	for (const index of [4, 199]) {
 		await gallery.locator(`[data-media-index="${index}"]`).click();
 		const video = page.locator('.gslide.current video');

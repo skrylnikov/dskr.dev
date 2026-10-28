@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
 	await page.route('https://fonts.googleapis.com/**', (route) => route.fulfill({ contentType: 'text/css', body: '' }));
 });
 
-test('photos fade over the placeholder after decode, including collages, posters and revealed tiles', async ({ page }, testInfo) => {
+test('photos fade over the placeholder after decode, including collages and posters', async ({ page }, testInfo) => {
 	await page.addInitScript(() => {
 		document.addEventListener('transitionrun', (event) => {
 			const image = event.target;
@@ -17,8 +17,8 @@ test('photos fade over the placeholder after decode, including collages, posters
 	await page.route('**/media/**', async (route) => { await blocked; await route.continue(); });
 	try {
 		await page.goto('/travel/sample-trip/', { waitUntil: 'domcontentloaded' });
-		await page.locator('travel-gallery [data-show-more]').click();
 		const images = [page.locator('.travel-collage img').first(), ...[0, 4, 6].map((index) => page.locator(`travel-gallery [data-media-index="${index}"] img`))];
+		await images[3].scrollIntoViewIfNeeded();
 		for (const image of images) {
 			await expect(image.locator('..')).toHaveAttribute('data-media-state', 'loading');
 			await expect(image).toHaveCSS('opacity', '0');
