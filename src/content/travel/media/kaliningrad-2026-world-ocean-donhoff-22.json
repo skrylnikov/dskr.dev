@@ -1,0 +1,239 @@
+{
+  "id": "kaliningrad-2026-world-ocean-donhoff-22",
+  "items": [
+    {
+      "id": "media-1bac32d5-f02c-4b68-9df5-6c4c0d587096",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "caption": {
+        "ru": "винтовая лестница",
+        "en": "Spiral staircase"
+      },
+      "lqip": [
+        "#947a6f",
+        "#4e413e",
+        "#57483d",
+        "#987664",
+        "#614a3a",
+        "#7c654d"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/7c1d0699da4f2d890c27b0e3ad09591994bfeb1b09709fb371504d42cb78db78/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7c1d0699da4f2d890c27b0e3ad09591994bfeb1b09709fb371504d42cb78db78/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7c1d0699da4f2d890c27b0e3ad09591994bfeb1b09709fb371504d42cb78db78/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7c1d0699da4f2d890c27b0e3ad09591994bfeb1b09709fb371504d42cb78db78/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7c1d0699da4f2d890c27b0e3ad09591994bfeb1b09709fb371504d42cb78db78/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7c1d0699da4f2d890c27b0e3ad09591994bfeb1b09709fb371504d42cb78db78/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3fb9a537815d4e8ade68735f08df4b6e8b1cd3dbde395f868aa92421312cdd3d/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/3fb9a537815d4e8ade68735f08df4b6e8b1cd3dbde395f868aa92421312cdd3d/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/3fb9a537815d4e8ade68735f08df4b6e8b1cd3dbde395f868aa92421312cdd3d/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-f3e22bb2-8b15-4e06-bb78-5ab734e2b9e0",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "caption": {
+        "ru": "маршевая лестница",
+        "en": "Straight staircase"
+      },
+      "lqip": [
+        "#715c52",
+        "#84674c",
+        "#453940",
+        "#2c2e3a",
+        "#322f31",
+        "#29252d"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/de1d244c65a76a7e68da39f185b3a62a4af76aeed6a4b6ffc43190a9d27fe772/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de1d244c65a76a7e68da39f185b3a62a4af76aeed6a4b6ffc43190a9d27fe772/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/de1d244c65a76a7e68da39f185b3a62a4af76aeed6a4b6ffc43190a9d27fe772/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de1d244c65a76a7e68da39f185b3a62a4af76aeed6a4b6ffc43190a9d27fe772/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/de1d244c65a76a7e68da39f185b3a62a4af76aeed6a4b6ffc43190a9d27fe772/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/de1d244c65a76a7e68da39f185b3a62a4af76aeed6a4b6ffc43190a9d27fe772/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1ff033a620162c7d8e0e12b3d64444666915be69858ea7c52b6512be79f6262e/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1ff033a620162c7d8e0e12b3d64444666915be69858ea7c52b6512be79f6262e/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/1ff033a620162c7d8e0e12b3d64444666915be69858ea7c52b6512be79f6262e/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-2bad6ad1-d2b1-42a3-9a3b-1520db01fdeb",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "caption": {
+        "ru": "скошенные углы",
+        "en": "Beveled corners"
+      },
+      "lqip": [
+        "#7a635a",
+        "#ab8c79",
+        "#e1b590",
+        "#988372",
+        "#805e4b",
+        "#6b4630"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/115f3797cc9b918862d356027f0e22ac5a0594b14378efb6cf828420bea26ee2/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/115f3797cc9b918862d356027f0e22ac5a0594b14378efb6cf828420bea26ee2/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/115f3797cc9b918862d356027f0e22ac5a0594b14378efb6cf828420bea26ee2/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/115f3797cc9b918862d356027f0e22ac5a0594b14378efb6cf828420bea26ee2/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/115f3797cc9b918862d356027f0e22ac5a0594b14378efb6cf828420bea26ee2/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/115f3797cc9b918862d356027f0e22ac5a0594b14378efb6cf828420bea26ee2/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/fd08d1690b4f4f0039962243fe7673c860ac947429524ff93bebd47ceb114e3f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fd08d1690b4f4f0039962243fe7673c860ac947429524ff93bebd47ceb114e3f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/fd08d1690b4f4f0039962243fe7673c860ac947429524ff93bebd47ceb114e3f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

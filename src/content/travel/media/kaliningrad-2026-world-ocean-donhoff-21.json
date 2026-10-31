@@ -1,0 +1,153 @@
+{
+  "id": "kaliningrad-2026-world-ocean-donhoff-21",
+  "items": [
+    {
+      "id": "media-cc9b85e7-1eab-4ecc-a3da-42b597dedf89",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#66544a",
+        "#5a4c45",
+        "#554949",
+        "#b9a28f",
+        "#baa48f",
+        "#b49d8b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/c376e212e4a63814acad89be72cad6b09367e89b2dc4c9f0b1537cc3fff54e43/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c376e212e4a63814acad89be72cad6b09367e89b2dc4c9f0b1537cc3fff54e43/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c376e212e4a63814acad89be72cad6b09367e89b2dc4c9f0b1537cc3fff54e43/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c376e212e4a63814acad89be72cad6b09367e89b2dc4c9f0b1537cc3fff54e43/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c376e212e4a63814acad89be72cad6b09367e89b2dc4c9f0b1537cc3fff54e43/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c376e212e4a63814acad89be72cad6b09367e89b2dc4c9f0b1537cc3fff54e43/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9d168bae71c332c27eb554c3861b0f6027c21d8f7f681c9d9c88933485980ccd/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/9d168bae71c332c27eb554c3861b0f6027c21d8f7f681c9d9c88933485980ccd/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/9d168bae71c332c27eb554c3861b0f6027c21d8f7f681c9d9c88933485980ccd/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-56299563-bdf7-48d0-8f0f-1f1d37f818b9",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#574233",
+        "#5a493a",
+        "#917e6f",
+        "#5e4b3c",
+        "#6c5643",
+        "#8c796a"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/e6855a67bca2222ab956748816b2a1ecf24279c9e3a9954a982532fad94249a4/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e6855a67bca2222ab956748816b2a1ecf24279c9e3a9954a982532fad94249a4/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e6855a67bca2222ab956748816b2a1ecf24279c9e3a9954a982532fad94249a4/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e6855a67bca2222ab956748816b2a1ecf24279c9e3a9954a982532fad94249a4/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/e6855a67bca2222ab956748816b2a1ecf24279c9e3a9954a982532fad94249a4/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/e6855a67bca2222ab956748816b2a1ecf24279c9e3a9954a982532fad94249a4/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/74fa9dd44234c873fd678788502661c112414fdd261a1cfdc4c113c544277d14/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/74fa9dd44234c873fd678788502661c112414fdd261a1cfdc4c113c544277d14/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/74fa9dd44234c873fd678788502661c112414fdd261a1cfdc4c113c544277d14/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

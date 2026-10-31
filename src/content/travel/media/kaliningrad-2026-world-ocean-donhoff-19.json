@@ -1,0 +1,967 @@
+{
+  "id": "kaliningrad-2026-world-ocean-donhoff-19",
+  "items": [
+    {
+      "id": "media-a29b4b42-efe2-421c-8112-7a9ad029808e",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#a78f7e",
+        "#b7a697",
+        "#998476",
+        "#674e3a",
+        "#6a5542",
+        "#715b49"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/6f6d324a0cc943def8b6f3622b1a21707ce189eefbade7594c20446f0735f570/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f6d324a0cc943def8b6f3622b1a21707ce189eefbade7594c20446f0735f570/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6f6d324a0cc943def8b6f3622b1a21707ce189eefbade7594c20446f0735f570/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f6d324a0cc943def8b6f3622b1a21707ce189eefbade7594c20446f0735f570/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6f6d324a0cc943def8b6f3622b1a21707ce189eefbade7594c20446f0735f570/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6f6d324a0cc943def8b6f3622b1a21707ce189eefbade7594c20446f0735f570/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/40ac90a8b3c8f125dfa2bddd1bc951ef7f332fa3ed54a1189f5a81f2a99ec4dc/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/40ac90a8b3c8f125dfa2bddd1bc951ef7f332fa3ed54a1189f5a81f2a99ec4dc/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/40ac90a8b3c8f125dfa2bddd1bc951ef7f332fa3ed54a1189f5a81f2a99ec4dc/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-422ce7ec-f679-4693-a2cc-89a0ce60f362",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#8b7e6d",
+        "#917c64",
+        "#906e4e",
+        "#7c6855",
+        "#826b54",
+        "#775a3f"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/8b0bef18b90d109356f215784b8fd758b6cbf5291707cd4c6d9a7ef2e0a00056/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8b0bef18b90d109356f215784b8fd758b6cbf5291707cd4c6d9a7ef2e0a00056/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8b0bef18b90d109356f215784b8fd758b6cbf5291707cd4c6d9a7ef2e0a00056/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8b0bef18b90d109356f215784b8fd758b6cbf5291707cd4c6d9a7ef2e0a00056/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8b0bef18b90d109356f215784b8fd758b6cbf5291707cd4c6d9a7ef2e0a00056/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/8b0bef18b90d109356f215784b8fd758b6cbf5291707cd4c6d9a7ef2e0a00056/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/dfb46ad1ac069ae9d89ec35a4ad334f5eb0f2c2c4f87bcabca0a77e931c887a5/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dfb46ad1ac069ae9d89ec35a4ad334f5eb0f2c2c4f87bcabca0a77e931c887a5/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/dfb46ad1ac069ae9d89ec35a4ad334f5eb0f2c2c4f87bcabca0a77e931c887a5/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-2b70126b-f6d3-47b0-8381-82e3c3bda333",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#b5a7a6",
+        "#605b56",
+        "#a48671",
+        "#896951",
+        "#977855",
+        "#956b4b"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/edd84f9d81fbbff8cf598bddfe1600284aba926cf2e2469fc336ed5b49a60240/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/edd84f9d81fbbff8cf598bddfe1600284aba926cf2e2469fc336ed5b49a60240/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/edd84f9d81fbbff8cf598bddfe1600284aba926cf2e2469fc336ed5b49a60240/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/edd84f9d81fbbff8cf598bddfe1600284aba926cf2e2469fc336ed5b49a60240/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/edd84f9d81fbbff8cf598bddfe1600284aba926cf2e2469fc336ed5b49a60240/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/edd84f9d81fbbff8cf598bddfe1600284aba926cf2e2469fc336ed5b49a60240/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/50e52a533e8689f6c1f7e7003d5e686396880353a7b89defd15510343ba360e3/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/50e52a533e8689f6c1f7e7003d5e686396880353a7b89defd15510343ba360e3/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/50e52a533e8689f6c1f7e7003d5e686396880353a7b89defd15510343ba360e3/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-e8b5a778-eb1d-498d-9ed2-21850975cdcf",
+      "width": 5712,
+      "height": 4284,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#8d755e",
+        "#a99483",
+        "#826246",
+        "#5f4c3e",
+        "#6d594c",
+        "#6a5240"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/57c305fb6d950000369550f229c51f6afb616047bee78441d694c798bc902505/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/57c305fb6d950000369550f229c51f6afb616047bee78441d694c798bc902505/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/57c305fb6d950000369550f229c51f6afb616047bee78441d694c798bc902505/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/57c305fb6d950000369550f229c51f6afb616047bee78441d694c798bc902505/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/57c305fb6d950000369550f229c51f6afb616047bee78441d694c798bc902505/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/57c305fb6d950000369550f229c51f6afb616047bee78441d694c798bc902505/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c929b57fd54313a5f4fb810fcd14fc7bbb93482cbd98d2fcb51c1f2655605444/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c929b57fd54313a5f4fb810fcd14fc7bbb93482cbd98d2fcb51c1f2655605444/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c929b57fd54313a5f4fb810fcd14fc7bbb93482cbd98d2fcb51c1f2655605444/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-8bc7ba45-8c16-4065-8026-30f04b16029d",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#54443d",
+        "#53453d",
+        "#5d4c45",
+        "#3d3331",
+        "#514742",
+        "#392a26"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/7e5019fc11b9f2154bf0bc12f2845b474b8d2d27a7e577c28909c45b2f07d6e4/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7e5019fc11b9f2154bf0bc12f2845b474b8d2d27a7e577c28909c45b2f07d6e4/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7e5019fc11b9f2154bf0bc12f2845b474b8d2d27a7e577c28909c45b2f07d6e4/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7e5019fc11b9f2154bf0bc12f2845b474b8d2d27a7e577c28909c45b2f07d6e4/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/7e5019fc11b9f2154bf0bc12f2845b474b8d2d27a7e577c28909c45b2f07d6e4/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/7e5019fc11b9f2154bf0bc12f2845b474b8d2d27a7e577c28909c45b2f07d6e4/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0df27b408097f9b1c77911ff7dd4faa3bc6faebb3acba8714f43e27d267695a9/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0df27b408097f9b1c77911ff7dd4faa3bc6faebb3acba8714f43e27d267695a9/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0df27b408097f9b1c77911ff7dd4faa3bc6faebb3acba8714f43e27d267695a9/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-e12397f3-03e3-4e9c-9dcf-389f6635ed72",
+      "width": 5712,
+      "height": 4284,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#cdb39c",
+        "#bb9e85",
+        "#b49e8f",
+        "#a47c66",
+        "#876856",
+        "#8b6651"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/6191835f268042a50a1cca66edf8998414097f6349494dc8ae963ef6888cdcc7/640.webp",
+          "width": 640,
+          "height": 480,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6191835f268042a50a1cca66edf8998414097f6349494dc8ae963ef6888cdcc7/640.jpeg",
+          "width": 640,
+          "height": 480,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6191835f268042a50a1cca66edf8998414097f6349494dc8ae963ef6888cdcc7/1280.webp",
+          "width": 1280,
+          "height": 960,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6191835f268042a50a1cca66edf8998414097f6349494dc8ae963ef6888cdcc7/1280.jpeg",
+          "width": 1280,
+          "height": 960,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6191835f268042a50a1cca66edf8998414097f6349494dc8ae963ef6888cdcc7/2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6191835f268042a50a1cca66edf8998414097f6349494dc8ae963ef6888cdcc7/2560.jpeg",
+          "width": 2560,
+          "height": 1920,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/eec0ac023b16cf329a226e20b4b973fb8294b7841ebf5fb6e731a5d05fd26398/640.jxl",
+          "width": 640,
+          "height": 480,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/eec0ac023b16cf329a226e20b4b973fb8294b7841ebf5fb6e731a5d05fd26398/1280.jxl",
+          "width": 1280,
+          "height": 960,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/eec0ac023b16cf329a226e20b4b973fb8294b7841ebf5fb6e731a5d05fd26398/2560.jxl",
+          "width": 2560,
+          "height": 1920,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-2ca97795-4b51-4452-947d-8a9881a5a4a9",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#a06849",
+        "#79573f",
+        "#60544c",
+        "#8e644c",
+        "#624227",
+        "#453f3d"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/19990e1f108e5258a298613d6ab3a4e3f27e0d7b3795d5d2a3aaa5293ebc97f6/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/19990e1f108e5258a298613d6ab3a4e3f27e0d7b3795d5d2a3aaa5293ebc97f6/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/19990e1f108e5258a298613d6ab3a4e3f27e0d7b3795d5d2a3aaa5293ebc97f6/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/19990e1f108e5258a298613d6ab3a4e3f27e0d7b3795d5d2a3aaa5293ebc97f6/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/19990e1f108e5258a298613d6ab3a4e3f27e0d7b3795d5d2a3aaa5293ebc97f6/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/19990e1f108e5258a298613d6ab3a4e3f27e0d7b3795d5d2a3aaa5293ebc97f6/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0b70863bfcce1d95f2d24e09e394fddeb32d9040a19c62ede93ebf6b49725cb9/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0b70863bfcce1d95f2d24e09e394fddeb32d9040a19c62ede93ebf6b49725cb9/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/0b70863bfcce1d95f2d24e09e394fddeb32d9040a19c62ede93ebf6b49725cb9/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-59d19ad1-c3e1-4838-ac54-df961a9aa550",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#9b7057",
+        "#a97b5a",
+        "#835c47",
+        "#957c6a",
+        "#a08975",
+        "#967a67"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/f673567af1db3d60547ef3697a58fe1d1a49c831b317ed48d930d5cca0d8d356/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f673567af1db3d60547ef3697a58fe1d1a49c831b317ed48d930d5cca0d8d356/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f673567af1db3d60547ef3697a58fe1d1a49c831b317ed48d930d5cca0d8d356/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f673567af1db3d60547ef3697a58fe1d1a49c831b317ed48d930d5cca0d8d356/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/f673567af1db3d60547ef3697a58fe1d1a49c831b317ed48d930d5cca0d8d356/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/f673567af1db3d60547ef3697a58fe1d1a49c831b317ed48d930d5cca0d8d356/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/203c11385461f4fc8ec1fb53262eb71212a3cac3a750b9e630db7a18b6517e3f/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/203c11385461f4fc8ec1fb53262eb71212a3cac3a750b9e630db7a18b6517e3f/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/203c11385461f4fc8ec1fb53262eb71212a3cac3a750b9e630db7a18b6517e3f/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-de0ee9f0-43d1-4d26-ab52-d8f093a8e815",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#9c7f6d",
+        "#846854",
+        "#9e6d4a",
+        "#9c8c7c",
+        "#877362",
+        "#9a7151"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/6ff49b600dd4970f389c6a687fc0fdf8a0a857052ce36f997f011bc47b47f2c9/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6ff49b600dd4970f389c6a687fc0fdf8a0a857052ce36f997f011bc47b47f2c9/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6ff49b600dd4970f389c6a687fc0fdf8a0a857052ce36f997f011bc47b47f2c9/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6ff49b600dd4970f389c6a687fc0fdf8a0a857052ce36f997f011bc47b47f2c9/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/6ff49b600dd4970f389c6a687fc0fdf8a0a857052ce36f997f011bc47b47f2c9/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/6ff49b600dd4970f389c6a687fc0fdf8a0a857052ce36f997f011bc47b47f2c9/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/cd3c4f3c066e53f96496d96f0f0bbc4297ae3befcbd91e4ab71b7f58335fce9b/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/cd3c4f3c066e53f96496d96f0f0bbc4297ae3befcbd91e4ab71b7f58335fce9b/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/cd3c4f3c066e53f96496d96f0f0bbc4297ae3befcbd91e4ab71b7f58335fce9b/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-ca7cbada-0371-4477-93c1-9d400ee32bf0",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#9d816f",
+        "#957a66",
+        "#825f4b",
+        "#916f58",
+        "#7e6650",
+        "#9a806d"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/c7a53236045f8680dfd7df8a78e9eb68d7430108fdde5b4aa71696963a41ea38/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c7a53236045f8680dfd7df8a78e9eb68d7430108fdde5b4aa71696963a41ea38/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c7a53236045f8680dfd7df8a78e9eb68d7430108fdde5b4aa71696963a41ea38/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c7a53236045f8680dfd7df8a78e9eb68d7430108fdde5b4aa71696963a41ea38/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c7a53236045f8680dfd7df8a78e9eb68d7430108fdde5b4aa71696963a41ea38/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/c7a53236045f8680dfd7df8a78e9eb68d7430108fdde5b4aa71696963a41ea38/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/9743ae9779494b8cdae1b32f51521c4ee5e615745e76cfd19ef3d2e1f366822e/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/9743ae9779494b8cdae1b32f51521c4ee5e615745e76cfd19ef3d2e1f366822e/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/9743ae9779494b8cdae1b32f51521c4ee5e615745e76cfd19ef3d2e1f366822e/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-f3435c7a-09d4-4de8-990d-f46d301e4b0c",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#a37355",
+        "#bc8f6f",
+        "#b0856b",
+        "#ad7d53",
+        "#a98363",
+        "#95745d"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/d32826ea7460e82dcfc195b5c177da030163cda863446cdd2a5afb4e2c35db4a/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d32826ea7460e82dcfc195b5c177da030163cda863446cdd2a5afb4e2c35db4a/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d32826ea7460e82dcfc195b5c177da030163cda863446cdd2a5afb4e2c35db4a/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d32826ea7460e82dcfc195b5c177da030163cda863446cdd2a5afb4e2c35db4a/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/d32826ea7460e82dcfc195b5c177da030163cda863446cdd2a5afb4e2c35db4a/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/d32826ea7460e82dcfc195b5c177da030163cda863446cdd2a5afb4e2c35db4a/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c5b10a13ee6e204b33eec74b68c2ebe9ce0e3b5808cbaa71ff59d4a7d68c4879/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c5b10a13ee6e204b33eec74b68c2ebe9ce0e3b5808cbaa71ff59d4a7d68c4879/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c5b10a13ee6e204b33eec74b68c2ebe9ce0e3b5808cbaa71ff59d4a7d68c4879/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-4aabd920-efde-4d06-b809-2a9198f83455",
+      "width": 4284,
+      "height": 5712,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#804e3f",
+        "#7f5845",
+        "#ca8462",
+        "#8f7c70",
+        "#8a7765",
+        "#c79a80"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/1d369e1cd3b93517cedd54748eb161388d8e96781acc81c461e44951d742e037/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1d369e1cd3b93517cedd54748eb161388d8e96781acc81c461e44951d742e037/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1d369e1cd3b93517cedd54748eb161388d8e96781acc81c461e44951d742e037/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1d369e1cd3b93517cedd54748eb161388d8e96781acc81c461e44951d742e037/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/1d369e1cd3b93517cedd54748eb161388d8e96781acc81c461e44951d742e037/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/1d369e1cd3b93517cedd54748eb161388d8e96781acc81c461e44951d742e037/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/8cef216f1cdd4f6f16cc31bdb14d12912f6d8be4e9048570fba55aec2d9a42e6/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/8cef216f1cdd4f6f16cc31bdb14d12912f6d8be4e9048570fba55aec2d9a42e6/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/8cef216f1cdd4f6f16cc31bdb14d12912f6d8be4e9048570fba55aec2d9a42e6/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    },
+    {
+      "id": "media-25f9fd45-02b7-4c51-b7bc-f1d5f48ee906",
+      "width": 3024,
+      "height": 4032,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#917765",
+        "#967c66",
+        "#8b715d",
+        "#89735e",
+        "#7f6c57",
+        "#866c57"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/594adf67c1c06a6ec6c3e95e9f46a13cf4fe7993cc85a54cf25ef81fcc2f82ff/640.webp",
+          "width": 640,
+          "height": 853,
+          "format": "webp"
+        },
+        {
+          "url": "/media/594adf67c1c06a6ec6c3e95e9f46a13cf4fe7993cc85a54cf25ef81fcc2f82ff/640.jpeg",
+          "width": 640,
+          "height": 853,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/594adf67c1c06a6ec6c3e95e9f46a13cf4fe7993cc85a54cf25ef81fcc2f82ff/1280.webp",
+          "width": 1280,
+          "height": 1707,
+          "format": "webp"
+        },
+        {
+          "url": "/media/594adf67c1c06a6ec6c3e95e9f46a13cf4fe7993cc85a54cf25ef81fcc2f82ff/1280.jpeg",
+          "width": 1280,
+          "height": 1707,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/594adf67c1c06a6ec6c3e95e9f46a13cf4fe7993cc85a54cf25ef81fcc2f82ff/2560.webp",
+          "width": 2560,
+          "height": 3413,
+          "format": "webp"
+        },
+        {
+          "url": "/media/594adf67c1c06a6ec6c3e95e9f46a13cf4fe7993cc85a54cf25ef81fcc2f82ff/2560.jpeg",
+          "width": 2560,
+          "height": 3413,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/c29ae2a155db886d4d79b39532d485329fd43fceb557156209ed23c49514f082/640.jxl",
+          "width": 640,
+          "height": 853,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c29ae2a155db886d4d79b39532d485329fd43fceb557156209ed23c49514f082/1280.jxl",
+          "width": 1280,
+          "height": 1707,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/c29ae2a155db886d4d79b39532d485329fd43fceb557156209ed23c49514f082/2560.jxl",
+          "width": 2560,
+          "height": 3413,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}
