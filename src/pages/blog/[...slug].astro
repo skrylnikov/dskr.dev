@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import MarkdownTable from '../../components/MarkdownTable.astro';
 import MediaGallery from '../../components/travel/MediaGallery.astro';
 import '../../styles/travel.css';
 
@@ -18,5 +19,5 @@ const { Content } = await render(post);
 ---
 
 <BlogPost {...post.data} slug={post.id}>
-	<Content components={{ MediaGallery }} />
+	<Content components={{ MediaGallery, table: MarkdownTable }} />
 </BlogPost>

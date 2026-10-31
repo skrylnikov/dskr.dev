@@ -1080,7 +1080,8 @@ pre {
 	text-decoration: underline;
 }
 
-.markdown-content img {
+.markdown-content img,
+.markdown-content video {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -1093,6 +1094,48 @@ pre {
 	border-left: 0.3rem solid var(--theme-accent);
 	background: var(--theme-bg-offset);
 	font-size: 1.2rem;
+}
+
+.markdown-table {
+	overflow-x: auto;
+	border: 1px solid var(--theme-divider);
+	border-radius: 0.75rem;
+	background: var(--theme-bg-offset);
+}
+
+.markdown-table:focus-visible {
+	outline: 2px solid var(--theme-accent);
+	outline-offset: 3px;
+}
+
+.markdown-table table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.875rem;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.5;
+}
+
+.markdown-table th,
+.markdown-table td {
+	padding: 0.85rem 1rem;
+	text-align: left;
+	vertical-align: top;
+}
+
+.markdown-table th {
+	min-width: 7rem;
+	background: var(--theme-accent-soft);
+	font-weight: 650;
+}
+
+.markdown-table td {
+	border-top: 1px solid var(--theme-divider);
+	white-space: nowrap;
+}
+
+.markdown-table tbody tr:nth-child(even) {
+	background: var(--theme-bg);
 }
 
 .markdown-content code:not([class*='language']) {
@@ -1110,11 +1153,6 @@ pre {
 	background: transparent;
 	color: inherit;
 	font-size: inherit;
-}
-
-.markdown-content pre .line {
-	display: block;
-	min-height: 1.5em;
 }
 
 .markdown-content pre {

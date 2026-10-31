@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'table'>;
+---
+
+<div
+	class="markdown-table"
+	tabindex="0"
+	role="region"
+	aria-label={Astro.currentLocale === 'en' ? 'Table, scroll horizontally' : 'Таблица, доступна горизонтальная прокрутка'}
+>
+	<table {...Astro.props}><slot /></table>
+</div>
