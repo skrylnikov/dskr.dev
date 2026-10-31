@@ -1,0 +1,79 @@
+{
+  "id": "common",
+  "items": [
+    {
+      "id": "media-968a8e22-5879-4ec1-93cc-843e2addf9f7",
+      "width": 3344,
+      "height": 1882,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#f6fafa",
+        "#f6fafa",
+        "#ecf3f1",
+        "#f4f8f6",
+        "#eff4f3",
+        "#e2f1f1"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/75c5480b820a4967758404efdc9c99e43b9356e77bdf0a19a58daab05a9d55c0/640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75c5480b820a4967758404efdc9c99e43b9356e77bdf0a19a58daab05a9d55c0/640.jpeg",
+          "width": 640,
+          "height": 360,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/75c5480b820a4967758404efdc9c99e43b9356e77bdf0a19a58daab05a9d55c0/1280.webp",
+          "width": 1280,
+          "height": 720,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75c5480b820a4967758404efdc9c99e43b9356e77bdf0a19a58daab05a9d55c0/1280.jpeg",
+          "width": 1280,
+          "height": 720,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/75c5480b820a4967758404efdc9c99e43b9356e77bdf0a19a58daab05a9d55c0/2560.webp",
+          "width": 2560,
+          "height": 1441,
+          "format": "webp"
+        },
+        {
+          "url": "/media/75c5480b820a4967758404efdc9c99e43b9356e77bdf0a19a58daab05a9d55c0/2560.jpeg",
+          "width": 2560,
+          "height": 1441,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/5aff7c3e93a19d66e13e976fdb732d153f3032337733b7962716dd59c19d2384/640.jxl",
+          "width": 640,
+          "height": 360,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5aff7c3e93a19d66e13e976fdb732d153f3032337733b7962716dd59c19d2384/1280.jxl",
+          "width": 1280,
+          "height": 720,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/5aff7c3e93a19d66e13e976fdb732d153f3032337733b7962716dd59c19d2384/2560.jxl",
+          "width": 2560,
+          "height": 1441,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

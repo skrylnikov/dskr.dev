@@ -1,0 +1,79 @@
+{
+  "id": "media-64c16662-d2d6-4281-ad87-25c471f71478",
+  "items": [
+    {
+      "id": "media-1c7fea04-5c20-4ca4-b1fd-c7631fe55617",
+      "width": 2122,
+      "height": 1446,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#f2f3f4",
+        "#fdfdfd",
+        "#e8e9ea",
+        "#eeeff0",
+        "#f4f4f4",
+        "#c4c6c8"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/640.webp",
+          "width": 640,
+          "height": 436,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/640.jpeg",
+          "width": 640,
+          "height": 436,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/1280.webp",
+          "width": 1280,
+          "height": 872,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/1280.jpeg",
+          "width": 1280,
+          "height": 872,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/2122.webp",
+          "width": 2122,
+          "height": 1446,
+          "format": "webp"
+        },
+        {
+          "url": "/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/2122.jpeg",
+          "width": 2122,
+          "height": 1446,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/73b4518d3fcfbbdfc23f126239db923c8db9ad12fe990b01ce5e86815aff79c7/640.jxl",
+          "width": 640,
+          "height": 436,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/73b4518d3fcfbbdfc23f126239db923c8db9ad12fe990b01ce5e86815aff79c7/1280.jxl",
+          "width": 1280,
+          "height": 872,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/73b4518d3fcfbbdfc23f126239db923c8db9ad12fe990b01ce5e86815aff79c7/2122.jxl",
+          "width": 2122,
+          "height": 1446,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}

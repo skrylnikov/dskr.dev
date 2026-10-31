@@ -1,0 +1,64 @@
+{
+  "id": "media-ed0b68fb-04ae-4274-9d45-a37a2806c8ca",
+  "items": [
+    {
+      "id": "media-94a91ab2-7195-4df4-ac13-7b26b0529b14",
+      "width": 1080,
+      "height": 716,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#f7f8f9",
+        "#fcfcfd",
+        "#f8f9f9",
+        "#fcfcfd",
+        "#fcfcfd",
+        "#f0f1f3"
+      ],
+      "kind": "video",
+      "url": "/media/fbc8e520254e4f5ef1a1541c63972c1fade9706a1b37d424636255fc7e2ff7ca/video.mp4",
+      "poster": "/media/865f9dba3bc5b748f8451c17e586a134a6a9f953965032e23a1b22743af48a6e/1080.jpeg",
+      "posterSources": [
+        {
+          "url": "/media/865f9dba3bc5b748f8451c17e586a134a6a9f953965032e23a1b22743af48a6e/640.webp",
+          "width": 640,
+          "height": 424,
+          "format": "webp"
+        },
+        {
+          "url": "/media/865f9dba3bc5b748f8451c17e586a134a6a9f953965032e23a1b22743af48a6e/640.jpeg",
+          "width": 640,
+          "height": 424,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/865f9dba3bc5b748f8451c17e586a134a6a9f953965032e23a1b22743af48a6e/1080.webp",
+          "width": 1080,
+          "height": 716,
+          "format": "webp"
+        },
+        {
+          "url": "/media/865f9dba3bc5b748f8451c17e586a134a6a9f953965032e23a1b22743af48a6e/1080.jpeg",
+          "width": 1080,
+          "height": 716,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/187863c6dd27e143f1f98e8239b033e18c540f6e09650076cf9908cc6ae98528/640.jxl",
+          "width": 640,
+          "height": 424,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/187863c6dd27e143f1f98e8239b033e18c540f6e09650076cf9908cc6ae98528/1080.jxl",
+          "width": 1080,
+          "height": 716,
+          "format": "jxl"
+        }
+      ],
+      "duration": 24.733333
+    }
+  ]
+}

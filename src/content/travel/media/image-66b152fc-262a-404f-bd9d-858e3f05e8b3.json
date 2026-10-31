@@ -1,0 +1,61 @@
+{
+  "id": "image-66b152fc-262a-404f-bd9d-858e3f05e8b3",
+  "items": [
+    {
+      "id": "media-08da1b86-3071-4f6e-b195-caebc1568287",
+      "width": 936,
+      "height": 628,
+      "alt": {
+        "ru": "",
+        "en": ""
+      },
+      "lqip": [
+        "#e1e4e5",
+        "#e7e9eb",
+        "#e4e5e6",
+        "#d1d7da",
+        "#ccd4d8",
+        "#cfd6d8"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/0053f4974396a6bfe560b8f80f1034db4a3aef9dc56072ef595963adffa042e3/640.webp",
+          "width": 640,
+          "height": 429,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0053f4974396a6bfe560b8f80f1034db4a3aef9dc56072ef595963adffa042e3/640.jpeg",
+          "width": 640,
+          "height": 429,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/0053f4974396a6bfe560b8f80f1034db4a3aef9dc56072ef595963adffa042e3/936.webp",
+          "width": 936,
+          "height": 628,
+          "format": "webp"
+        },
+        {
+          "url": "/media/0053f4974396a6bfe560b8f80f1034db4a3aef9dc56072ef595963adffa042e3/936.jpeg",
+          "width": 936,
+          "height": 628,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/ec862b9f4d80f91531c15f7716e24e9b08f580f41f18b91c6de4167f5ce59834/640.jxl",
+          "width": 640,
+          "height": 429,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/ec862b9f4d80f91531c15f7716e24e9b08f580f41f18b91c6de4167f5ce59834/936.jxl",
+          "width": 936,
+          "height": 628,
+          "format": "jxl"
+        }
+      ]
+    }
+  ]
+}
