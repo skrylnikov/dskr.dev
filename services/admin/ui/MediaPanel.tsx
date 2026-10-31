@@ -14,7 +14,7 @@ import {
 	TextInput,
 	Title,
 } from '@mantine/core';
-import { api, previewImage, type AdminGallery } from './client';
+import { api, previewImage, waitForJob, type AdminGallery } from './client';
 import type { Job } from '../media';
 
 export function MediaPanel({
@@ -79,19 +79,11 @@ export function MediaPanel({
 		setBusy(true);
 		onBusy(true);
 		try {
-			for (;;) {
-				const job = await api<Job>(`jobs/${id}`);
-				setMessage(job.message);
-				if (job.stage === 'error') throw new Error(job.message);
-				if (job.stage === 'done') {
-					await refresh();
-					const updated = await api<AdminGallery[]>('galleries');
-					setSelected(updated.find((g) => g.id === job.gallery) ?? null);
-					setNewId('');
-					break;
-				}
-				await new Promise((done) => setTimeout(done, 700));
-			}
+			const job = await waitForJob(id, setMessage);
+			await refresh();
+			const updated = await api<AdminGallery[]>('galleries');
+			setSelected(updated.find((g) => g.id === job.gallery) ?? null);
+			setNewId('');
 		} catch (error: any) {
 			setError(error.message);
 		} finally {

@@ -40,6 +40,7 @@ picture[data-media-state="loading"] > img { opacity: 0; }
 .travel-prose h2 { font-size: clamp(1.5rem, 3vw, 2.3rem); line-height: 1.25; margin-block: 3rem 1rem; scroll-margin-top: 7rem; }
 .travel-prose h3 { margin-block: 2rem 1rem; }
 .travel-prose a { color: var(--color-accent); }
+.travel-prose video { display: block; max-width: 100%; height: auto; margin-inline: auto; }
 .travel-contents { max-width: var(--reading-width); margin: 2rem auto 3rem; padding: 1.25rem 1.5rem; border: 1px solid var(--color-line); border-radius: .75rem; }
 .travel-contents summary { cursor: pointer; font-weight: 700; }
 .travel-contents ol { margin-block: .65rem 0; padding-left: 1.4rem; }

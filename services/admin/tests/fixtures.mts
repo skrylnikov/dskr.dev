@@ -1,7 +1,7 @@
 import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import sharp from 'sharp';
-import { prepareGallery } from '../../../scripts/travel-media.mts';
+import { prepareGallery, run } from '../../../scripts/travel-media.mts';
 
 const root = resolve('.state/admin-e2e');
 await rm(root, { recursive: true, force: true });
@@ -18,6 +18,10 @@ await sharp({
 })
 	.jpeg()
 	.toFile(join(root, 'photo.jpeg'));
+await run('ffmpeg', [
+	'-nostdin', '-y', '-f', 'lavfi', '-i', 'color=c=teal:s=160x90:d=0.5',
+	'-c:v', 'libx264', '-pix_fmt', 'yuv420p', join(root, 'video.mp4'),
+]);
 await writeFile(
 	join(root, 'input.json'),
 	JSON.stringify({

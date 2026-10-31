@@ -616,6 +616,7 @@ export default function App() {
 										galleries={galleries}
 										onEditGallery={editGallery}
 										onCreateGallery={() => editGallery()}
+										onBusy={setBusy}
 										onReady={(value) => {
 											editor.current = value;
 										}}

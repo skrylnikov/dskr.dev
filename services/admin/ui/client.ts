@@ -1,5 +1,6 @@
 import type { Gallery } from '../../../src/data/travel.mts';
 import type { Material } from '../store';
+import type { Job } from '../media';
 
 export function sortTravelMaterials(materials: Material[]): Material[] {
 	const tripKey = (material: Material) =>
@@ -41,6 +42,15 @@ export async function api<T = any>(path: string, body?: unknown): Promise<T> {
 	if (!response.ok)
 		throw new Error(result.error ?? 'Не удалось выполнить операцию');
 	return result;
+}
+export async function waitForJob(id: string, onMessage: (message: string) => void) {
+	for (;;) {
+		const job = await api<Job>(`jobs/${id}`);
+		onMessage(job.message);
+		if (job.stage === 'error') throw new Error(job.message);
+		if (job.stage === 'done') return job;
+		await new Promise((done) => setTimeout(done, 700));
+	}
 }
 export const previewImage = (item: Gallery['items'][number]) =>
 	item.kind === 'video'

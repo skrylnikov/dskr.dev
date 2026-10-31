@@ -1,7 +1,181 @@
 import { test, expect } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import type { AdminGallery } from '../../ui/client';
+import { fullImage, type AdminGallery } from '../../ui/client';
+
+test('upload a single photo in the media dialog and retry S3 without uploading it again', async ({
+	page,
+}) => {
+	const errors: string[] = [];
+	page.on('pageerror', (error) => errors.push(error.message));
+	let uploads = 0;
+	const published: string[] = [];
+	let failPublish = false;
+	await page.route('**/api/upload?*', (route) => {
+		uploads++;
+		return uploads === 1
+			? route.fulfill({ status: 500, json: { error: 'Ошибка загрузки файла' } })
+			: route.continue();
+	});
+	await page.route('**/api/publish', (route) => {
+		published.push(route.request().postDataJSON().gallery);
+		return route.fulfill({ json: { id: `single-photo-publish-${published.length}` } });
+	});
+	await page.route('**/api/jobs/single-photo-publish-*', (route) => {
+		const first = route.request().url().endsWith('-1');
+		return route.fulfill({ json: {
+			stage: first ? (failPublish ? 'error' : 'publishing') : 'done',
+			message: first ? (failPublish ? 'S3 unavailable' : 'Загрузка и проверка S3') : 'Готово',
+		} });
+	});
+	await page.goto('/');
+	await page.getByRole('button', { name: 'Новая статья' }).click();
+	await page.getByLabel('Slug', { exact: true }).fill('uploaded-single-photo');
+	await page.getByLabel('Заголовок', { exact: true }).fill('Загруженное одиночное фото');
+	await page.getByLabel('Краткое описание').fill('Загрузка из редактора');
+	await page.locator('.tiptap').fill('До фото.');
+	await page.locator('.tiptap').press('End');
+	await page.keyboard.press('Enter');
+	await page.keyboard.type('После фото.');
+	await page.keyboard.press('Home');
+	await page.getByRole('button', { name: 'Фото / видео', exact: true }).click();
+	const modal = page.getByRole('dialog', { name: 'Фото / видео', exact: true });
+	await modal.getByLabel('Описание (alt)').fill('Загруженное фото');
+	const input = modal.locator('input[type=file]');
+	await input.setInputFiles(resolve('.state/admin-e2e/photo.jpeg'));
+	await expect(modal.getByRole('alert')).toContainText('Ошибка загрузки файла');
+	await input.setInputFiles(resolve('.state/admin-e2e/photo.jpeg'));
+	await expect(modal.getByRole('status')).toHaveText('Загрузка и проверка S3');
+	await expect(modal.getByRole('button', { name: 'Закрыть окно медиа' })).toBeDisabled();
+	await expect(page.getByRole('button', { name: 'Сохранить', exact: true })).toBeDisabled();
+	await expect(modal.getByRole('button', { name: 'Применить', exact: true })).toBeDisabled();
+	failPublish = true;
+	await expect(modal.getByRole('alert')).toContainText('S3 unavailable');
+	await modal.getByRole('button', { name: 'Повторить загрузку в S3' }).click();
+	await expect(modal.getByRole('status')).toContainText('Файл загружен');
+	expect(uploads).toBe(2);
+	expect(published).toHaveLength(2);
+	expect(published[1]).toBe(published[0]);
+	const src = await modal.getByLabel('URL изображения').inputValue();
+	expect(src).toMatch(/^\/media\/[a-f0-9]{64}\/\d+\.jpeg$/);
+	await modal.getByRole('button', { name: 'Применить', exact: true }).click();
+	await expect(page.locator('.tiptap > p').first()).toHaveText('До фото.');
+	await expect(page.locator('.tiptap > p').last()).toHaveText('После фото.');
+	const inserted = page.locator('.tiptap').getByRole('img', { name: 'Загруженное фото' });
+	await expect(inserted).toHaveAttribute('src', src);
+	await page.getByRole('button', { name: 'Сохранить', exact: true }).click();
+	await expect(page.getByRole('status')).toContainText('Файл сохранён');
+	await page.reload();
+	await page.getByText('Загруженное одиночное фото', { exact: true }).click();
+	await expect(inserted).toHaveAttribute('src', src);
+	expect(errors).toEqual([]);
+});
+
+test('upload video in the media dialog, edit it and reopen it as a playable video', async ({
+	page,
+}) => {
+	const errors: string[] = [];
+	page.on('pageerror', (error) => errors.push(error.message));
+	await page.route('**/api/publish', (route) => route.fulfill({ json: { id: 'single-video-publish' } }));
+	await page.route('**/api/jobs/single-video-publish', (route) => route.fulfill({ json: { stage: 'done', message: 'Готово' } }));
+	await page.goto('/');
+	await page.getByRole('button', { name: 'Новая статья' }).click();
+	await page.getByLabel('Slug', { exact: true }).fill('uploaded-single-video');
+	await page.getByLabel('Заголовок', { exact: true }).fill('Одиночное видео');
+	await page.getByLabel('Краткое описание').fill('Загрузка видео из редактора');
+	await page.locator('.tiptap').fill('До видео.');
+	await page.locator('.tiptap').press('End');
+	await page.keyboard.press('Enter');
+	await page.keyboard.type('После видео.');
+	await page.keyboard.press('Home');
+	await page.getByRole('button', { name: 'Фото / видео', exact: true }).click();
+	const modal = page.getByRole('dialog', { name: 'Фото / видео', exact: true });
+	await modal.locator('input[type=file]').setInputFiles(resolve('.state/admin-e2e/video.mp4'));
+	await expect(modal.getByRole('status')).toContainText('Файл загружен');
+	await expect(modal.getByRole('radio', { name: 'Видео', exact: true })).toBeChecked();
+	await modal.getByLabel('Описание видео', { exact: true }).fill('Тестовый ролик');
+	await modal.getByLabel('Подсказка', { exact: true }).fill('Загруженное видео');
+	const src = await modal.getByLabel('URL видео', { exact: true }).inputValue();
+	expect(src).toMatch(/^\/media\/[a-f0-9]{64}\/video\.mp4$/);
+	await modal.getByRole('button', { name: 'Применить', exact: true }).click();
+	const video = page.locator('.tiptap video');
+	await expect(video).toHaveCount(1);
+	await expect(video).toHaveAttribute('src', src);
+	await expect(video).toHaveAttribute('poster', /\/media\/[a-f0-9]{64}\/\d+\.jpeg$/);
+	await expect(video).toHaveJSProperty('controls', true);
+	await expect.poll(() => video.evaluate((el: HTMLVideoElement) => el.readyState)).toBeGreaterThanOrEqual(2);
+	await expect(page.locator('.tiptap > p').first()).toHaveText('До видео.');
+	await expect(page.locator('.tiptap > p').last()).toHaveText('После видео.');
+	await video.click({ position: { x: 5, y: 5 } });
+	await page.getByRole('button', { name: 'Фото / видео', exact: true }).click();
+	await expect(modal.getByLabel('URL видео', { exact: true })).toHaveValue(src);
+	await modal.getByLabel('Описание видео', { exact: true }).fill('Описание после правки');
+	await modal.getByRole('button', { name: 'Применить', exact: true }).click();
+	await expect(video).toHaveCount(1);
+	await page.getByRole('button', { name: 'Сохранить', exact: true }).click();
+	await expect(page.getByRole('status')).toContainText('Файл сохранён');
+	await page.reload();
+	await page.getByText('Одиночное видео', { exact: true }).click();
+	await expect(video).toHaveAttribute('src', src);
+	await expect(video).toHaveAttribute('aria-label', 'Описание после правки');
+	await expect(video).toHaveAttribute('title', 'Загруженное видео');
+	await expect(page.getByRole('button', { name: 'Сохранить', exact: true })).toBeEnabled();
+	await page.getByRole('button', { name: 'Новая статья' }).click();
+	await page.getByRole('button', { name: 'Фото / видео', exact: true }).click();
+	await modal.getByRole('combobox', { name: 'Из медиабиблиотеки' }).click();
+	const galleries: AdminGallery[] = await (await page.request.get('/api/galleries')).json();
+	const uploaded = galleries.find((g) => g.items.some((i) => i.kind === 'video' && i.url === src))!;
+	await page.getByRole('option', { name: `${uploaded.id} / ${uploaded.items[0].id}`, exact: true }).click();
+	await expect(modal.getByLabel('URL видео', { exact: true })).toHaveValue(src);
+	await modal.getByLabel('URL видео', { exact: true }).fill(`${src}?v=2`);
+	await modal.getByRole('button', { name: 'Применить', exact: true }).click();
+	await expect(video).toHaveAttribute('src', `${src}?v=2`);
+	await expect(video).not.toHaveAttribute('poster', /.+/);
+	expect(errors).toEqual([]);
+});
+
+test('insert a single image shared by multiple galleries without duplicate options', async ({
+	page,
+}) => {
+	const errors: string[] = [];
+	page.on('pageerror', (error) => errors.push(error.message));
+	const galleries: AdminGallery[] = await (
+		await page.request.get('/api/galleries')
+	).json();
+	const gallery = galleries.find((g) => g.id === 'admin-fixture')!;
+	const src = fullImage(gallery.items[0]);
+	await page.route('**/api/galleries', (route) =>
+		route.fulfill({
+			json: [gallery, { ...gallery, id: 'shared-photo' }],
+		}),
+	);
+	await page.goto('/');
+	await page.getByRole('button', { name: 'Новая статья' }).click();
+	await page.getByLabel('Slug', { exact: true }).fill('single-image');
+	await page.getByLabel('Заголовок', { exact: true }).fill('Одиночное фото');
+	await page.getByLabel('Краткое описание').fill('Фото в двух галереях');
+	await page.getByRole('button', { name: 'Фото / видео', exact: true }).click();
+	const modal = page.getByRole('dialog', { name: 'Фото / видео', exact: true });
+	for (const id of ['admin-fixture', 'shared-photo']) {
+		await modal.getByRole('combobox', { name: 'Из медиабиблиотеки' }).click();
+		await page
+			.getByRole('option', { name: `${id} / photo`, exact: true })
+			.click();
+		await expect(modal.getByLabel('URL изображения')).toHaveValue(src);
+	}
+	await modal.getByLabel('Описание (alt)').fill('Общее фото');
+	await modal.getByLabel('Подсказка', { exact: true }).fill('Подсказка фото');
+	await modal.getByRole('button', { name: 'Применить', exact: true }).click();
+	const inserted = page.locator('.tiptap').getByRole('img', { name: 'Общее фото' });
+	await expect(inserted).toHaveAttribute('src', src);
+	await page.getByRole('button', { name: 'Сохранить', exact: true }).click();
+	await expect(page.getByRole('status')).toContainText('Файл сохранён');
+	await page.reload();
+	await page.getByText('Одиночное фото', { exact: true }).click();
+	await expect(inserted).toHaveAttribute('src', src);
+	await expect(inserted).toHaveAttribute('title', 'Подсказка фото');
+	expect(errors).toEqual([]);
+});
 
 test('visual blocks survive opening and unchanged save without rewriting MDX', async ({
 	page,

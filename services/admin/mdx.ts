@@ -175,6 +175,40 @@ function fromAst(node: Ast): EditorNode[] {
 		case 'mdxJsxFlowElement':
 		case 'mdxJsxTextElement': {
 			if (
+				node.type === 'mdxJsxFlowElement' &&
+				node.name === 'video' &&
+				!node.children?.length
+			) {
+				const attrs: Record<string, string | null> = {};
+				for (const attr of node.attributes ?? []) {
+					const name = attr.name ?? '';
+					if (
+						attr.type !== 'mdxJsxAttribute' ||
+						Object.hasOwn(attrs, name) ||
+						![
+							'src', 'poster', 'aria-label', 'title', 'controls', 'playsInline', 'preload',
+						].includes(name) ||
+						(['controls', 'playsInline'].includes(name)
+							? attr.value !== null
+							: typeof attr.value !== 'string') ||
+						(name === 'preload' && attr.value !== 'metadata')
+					)
+						return unsupported('атрибуты video');
+					attrs[name] = attr.value as string | null;
+				}
+				return [
+					{
+						type: 'video',
+						attrs: {
+							src: safeUrl(attrs.src ?? ''),
+							poster: attrs.poster ? safeUrl(attrs.poster) : null,
+							alt: attrs['aria-label'] ?? '',
+							title: attrs.title || null,
+						},
+					},
+				];
+			}
+			if (
 				node.name === 'MediaGallery' &&
 				!node.children?.length &&
 				node.attributes?.length === 1
@@ -291,6 +325,25 @@ function toAst(node: EditorNode): Ast {
 				url: safeUrl(node.attrs?.src),
 				alt: node.attrs?.alt ?? '',
 				title: node.attrs?.title ?? null,
+			};
+		case 'video':
+			return {
+				type: 'mdxJsxFlowElement',
+				name: 'video',
+				attributes: [
+					{ type: 'mdxJsxAttribute', name: 'src', value: safeUrl(node.attrs?.src) },
+					...Object.entries({
+						poster: node.attrs?.poster ? safeUrl(node.attrs.poster) : null,
+						'aria-label': node.attrs?.alt,
+						title: node.attrs?.title,
+					})
+						.filter(([, value]) => value != null && value !== '')
+						.map(([name, value]) => ({ type: 'mdxJsxAttribute', name, value })),
+					{ type: 'mdxJsxAttribute', name: 'controls', value: null },
+					{ type: 'mdxJsxAttribute', name: 'playsInline', value: null },
+					{ type: 'mdxJsxAttribute', name: 'preload', value: 'metadata' },
+				],
+				children: [],
 			};
 		case 'bulletList':
 		case 'orderedList':

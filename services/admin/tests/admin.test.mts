@@ -140,6 +140,32 @@ test('literal JSX, braces, code, nested formatting and details stay literal or s
 		/URL/,
 	);
 });
+test('video survives MDX round trips and rejects unsafe URLs and unsupported attributes', () => {
+	for (const attributes of [
+		'src="/media/clip.mp4" controls playsInline preload="metadata"',
+		'src="https://example.test/clip.mp4" poster="/media/poster.jpeg" aria-label="Видео &amp; описание" title="Подсказка &quot;видео&quot;" controls',
+	]) {
+		const doc = parseBody(`До видео.\n\n<video ${attributes} />\n\nПосле видео.\n`);
+		assert.equal(doc.content?.[1].type, 'video');
+		assert.deepEqual(parseBody(serializeBody(doc)), doc);
+	}
+	for (const attributes of [
+		'src="javascript:alert(1)"',
+		'src="/clip.mp4" poster="javascript:alert(1)"',
+		'src={url}',
+		'src="/clip.mp4" onClick="alert(1)"',
+		'src="/clip.mp4" controls={true}',
+		'src="/clip.mp4" preload="auto"',
+		'src="/clip.mp4" src="/other.mp4"',
+	]) assert.throws(() => parseBody(`<video ${attributes} />`));
+	for (const attrs of [
+		{ src: 'javascript:alert(1)' },
+		{ src: '/clip.mp4', poster: 'javascript:alert(1)' },
+	]) assert.throws(() => serializeBody({ type: 'doc', content: [{ type: 'video', attrs }] }), /URL/);
+	assert.throws(() => parseBody('Текст <video src="/clip.mp4" />'), /не поддерживает/);
+	assert.throws(() => parseBody('<video src="/clip.mp4"><source src="/clip.webm" /></video>'), /не поддерживает/);
+});
+
 test('unchanged save is byte-identical; metadata-only edit preserves body, JSON/YAML and extra fields', async () => {
 	const f = await fixture();
 	try {

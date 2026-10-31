@@ -11,7 +11,8 @@ body {
 	min-height: 320px;
 	overflow-wrap: anywhere;
 }
-.tiptap img {
+.tiptap img,
+.tiptap video {
 	max-width: 100%;
 	height: auto;
 	cursor: pointer;

@@ -1,9 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import {
+	Alert,
 	Button,
+	FileButton,
 	Group,
 	Modal,
 	Select,
+	SegmentedControl,
 	Stack,
 	TextInput,
 	Text,
@@ -33,7 +36,14 @@ import {
 } from '@tiptap/extension-details';
 import TextAlign from '@tiptap/extension-text-align';
 import type { EditorNode } from '../mdx';
-import { previewImage, fullImage, type AdminGallery } from './client';
+import {
+	api,
+	previewImage,
+	fullImage,
+	waitForJob,
+	type AdminGallery,
+} from './client';
+import type { Job } from '../media';
 
 function CodeView({ node, updateAttributes }: ReactNodeViewProps) {
 	return (
@@ -81,6 +91,7 @@ export function VisualEditor({
 	onReady,
 	onEditGallery,
 	onCreateGallery,
+	onBusy,
 }: {
 	document: EditorNode;
 	galleries: AdminGallery[];
@@ -88,12 +99,66 @@ export function VisualEditor({
 	onReady: (editor: Editor) => void;
 	onEditGallery: (id: string) => void;
 	onCreateGallery: () => void;
+	onBusy: (value: boolean) => void;
 }) {
-	const [image, setImage] = useState<{
+	const [media, setMedia] = useState<{
+		kind: 'image' | 'video';
 		src: string;
+		poster: string;
 		alt: string;
 		title: string;
 	} | null>(null);
+	const [mediaBusy, setMediaBusy] = useState(false);
+	const [mediaMessage, setMediaMessage] = useState('');
+	const [mediaError, setMediaError] = useState('');
+	const [pendingMedia, setPendingMedia] = useState<string | null>(null);
+	const resetMediaUpload = useRef<() => void>(null);
+	async function uploadMedia(file: File | null) {
+		if (!file && !pendingMedia) return;
+		setMediaBusy(true);
+		onBusy(true);
+		setMediaError('');
+		const galleryId = file ? `media-${crypto.randomUUID()}` : pendingMedia!;
+		try {
+			if (file) {
+				setPendingMedia(null);
+				setMediaMessage('Загрузка файла на локальный сервер');
+				const data = new FormData();
+				data.append('files', file);
+				const response = await fetch(
+					`/api/upload?${new URLSearchParams({ gallery: galleryId })}`,
+					{ method: 'POST', body: data },
+				);
+				const job = await response.json();
+				if (!response.ok) throw new Error(job.error);
+				await waitForJob(job.id, setMediaMessage);
+				setPendingMedia(galleryId);
+			}
+			setMediaMessage('Загрузка файла в S3');
+			const job = await api<Job>('publish', { gallery: galleryId });
+			await waitForJob(job.id, setMediaMessage);
+			const updated = await api<AdminGallery[]>('galleries');
+			const item = updated.find((g) => g.id === galleryId)?.items[0];
+			if (!item) throw new Error('Загруженный файл не найден');
+			setMedia((current) => current && {
+				...current,
+				kind: item.kind,
+				src: fullImage(item),
+				poster: item.kind === 'video' ? item.poster : '',
+			});
+			setPendingMedia(null);
+			setMediaMessage(
+				'Файл загружен. Нажмите «Применить», чтобы вставить его в текст.',
+			);
+		} catch (error: any) {
+			setMediaMessage('');
+			setMediaError(error.message);
+		} finally {
+			setMediaBusy(false);
+			onBusy(false);
+			resetMediaUpload.current?.();
+		}
+	}
 	const [galleryPicker, setGalleryPicker] = useState(false);
 	const [chosenGallery, setChosenGallery] = useState<string | null>(null);
 	const extensions = useMemo(() => {
@@ -180,6 +245,31 @@ export function VisualEditor({
 			}),
 			CodeBlock.extend({ addNodeView: () => ReactNodeViewRenderer(CodeView) }),
 			Image.configure({ inline: true, allowBase64: false }),
+			Node.create({
+				name: 'video',
+				group: 'block',
+				atom: true,
+				draggable: true,
+				addAttributes: () => ({
+					src: { default: '' },
+					poster: { default: null },
+					alt: {
+						default: '',
+						parseHTML: (element) => element.getAttribute('aria-label') ?? '',
+						renderHTML: (attrs) => ({ 'aria-label': attrs.alt }),
+					},
+					title: { default: null },
+				}),
+				parseHTML: () => [{ tag: 'video[src]' }],
+				renderHTML: ({ HTMLAttributes }) => [
+					'video',
+					mergeAttributes(HTMLAttributes, {
+						controls: true,
+						playsinline: true,
+						preload: 'metadata',
+					}),
+				],
+			}),
 			Table.configure({ resizable: false }),
 			TableRow,
 			TableCell,
@@ -319,12 +409,18 @@ export function VisualEditor({
 						)}
 					</RichTextEditor.ControlsGroup>
 					<RichTextEditor.ControlsGroup>
-						{action('Изображение', () => {
-							const attrs = editor?.isActive('image')
-								? editor.getAttributes('image')
+						{action('Фото / видео', () => {
+							setMediaMessage('');
+							setMediaError('');
+							setPendingMedia(null);
+							const kind = editor?.isActive('video') ? 'video' : 'image';
+							const attrs = editor?.isActive(kind)
+								? editor.getAttributes(kind)
 								: {};
-							setImage({
+							setMedia({
+								kind,
 								src: attrs.src ?? '',
+								poster: attrs.poster ?? '',
 								alt: attrs.alt ?? '',
 								title: attrs.title ?? '',
 							});
@@ -364,45 +460,113 @@ export function VisualEditor({
 				<RichTextEditor.Content />
 			</RichTextEditor>
 			<Modal
-				opened={!!image}
-				onClose={() => setImage(null)}
-				title="Изображение"
+				opened={!!media}
+				onClose={() => {
+					if (!mediaBusy) setMedia(null);
+				}}
+				closeButtonProps={{
+					disabled: mediaBusy,
+					'aria-label': 'Закрыть окно медиа',
+				}}
+				closeOnEscape={!mediaBusy}
+				closeOnClickOutside={!mediaBusy}
+				title="Фото / видео"
 			>
-				{image && (
+				{media && (
 					<Stack>
+						<SegmentedControl
+							aria-label="Тип медиа"
+							data={[
+								{ value: 'image', label: 'Фото' },
+								{ value: 'video', label: 'Видео' },
+							]}
+							value={media.kind}
+							disabled={mediaBusy}
+							onChange={(kind) => setMedia({
+								...media,
+								kind: kind as 'image' | 'video',
+							})}
+						/>
+						<FileButton
+							resetRef={resetMediaUpload}
+							accept="image/*,video/*,.heic,.heif,.mkv"
+							onChange={(file) => void uploadMedia(file)}
+						>
+							{(props) => (
+								<Button {...props} loading={mediaBusy}>
+									Загрузить фото / видео
+								</Button>
+							)}
+						</FileButton>
+						<Text size="sm" c="dimmed">
+							Фото или видео обработается и автоматически загрузится в S3.
+						</Text>
+						{mediaError && (
+							<Alert color="red" title="Не удалось загрузить файл">
+								{mediaError}
+							</Alert>
+						)}
+						{mediaMessage && (
+							<Text size="sm" role="status">{mediaMessage}</Text>
+						)}
+						{pendingMedia && !mediaBusy && (
+							<Button variant="default" onClick={() => void uploadMedia(null)}>
+								Повторить загрузку в S3
+							</Button>
+						)}
 						<Select
 							label="Из медиабиблиотеки"
+							disabled={mediaBusy}
 							searchable
 							data={galleries.flatMap((g) =>
-								g.items
-									.filter((i) => i.kind === 'image')
-									.map((i) => ({
-										value: fullImage(i),
-										label: `${g.id} / ${i.id}`,
-									})),
+								g.items.map((i) => ({
+									value: `${g.id}/${i.id}`,
+									label: `${g.id} / ${i.id}`,
+								})),
 							)}
-							onChange={(src) => src && setImage({ ...image, src })}
+							onChange={(ref) => {
+								const [galleryId, itemId] = ref?.split('/') ?? [];
+								const item = galleries
+									.find((g) => g.id === galleryId)
+									?.items.find((i) => i.id === itemId);
+								if (item) setMedia({
+									...media,
+									kind: item.kind,
+									src: fullImage(item),
+									poster: item.kind === 'video' ? item.poster : '',
+								});
+							}}
 						/>
 						<TextInput
-							label="URL изображения"
-							value={image.src}
-							onChange={(e) => setImage({ ...image, src: e.target.value })}
+							label={media.kind === 'video' ? 'URL видео' : 'URL изображения'}
+							disabled={mediaBusy}
+							value={media.src}
+							onChange={(e) => setMedia({ ...media, src: e.target.value, poster: '' })}
 						/>
 						<TextInput
-							label="Описание (alt)"
-							value={image.alt}
-							onChange={(e) => setImage({ ...image, alt: e.target.value })}
+							label={media.kind === 'video' ? 'Описание видео' : 'Описание (alt)'}
+							value={media.alt}
+							onChange={(e) => setMedia({ ...media, alt: e.target.value })}
 						/>
 						<TextInput
 							label="Подсказка"
-							value={image.title}
-							onChange={(e) => setImage({ ...image, title: e.target.value })}
+							value={media.title}
+							onChange={(e) => setMedia({ ...media, title: e.target.value })}
 						/>
 						<Button
-							disabled={!image.src}
+							disabled={!media.src || mediaBusy || !!pendingMedia}
 							onClick={() => {
-								editor?.chain().focus().setImage(image).run();
-								setImage(null);
+								const { kind, src, poster, alt, title } = media;
+								const chain = editor?.chain().focus();
+								if (kind === 'video') {
+									const attrs = {
+										src, poster: poster || null, alt, title: title || null,
+									};
+									if (editor?.isActive('video'))
+										chain?.updateAttributes('video', attrs).run();
+									else chain?.insertContent({ type: 'video', attrs }).run();
+								} else chain?.setImage({ src, alt, title }).run();
+								setMedia(null);
 							}}
 						>
 							Применить

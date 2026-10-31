@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
-    "admin:dev": "node --env-file-if-exists=.env --import tsx services/admin/server.ts",
+    "admin:dev": "node --watch --env-file-if-exists=.env --import tsx services/admin/server.ts",
     "admin:check": "tsc -p services/admin/tsconfig.json",
     "admin:build": "vite build --config services/admin/vite.config.ts",
     "admin:test": "node --import tsx --test services/admin/tests/*.test.mts",
