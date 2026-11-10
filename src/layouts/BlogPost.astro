@@ -3,15 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale/ru';
 import { absoluteUrl, AUTHOR_NAME, AUTHOR_URL, languageAlternates, SOCIAL_PROFILES } from '../consts';
-import { L } from '../i18n/i18n-node';
 import Webmentions from '../components/Webmentions.astro';
 import SiteLayout from './SiteLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string };
 
 const { title, description, publishDate, updatedDate, heroImage, hidden, slug } = Astro.props;
-const LL = L[Astro.currentLocale];
-const github = `https://github.com/skrylnikov/dskr.dev/blob/master/src/content/blog/${slug}.mdx`;
 const canonicalUrl = absoluteUrl(Astro.url.pathname);
 const imageUrl = absoluteUrl(heroImage ?? '/img/me.jpeg');
 const locale = Astro.currentLocale === 'en' ? 'en' : 'ru';
@@ -53,7 +50,6 @@ const structuredData = {
 				<div class="post-meta">
 					<time class="publish-date dt-published" datetime={publishDate.toISOString()}>{format(publishDate, 'd MMM yyyy', { locale: Astro.currentLocale === 'en' ? undefined : ru })}</time>
 					{updatedDate && <time hidden class="dt-updated" datetime={updatedDate.toISOString()}>{updatedDate.toISOString()}</time>}
-					<a target="_blank" href={github} rel="noreferrer">{LL.post.edit()}</a>
 				</div>
 				<h1 class="p-name">{title}</h1>
 				<a class="u-url u-uid post-permalink" href={canonicalUrl}>{canonicalUrl}</a>

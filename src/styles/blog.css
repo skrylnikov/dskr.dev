@@ -969,18 +969,12 @@ pre {
 	font-size: 0.78rem;
 }
 
-.post-meta a {
-	font-weight: 650;
-	text-decoration: none;
-}
-
 .post-header h1 {
 	font-size: clamp(2.2rem, 5vw, 4.5rem);
 }
 
 .post-permalink,
-.post-author,
-.dt-updated {
+.post-author {
 	display: block;
 	color: var(--theme-text-lighter);
 	font-size: 0.78rem;

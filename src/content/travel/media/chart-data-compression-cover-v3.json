@@ -1,0 +1,85 @@
+{
+  "id": "chart-data-compression-cover-v3",
+  "items": [
+    {
+      "id": "chart-data-compression-cover-v3",
+      "width": 3344,
+      "height": 1882,
+      "alt": {
+        "ru": "Графики Vigo Pulse и сравнение строчного и колоночного форматов: 1 МБ → 500 КБ, 3 сек → 1.5 сек",
+        "en": "Vigo Pulse charts and row-versus-column data comparison: 1 MB to 500 KB, 3 sec to 1.5 sec"
+      },
+      "lqip": [
+        "#f5fafa",
+        "#f6f9f8",
+        "#ebf3f2",
+        "#f4f9f7",
+        "#eff4f2",
+        "#dff1f4"
+      ],
+      "kind": "image",
+      "sources": [
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/640.jpeg",
+          "width": 640,
+          "height": 360,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/1280.webp",
+          "width": 1280,
+          "height": 720,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/1280.jpeg",
+          "width": 1280,
+          "height": 720,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/2560.webp",
+          "width": 2560,
+          "height": 1441,
+          "format": "webp"
+        },
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/2560.jpeg",
+          "width": 2560,
+          "height": 1441,
+          "format": "jpeg"
+        },
+        {
+          "url": "/media/3dca8b4c1ddf5475daeb898b8914fc296fc2258972236c6df3bc9eb07eecadae/640.jxl",
+          "width": 640,
+          "height": 360,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/3dca8b4c1ddf5475daeb898b8914fc296fc2258972236c6df3bc9eb07eecadae/1280.jxl",
+          "width": 1280,
+          "height": 720,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/3dca8b4c1ddf5475daeb898b8914fc296fc2258972236c6df3bc9eb07eecadae/2560.jxl",
+          "width": 2560,
+          "height": 1441,
+          "format": "jxl"
+        },
+        {
+          "url": "/media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/3344.webp",
+          "width": 3344,
+          "height": 1882,
+          "format": "webp"
+        }
+      ]
+    }
+  ]
+}
