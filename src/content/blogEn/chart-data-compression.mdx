@@ -1,0 +1,340 @@
+---
+title: 'How I Made Vigo Pulse Charts Load Twice as Fast'
+description: How I improved chart loading in Vigo Pulse, from a compact response
+  format and compression benchmarks to limiting the number of lines and
+  reworking filters.
+publishDate: 2026-11-11
+hidden: false
+heroImage: /media/b6e10a1aaa298b52beddbc65cf9477f66d57d7ee99f936cf994113149b7d22b7/3344.webp
+updatedDate: 2026-11-12
+---
+
+For the past year, I have been rewriting [Vigo Pulse](https://vigo.tech), an analytics product with a large number of metrics and dimensions. Users can choose filters, groupings, and a date range, and a single chart can contain hundreds of lines. Loading and rendering that much data had long been a problem.
+
+I am responsible for the frontend and the Node.js BFF. While reworking the application, I decided to revisit the whole path from choosing filters to seeing a chart on screen. I needed to work out how to select the data, how to send it to the browser, and what to do when there were too many lines. Here is what I tried and where I ended up.
+
+The Vigo Pulse screen with metrics, a chart, and filter settings:
+
+![Analytics interface with a metrics table, a chart, and a filter panel](/media/75c76bac651d512c65de53692fcdae6e1316f0a04961bd18d70dd7e2551c9296/2560.jpeg)
+
+## How charts used to work
+
+Chart loading worked like this. The frontend sent a request to the BFF. The BFF validated the request and the user's permissions, converted the request to the backend format, and sent it to a Java service through RabbitMQ. The Java service fetched data from ClickHouse and saved it to S3. The BFF retrieved the data from S3, converted it to the frontend format, and returned the response.
+
+The BFF response looked like this:
+
+```json
+{
+  "data": [
+    {"time": 1791021600, "key": {"operator": 1}, "value": {"s": 850, "b": 12.37}},
+    {"time": 1791021600, "key": {"operator": 2}, "value": {"s": 700, "b": 10.93}},
+    {"time": 1790971200, "key": {"operator": 1}, "value": {"s": 900, "b": 12.58}},
+    {"time": 1790971200, "key": {"operator": 2}, "value": {"s": 600, "b": 11.2}}
+  ]
+}
+```
+
+The data was not sorted by time. Timestamps, segment keys, and metric names were repeated many times.
+
+The frontend then sorted the response by time, prepared the series, and rendered the charts using Highcharts.
+
+Responses for complex charts covering long periods were large. The frontend spent time parsing JSON, sorting, and converting the data to the required format. I decided to try changing the response format to see whether it would reduce the size and simplify chart preparation.
+
+## Choosing a response format
+
+I built a demo to compare formats. The tables show the median of 20 measurements from the request to chart-ready series, excluding chart rendering.
+
+[Demo source code on GitHub](https://github.com/skrylnikov/chart-data-compression).
+
+<details>
+  <summary>
+    Demo, methodology, and datasets
+  </summary>
+
+  The generator keeps a shared set of shuffled observations in the form `{time, metric, segment, value}`. The server converts it to each response format on every request. Conversion and serialization are included in the measurements; generating the source dataset is not.
+
+  The server and Chromium ran on the same Mac with an Apple M3 Pro. I used Node.js 24.13.0, Chromium 156, and a production build. Requests ran sequentially. Before measuring, I warmed up each combination once. Warm-up requests were excluded from the results.
+
+  All sizes use decimal units: kB (1,000 bytes) for responses and MB (1,000,000 bytes) for memory.
+
+  I measured memory usage in separate runs. Δ RSS shows the increase in resident memory per request. For Node.js, it is the highest value among snapshots taken at each stage minus the value before the request. For Chromium, it is the value after preparing the series minus the value before the request. I calculated the difference within each attempt first, then took the median.
+
+  A zero RSS increase means that, in the median measurement, the process used memory pages it had already allocated. A brief peak between snapshots could have gone unnoticed.
+
+  I used a small and a large dataset to compare how formats behave at different response sizes. Both have a regular time grid with no missing values.
+
+  | Dataset | Metrics | Segments | Points per series | Total values |
+  | ------- | ------- | -------- | ----------------- | ------------ |
+  | Small   | 2       | 3        | 60                | 360          |
+  | Large   | 16      | 32       | 1440              | 737,280      |
+</details>
+
+### What does grouping points by key achieve?
+
+First, I tried grouping points by key.
+
+```json
+{
+  "data": [
+    {
+      "key": {"operator": 1},
+      "serie": [
+        {"time": 1791021600, "s": 850, "b": 12.37},
+        {"time": 1790971200, "s": 900, "b": 12.58}
+      ]
+    },
+    {
+      "key": {"operator": 2},
+      "serie": [
+        {"time": 1791021600, "s": 700, "b": 10.93},
+        {"time": 1790971200, "s": 600, "b": 11.2}
+      ]
+    }
+  ]
+}
+```
+
+This removes the repeated key. Preparing this array for rendering is easier, but the metric names and the `time` field are still repeated.
+
+| Dataset | Format         | Response, kB | Time, ms | Node.js Δ RSS, MB | Chromium Δ RSS, MB |
+| ------- | -------------- | ------------ | -------- | ----------------- | ------------------ |
+| Small   | Rows           | 17.19        | 0.7      | 0.00              | 0.23               |
+| Small   | Grouped points | 11.37        | 0.7      | 0.00              | 0.18               |
+| Large   | Rows           | 18,414.24    | 349.0    | 18.84             | 107.45             |
+| Large   | Grouped points | 15,418.32    | 295.5    | 15.43             | 122.88             |
+
+Grouping removed repeated keys. On the large dataset, the response became about 16% smaller and the time dropped by 15%. However, the browser's RSS increase did not go down, so grouping alone did not improve every measure.
+
+### What about columns?
+
+After brainstorming with an LLM, I arrived at this format.
+
+```json
+{
+  "key": {
+    "operator":[1,2]
+  },
+  "time":[1790971200, 1791021600],
+  "series": {
+    "s":[[900, 850], [600, 700]],
+    "b": [[12.58,12.37], [11.2, 10.93]]
+  }
+}
+```
+
+The value `series.s[i][j]` corresponds to metric `s` for `key.operator[i]` at `time[j]`. Keys and metric names are no longer repeated in every point. Values are already grouped by metric and key and ordered along a shared time grid. They do not need to be grouped and sorted again before rendering. Missing values in this columnar format have to be filled with `null`, which adds overhead for sparse data.
+
+| Dataset | Format  | Response, kB | Time, ms | Node.js Δ RSS, MB | Chromium Δ RSS, MB |
+| ------- | ------- | ------------ | -------- | ----------------- | ------------------ |
+| Small   | Rows    | 17.19        | 0.7      | 0.00              | 0.23               |
+| Small   | Columns | 4.25         | 0.6      | 0.00              | 0.16               |
+| Large   | Rows    | 18,414.24    | 349.0    | 18.84             | 107.45             |
+| Large   | Columns | 4,927.35     | 170.3    | 4.93              | 73.29              |
+
+On the large dataset, columns made the response almost four times smaller and roughly halved the time to chart-ready series. The RSS increase was also lower on both the server and the browser.
+
+### Do columns help if gzip is already enabled?
+
+At first, I suspected that gzip might cancel out the savings. Changing the format removes repeated fields, which should already compress well. So I ran the same tests with gzip.
+
+| Dataset | Format  | Compression | Response, kB | Time, ms | Node.js Δ RSS, MB | Chromium Δ RSS, MB |
+| ------- | ------- | ----------- | ------------ | -------- | ----------------- | ------------------ |
+| Small   | Rows    | None        | 17.19        | 0.7      | 0.00              | 0.23               |
+| Small   | Columns | None        | 4.25         | 0.6      | 0.00              | 0.16               |
+| Small   | Rows    | gzip        | 2.29         | 0.9      | 0.00              | 0.23               |
+| Small   | Columns | gzip        | 1.50         | 0.7      | 0.00              | 0.15               |
+| Large   | Rows    | None        | 18,414.24    | 349.0    | 18.84             | 107.45             |
+| Large   | Columns | None        | 4,927.35     | 170.3    | 4.93              | 73.29              |
+| Large   | Rows    | gzip        | 2,700.50     | 535.9    | 18.83             | 128.78             |
+| Large   | Columns | gzip        | 810.67       | 235.0    | 4.93              | 77.40              |
+
+Columns keep their advantage in response size. On the large dataset, the compressed columnar response was about three times smaller than the row-based one. On a local connection, compression costs increase the total time. Next, I will check whether they pay off when bandwidth is limited.
+
+### Can we omit the time array?
+
+Since the interval and date range are fixed, I could go further and skip sending the time array.
+
+| Dataset | Time     | Compression | Response, kB | Time, ms | Node.js Δ RSS, MB | Chromium Δ RSS, MB |
+| ------- | -------- | ----------- | ------------ | -------- | ----------------- | ------------------ |
+| Small   | Array    | None        | 4.25         | 0.6      | 0.00              | 0.16               |
+| Small   | Computed | None        | 3.60         | 0.6      | 0.00              | 0.15               |
+| Small   | Array    | gzip        | 1.50         | 0.7      | 0.00              | 0.15               |
+| Small   | Computed | gzip        | 1.36         | 0.7      | 0.00              | 0.15               |
+| Large   | Array    | None        | 4,927.35     | 170.3    | 4.93              | 73.29              |
+| Large   | Computed | None        | 4,911.52     | 167.1    | 4.92              | 72.11              |
+| Large   | Array    | gzip        | 810.67       | 235.0    | 4.93              | 77.40              |
+| Large   | Computed | gzip        | 806.64       | 236.0    | 4.92              | 74.45              |
+
+On the large dataset, omitting the time array reduced the gzip response by about 0.5%. The median time barely changed. For this scenario, the extra format complexity offers a small gain, so I decided to keep the time array.
+
+### What do other compression algorithms add?
+
+After gzip, I decided to test other compression algorithms: gzip level 6, deflate level 6, Brotli quality 4, and Zstandard level 3.
+
+| Dataset | Compression | Rows, kB  | Columns, kB | Rows time, ms | Columns time, ms |
+| ------- | ----------- | --------- | ----------- | ------------- | ---------------- |
+| Small   | None        | 17.19     | 4.25        | 0.7           | 0.6              |
+| Small   | gzip        | 2.29      | 1.50        | 0.9           | 0.7              |
+| Small   | Brotli      | 2.23      | 1.43        | 1.0           | 0.7              |
+| Small   | deflate     | 2.28      | 1.49        | 1.0           | 0.7              |
+| Small   | Zstandard   | 2.46      | 1.51        | 1.0           | 0.7              |
+| Large   | None        | 18,414.24 | 4,927.35    | 349.0         | 170.3            |
+| Large   | gzip        | 2,700.50  | 810.67      | 535.9         | 235.0            |
+| Large   | Brotli      | 2,709.67  | 791.12      | 462.1         | 194.5            |
+| Large   | deflate     | 2,700.49  | 810.66      | 540.3         | 237.6            |
+| Large   | Zstandard   | 2,885.00  | 887.56      | 397.0         | 185.8            |
+
+At these settings, Brotli produced the smallest columnar response. Among the compressed variants, Zstandard had the lowest local time. On the small dataset, the timing differences are too small to rank the algorithms confidently.
+
+### What if we use a binary format instead of JSON?
+
+Next, I tested binary formats instead of JSON. I compared them only with the columnar data structure.
+
+Response body size, kB:
+
+| Dataset | Serializer  | None     | gzip     | Brotli   | deflate  | Zstandard |
+| ------- | ----------- | -------- | -------- | -------- | -------- | --------- |
+| Small   | JSON        | 4.25     | 1.50     | 1.43     | 1.49     | 1.51      |
+| Small   | MessagePack | 3.81     | 2.02     | 2.13     | 2.00     | 2.11      |
+| Small   | BSON        | 5.54     | 2.79     | 2.54     | 2.78     | 2.72      |
+| Large   | JSON        | 4,927.35 | 810.67   | 791.12   | 810.66   | 887.56    |
+| Large   | MessagePack | 4,986.61 | 984.17   | 802.95   | 984.15   | 844.75    |
+| Large   | BSON        | 8,728.57 | 3,185.42 | 2,234.73 | 3,185.41 | 2,156.22  |
+
+Time to chart-ready series, ms:
+
+| Dataset | Serializer  | None  | gzip  | Brotli | deflate | Zstandard |
+| ------- | ----------- | ----- | ----- | ------ | ------- | --------- |
+| Small   | JSON        | 0.6   | 0.7   | 0.7    | 0.7     | 0.7       |
+| Small   | MessagePack | 0.6   | 0.7   | 0.7    | 0.8     | 0.7       |
+| Small   | BSON        | 0.6   | 0.9   | 0.8    | 0.8     | 0.8       |
+| Large   | JSON        | 170.3 | 235.0 | 194.5  | 237.6   | 185.8     |
+| Large   | MessagePack | 131.7 | 170.1 | 153.7  | 176.4   | 148.5     |
+| Large   | BSON        | 241.5 | 421.9 | 281.0  | 427.3   | 274.1     |
+
+On the large dataset, MessagePack was faster than JSON in every local combination. Its size depended on the compressor: about 21% larger than JSON with gzip and about 5% smaller with Zstandard. BSON was larger and slower for this structure.
+
+### What changes on a slow connection?
+
+Local tests show the cost of preparing and processing a response, but transfer over a fast connection takes little time. So I tested the large dataset separately with bandwidth limited to 4 Mbps and no added latency.
+
+For this comparison, I kept JSON and tested the effect of response structure and HTTP compression. The table separates response preparation in Node.js, compression, transfer, and series preparation in the browser. All times are in milliseconds.
+
+| Format  | Compression | Node.js preparation | Compression time | Transfer | Browser preparation | Total    |
+| ------- | ----------- | ------------------- | ---------------- | -------- | ------------------- | -------- |
+| Rows    | None        | 256.8               | 0.0              | 36,834.4 | 207.5               | 37,342.3 |
+| Columns | None        | 124.7               | 0.0              | 9,858.8  | 43.1                | 10,037.2 |
+| Rows    | gzip        | 261.1               | 197.6            | 5,402.8  | 84.8                | 5,979.0  |
+| Columns | gzip        | 125.5               | 58.1             | 1,622.8  | 27.9                | 1,851.2  |
+| Rows    | Brotli      | 250.2               | 107.8            | 5,421.0  | 87.4                | 5,902.6  |
+| Columns | Brotli      | 126.0               | 24.0             | 1,584.3  | 28.0                | 1,778.7  |
+| Rows    | deflate     | 254.7               | 195.8            | 5,402.5  | 87.8                | 5,966.3  |
+| Columns | deflate     | 127.3               | 57.3             | 1,622.7  | 27.2                | 1,851.8  |
+| Rows    | Zstandard   | 260.9               | 56.5             | 5,772.5  | 93.7                | 6,213.9  |
+| Columns | Zstandard   | 133.1               | 12.4             | 1,778.3  | 29.6                | 1,964.1  |
+
+I measured total time separately. It does not have to equal the sum of the medians for individual stages. The transfer interval from Resource Timing also includes the browser's processing of the HTTP stream.
+
+On a 4 Mbps connection, reducing the response size noticeably affected loading time. Even without compression, switching to columns cut the time to chart-ready series from 37 to 10 seconds, almost a fourfold improvement. With compression enabled, columns were about three times faster.
+
+Compression brought an additional speedup. Compared with uncompressed transfer, gzip made the row-based version six times faster and the columnar version five times faster. The reduction in transfer time outweighed the compression cost.
+
+Brotli had the lowest median for columns at 1.78 seconds. That is 5.6 times faster than uncompressed columns and about 21 times faster than the original uncompressed row-based response.
+
+### Which option I kept
+
+| Measure                                | Rows      | Columns  |
+| -------------------------------------- | --------- | -------- |
+| Uncompressed response, kB               | 18,414.24 | 4,927.35 |
+| Response with gzip, kB                  | 2,700.50  | 810.67   |
+| Local time with gzip, ms                | 535.9     | 235.0    |
+| Time at 4 Mbps with gzip, ms             | 5,979.0   | 1,851.2  |
+| Node.js RSS increase, uncompressed, MB   | 18.84     | 4.93     |
+| Chromium RSS increase, uncompressed, MB  | 107.45    | 73.29    |
+
+For the product, I chose columnar JSON with a shared time array. On the large dataset, it reduced both the response size and the time to prepare the series, and showed a smaller RSS increase.
+
+MessagePack was faster to process in local tests, but its size advantage depended on the compressor. I did not think that result justified an extra dependency.
+
+Compression was already configured on the product's reverse proxy. I left those settings as they were. I used the demo's compressor comparison to assess their effect on response size and loading time.
+
+## How I changed chart loading and rendering
+
+### How the new response becomes a chart
+
+While rewriting the application, I also replaced Highcharts with ECharts and chose Canvas for rendering. The previous implementation used SVG. For charts with many lines and points, Canvas is faster. Switching libraries also changed how I prepared chart data.
+
+The source data can arrive in any order. When preparing the response, the BFF arranges it along a shared time grid. The browser receives an ordered structure that does not need to be grouped by segment and sorted by time again.
+
+The frontend only needs to turn the time and value arrays into ECharts series. Each combination of metric and segment becomes a separate line. The segment key provides its label, and the shared time array determines the points' positions on the horizontal axis.
+
+A compact response reduces the cost of loading and preparing data. Users can still choose an expensive combination of filters or end up with hundreds of lines, though. So my next step was to work on choosing the data source and estimating the volume before loading.
+
+### From many tabs to configurable filters
+
+In the previous version, each backend table had its own tab. Tables differed in their metrics and available filters. Copying a tab when a new table appeared was convenient for developers. Users, however, had to switch between similar screens and configure their filters again. They could choose filter values, but could not change which filters were available. The selected tab determined the set of filters.
+
+The backend also has more general-purpose tables that support almost all filters. These have their own limitations: queries are slower, and data is retained for a shorter period.
+
+In the new version, I kept tabs for different sets of metrics and let users choose which filters to include. For the selected set, the application picks the suitable table with the highest priority. The priority reflects the expected speed of fetching the data.
+
+Not all filter combinations are available at once. If a filter cannot be enabled, a tooltip explains which settings need to change. For example, enabling “OS version” requires disabling “Operator” and “Region by IP.”
+
+![Tooltip suggesting that the user disable “Operator” and “Region by IP” to enable “OS version”](/media/e417ef13adc08537dd35e9d3b21e0417584a12b9d161222e3af1803b901d0045/2126.jpeg)
+
+A speedometer indicator shows the expected query speed for the selected table. For an expensive query, the tooltip suggests disabling unnecessary filters, keeping only the values that matter, and shortening the date range.
+
+For the selected set of filters, the interface also shows the available aggregation intervals and how far back the data goes. For example, one of the sets shown offers hourly data for 30 days, while another offers only 14.
+
+![Slow-query indicator with advice on choosing filters and a date range, alongside the available history](/media/ab511be1a132610ae643add7bb0934be1a3c9b287f2f38728423ec7c65ee60d6/2122.jpeg)
+
+Users can save a filter set to favorites instead of assembling it every time. We also prepared recommended sets for common tasks.
+
+![Recommended filter sets for IP and GPS geography, application versions, and individual hosts](/media/3b65828b881927eb97d7f90061f4b39bd25dafec13e45edcca48967d0db0157c/2118.jpeg)
+
+### Estimating the number of lines before the request
+
+Before loading, the application estimates the maximum possible number of lines for the selected metrics and groupings.
+
+If there are more than 100, the application shows a warning. The user can wait for the chart to load or get only a table of totals.
+
+![Warning about an estimated 180 lines, offering a choice between a chart and a table](/media/0053f4974396a6bfe560b8f80f1034db4a3aef9dc56072ef595963adffa042e3/936.jpeg)
+
+If more than 500 lines are expected, only the totals option remains.
+
+![Warning about an estimated 1,154 lines, suggesting a table only or a change of filters](/media/f3ec318b7657279543fe70df7c279f2b821d465f345072add2215ff8cd566a2b/908.jpeg)
+
+ClickHouse calculates the totals. If the user chooses only the table, the application requests aggregates without the time-series points. This reduces the amount of data transferred from the database to the application and then to the browser. It also saves the browser from preparing and rendering the chart.
+
+The initial estimate can be too high, though. Not every possible filter combination is necessarily present in the response, so the actual number of lines can be much lower. If only totals were loaded, there is no data to build a chart. A task in the backlog is to add a button that lets users load the chart separately.
+
+### Simplifying rendering after loading
+
+Once the data arrives, the application knows the actual number of lines. If there are more than 32, it disables animations and line highlighting on hover, and reduces line width from 2 to 1.5 pixels.\
+Small charts keep their usual behavior, while more complex ones use a simpler display.
+
+### While the data loads
+
+Even after the optimizations, users sometimes have to wait for data. Watching a regular spinning loader was boring, so I added short messages during loading.
+
+- “Polling the servers…”
+
+- “Shuffling zeros…”
+
+- “Counting to ten. Slowly…”
+
+Some messages are shared across the application, while others depend on the section. For example, chart loading shows “Aligning the axes…”, “Counting points on the chart…”, and “Choosing colors for the lines…”.
+
+An LLM helped with the drafts. I generated a hundred general messages and a hundred for each section, then deleted about half because I did not like them.
+
+<video src="/media/fbc8e520254e4f5ef1a1541c63972c1fade9706a1b37d424636255fc7e2ff7ca/video.mp4" poster="/media/865f9dba3bc5b748f8451c17e586a134a6a9f953965032e23a1b22743af48a6e/1080.jpeg" controls playsInline preload="metadata" />
+
+Users wrote that they liked this detail. It became a small addition to the technical optimizations that made waiting more pleasant.
+
+## The result
+
+In the product, I switched to a columnar format with a shared time array. In the demo's large dataset, it made the gzip response 3.3 times smaller and reduced the time to chart-ready series by about a factor of 3.2 at 4 Mbps.
+
+For one large query in the product, the compressed response shrank from 1 MB to 500 kB. At a connection speed of 4 Mbps, the time until the chart was rendered dropped from 3 to 1.5 seconds. On a fast network, transfer savings are less noticeable, but the time spent processing the response on the server and in the browser also depends on its structure.
+
+For heavy charts, I added the option to load only totals. Filter settings now show the available history and the expected query speed before the data loads.

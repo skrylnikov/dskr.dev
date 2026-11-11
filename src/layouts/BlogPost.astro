@@ -12,7 +12,7 @@ const { title, description, publishDate, updatedDate, heroImage, hidden, slug } 
 const canonicalUrl = absoluteUrl(Astro.url.pathname);
 const imageUrl = absoluteUrl(heroImage ?? '/img/me.jpeg');
 const locale = Astro.currentLocale === 'en' ? 'en' : 'ru';
-const translatedSlugs = new Set(['how-to-install-node', 'telegram-bot-six-years']);
+const translatedSlugs = new Set(['how-to-install-node', 'telegram-bot-six-years', 'chart-data-compression']);
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'BlogPosting',
